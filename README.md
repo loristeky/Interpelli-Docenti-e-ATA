@@ -28,8 +28,7 @@ Puoi scaricare l'ultima versione stabile dell'applicazione direttamente dalla se
 
 ## 🛠️ Tecnologie Utilizzate
 
-* **Framework:** (Inserisci qui il framework utilizzato, es. *Flutter* / *React Native* / *Android Native*)
-* **Linguaggio:** (Es. *Dart* / *Kotlin* / *Java*)
+* **Linguaggio:** Python
 
 ---
 
