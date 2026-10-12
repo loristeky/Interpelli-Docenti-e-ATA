@@ -499,7 +499,6 @@ _CDC_BAD_PREFIX = ("L", "D", "N")      # L.107, D25, n123: leggi/decreti/numeri,
 
 def _codes_in(text, limit=3):
     """Codici di classe in ordine di apparizione, senza doppioni."""
-    found = []
     spans = [(m.start(), m.group(1).upper()) for m in _CDC_SPECIAL_RE.finditer(text)]
     for m in _CDC_CODE_RE.finditer(text):
         code = m.group(1)
@@ -512,12 +511,16 @@ def _codes_in(text, limit=3):
         m = rx.search(text)
         if m:
             spans.append((m.start(), code))
+    explicit = {m.group(1).upper() for m in _CDC_SPECIAL_RE.finditer(text)}
+    ordered = []
     for _, code in sorted(spans):
-        if code not in found:
-            found.append(code)
-        if len(found) >= limit:
-            break
-    return found
+        if code not in ordered:
+            ordered.append(code)
+    # "personale educativo" e "educazione motoria" nello stesso testo: è PPPP, a meno che
+    # EEEM non sia scritto come codice esplicito.
+    if "PPPP" in ordered and "EEEM" in ordered and "EEEM" not in explicit:
+        ordered.remove("EEEM")
+    return ordered[:limit]
 
 
 def detect_cdc(title, body=""):
@@ -543,27 +546,52 @@ def is_not_interpello(title):
     return bool(NOT_INTERPELLO_RE.search(title or ""))
 
 
+# Diciture che indicano il personale docente/educativo (nel titolo sono decisive).
+DOC_WORDS_RE = re.compile(
+    r"(?:personale\s+docente|\bdocent[ei]\b|\binsegnant[ei]\b|personale\s+educativ\w*|"
+    r"\beducator[ei]\b|\beducatric[ei]\b|\bcl(?:asse|\.)?\s+di\s+concorso|\bcdc\b)", re.I)
+
+
+def _first_doc_pos(text):
+    """Posizione della prima dicitura da docente (parola o classe di concorso) nel testo."""
+    pos = []
+    m = DOC_WORDS_RE.search(text)
+    if m:
+        pos.append(m.start())
+    m = _CDC_SPECIAL_RE.search(text)
+    if m:
+        pos.append(m.start())
+    for m in _CDC_CODE_RE.finditer(text):
+        code = m.group(1)
+        if code[0] in _CDC_BAD_PREFIX and code[1:].isdigit():
+            continue
+        if re.fullmatch(r"AR\d{2}", code):
+            continue
+        pos.append(m.start())
+        break
+    return min(pos) if pos else None
+
+
 def detect_target(title, body=""):
-    """'ATA' solo con una dicitura ATA esplicita; se compare una classe di concorso da docente, è DOCENTI."""
+    """'ATA' solo con una dicitura ATA esplicita (ata, collaboratore scolastico, amministrativo,
+    dsga, cuoco...). Se compare "personale docente" o una classe di concorso, è DOCENTI."""
     title = title or ""
-    title_ata = ATA_TITLE_RE.search(title)
-    title_cdc = _codes_in(title)
-    if title_ata and not title_cdc:
-        return "ATA"
-    if title_cdc:
+    if DOC_WORDS_RE.search(title) or _codes_in(title):
         return "DOCENTI"
+    if ATA_TITLE_RE.search(title):
+        return "ATA"
 
     # titolo neutro: guarda l'inizio del testo e decide per ciò che compare per primo
     head = (body or "")[:2500]
     body_ata = ATA_BODY_RE.search(head)
-    body_cdc = _codes_in(head, limit=1)
-    if body_ata and body_cdc:
-        first_cdc = min(m.start() for m in [_CDC_SPECIAL_RE.search(head), _CDC_CODE_RE.search(head)] if m) \
-            if (_CDC_SPECIAL_RE.search(head) or _CDC_CODE_RE.search(head)) else 10**9
-        return "ATA" if body_ata.start() < first_cdc else "DOCENTI"
-    if body_ata:
-        return "ATA"
-    return "DOCENTI"
+    if not body_ata:
+        return "DOCENTI"
+    doc_pos = _first_doc_pos(head)
+    if doc_pos is not None and doc_pos < body_ata.start():
+        return "DOCENTI"
+    if doc_pos is not None and DOC_WORDS_RE.search(head) and not re.search(r"\bATA\b", head):
+        return "DOCENTI"
+    return "ATA"
 
 
 DOC_RE = re.compile(r'href=["\']([^"\']+\.(?:pdf|docx?|odt)(?:\?[^"\']*)?)["\']', re.I)
