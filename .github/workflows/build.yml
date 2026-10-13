@@ -44,11 +44,12 @@ jobs:
           sed -i 's|android:label="{{ cookiecutter.product_name }}"|android:label="Interpelli Scuola"|' "$MANIFEST"
           grep -q 'android:label="Interpelli Scuola"' "$MANIFEST"
 
-      - name: Force minSdk to 24
+      - name: Force minSdk to 24 in build.gradle
         run: |
-          APP_ANDROID_DIR="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android"
-          # Scrive la proprietà flutter.minSdkVersion direttamente nel local.properties per forzare il SDK 24
-          echo "flutter.minSdkVersion=24" >> "$APP_ANDROID_DIR/local.properties"
+          BUILD_GRADLE="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android/app/build.gradle"
+          # Sostituisce qualsiasi riferimento a minSdkVersion con il valore fisso 24
+          sed -i 's/minSdkVersion.*/minSdkVersion 24/g' "$BUILD_GRADLE"
+          sed -i 's/minSdk = .*/minSdk = 24/g' "$BUILD_GRADLE"
 
       - name: Generate Release Keystore Inside App Folder
         run: |
@@ -92,5 +93,5 @@ jobs:
       - name: Upload Signed AAB Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: interpelli-scuola-signed-aab
+          name: interpelli-scuola-signed-aab-v2
           path: build/aab/*.aab
