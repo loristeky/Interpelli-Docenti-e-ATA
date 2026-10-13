@@ -53,15 +53,35 @@ jobs:
             -keypass "interpelli123" \
             -dname "CN=Interpelli Scuola, OU=Development, O=Interpelli, L=Italy, C=IT"
 
-      - name: Build and Sign App Bundle
+      - name: Configure Android Signing in Template
+        run: |
+          GRADLE_FILE="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android/app/build.gradle"
+          
+          # Aggiunge la configurazione di firma al build.gradle
+          cat << 'EOF' >> "$GRADLE_FILE"
+
+          android {
+              signingConfigs {
+                  release {
+                      storeFile file('$RUNNER_TEMP/release.jks')
+                      storePassword 'interpelli123'
+                      keyAlias 'interpelli-alias'
+                      keyPassword 'interpelli123'
+                  }
+              }
+              buildTypes {
+                  release {
+                      signingConfig signingConfigs.release
+                  }
+              }
+          }
+          EOF
+
+      - name: Build App Bundle
         run: |
           flet build aab \
             --template "$RUNNER_TEMP/flet-template" \
-            --description "Cerca tra migliaia di avvisi di supplenza in tutte le regioni italiane." \
-            --android-signing-key-store "$RUNNER_TEMP/release.jks" \
-            --android-signing-key-store-password "interpelli123" \
-            --android-signing-key-alias "interpelli-alias" \
-            --android-signing-key-password "interpelli123"
+            --description "Cerca tra migliaia di avvisi di supplenza in tutte le regioni italiane."
 
       - name: Upload Signed AAB Artifact
         uses: actions/upload-artifact@v4
