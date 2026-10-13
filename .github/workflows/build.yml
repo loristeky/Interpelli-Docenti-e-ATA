@@ -44,9 +44,10 @@ jobs:
           sed -i 's|android:label="{{ cookiecutter.product_name }}"|android:label="Interpelli Scuola"|' "$MANIFEST"
           grep -q 'android:label="Interpelli Scuola"' "$MANIFEST"
 
-      - name: Generate Release Keystore
+      - name: Generate Release Keystore Inside App Folder
         run: |
-          keytool -genkey -v -keystore "$RUNNER_TEMP/release.jks" \
+          APP_ANDROID_DIR="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android/app"
+          keytool -genkey -v -keystore "$APP_ANDROID_DIR/release.jks" \
             -keyalg RSA -keysize 2048 -validity 10000 \
             -alias "interpelli-alias" \
             -storepass "interpelli123" \
@@ -57,13 +58,12 @@ jobs:
         run: |
           GRADLE_FILE="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android/app/build.gradle"
           
-          # Aggiunge la configurazione di firma al build.gradle
           cat << 'EOF' >> "$GRADLE_FILE"
 
           android {
               signingConfigs {
                   release {
-                      storeFile file('$RUNNER_TEMP/release.jks')
+                      storeFile file('release.jks')
                       storePassword 'interpelli123'
                       keyAlias 'interpelli-alias'
                       keyPassword 'interpelli123'
