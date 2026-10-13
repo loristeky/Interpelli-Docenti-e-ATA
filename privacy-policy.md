@@ -1,0 +1,1 @@
+Questa Applicazione raccoglie alcuni Dati Personali dei propri Utenti. L'app 'Interpelli Scuola' raccoglie dati per il funzionamento del servizio di notifica e filtraggio degli interpelli scolastici. Nessun dato personale viene ceduto a terzi.
