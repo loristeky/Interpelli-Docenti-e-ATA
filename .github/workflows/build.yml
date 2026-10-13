@@ -1,4 +1,4 @@
-name: Build Flet APK
+name: Build Flet AAB
 
 on:
   push:
@@ -47,12 +47,12 @@ jobs:
           sed -i 's|android:label="{{ cookiecutter.product_name }}"|android:label="Interpelli Scuola"|' "$MANIFEST"
           grep -q 'android:label="Interpelli Scuola"' "$MANIFEST"
 
-      - name: Build APK
+      - name: Build App Bundle
         run: |
-          flet build apk --template "$RUNNER_TEMP/flet-template" --description "Interpelli e supplenze della scuola in tutta Italia"
+          flet build aab --template "$RUNNER_TEMP/flet-template" --description "Interpelli e supplenze della scuola in tutta Italia"
 
-      - name: Upload APK Artifact
+      - name: Upload AAB Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: interpelli-scuola-apk
-          path: build/apk/*.apk
+          name: interpelli-scuola-aab
+          path: build/aab/*.aab
