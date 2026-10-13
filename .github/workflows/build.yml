@@ -44,12 +44,11 @@ jobs:
           sed -i 's|android:label="{{ cookiecutter.product_name }}"|android:label="Interpelli Scuola"|' "$MANIFEST"
           grep -q 'android:label="Interpelli Scuola"' "$MANIFEST"
 
-      - name: Update minSdk to 24
+      - name: Force minSdk to 24
         run: |
-          GRADLE_FILE="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android/app/build.gradle"
-          # Sostituisce minSdk 23 (o flutter.minSdkVersion) con 24
-          sed -i 's/minSdkVersion flutter.minSdkVersion/minSdkVersion 24/g' "$GRADLE_FILE" || true
-          sed -i 's/minSdk = 23/minSdk = 24/g' "$GRADLE_FILE" || true
+          APP_ANDROID_DIR="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android"
+          # Scrive la proprietà flutter.minSdkVersion direttamente nel local.properties per forzare il SDK 24
+          echo "flutter.minSdkVersion=24" >> "$APP_ANDROID_DIR/local.properties"
 
       - name: Generate Release Keystore Inside App Folder
         run: |
