@@ -1,45 +1,58 @@
-name: Build Android AAB
+name: Build Flet APK
 
 on:
+  push:
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11'
 
-      - name: Install Java
+      - name: Setup Java JDK
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
+          distribution: 'temurin'
           java-version: '17'
 
-      - name: Install Flutter 3.44.0
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.44.0'
-
-      - name: Accept Android Licenses
-        run: |
-          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+          channel: 'stable'
+          flutter-version: '3.22.0'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install flet
+          pip install flet==0.23.2
 
-      - name: Build AAB
+      # Flet 0.23 usa il nome della cartella ("interpelli_scuola") come nome dell'app e
+      # --product cambierebbe anche l'identificativo Android. Quindi si usa lo stesso
+      # template ufficiale cambiando soltanto l'etichetta mostrata sul telefono.
+      - name: Prepare Flet template (app name "Interpelli Scuola")
         run: |
-          flet build aab
+          TPL="$RUNNER_TEMP/flet-template"
+          git clone --depth 1 --branch 0.23.2 https://github.com/flet-dev/flet-build-template.git "$TPL"
+          rm -rf "$TPL/.git"
+          MANIFEST="$TPL/{{cookiecutter.out_dir}}/android/app/src/main/AndroidManifest.xml"
+          sed -i 's|android:label="{{ cookiecutter.product_name }}"|android:label="Interpelli Scuola"|' "$MANIFEST"
+          grep -q 'android:label="Interpelli Scuola"' "$MANIFEST"
 
-      - name: Upload AAB Artifact
+      - name: Build APK
+        run: |
+          flet build apk --template "$RUNNER_TEMP/flet-template" --description "Interpelli e supplenze della scuola in tutta Italia"
+
+      - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-release-aab
-          path: build/apk/*.aab
+          name: interpelli-scuola-apk
+          path: build/apk/*.apk
