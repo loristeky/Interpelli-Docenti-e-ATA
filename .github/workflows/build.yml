@@ -47,19 +47,18 @@ jobs:
       - name: Force minSdk to 24 in build.gradle
         run: |
           BUILD_GRADLE="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android/app/build.gradle"
-          # Sostituisce qualsiasi riferimento a minSdkVersion con il valore fisso 24
           sed -i 's/minSdkVersion.*/minSdkVersion 24/g' "$BUILD_GRADLE"
           sed -i 's/minSdk = .*/minSdk = 24/g' "$BUILD_GRADLE"
 
-      - name: Generate Release Keystore Inside App Folder
+      - name: Create Standard Key Store
         run: |
           APP_ANDROID_DIR="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android/app"
-          keytool -genkey -v -keystore "$APP_ANDROID_DIR/release.jks" \
+          keytool -genkeypair -v -keystore "$APP_ANDROID_DIR/release.jks" \
             -keyalg RSA -keysize 2048 -validity 10000 \
-            -alias "interpelli-alias" \
+            -alias "interpelli-key" \
             -storepass "interpelli123" \
             -keypass "interpelli123" \
-            -dname "CN=Interpelli Scuola, OU=Development, O=Interpelli, L=Italy, C=IT"
+            -dname "CN=Interpelli Scuola, OU=App, O=Interpelli, L=Rome, C=IT"
 
       - name: Configure Android Signing in Template
         run: |
@@ -72,7 +71,7 @@ jobs:
                   release {
                       storeFile file('release.jks')
                       storePassword 'interpelli123'
-                      keyAlias 'interpelli-alias'
+                      keyAlias 'interpelli-key'
                       keyPassword 'interpelli123'
                   }
               }
@@ -93,5 +92,5 @@ jobs:
       - name: Upload Signed AAB Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: interpelli-scuola-signed-aab-v2
+          name: interpelli-scuola-aab-release
           path: build/aab/*.aab
