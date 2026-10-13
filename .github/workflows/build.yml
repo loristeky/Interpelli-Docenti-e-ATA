@@ -25,14 +25,19 @@ jobs:
         with:
           channel: 'stable'
 
+      - name: Accept Android Licenses
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install flet
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Build AAB
         run: |
-          yes | flet build aab
+          flet build aab --no-interactive
 
       - name: Upload AAB Artifact
         uses: actions/upload-artifact@v4
