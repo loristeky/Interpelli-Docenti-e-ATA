@@ -20,10 +20,10 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Install Flutter
+      - name: Install Flutter 3.44.0
         uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
+          flutter-version: '3.44.0'
 
       - name: Accept Android Licenses
         run: |
@@ -35,8 +35,6 @@ jobs:
           pip install flet
 
       - name: Build AAB
-        env:
-          CI: "true"
         run: |
           flet build aab
 
