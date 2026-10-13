@@ -1,4 +1,4 @@
-name: Build Flet AAB
+name: Build and Sign Flet AAB
 
 on:
   push:
@@ -35,9 +35,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install flet==0.23.2
 
-      # Flet 0.23 usa il nome della cartella ("interpelli_scuola") come nome dell'app e
-      # --product cambierebbe anche l'identificativo Android. Quindi si usa lo stesso
-      # template ufficiale cambiando soltanto l'etichetta mostrata sul telefono.
       - name: Prepare Flet template (app name "Interpelli Scuola")
         run: |
           TPL="$RUNNER_TEMP/flet-template"
@@ -47,12 +44,27 @@ jobs:
           sed -i 's|android:label="{{ cookiecutter.product_name }}"|android:label="Interpelli Scuola"|' "$MANIFEST"
           grep -q 'android:label="Interpelli Scuola"' "$MANIFEST"
 
-      - name: Build App Bundle
+      - name: Generate Release Keystore
         run: |
-          flet build aab --template "$RUNNER_TEMP/flet-template" --description "Interpelli e supplenze della scuola in tutta Italia"
+          keytool -genkey -v -keystore "$RUNNER_TEMP/release.jks" \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -alias "interpelli-alias" \
+            -storepass "interpelli123" \
+            -keypass "interpelli123" \
+            -dname "CN=Interpelli Scuola, OU=Development, O=Interpelli, L=Italy, C=IT"
 
-      - name: Upload AAB Artifact
+      - name: Build and Sign App Bundle
+        run: |
+          flet build aab \
+            --template "$RUNNER_TEMP/flet-template" \
+            --description "Cerca tra migliaia di avvisi di supplenza in tutte le regioni italiane." \
+            --android-signing-key-store "$RUNNER_TEMP/release.jks" \
+            --android-signing-key-store-password "interpelli123" \
+            --android-signing-key-alias "interpelli-alias" \
+            --android-signing-key-password "interpelli123"
+
+      - name: Upload Signed AAB Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: interpelli-scuola-aab
+          name: interpelli-scuola-signed-aab
           path: build/aab/*.aab
