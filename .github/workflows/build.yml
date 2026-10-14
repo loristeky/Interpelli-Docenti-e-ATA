@@ -56,7 +56,7 @@ jobs:
         run: |
           APP_ANDROID_DIR="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android/app"
           if [ -n "$KEYSTORE_BASE64" ]; then
-            echo "Ripristino keystore esistente dai Secrets..."
+            echo "Ripristino keystore salvato dai Secrets..."
             echo "$KEYSTORE_BASE64" | base64 -d > "$APP_ANDROID_DIR/release.jks"
           else
             echo "Generazione nuovo keystore..."
@@ -66,24 +66,28 @@ jobs:
               -storepass "interpelli123" \
               -keypass "interpelli123" \
               -dname "CN=Interpelli Scuola, OU=App, O=Interpelli, L=Rome, C=IT"
-            echo "--- SALVA QUESTO TESTO NEI SECRET DI GITHUB ---"
-            base64 -w 0 "$APP_ANDROID_DIR/release.jks"
-            echo ""
-            echo "-----------------------------------------------"
           fi
 
       - name: Configure Android Signing in Template
         run: |
-          GRADLE_FILE="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android/app/build.gradle"
+          APP_ANDROID_DIR="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android/app"
+          GRADLE_FILE="$APP_ANDROID_DIR/build.gradle"
           
-          cat << 'EOF' >> "$GRADLE_FILE"
+          # Indaghiamo l'alias contenuto nel Keystore per evitare errori di alias errati
+          ALIAS=$(keytool -list -v -keystore "$APP_ANDROID_DIR/release.jks" -storepass "interpelli123" | grep "Alias name:" | head -n 1 | awk '{print $3}')
+          if [ -z "$ALIAS" ]; then
+            ALIAS="interpelli-key"
+          fi
+          echo "Alias rilevato nel Keystore: $ALIAS"
+
+          cat << EOF >> "$GRADLE_FILE"
 
           android {
               signingConfigs {
                   release {
                       storeFile file('release.jks')
                       storePassword 'interpelli123'
-                      keyAlias 'interpelli-key'
+                      keyAlias '$ALIAS'
                       keyPassword 'interpelli123'
                   }
               }
