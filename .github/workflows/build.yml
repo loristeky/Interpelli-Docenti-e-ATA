@@ -55,10 +55,10 @@ jobs:
           APP_ANDROID_DIR="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android/app"
           keytool -genkeypair -v -keystore "$APP_ANDROID_DIR/release.jks" \
             -keyalg RSA -keysize 2048 -validity 10000 \
-            -alias "interpelli-key" \
+            -alias "upload" \
             -storepass "interpelli123" \
             -keypass "interpelli123" \
-            -dname "CN=Interpelli Scuola, OU=App, O=Interpelli, L=Rome, C=IT"
+            -dname "CN=Android, OU=Android, O=Android, L=Mountain View, ST=California, C=US"
 
       - name: Configure Android Signing in Template
         run: |
@@ -71,7 +71,7 @@ jobs:
                   release {
                       storeFile file('release.jks')
                       storePassword 'interpelli123'
-                      keyAlias 'interpelli-key'
+                      keyAlias 'upload'
                       keyPassword 'interpelli123'
                   }
               }
