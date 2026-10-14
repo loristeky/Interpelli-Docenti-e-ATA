@@ -50,7 +50,7 @@ jobs:
           sed -i 's/minSdkVersion.*/minSdkVersion 24/g' "$BUILD_GRADLE"
           sed -i 's/minSdk = .*/minSdk = 24/g' "$BUILD_GRADLE"
 
-      - name: Create Key Store with Fixed Parameters
+      - name: Create Standard Key Store
         run: |
           APP_ANDROID_DIR="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android/app"
           keytool -genkeypair -v -keystore "$APP_ANDROID_DIR/release.jks" \
@@ -87,10 +87,12 @@ jobs:
         run: |
           flet build aab \
             --template "$RUNNER_TEMP/flet-template" \
+            --org interpelli.scuola \
+            --project com \
             --description "Cerca tra migliaia di avvisi di supplenza in tutte le regioni italiane."
 
       - name: Upload Signed AAB Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: interpelli-scuola-aab-signed
+          name: interpelli-scuola-package-fixed
           path: build/aab/*.aab
