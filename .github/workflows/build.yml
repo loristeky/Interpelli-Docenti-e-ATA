@@ -50,15 +50,27 @@ jobs:
           sed -i 's/minSdkVersion.*/minSdkVersion 24/g' "$BUILD_GRADLE"
           sed -i 's/minSdk = .*/minSdk = 24/g' "$BUILD_GRADLE"
 
-      - name: Create Standard Key Store
+      - name: Restore or Generate Keystore
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
         run: |
           APP_ANDROID_DIR="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android/app"
-          keytool -genkeypair -v -keystore "$APP_ANDROID_DIR/release.jks" \
-            -keyalg RSA -keysize 2048 -validity 10000 \
-            -alias "upload" \
-            -storepass "interpelli123" \
-            -keypass "interpelli123" \
-            -dname "CN=Android, OU=Android, O=Android, L=Mountain View, ST=California, C=US"
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "Ripristino keystore esistente dai Secrets..."
+            echo "$KEYSTORE_BASE64" | base64 -d > "$APP_ANDROID_DIR/release.jks"
+          else
+            echo "Generazione nuovo keystore..."
+            keytool -genkeypair -v -keystore "$APP_ANDROID_DIR/release.jks" \
+              -keyalg RSA -keysize 2048 -validity 10000 \
+              -alias "interpelli-key" \
+              -storepass "interpelli123" \
+              -keypass "interpelli123" \
+              -dname "CN=Interpelli Scuola, OU=App, O=Interpelli, L=Rome, C=IT"
+            echo "--- SALVA QUESTO TESTO NEI SECRET DI GITHUB ---"
+            base64 -w 0 "$APP_ANDROID_DIR/release.jks"
+            echo ""
+            echo "-----------------------------------------------"
+          fi
 
       - name: Configure Android Signing in Template
         run: |
@@ -71,7 +83,7 @@ jobs:
                   release {
                       storeFile file('release.jks')
                       storePassword 'interpelli123'
-                      keyAlias 'upload'
+                      keyAlias 'interpelli-key'
                       keyPassword 'interpelli123'
                   }
               }
