@@ -35,9 +35,21 @@ jobs:
           python -m pip install --upgrade pip
           pip install flet==0.23.2
 
+      # Flet 0.23 usa il nome della cartella ("interpelli_scuola") come nome dell'app e
+      # --product cambierebbe anche l'identificativo Android. Quindi si usa lo stesso
+      # template ufficiale cambiando soltanto l'etichetta mostrata sul telefono.
+      - name: Prepare Flet template (app name "Interpelli Scuola")
+        run: |
+          TPL="$RUNNER_TEMP/flet-template"
+          git clone --depth 1 --branch 0.23.2 https://github.com/flet-dev/flet-build-template.git "$TPL"
+          rm -rf "$TPL/.git"
+          MANIFEST="$TPL/{{cookiecutter.out_dir}}/android/app/src/main/AndroidManifest.xml"
+          sed -i 's|android:label="{{ cookiecutter.product_name }}"|android:label="Interpelli Scuola"|' "$MANIFEST"
+          grep -q 'android:label="Interpelli Scuola"' "$MANIFEST"
+
       - name: Build APK
         run: |
-          flet build apk --description "Interpelli e supplenze della scuola in tutta Italia"
+          flet build apk --template "$RUNNER_TEMP/flet-template" --description "Interpelli e supplenze della scuola in tutta Italia"
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
