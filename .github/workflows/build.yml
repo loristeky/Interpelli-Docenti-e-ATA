@@ -35,9 +35,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install flet==0.23.2
 
-      - name: Build APK with Internet Permissions
+      - name: Build APK
         run: |
-          flet build apk --description "Interpelli e supplenze della scuola in tutta Italia" --android-permissions android.permission.INTERNET=true
+          flet build apk --description "Interpelli e supplenze della scuola in tutta Italia"
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
