@@ -1,0 +1,59 @@
+name: Notifiche nuovi interpelli
+
+# Controlla le fonti ogni circa 30 minuti e manda una notifica push (app "ntfy") per i nuovi
+# interpelli che corrispondono ai tuoi filtri. Funziona anche con l'app chiusa.
+# Configurazione: vedi NOTIFICHE.md
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+    inputs:
+      test:
+        description: "Invia solo una notifica di prova"
+        type: boolean
+        default: false
+
+concurrency:
+  group: notifiche-interpelli
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # Ricorda gli avvisi già notificati tra un'esecuzione e l'altra.
+      - name: Ripristina gli avvisi già visti
+        uses: actions/cache@v4
+        with:
+          path: seen.json
+          key: seen-${{ github.run_id }}
+          restore-keys: |
+            seen-
+
+      - name: Controlla le fonti e invia le notifiche
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NTFY_SERVER: ${{ vars.NTFY_SERVER }}
+          NOTIFY_CLASSES: ${{ vars.NOTIFY_CLASSES }}
+          NOTIFY_PROFILE: ${{ vars.NOTIFY_PROFILE }}
+          NOTIFY_REGIONS: ${{ vars.NOTIFY_REGIONS }}
+          SEEN_FILE: seen.json
+        run: |
+          if [ "${{ inputs.test }}" = "true" ]; then
+            python .github/notifier/notify.py --test
+          else
+            python .github/notifier/notify.py
+          fi

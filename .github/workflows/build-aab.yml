@@ -1,0 +1,98 @@
+name: Build AAB per Google Play
+
+# Crea l'app bundle (.aab) firmato con la TUA chiave di caricamento, sempre la stessa.
+# Si avvia a mano: Actions -> "Build AAB per Google Play" -> Run workflow.
+# Configurazione e passaggi su Play Console: vedi PLAYSTORE.md
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Versione mostrata agli utenti (es. 1.0.0)"
+        default: "1.0.0"
+        required: true
+
+jobs:
+  aab:
+    runs-on: ubuntu-latest
+    env:
+      # Identificativo dell'app su Google Play: NON si può più cambiare dopo la pubblicazione.
+      # Per usarne un altro crea la variabile ANDROID_ORG (Settings -> Variables).
+      ANDROID_ORG: ${{ vars.ANDROID_ORG || 'it.interpelliscuola' }}
+    steps:
+      - name: Controlla che la chiave di firma sia configurata
+        env:
+          KS: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KSP: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KP: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          for v in KS KSP ALIAS KP; do
+            if [ -z "${!v}" ]; then echo "::error::Manca il secret per $v: vedi PLAYSTORE.md"; exit 1; fi
+          done
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          flutter-version: '3.22.0'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flet==0.23.2
+
+      - name: Prepare Flet template (nome app e firma)
+        run: |
+          TPL="$RUNNER_TEMP/flet-template"
+          git clone --depth 1 --branch 0.23.2 https://github.com/flet-dev/flet-build-template.git "$TPL"
+          rm -rf "$TPL/.git"
+          APP="$TPL/{{cookiecutter.out_dir}}/android/app"
+          sed -i 's|android:label="{{ cookiecutter.product_name }}"|android:label="Interpelli Scuola"|' "$APP/src/main/AndroidManifest.xml"
+          grep -q 'android:label="Interpelli Scuola"' "$APP/src/main/AndroidManifest.xml"
+          python3 .github/scripts/patch_gradle.py "$APP/build.gradle"
+
+      - name: Ricrea il keystore dal secret
+        env:
+          KS: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        run: |
+          echo "$KS" | base64 -d > "$RUNNER_TEMP/upload.jks"
+          echo "ANDROID_KEYSTORE_PATH=$RUNNER_TEMP/upload.jks" >> "$GITHUB_ENV"
+
+      - name: Build AAB
+        env:
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          flet build aab \
+            --template "$RUNNER_TEMP/flet-template" \
+            --project interpelli_scuola \
+            --org "$ANDROID_ORG" \
+            --description "Interpelli e supplenze della scuola in tutta Italia" \
+            --build-version "${{ inputs.version }}" \
+            --build-number "${{ github.run_number }}"
+
+      # Mostra l'impronta del certificato: deve essere identica a ogni build (e a quella
+      # che hai registrato su Play Console).
+      - name: Verifica la firma
+        run: |
+          AAB=$(ls build/aab/*.aab | head -n1)
+          echo "File: $AAB"
+          keytool -printcert -jarfile "$AAB" | grep -E "Owner|SHA256"
+
+      - name: Upload AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: interpelli-scuola-aab
+          path: build/aab/*.aab
