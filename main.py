@@ -149,7 +149,7 @@ SOURCES = {
 # ----------------------------------------------------------------------------
 MAX_WORKERS = 15
 PAGE_SIZE = 25          # interpelli mostrati per "blocco"
-DB_VERSION = 5          # alzare per forzare il rifacimento della cache
+DB_VERSION = 6          # alzare per forzare il rifacimento della cache
 SOON_DAYS = 3           # "in scadenza" = scade entro questi giorni
 
 MESI = ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"]
@@ -484,13 +484,13 @@ CDC_NAMES = {
 }
 # Descrizioni in lettere che indicano una classe anche quando il codice non è scritto
 CDC_PHRASES = [
-    (re.compile(r"personale\s+educativ\w*|educatric[ei]|educator[ei]\s+(?:di\s+)?convitt\w*", re.I), "PPPP"),
+    (re.compile(r"personale\s+educativ\w*", re.I), "PPPP"),
     (re.compile(r"educazione\s+motoria|\bed\.?\s*motoria|insegnante\s+di\s+motoria", re.I), "EEEM"),
 ]
 # Parole di ricerca che rimandano a una classe (es. cercando "motoria" trova EEEM)
 CDC_SEARCH_ALIASES = {
     "motoria": "EEEM", "motorie": "EEEM",
-    "educativo": "PPPP", "educativi": "PPPP", "educativa": "PPPP", "educatore": "PPPP", "educatori": "PPPP",
+    "educativo": "PPPP", "educativi": "PPPP", "educativa": "PPPP",
 }
 _CDC_SPECIAL_RE = re.compile(r"\b(" + "|".join(CDC_SPECIAL) + r")\b", re.I)
 _CDC_CODE_RE = re.compile(r"\b(?<![A-Za-z0-9])([A-Z]\d{2,3}|[A-Z]{2}\d{2})(?![A-Za-z0-9])")
@@ -526,7 +526,7 @@ def _codes_in(text, limit=3):
 def detect_cdc(title, body=""):
     """Classi di concorso: prima quelle scritte nel titolo, poi quelle nell'inizio del testo."""
     codes = _codes_in(title or "")
-    if not codes and body:
+    if not codes and body and not ATA_TITLE_RE.search(title or ""):
         codes = _codes_in(body[:2500], limit=2)
     return ", ".join(codes)
 
@@ -572,6 +572,9 @@ def _first_doc_pos(text):
     return min(pos) if pos else None
 
 
+_EDUCATIVO_RE = re.compile(r"\bPPPP\b|personale\s+educativ\w*", re.I)
+
+
 def detect_target(title, body=""):
     """'ATA' solo con una dicitura ATA esplicita (ata, collaboratore scolastico, amministrativo,
     dsga, cuoco...). Se compare "personale docente" o una classe di concorso, è DOCENTI."""
@@ -583,6 +586,8 @@ def detect_target(title, body=""):
 
     # titolo neutro: guarda l'inizio del testo e decide per ciò che compare per primo
     head = (body or "")[:2500]
+    if _EDUCATIVO_RE.search(head):          # PPPP / personale educativo non è mai ATA
+        return "DOCENTI"
     body_ata = ATA_BODY_RE.search(head)
     if not body_ata:
         return "DOCENTI"
@@ -694,6 +699,10 @@ def get_page_url(base_url, page_num):
         return f"{base_url}?paged={page_num}"
 
 
+NOTICE_LINK_RE = re.compile(r"\b(?:interpell\w*|supplenz\w*|avvis\w*|graduatori\w*|docent\w*|ata|dsga|"
+                            r"collaborator\w*|assistent\w*|disponibilit\w*)\b", re.I)
+
+
 def parse_source_page(region, source_name, url, known):
     """Scarica una pagina-fonte e restituisce (nuovi_interpelli, raggiungibile).
 
@@ -729,14 +738,19 @@ def parse_source_page(region, source_name, url, known):
         except Exception:
             pass
 
-    links = re.findall(r'<a\b[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', html_content, re.I | re.S)
-    for href, txt in links:
-        title = clean_text(txt)
-        if len(title) > 6 and any(k in title.lower() for k in ["interpell", "supplenz", "avviso", "graduatoria", "docente", "ata", "dsga"]):
-            full_url = urljoin(url, href)
-            date_match = re.search(r'/(\d{4})/(\d{2})/(\d{2})/', full_url)
-            pub_date_str = f"{date_match.group(1)}-{date_match.group(2)}-{date_match.group(3)}" if date_match else ""
-            items.append((title, full_url, pub_date_str))
+    # Pagine che non sono feed: cerca i link agli avvisi nel corpo della pagina (senza menu né piè di pagina).
+    # Se il feed ha già fornito gli avvisi, i link dentro le descrizioni non si contano.
+    if not items:
+        body_html = strip_chrome(html_content)
+        for href, txt in re.findall(r'<a\b[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', body_html, re.I | re.S):
+            if href.startswith(("#", "mailto:", "tel:", "javascript:")):
+                continue
+            title = clean_text(txt)
+            if len(title) >= 15 and NOTICE_LINK_RE.search(title):
+                full_url = urljoin(url, href)
+                date_match = re.search(r'/(\d{4})/(\d{2})/(\d{2})/', full_url)
+                pub_date_str = f"{date_match.group(1)}-{date_match.group(2)}-{date_match.group(3)}" if date_match else ""
+                items.append((title, full_url, pub_date_str))
 
     results = []
     seen_links = set()
@@ -908,21 +922,20 @@ def main(page: ft.Page):
         load_prefs()
 
         # ---- Intestazione con logo e ricerca -------------------------------
-        refresh_button = ft.IconButton(
-            icon=ft.icons.SYNC_ROUNDED,
-            icon_color=ft.colors.WHITE,
-            icon_size=24,
-            tooltip="Aggiorna interpelli",
-            style=ft.ButtonStyle(bgcolor=ft.colors.with_opacity(0.16, ft.colors.WHITE)),
-        )
+        # I tre pulsanti stanno nella riga dei filtri, accanto a «Per me» (più comodi da raggiungere).
+        def tool_button(icon, tooltip, visible=True):
+            return ft.IconButton(
+                icon=icon,
+                icon_color=ft.colors.ON_SURFACE_VARIANT,
+                icon_size=22,
+                tooltip=tooltip,
+                visible=visible,
+                style=ft.ButtonStyle(bgcolor=ft.colors.SURFACE_VARIANT),
+            )
 
-        settings_button = ft.IconButton(
-            icon=ft.icons.TUNE_ROUNDED,
-            icon_color=ft.colors.WHITE,
-            icon_size=24,
-            tooltip="Le mie classi e i miei dati",
-            style=ft.ButtonStyle(bgcolor=ft.colors.with_opacity(0.16, ft.colors.WHITE)),
-        )
+        settings_button = tool_button(ft.icons.TUNE_ROUNDED, "Le mie classi e i miei dati")
+        refresh_button = tool_button(ft.icons.SYNC_ROUNDED, "Cerca nuovi interpelli")
+        reset_button = tool_button(ft.icons.FILTER_ALT_OFF_ROUNDED, "Azzera i filtri", visible=False)
 
         clear_button = ft.IconButton(icon=ft.icons.CLOSE_ROUNDED, icon_size=18, visible=False,
                                      icon_color="#6B7280")
@@ -965,8 +978,6 @@ def main(page: ft.Page):
                                             size=12, color=ft.colors.with_opacity(0.85, ft.colors.WHITE)),
                                 ],
                             ),
-                            settings_button,
-                            refresh_button,
                         ],
                     ),
                     search_input,
@@ -995,7 +1006,7 @@ def main(page: ft.Page):
                     shape=ft.RoundedRectangleBorder(radius=20),
                     bgcolor=ft.colors.PRIMARY if active else ft.colors.SURFACE_VARIANT,
                     color=ft.colors.ON_PRIMARY if active else ft.colors.ON_SURFACE_VARIANT,
-                    padding=ft.padding.symmetric(horizontal=14, vertical=8),
+                    padding=ft.padding.symmetric(horizontal=12, vertical=8),
                     elevation=0,
                 )
 
@@ -1004,10 +1015,13 @@ def main(page: ft.Page):
             spacing=8,
             run_spacing=8,
             controls=[
-                make_pill("", "Tutti", ft.icons.APPS_ROUNDED),
-                make_pill("DOCENTI", "Docenti", ft.icons.SCHOOL_ROUNDED),
-                make_pill("ATA", "ATA", ft.icons.WORK_ROUNDED),
+                make_pill("", "Tutti", None),
+                make_pill("DOCENTI", "Docenti", None),
+                make_pill("ATA", "ATA", None),
                 make_pill("ME", "Per me", ft.icons.STAR_ROUNDED),
+                settings_button,
+                refresh_button,
+                reset_button,
             ],
         )
 
@@ -1458,12 +1472,19 @@ def main(page: ft.Page):
                             results.scroll_to(offset=0, duration=0)
                         except Exception:
                             pass
+                    update_reset_visibility()
                     page.update()
                 except Exception as ex:
                     status_text.value = f"Errore nel caricamento: {ex}"
                     page.update()
 
         # ---- Eventi filtri --------------------------------------------------
+        def update_reset_visibility():
+            reset_button.visible = bool(state["profile"] or state["region"] or state["status"]
+                                        or (search_input.value or "").strip())
+
+        reset_button.on_click = lambda e: reset_filters()
+
         def refresh_classes_text():
             if prefs["classes"]:
                 classes_text.value = "Le mie classi: " + ", ".join(prefs["classes"])
@@ -1502,6 +1523,17 @@ def main(page: ft.Page):
             dlg.open = False
             page.update()
 
+        def copy_classes():
+            text = ", ".join(parse_classes(classes_field.value))
+            if not text:
+                notify("Scrivi prima almeno una classe di concorso.")
+                return
+            try:
+                page.set_clipboard(text)
+                notify(f"Copiato: {text}")
+            except Exception:
+                notify("Copia non riuscita: seleziona e copia il testo a mano.")
+
         def save_settings(e=None):
             prefs["classes"] = parse_classes(classes_field.value)
             prefs["name"] = (name_field.value or "").strip()
@@ -1521,9 +1553,14 @@ def main(page: ft.Page):
             content=ft.Column(
                 tight=True, spacing=12,
                 controls=[
-                    ft.Text("Usale col filtro «Per me» e per ricevere l'avviso sui nuovi interpelli "
-                            "che ti riguardano.", size=12, color=ft.colors.ON_SURFACE_VARIANT),
+                    ft.Text("Servono al filtro «Per me» e alle notifiche: ricevi un avviso solo per i nuovi "
+                            "interpelli di queste classi.", size=12, color=ft.colors.ON_SURFACE_VARIANT),
                     classes_field, name_field, phone_field,
+                    ft.TextButton("Copia le classi per le notifiche", icon=ft.icons.CONTENT_COPY_ROUNDED,
+                                  on_click=lambda e: copy_classes()),
+                    ft.Text("Per le notifiche a app chiusa incolla l'elenco nella variabile NOTIFY_CLASSES "
+                            "del repository GitHub (vedi NOTIFICHE.md).", size=11,
+                            color=ft.colors.ON_SURFACE_VARIANT),
                 ],
             ),
             actions=[ft.TextButton("Annulla", on_click=close_settings),
