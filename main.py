@@ -150,17 +150,7 @@ SOURCES = {
 # ----------------------------------------------------------------------------
 # Configurazione
 # ----------------------------------------------------------------------------
-MAX_WORKERS = 15
-PAGE_SIZE = 25
-DB_VERSION = 9
-SOON_DAYS = 3
-
-MESI = ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"]
-
-BRAND_DARK = "#1C248C"
-BRAND_LIGHT = "#347CF6"
-GOLD = "#FFC83D"
-GREEN = "#16A363"
+DB_VERSION = 10
 
 
 def get_db_path():
@@ -229,7 +219,7 @@ def known_urls():
 
 
 # ----------------------------------------------------------------------------
-# Download e analisi delle pagine (Inclusa gestione Argo Interpelli)
+# Scraping
 # ----------------------------------------------------------------------------
 def clean_text(text):
     if not text:
@@ -239,27 +229,17 @@ def clean_text(text):
     return re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', text))).strip()
 
 
-def _open(url, context=None, data=None, headers=None):
+def fetch_url(url, data=None, headers=None):
     default_headers = {"User-Agent": "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36"}
     if headers:
         default_headers.update(headers)
     req = Request(url, data=data, headers=default_headers)
-    with urlopen(req, timeout=12, context=context) as resp:
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    with urlopen(req, timeout=10, context=ctx) as resp:
         raw = resp.read(3_000_000)
         return raw.decode(resp.headers.get_content_charset() or 'utf-8', errors='replace')
-
-
-def fetch_url(url, data=None, headers=None):
-    try:
-        return _open(url, ssl.create_default_context(), data=data, headers=headers)
-    except Exception as ex:
-        reason = getattr(ex, "reason", ex)
-        if isinstance(reason, ssl.SSLError) or "CERTIFICATE" in str(ex).upper():
-            ctx = ssl.create_default_context()
-            ctx.check_hostname = False
-            ctx.verify_mode = ssl.CERT_NONE
-            return _open(url, ctx, data=data, headers=headers)
-        raise
 
 
 def fetch_argo_filtrato(provincia="", classe_concorso="", known_urls_set=None):
@@ -298,402 +278,63 @@ def fetch_argo_filtrato(provincia="", classe_concorso="", known_urls_set=None):
     return items
 
 
-MESI_IT = {
-    "gennaio": 1, "febbraio": 2, "marzo": 3, "aprile": 4, "maggio": 5, "giugno": 6, "luglio": 7,
-    "agosto": 8, "settembre": 9, "ottobre": 10, "novembre": 11, "dicembre": 12,
-    "gen": 1, "feb": 2, "mar": 3, "apr": 4, "mag": 5, "giu": 6, "lug": 7, "ago": 8,
-    "set": 9, "sett": 9, "ott": 10, "nov": 11, "dic": 12,
-}
-_MESI_RE = "|".join(sorted(MESI_IT, key=len, reverse=True))
-DATE_NUM = r"\d{1,2}\s?[\/\-.]\s?\d{1,2}\s?[\/\-.]\s?(?:\d{4}|\d{2})(?!\d)"
-DATE_TXT = rf"\d{{1,2}}\s?(?:°|º)?\s+(?:{_MESI_RE})\b\.?(?:\s*,?\s*(?:\d{{4}}|\d{{2}}(?!\d)))?"
-DATE_ANY = rf"(?:{DATE_NUM}|{DATE_TXT})"
-
-
-def _mk(year, month, day):
-    try:
-        return datetime(year, month, day).strftime("%Y-%m-%d")
-    except ValueError:
-        return None
-
-
-def parse_date(value, default_year=None):
-    if not value:
-        return None
-    value = value.strip()
-    if re.match(r"^[A-Za-z]{3},", value):
-        try:
-            return parsedate_to_datetime(value).strftime("%Y-%m-%d")
-        except Exception:
-            pass
-
-    iso = re.match(r"^(\d{4})-(\d{2})-(\d{2})", value)
-    if iso:
-        return _mk(int(iso.group(1)), int(iso.group(2)), int(iso.group(3)))
-
-    m = re.search(r"(\d{1,2})\s?[\/\-.]\s?(\d{1,2})\s?[\/\-.]\s?(\d{4}|\d{2})(?!\d)", value)
-    if m:
-        day, month, year = m.groups()
-        year = int(year) + (2000 if len(year) == 2 else 0)
-        return _mk(year, int(month), int(day))
-
-    m = re.search(rf"(\d{{1,2}})\s?(?:°|º)?\s+({_MESI_RE})\b\.?(?:\s*,?\s*(\d{{4}}|\d{{2}}(?!\d)))?", value, re.I)
-    if m:
-        day, mese, year = m.groups()
-        if year:
-            year = int(year) + (2000 if len(year) == 2 else 0)
-        else:
-            year = default_year or date.today().year
-        return _mk(year, MESI_IT[mese.lower()], int(day))
-
-    try:
-        return parsedate_to_datetime(value).strftime("%Y-%m-%d")
-    except Exception:
-        return None
-
-
-_KEY = (r"(?:entro(?:\s+e\s+non\s+oltre)?|non\s+oltre|scadenz[ae]|termine(?:\s+ultimo)?|"
-        r"improrogabilmente|presentat[ae]\s+(?:dal\s+\S+\s+)?al)")
-_NOSTOP = r"(?:(?!\.\s)(?!\n).)"
-DEADLINE_RE = re.compile(rf"({_KEY})({_NOSTOP}{{0,110}}?)({DATE_ANY})", re.I | re.S)
-APPLY_WORDS = re.compile(r"domand|candidatur|disponibilit|istanz|present|invia|trasmett|pervenir|"
-                         r"comunicar|manifest|aspirant|\bMAD\b|aderir|adesion", re.I)
-CONTRACT_WORDS = re.compile(r"supplenz|incaric|contratt|nomina|assunzion|servizio|durata|"
-                            r"fino\s+al|sino\s+al|termine\s+delle\s+(?:lezioni|attivit)", re.I)
-
-
-def find_deadline(text, published=None):
-    pub = datetime.strptime(published, "%Y-%m-%d") if published and published.count("-") == 2 else None
-    default_year = pub.year if pub else date.today().year
-    best = None
-    for m in DEADLINE_RE.finditer(text):
-        key, between, raw = m.group(1), m.group(2), m.group(3)
-        iso = parse_date(raw, default_year)
-        if not iso:
-            continue
-        try:
-            d = datetime.strptime(iso, "%Y-%m-%d")
-        except ValueError:
-            continue
-        if pub and not re.search(r"\d{4}|/\d{2}\b|\.\d{2}\b", raw) and (pub - d).days > 30:
-            iso = _mk(d.year + 1, d.month, d.day) or iso
-            d = datetime.strptime(iso, "%Y-%m-%d")
-
-        before = text[max(0, m.start() - 90):m.start()]
-        context = before + key + between
-        score = 0
-        if APPLY_WORDS.search(context):
-            score += 3
-        if re.search(r"\bore\b|\d{1,2}[:.]\d{2}", between):
-            score += 2
-        if re.match(r"(?i)entro|non\s+oltre|scadenz", key):
-            score += 1
-        if score >= 1 and (best is None or score > best[0]):
-            a = max(0, m.start() - 25)
-            snippet = text[a:m.end() + 25].strip()
-            best = (score, iso, snippet)
-    if best:
-        return best[1], best[2]
-    return None, ""
-
-
-_META_PUB = [
-    r'<meta[^>]+(?:property|name|itemprop)=["\'](?:article:published_time|datePublished|date|dc\.date(?:\.issued)?|'
-    r'dcterms\.(?:created|issued|date)|og:article:published_time)["\'][^>]*content=["\']([^"\']+)["\']',
-    r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+(?:property|name|itemprop)=["\'](?:article:published_time|datePublished|date)["\']',
-    r'"datePublished"\s*:\s*"([^"]+)"',
-]
-PUB_TEXT_RE = re.compile(
-    rf"(?:pubblicat[oa](?:\s+(?:il|in\s+data|data|sul\s+sito))?|data\s+(?:di\s+)?pubblicazione|"
-    rf"pubblicazione|inserit[oa]\s+il|data\s+inserimento)\s*:?\s*(?:[A-Za-zàèéìòù]+\s+)?({DATE_ANY})", re.I)
-
-
-def find_published(page_html, main_html, text):
-    for pat in _META_PUB:
-        m = re.search(pat, page_html, re.I | re.S)
-        if m:
-            iso = parse_date(m.group(1))
-            if iso:
-                return iso, "metadati della pagina"
-    for m in re.finditer(r'<time\b([^>]*)>', main_html, re.I):
-        attrs = m.group(1)
-        dt = re.search(r'datetime=["\']([^"\']+)["\']', attrs, re.I)
-        if dt and not re.search(r'updated|modified', attrs, re.I):
-            iso = parse_date(dt.group(1))
-            if iso:
-                return iso, "data indicata nella pagina"
-    m = PUB_TEXT_RE.search(text)
-    if m:
-        iso = parse_date(m.group(1))
-        if iso:
-            return iso, "testo dell'avviso"
-    return None, ""
-
-
-def main_region(page_html):
-    h = re.sub(r'<(script|style|noscript)\b.*?</\1>', ' ', page_html, flags=re.I | re.S)
-    arts = re.findall(r'<article\b.*?</article>', h, flags=re.I | re.S)
-    if arts:
-        return max(arts, key=len)
-    m = re.search(r'<(?:div|section)\b[^>]*class=["\'][^"\']*(?:entry-content|post-content|article-body|'
-                  r'node__content|field--name-body|contenuto|content-main)[^"\']*["\'][^>]*>', h, re.I)
-    if m:
-        return h[m.start():m.start() + 40000]
-    mains = re.findall(r'<main\b.*?</main>', h, flags=re.I | re.S)
-    if mains:
-        return max(mains, key=len)
-    return strip_chrome(h)
-
-
-def strip_chrome(h):
-    h = re.sub(r'<(script|style|noscript)\b.*?</\1>', ' ', h, flags=re.I | re.S)
-    for tag in ("nav", "header", "footer", "aside"):
-        h = re.sub(rf'<{tag}\b.*?</{tag}>', ' ', h, flags=re.I | re.S)
-    return h
-
-
-def analyze_post_content(full_text):
-    text = full_text.lower()
-    post_type = "Posto Ordinario / Altro"
-    if "sostegno" in text:
-        post_type = "Posto di Sostegno"
-    elif "spezzone" in text:
-        post_type = "Spezzone Orario"
-    elif "cattedra orario esterna" in text or re.search(r"\bcoe\b", text):
-        post_type = "Cattedra Orario Esterna (COE)"
-    elif "cattedra orario interna" in text or re.search(r"\bcoi\b", text):
-        post_type = "Cattedra Orario Interna (COI)"
-    elif "annuale" in text:
-        post_type = "Annuale"
-    return post_type
-
-
-ATA_TITLE_RE = re.compile(
-    r"(?:\bATA\b|\bA\.\s?T\.\s?A\.?|personale\s+ata|collaborator[ei]\s+scolastic[oi]|"
-    r"assistent[ei]\s+(?:amministrativ|tecnic)\w*|amministrativ[oiae]|\bDSGA\b|"
-    r"direttore\s+dei\s+servizi\s+generali|\bcuoc[oh]i?\b|\binfermier[ei]\b|\bguardarobier[ei]\b|"
-    r"operator[ei]\s+scolastic\w*|operator[ei]\s+dei\s+servizi\s+agrari|"
-    r"addett[oi]\s+(?:alle?\s+)?aziend\w*\s+agrar\w*|\bpersonale\s+amministrativo\b)", re.I)
-ATA_BODY_RE = re.compile(
-    r"(?:\bATA\b|\bA\.\s?T\.\s?A\.?|personale\s+ata|collaborator[ei]\s+scolastic[oi]|"
-    r"assistent[ei]\s+(?:amministrativ|tecnic)\w*|\bDSGA\b|direttore\s+dei\s+servizi\s+generali|"
-    r"\bcuoc[oh]i?\b|\binfermier[ei]\b|\bguardarobier[ei]\b|operator[ei]\s+scolastic\w*|"
-    r"operator[ei]\s+dei\s+servizi\s+agrari|addett[oi]\s+(?:alle?\s+)?aziend\w*\s+agrar\w*)", re.I)
-
-CDC_SPECIAL = ["ADMM", "ADSS", "ADEE", "ADAA", "AAAA", "EEEE", "EEEM", "PPPP"]
-CDC_NAMES = {
-    "PPPP": "Personale educativo", "EEEM": "Educazione motoria",
-    "EEEE": "Primaria (posto comune)", "ADEE": "Sostegno primaria",
-    "AAAA": "Infanzia (posto comune)", "ADAA": "Sostegno infanzia",
-    "ADMM": "Sostegno sec. I grado", "ADSS": "Sostegno sec. II grado",
-}
-_CDC_SPECIAL_RE = re.compile(r"\b(" + "|".join(CDC_SPECIAL) + r")\b", re.I)
-_CDC_CODE_RE = re.compile(r"\b(?<![A-Za-z0-9])([A-Z]\d{2,3}|[A-Z]{2}\d{2})(?![A-Za-z0-9])")
-_CDC_BAD_PREFIX = ("L", "D", "N")
-
-
-def _codes_in(text, limit=3):
-    spans = [(m.start(), m.group(1).upper()) for m in _CDC_SPECIAL_RE.finditer(text)]
-    for m in _CDC_CODE_RE.finditer(text):
-        code = m.group(1)
-        if code[0] in _CDC_BAD_PREFIX and code[1:].isdigit():
-            continue
-        if re.fullmatch(r"AR\d{2}", code):
-            continue
-        spans.append((m.start(), code))
-    ordered = []
-    for _, code in sorted(spans):
-        if code not in ordered:
-            ordered.append(code)
-    return ordered[:limit]
-
-
 def detect_cdc(title, body=""):
-    codes = _codes_in(title or "")
+    _CDC_SPECIAL_RE = re.compile(r"\b(ADMM|ADSS|ADEE|ADAA|AAAA|EEEE|EEEM|PPPP)\b", re.I)
+    _CDC_CODE_RE = re.compile(r"\b(?<![A-Za-z0-9])([A-Z]\d{2,3}|[A-Z]{2}\d{2})(?![A-Za-z0-9])")
+    codes = [m.group(1).upper() for m in _CDC_SPECIAL_RE.finditer(title or "")]
     if not codes and body:
-        codes = _codes_in(body[:2500], limit=2)
-    return ", ".join(codes)
-
-
-NOT_INTERPELLO_RE = re.compile(r"bollettin\w*|\bnomine\b", re.I)
-
-
-def is_not_interpello(title):
-    return bool(NOT_INTERPELLO_RE.search(title or ""))
-
-
-DOC_WORDS_RE = re.compile(
-    r"(?:personale\s+docente|\bdocent[ei]\b|\binsegnant[ei]\b|personale\s+educativ\w*|"
-    r"\beducator[ei]\b|\beducatric[ei]\b|\bcl(?:asse|\.)?\s+di\s+concorso|\bcdc\b)", re.I)
-
-
-def detect_target(title, body=""):
-    title = title or ""
-    if DOC_WORDS_RE.search(title) or _codes_in(title):
-        return "DOCENTI"
-    if ATA_TITLE_RE.search(title):
-        return "ATA"
-    head = (body or "")[:2500]
-    body_ata = ATA_BODY_RE.search(head)
-    if not body_ata:
-        return "DOCENTI"
-    return "ATA"
-
-
-DOC_RE = re.compile(r'href=["\']([^"\']+\.(?:pdf|docx?|odt)(?:\?[^"\']*)?)["\']', re.I)
-EMAIL_RE = re.compile(r"[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}")
-
-
-def extract_doc_url(page_html, base_url):
-    found = [urljoin(base_url, h) for h in DOC_RE.findall(page_html)]
-    for u in found:
-        if any(k in u.lower() for k in ["interpell", "supplenz", "avviso"]):
-            return u
-    return found[0] if found else ""
-
-
-def extract_email(text):
-    emails = []
-    for e in EMAIL_RE.findall(text):
-        e = e.strip(".").lower()
-        if e not in emails:
-            emails.append(e)
-    for e in emails:
-        if e.endswith(".edu.it") or "istruzione.it" in e or "pec" in e:
-            return e
-    return emails[0] if emails else ""
-
-
-FILE_EXT_RE = re.compile(r"\.(?:pdf|docx?|odt|xlsx?|zip)(?:\?.*)?$", re.I)
-
-
-def analyze_page(page_html, link, rss_published=None):
-    main_html = main_region(page_html)
-    text = clean_text(main_html)
-    if len(text) < 3:
-        main_html = strip_chrome(page_html)
-        text = clean_text(main_html)
-    pub, pub_src = find_published(page_html, main_html, text)
-    if not pub and rss_published:
-        pub, pub_src = rss_published, "elenco dell'ufficio"
-    if not pub:
-        m = re.search(r'/(\d{4})/(\d{2})/(\d{2})/', link)
-        if m:
-            pub, pub_src = f"{m.group(1)}-{m.group(2)}-{m.group(3)}", "indirizzo della pagina"
-    deadline, deadline_src = find_deadline(text, pub)
-    return {
-        "text": text,
-        "post_type": analyze_post_content(text),
-        "published": pub or "",
-        "published_src": pub_src,
-        "deadline": deadline,
-        "deadline_src": deadline_src,
-        "doc_url": extract_doc_url(main_html, link) or extract_doc_url(page_html, link),
-        "email": extract_email(text),
-        "html": main_html[:20000],
-    }
-
-
-def fetch_page_details(link, rss_published=None):
-    if FILE_EXT_RE.search(link):
-        return {"text": "", "post_type": "Non specificato", "published": rss_published or "",
-                "published_src": "elenco dell'ufficio" if rss_published else "", "deadline": None,
-                "deadline_src": "", "doc_url": link, "email": ""}
-    try:
-        return analyze_page(fetch_url(link), link, rss_published)
-    except Exception:
-        return None
-
-
-def verify_interpello(url, rss_published=None, title=""):
-    info = fetch_page_details(url, rss_published)
-    if info is None:
-        return None
-    heading = ""
-    m = re.search(r"<h1\b[^>]*>(.*?)</h1>", info.get("html", ""), re.I | re.S)
-    if m:
-        heading = clean_text(m.group(1))
-    info["heading"] = heading
-    info["not_interpello"] = is_not_interpello(title) or is_not_interpello(heading)
-    info["target"] = detect_target(title or heading, info["text"])
-    info["cdc"] = detect_cdc(title or heading, info["text"])
-    return info
-
-
-def parse_source_page(region, source_name, url, known):
-    items = []
-    try:
-        html_content = fetch_url(url)
-    except Exception:
-        return [], False
-
-    lower_content = html_content.lower()
-    if "<rss" in lower_content or "<feed" in lower_content or "<channel" in lower_content:
-        try:
-            root = ET.fromstring(html_content)
-            for item in root.findall(".//item"):
-                title = clean_text(item.findtext("title"))
-                link = clean_text(item.findtext("link"))
-                pub_date = clean_text(item.findtext("pubDate"))
-                if title and link:
-                    items.append((title, link, pub_date))
-
-            for entry in root.findall(".//{http://www.w3.org/2005/Atom}entry"):
-                title = clean_text(entry.findtext("{http://www.w3.org/2005/Atom}title"))
-                link = ""
-                link_el = entry.find("{http://www.w3.org/2005/Atom}link")
-                if link_el is not None:
-                    link = link_el.get("href", "")
-                pub_date = clean_text(entry.findtext("{http://www.w3.org/2005/Atom}updated") or entry.findtext("{http://www.w3.org/2005/Atom}published"))
-                if title and link:
-                    items.append((title, link, pub_date))
-        except Exception:
-            pass
-    return items, True
+        codes = [m.group(1).upper() for m in _CDC_CODE_RE.finditer(body[:2500]) if not m.group(1).startswith(("L", "D", "N"))]
+    return ", ".join(codes[:2])
 
 
 # ----------------------------------------------------------------------------
-# Interfaccia Grafica Flet (Ottimizzata per Android)
+# Interfaccia Grafica Flet (Android Ready)
 # ----------------------------------------------------------------------------
 def main(page: ft.Page):
-    page.title = "Ricerca Interpelli Nazionali & Argo"
+    page.title = "Interpelli Argo & USP"
     page.theme_mode = ft.ThemeMode.LIGHT
-    page.vertical_alignment = ft.MainAxisAlignment.START
     page.padding = 15
     page.scroll = ft.ScrollMode.AUTO
 
-    try:
-        init_db()
-    except Exception as ex:
-        print(f"Errore DB: {ex}")
-
+    # Componenti della schermata
     provincia_dropdown = ft.Dropdown(
         label="Provincia / Regione",
         hint_text="Seleziona",
         options=[ft.dropdown.Option("Tutte")] + [ft.dropdown.Option(p) for p in SOURCES.keys() if p != "Nazionale / Piattaforme"],
         value="Tutte",
-        expand=1
+        expand=True
     )
 
     cdc_input = ft.TextField(
         label="Classe Concorso (es. A028)",
         hint_text="Tutte",
-        expand=1
+        expand=True
     )
 
-    status_text = ft.Text("Pronto per la ricerca.", italic=True, size=12)
-    results_list = ft.ListView(expand=1, spacing=10, padding=5, auto_scroll=False)
+    status_text = ft.Text("Seleziona i filtri e avvia la ricerca.", italic=True, size=12)
+    results_list = ft.ListView(expand=True, spacing=10, padding=5)
 
-    def esegui_ricerca(e):
-        status_text.value = "Ricerca in corso..."
-        page.update()
-
-        prov = provincia_dropdown.value
-        cdc = cdc_input.value.strip().upper()
-        
+    def carica_dati(prov, cdc):
+        # Operazione eseguita in background per evitare schermata nera su Android
         try:
+            init_db()
+            known = known_urls()
+            
+            # Recupero da Argo
+            nuovi = fetch_argo_filtrato(provincia=prov if prov != "Tutte" else "", classe_concorso=cdc, known_urls_set=known)
+            
             conn = db_connect()
-            query = "SELECT title, url, region, published, deadline, cdc, target FROM interpelli WHERE 1=1"
+            c = conn.cursor()
+            for title, url, pub in nuovi:
+                cdc_found = detect_cdc(title)
+                c.execute("""INSERT OR IGNORE INTO interpelli 
+                    (title, url, region, source, target, published, cdc, verified)
+                    VALUES (?, ?, ?, 'Argo Interpelli', 'DOCENTI', ?, ?, 1)""",
+                    (title, url, prov if prov != "Tutte" else "Nazionale", date.today().strftime("%Y-%m-%d"), cdc_found))
+            conn.commit()
+
+            # Query di lettura locale
+            query = "SELECT title, url, region, published, cdc FROM interpelli WHERE 1=1"
             params = []
             if prov != "Tutte":
                 query += " AND region = ?"
@@ -702,16 +343,16 @@ def main(page: ft.Page):
                 query += " AND cdc LIKE ?"
                 params.append(f"%{cdc}%")
             
-            query += " ORDER BY published DESC LIMIT 50"
+            query += " ORDER BY id DESC LIMIT 50"
             rows = conn.execute(query, params).fetchall()
             conn.close()
-            
+
             results_list.controls.clear()
             if not rows:
-                results_list.controls.append(ft.Text("Nessun interpello trovato nel database locale con questi filtri."))
+                results_list.controls.append(ft.Text("Nessun interpello trovato con i criteri inseriti."))
             else:
                 for r in rows:
-                    title, url, region, pub, deadline, found_cdc, target = r
+                    title, url, region, pub, found_cdc = r
                     results_list.controls.append(
                         ft.Card(
                             content=ft.Container(
@@ -721,22 +362,33 @@ def main(page: ft.Page):
                                         ft.Chip(label=ft.Text(f"Zona: {region}", size=11)),
                                         ft.Chip(label=ft.Text(f"CDC: {found_cdc if found_cdc else 'N/D'}", size=11)),
                                     ], wrap=True),
-                                    ft.TextButton("Apri Avviso", url=url)
+                                    ft.TextButton("Apri Avviso sul Sito", url=url)
                                 ], spacing=5),
                                 padding=12
                             )
                         )
                     )
-            status_text.value = f"Trovati {len(rows)} elementi."
+            status_text.value = f"Trovati {len(rows)} interpelli."
         except Exception as ex:
-            status_text.value = f"Errore: {ex}"
-        
+            status_text.value = f"Errore caricamento: {ex}"
+
         page.update()
 
-    btn_cerca = ft.ElevatedButton("Cerca nel DB", on_click=esegui_ricerca, icon=ft.Icons.SEARCH)
+    def esegui_ricerca(e):
+        status_text.value = "Ricerca in corso su Argo Interpelli..."
+        page.update()
+        
+        prov = provincia_dropdown.value
+        cdc = cdc_input.value.strip().upper()
 
+        # Avvio in thread separato
+        threading.Thread(target=carica_dati, args=(prov, cdc), daemon=True).start()
+
+    btn_cerca = ft.ElevatedButton("Avvia Ricerca", on_click=esegui_ricerca, icon=ft.Icons.SEARCH)
+
+    # Costruzione layout dell'interfaccia Flet
     page.add(
-        ft.Text("Gestione Interpelli Scolastici", size=18, weight=ft.FontWeight.BOLD),
+        ft.Text("Ricerca Interpelli Scuola", size=18, weight=ft.FontWeight.BOLD),
         ft.Row([provincia_dropdown, cdc_input], spacing=10),
         ft.Row([btn_cerca], alignment=ft.MainAxisAlignment.END),
         status_text,
@@ -744,6 +396,7 @@ def main(page: ft.Page):
         results_list
     )
     page.update()
+
 
 if __name__ == "__main__":
     ft.app(target=main)
