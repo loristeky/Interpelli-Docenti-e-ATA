@@ -1,4 +1,4 @@
-name: Build and Sign Flet AAB
+name: Build Flet APK
 
 on:
   push:
@@ -35,6 +35,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install flet==0.23.2
 
+      # Flet 0.23 usa il nome della cartella ("interpelli_scuola") come nome dell'app e
+      # --product cambierebbe anche l'identificativo Android. Quindi si usa lo stesso
+      # template ufficiale cambiando soltanto l'etichetta mostrata sul telefono.
       - name: Prepare Flet template (app name "Interpelli Scuola")
         run: |
           TPL="$RUNNER_TEMP/flet-template"
@@ -44,71 +47,12 @@ jobs:
           sed -i 's|android:label="{{ cookiecutter.product_name }}"|android:label="Interpelli Scuola"|' "$MANIFEST"
           grep -q 'android:label="Interpelli Scuola"' "$MANIFEST"
 
-      - name: Force minSdk to 24 in build.gradle
+      - name: Build APK
         run: |
-          BUILD_GRADLE="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android/app/build.gradle"
-          sed -i 's/minSdkVersion.*/minSdkVersion 24/g' "$BUILD_GRADLE"
-          sed -i 's/minSdk = .*/minSdk = 24/g' "$BUILD_GRADLE"
+          flet build apk --template "$RUNNER_TEMP/flet-template" --description "Interpelli e supplenze della scuola in tutta Italia"
 
-      - name: Restore or Generate Keystore
-        env:
-          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
-        run: |
-          APP_ANDROID_DIR="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android/app"
-          if [ -n "$KEYSTORE_BASE64" ]; then
-            echo "Ripristino keystore salvato dai Secrets..."
-            echo "$KEYSTORE_BASE64" | base64 -d > "$APP_ANDROID_DIR/release.jks"
-          else
-            echo "Generazione nuovo keystore..."
-            keytool -genkeypair -v -keystore "$APP_ANDROID_DIR/release.jks" \
-              -keyalg RSA -keysize 2048 -validity 10000 \
-              -alias "interpelli-key" \
-              -storepass "interpelli123" \
-              -keypass "interpelli123" \
-              -dname "CN=Interpelli Scuola, OU=App, O=Interpelli, L=Rome, C=IT"
-          fi
-
-      - name: Configure Android Signing in Template
-        run: |
-          APP_ANDROID_DIR="$RUNNER_TEMP/flet-template/{{cookiecutter.out_dir}}/android/app"
-          GRADLE_FILE="$APP_ANDROID_DIR/build.gradle"
-          
-          # Indaghiamo l'alias contenuto nel Keystore per evitare errori di alias errati
-          ALIAS=$(keytool -list -v -keystore "$APP_ANDROID_DIR/release.jks" -storepass "interpelli123" | grep "Alias name:" | head -n 1 | awk '{print $3}')
-          if [ -z "$ALIAS" ]; then
-            ALIAS="interpelli-key"
-          fi
-          echo "Alias rilevato nel Keystore: $ALIAS"
-
-          cat << EOF >> "$GRADLE_FILE"
-
-          android {
-              signingConfigs {
-                  release {
-                      storeFile file('release.jks')
-                      storePassword 'interpelli123'
-                      keyAlias '$ALIAS'
-                      keyPassword 'interpelli123'
-                  }
-              }
-              buildTypes {
-                  release {
-                      signingConfig signingConfigs.release
-                  }
-              }
-          }
-          EOF
-
-      - name: Build App Bundle
-        run: |
-          flet build aab \
-            --template "$RUNNER_TEMP/flet-template" \
-            --org interpelli.scuola \
-            --project com \
-            --description "Cerca tra migliaia di avvisi di supplenza in tutte le regioni italiane."
-
-      - name: Upload Signed AAB Artifact
+      - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: interpelli-scuola-package-fixed
-          path: build/aab/*.aab
+          name: interpelli-scuola-apk
+          path: build/apk/*.apk
