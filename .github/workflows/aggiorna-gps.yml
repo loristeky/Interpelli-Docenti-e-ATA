@@ -1,0 +1,65 @@
+name: Aggiorna dati GPS
+
+# Si avvia da solo ogni giorno (alle 07:30 e alle 14:30 italiane circa): scarica i nuovi bollettini di nomina
+# dalle pagine degli Uffici scolastici (tools/gps/scarica_bollettini.py), li legge e aggiorna assets/gps_data.json.
+# Parte anche quando carichi a mano bollettini (PDF o Excel) nella cartella "bollettini".
+# I PDF contengono nomi di persone: non vengono mai salvati nel repository (quelli caricati a mano vengono cancellati).
+# Istruzioni: bollettini/LEGGIMI.md
+
+on:
+  schedule:
+    - cron: '30 5,12 * * *'
+  push:
+    branches: [ main ]
+    paths:
+      - 'bollettini/**.pdf'
+      - 'bollettini/**.PDF'
+      - 'bollettini/**.xlsx'
+      - 'bollettini/**.xlsm'
+  workflow_dispatch:
+
+concurrency:
+  group: aggiorna-gps
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Installa gli strumenti di lettura
+        run: |
+          sudo apt-get update && sudo apt-get install -y poppler-utils
+          pip install pdfplumber openpyxl
+
+      - name: Scarica i nuovi bollettini
+        continue-on-error: true
+        run: python tools/gps/scarica_bollettini.py --cartella bollettini
+
+      - name: Leggi i bollettini
+        run: |
+          : > "$RUNNER_TEMP/elaborati.txt"
+          if [ -n "$(find bollettini -type f \( -iname '*.pdf' -o -iname '*.xlsx' -o -iname '*.xlsm' \))" ]; then
+            python tools/gps/build_gps_data.py --cartella bollettini --output assets/gps_data.json \
+              --aggiungi --elaborati "$RUNNER_TEMP/elaborati.txt" || true
+          else
+            echo "Nessun bollettino da leggere."
+          fi
+
+      - name: Cancella i PDF letti e salva i dati
+        run: |
+          while IFS= read -r f; do [ -n "$f" ] && git rm -q --ignore-unmatch "$f"; done < "$RUNNER_TEMP/elaborati.txt"
+          git add assets/gps_data.json tools/gps/bollettini_visti.json
+          if git diff --cached --quiet; then echo "Nessuna modifica"; exit 0; fi
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git commit -m "Aggiorna dati GPS dai bollettini"
+          git push
