@@ -1,0 +1,19 @@
+[project]
+name = "interpelli-scuola"
+version = "1.0.0"
+description = "Interpelli e supplenze della scuola in tutta Italia"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "flet==1.0.4",
+]
+
+[tool.flet]
+product = "Interpelli Scuola"
+org = "it.interpelliscuola"
+bundle_id = "it.interpelliscuola.interpelli_scuola"
+company = "Interpelli Scuola"
+copyright = "Interpelli Scuola"
+
+[tool.flet.android]
+# Google Play richiede Android 7.0 (API 24) o superiore
+min_sdk_version = 24

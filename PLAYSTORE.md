@@ -1,11 +1,9 @@
 # Pubblicare su Google Play
 
-## ⚠️ Prima di tutto: il livello API richiesto
-Dal 31 agosto 2026 Google Play accetta nuove app e aggiornamenti solo se puntano ad **Android 16
-(API 36)**. L'app oggi è costruita con Flet 0.23.2 / Flutter 3.22, che punta ad **API 34**:
-Play Console rifiuterebbe il caricamento. Il workflow qui sotto produce un .aab firmato correttamente,
-ma **per essere accettato serve prima passare a una versione recente di Flet** (con Flutter aggiornato).
-Il codice dell'app va adattato a quella versione e provato su un telefono: è il passo successivo.
+## Stato del progetto
+L'app usa **Flet 1.0.4**, che costruisce per Android 16 (API 36), come richiesto da Google Play dal
+31 agosto 2026. Android minimo: 7.0 (API 24). Nome, identificativo e versione minima sono in
+`pyproject.toml`.
 
 ## 1. Crea la chiave di caricamento (una volta sola, sul tuo computer)
 Serve Java (`keytool`). Esegui:
@@ -30,8 +28,9 @@ Repository → Settings → Secrets and variables → Actions → **Secrets**:
 | `ANDROID_KEY_PASSWORD` | password della chiave |
 
 ## 3. Identificativo dell'app
-Di default è `it.interpelliscuola.interpelli_scuola`. **Dopo la pubblicazione non si può più
-cambiare.** Per sceglierne un altro crea (scheda Variables) `ANDROID_ORG`, es. `it.tuonome`.
+È `it.interpelliscuola.interpelli_scuola`, scritto in `pyproject.toml` (`bundle_id`). **Dopo la
+pubblicazione non si può più cambiare.** Se vuoi un altro nome, modificalo lì **prima** del primo
+caricamento su Play.
 
 ## 4. Costruisci il file
 Actions → «Build AAB per Google Play» → Run workflow (indica la versione, es. 1.0.0). Il numero di
