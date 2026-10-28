@@ -1,0 +1,50 @@
+name: Pubblica elenco interpelli
+
+# Ogni 30 minuti circa legge le fonti (come fa l'app), aggiorna l'elenco degli avvisi e lo pubblica nel ramo "dati"
+# del repository (file interpelli.json). L'app scarica quel file in un colpo solo: la ricerca diventa molto più veloce
+# e si aggiorna anche quando l'app è chiusa. Serve che il repository sia pubblico (l'app legge il file da raw.githubusercontent.com).
+
+on:
+  schedule:
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: pubblica-interpelli
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  pubblica:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Installa la lettura dei PDF
+        run: pip install pypdf
+
+      - name: Recupera l'elenco precedente
+        run: |
+          git fetch origin dati 2>/dev/null && git show origin/dati:interpelli.json > "$RUNNER_TEMP/prec.json" || echo '{}' > "$RUNNER_TEMP/prec.json"
+
+      - name: Aggiorna l'elenco
+        run: python tools/export_interpelli.py --prec "$RUNNER_TEMP/prec.json" --out "$RUNNER_TEMP/interpelli.json"
+
+      - name: Pubblica nel ramo dati
+        run: |
+          cp "$RUNNER_TEMP/interpelli.json" "$RUNNER_TEMP/out.json"
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git checkout --orphan dati-tmp
+          git rm -rf -q . || true
+          cp "$RUNNER_TEMP/out.json" interpelli.json
+          git add interpelli.json
+          git commit -q -m "Aggiorna elenco interpelli"
+          git push -f origin dati-tmp:dati
