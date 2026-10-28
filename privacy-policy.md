@@ -6,7 +6,7 @@ Interpelli Scuola non ha account, non mostra pubblicità e non invia i tuoi dati
 
 ## Chi è il titolare
 
-Il titolare del trattamento è **[nome e cognome o ragione sociale dello sviluppatore]**. Per qualsiasi richiesta scrivi a **[indirizzo email di contatto]**.
+Il titolare del trattamento è Loris Bono. Per qualsiasi richiesta scrivi a lorisbono@hotmail.it.
 
 ## Quali dati usa l'app e dove restano
 
