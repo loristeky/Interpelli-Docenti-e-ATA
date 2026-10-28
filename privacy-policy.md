@@ -48,7 +48,7 @@ I dati restano sul telefono finché non disinstalli l'app o non cancelli i suoi 
 
 ## I tuoi diritti
 
-Poiché i tuoi dati sono solo sul tuo telefono, puoi vederli, modificarli e cancellarli direttamente dall'app. Per ogni altra richiesta (accesso, rettifica, cancellazione, opposizione, portabilità) scrivi a **[indirizzo email di contatto]**. Hai anche il diritto di presentare reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it).
+Poiché i tuoi dati sono solo sul tuo telefono, puoi vederli, modificarli e cancellarli direttamente dall'app. Per ogni altra richiesta (accesso, rettifica, cancellazione, opposizione, portabilità) scrivi a lorisbono@hotmail.it. Hai anche il diritto di presentare reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it).
 
 ## Minori
 
