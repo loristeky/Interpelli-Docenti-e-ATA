@@ -33,3 +33,8 @@ L'automazione «Aggiorna dati GPS» parte da sola due volte al giorno: cerca nel
 L'automazione legge anche la pagina di Orizzonte Scuola con i link diretti ai bollettini di tutte le province
 («Supplenze docenti, ecco i bollettini nomine…»), saltando le rettifiche. Per aggiungere altre pagine-elenco dello
 stesso tipo, mettile in `tools/gps/pagine_bollettini.json` con `"tipo": "elenco"`.
+
+## Bollettini che non si leggono o sono molto grandi
+- I PDF grandi si leggono a blocchi di 150 pagine; si scaricano fino a 250 MB.
+- I PDF scansionati (immagini, senza testo) si leggono con il riconoscimento dei caratteri (OCR, in italiano).
+- Se un file non si legge, nel log compare «Com'è fatto il file» (parole sostituite da «x»: nessun nome) e il nome finisce in `tools/gps/bollettini_problemi.json`. Quando il lettore migliora (`PARSER_VERSION` in `bollettini.py`) quei bollettini vengono riscaricati e riprovati da soli.

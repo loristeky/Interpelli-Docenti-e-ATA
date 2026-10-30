@@ -4,6 +4,7 @@ Dei bollettini si usano SOLO: classe di concorso, tipo di graduatoria (GPS), fas
 punteggio e codice scuola (per riconoscere la provincia). Nomi e altri dati personali non vengono
 letti né salvati.
 """
+import os
 import re
 import subprocess
 
@@ -63,9 +64,84 @@ ROW_CSV = re.compile(r"^(?P<cdc>" + CLASS_RE + r") - [^;]*;(?P<tipo>GPS|GAE|GUI)
                      r"(?P<pos>\d{1,5});(?P<score>\d{1,3}(?:[.,]\d{1,3})?);")
 
 
+PARSER_VERSION = 2          # cambia quando il lettore migliora: i bollettini che non si leggevano vengono riprovati
+CHUNK_PAGES = 150           # i PDF grandi (Milano, Napoli, Catania...) si leggono a blocchi di pagine
+OCR_MAX_PAGES = 400
+
+
+def pdf_pages(path):
+    """Numero di pagine del PDF (0 se non si riesce a saperlo)."""
+    try:
+        out = subprocess.run(["pdfinfo", str(path)], capture_output=True, text=True, timeout=60).stdout
+    except (OSError, subprocess.SubprocessError):
+        return 0
+    m = re.search(r"^Pages:\s+(\d+)", out, re.M)
+    return int(m.group(1)) if m else 0
+
+
 def pdf_text(path, raw):
-    cmd = ["pdftotext", "-raw" if raw else "-layout", path, "-"]
-    return subprocess.run(cmd, capture_output=True, text=True, check=True).stdout
+    """Testo del PDF. Sopra CHUNK_PAGES pagine si legge a blocchi, così un file enorme non blocca né riempie la memoria."""
+    mode = "-raw" if raw else "-layout"
+    n = pdf_pages(path)
+    ranges = [(None, None)] if n <= CHUNK_PAGES else [(a, min(a + CHUNK_PAGES - 1, n)) for a in range(1, n + 1, CHUNK_PAGES)]
+    parts = []
+    for first, last in ranges:
+        cmd = ["pdftotext", mode] + (["-f", str(first), "-l", str(last)] if first else []) + [str(path), "-"]
+        try:
+            parts.append(subprocess.run(cmd, capture_output=True, text=True, check=True, timeout=300).stdout)
+        except subprocess.TimeoutExpired:
+            continue                       # un blocco che non si legge non butta via gli altri
+    return "".join(parts)
+
+
+def ocr_text(path, max_pages=OCR_MAX_PAGES):
+    """Bollettino scansionato (immagini senza testo): riconoscimento dei caratteri con tesseract, se installato."""
+    import shutil
+    import tempfile
+    if not (shutil.which("tesseract") and shutil.which("pdftoppm")):
+        return ""
+    n = min(pdf_pages(path) or max_pages, max_pages)
+    parts = []
+    with tempfile.TemporaryDirectory() as tmp:
+        for first in range(1, n + 1, 20):
+            last = min(first + 19, n)
+            try:
+                subprocess.run(["pdftoppm", "-r", "200", "-gray", "-f", str(first), "-l", str(last), str(path),
+                                f"{tmp}/p"], check=True, timeout=600, capture_output=True)
+            except (subprocess.SubprocessError, OSError):
+                continue
+            for img in sorted(os.listdir(tmp)):
+                if not img.startswith("p"):
+                    continue
+                f = os.path.join(tmp, img)
+                try:
+                    out = subprocess.run(["tesseract", f, "-", "-l", "ita+eng", "--psm", "6"],
+                                         capture_output=True, text=True, timeout=180).stdout
+                    parts.append(out)
+                except (subprocess.SubprocessError, OSError):
+                    pass
+                os.remove(f)
+    return "\n".join(parts)
+
+
+_KEEP = {"gps", "gae", "gui", "f1", "f2", "fascia", "classe", "concorso", "punteggio", "posizione", "tipo",
+         "graduatoria", "scuola", "codice", "sostegno", "riserva", "grado", "pos", "cod"}
+
+
+def text_shape(text, lines=14):
+    """Impronta di un testo senza dati personali: le parole lunghe (nomi!) diventano «x», restano codici e numeri.
+    Serve a capire in un log pubblico com'è fatto un bollettino che non si legge."""
+    out = []
+    for line in text.splitlines():
+        line = line.strip()
+        if len(line) < 6:
+            continue
+        toks = [t if (t.lower().strip(".,:;") in _KEEP or not re.fullmatch(r"[^\W\d_]{2,}[.,:;]?", t)) else "x"
+                for t in line.split()]
+        out.append(" ".join(toks)[:150])
+        if len(out) >= lines:
+            break
+    return "\n".join(out)
 
 
 def _school_siglas(text):
@@ -114,6 +190,34 @@ def parse_rows(text):
         if m and cur and tipo_code(cur, m["tipo"]):
             rows.append((tipo_code(cur, m["tipo"]), "I" if m["fascia"] == "1" else "II",
                          int(m["pos"]), float(m["score"].replace(",", "."))))
+    return rows
+
+
+# Lettura «tollerante» (PDF con colonne spostate o testo da OCR): in una riga che contiene il tipo e la fascia, la
+# prima coppia «posizione punteggio-con-decimali» che segue; la classe è all'inizio della riga o quella vista prima.
+LOOSE_TIPO = re.compile(r"(?<![A-Z0-9])(?P<tipo>GPS|GAE|GUI)\s*[-:]?\s*F\s?(?P<fascia>[12lI|])(?![\dA-Za-z])(?P<rest>.*)")
+LOOSE_POS = re.compile(r"(?<![\d.,])(?P<pos>\d{1,5})\s+(?P<score>\d{1,3}[.,]\d{1,3})(?![\d])")
+LOOSE_CLASS = re.compile(r"(?<![A-Z0-9])(?P<cdc>" + CLASS_RE + r")\s*[-–]\s*\S")
+
+
+def parse_rows_loose(text):
+    rows, cur = [], None
+    for line in text.splitlines():
+        m = LOOSE_CLASS.match(line.strip())
+        mt = LOOSE_TIPO.search(line)
+        if m and not mt:
+            cur = m["cdc"]
+            continue
+        if not mt:
+            continue
+        head = LOOSE_CLASS.match(line.strip())
+        cdc = head["cdc"] if head else cur
+        if head:
+            cur = cdc
+        code = tipo_code(cdc, mt["tipo"]) if cdc else None
+        ps = LOOSE_POS.search(mt["rest"])
+        if code and ps:
+            rows.append((code, "II" if mt["fascia"] == "2" else "I", int(ps["pos"]), float(ps["score"].replace(",", "."))))
     return rows
 
 
@@ -223,22 +327,43 @@ def read_xlsx(path):
 
 def read_pdf(path):
     """Legge un bollettino. Restituisce (sigla_provincia, righe). Un bollettino riguarda una sola provincia:
-    la sigla è quella più frequente tra i codici delle scuole."""
+    la sigla è quella più frequente tra i codici delle scuole.
+    Ordine: testo del PDF (due modi di lettura x tre lettori di righe); se non basta le tabelle (pdfplumber, solo per
+    PDF di dimensioni ragionevoli); se il PDF è una scansione, il riconoscimento dei caratteri (OCR)."""
     if str(path).lower().endswith((".xlsx", ".xlsm")):
         return read_xlsx(path)
     best_rows, best_text = [], ""
+    texts = []
     for raw in (False, True):
         text = pdf_text(path, raw).replace("\x00", "")
-        rows = parse_rows(text)
-        if len(rows) > len(best_rows):
-            best_rows, best_text = rows, text
+        texts.append(text)
+        for parser in (parse_rows, parse_rows_loose):
+            rows = parser(text)
+            if len(rows) > len(best_rows):
+                best_rows, best_text = rows, text
+    pages = pdf_pages(path)
+    if pages <= 120 or (not best_rows and pages <= 300):      # i PDF enormi si provano con le tabelle solo se il testo non basta
+        t_rows, t_schools = parse_tables(path)
+        if len(t_rows) > len(best_rows):
+            best_rows = t_rows
+            best_text = ""
+            siglas = [m.group(1) for c in t_schools for m in [SCHOOL_RE.search(c)] if m and m.group(1) in SIGLE]
+            if siglas:
+                return max(set(siglas), key=siglas.count), best_rows
+    if not best_rows and sum(len(t.strip()) for t in texts) < 40 * max(pages, 1):     # quasi senza testo: scansione
+        ocr = ocr_text(path)
+        for parser in (parse_rows, parse_rows_loose):
+            rows = parser(ocr)
+            if len(rows) > len(best_rows):
+                best_rows, best_text = rows, ocr
+    if not best_rows:
+        read_pdf.last_shape = text_shape(texts[0] or texts[1])
     siglas = _school_siglas(best_text)
-    t_rows, t_schools = parse_tables(path)
-    if len(t_rows) > len(best_rows):
-        best_rows = t_rows
-        siglas = [m.group(1) for c in t_schools for m in [SCHOOL_RE.search(c)] if m and m.group(1) in SIGLE] or siglas
     sigla = max(set(siglas), key=siglas.count) if siglas else None
     return sigla, best_rows
+
+
+read_pdf.last_shape = ""
 
 
 def _slug(text):

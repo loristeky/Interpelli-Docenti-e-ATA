@@ -22,7 +22,7 @@ from unittest.mock import MagicMock
 
 ROOT = Path(__file__).resolve().parents[1]
 KEEP_DAYS = 60            # quanto indietro tenere gli avvisi
-MAX_ROWS = 2500
+MAX_ROWS = 8000
 RECHECK = 60              # avvisi senza scadenza da rileggere per giro
 
 
@@ -35,23 +35,32 @@ def load_app():
     return module
 
 
-def read_prev(path):
+def read_prev(path, tried_path=None):
+    rows, tried = [], set()
     try:
         data = json.loads(Path(path).read_text(encoding="utf-8"))
         rows = [r for r in data.get("righe", []) if isinstance(r, list) and len(r) == 11]
-        return rows, set(data.get("provati", []))
+        tried = set(data.get("provati", []))                  # vecchio formato: ancora dentro l'elenco
     except (OSError, ValueError, AttributeError):
-        return [], set()
+        pass
+    if tried_path:
+        try:
+            tried |= set(json.loads(Path(tried_path).read_text(encoding="utf-8")))
+        except (OSError, ValueError, TypeError):
+            pass
+    return rows, tried
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--prec", default="prec.json")
     ap.add_argument("--out", default="interpelli.json")
+    ap.add_argument("--prec-provati", default=None)
+    ap.add_argument("--out-provati", default=None, help="dove scrivere l'elenco degli avvisi già provati (l'app non lo scarica)")
     args = ap.parse_args(argv)
 
     app = load_app()
-    rows, tried = read_prev(args.prec)
+    rows, tried = read_prev(args.prec, args.prec_provati)
     by_url = {r[1]: r for r in rows}
     known = set(by_url)
 
@@ -97,9 +106,17 @@ def main(argv=None):
     keep.sort(key=lambda r: r[5] or "", reverse=True)
     keep = keep[:MAX_ROWS]
     alive = {r[1] for r in keep}
-    out = {"aggiornato": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"), "righe": keep,
-           "provati": sorted(tried & alive)[-3000:]}
+    proved = sorted(tried & alive)[-3000:]
+    out = {"aggiornato": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"), "righe": keep}
+    if args.out_provati:                      # file a parte: l'app scarica solo l'elenco, non questo
+        Path(args.out_provati).write_text(json.dumps(proved, separators=(",", ":")), encoding="utf-8")
+    else:
+        out["provati"] = proved
     Path(args.out).write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    week = (date.today() - timedelta(days=7)).isoformat()
+    recent = {"aggiornato": out["aggiornato"], "righe": [r for r in keep if (r[5] or "") >= week]}
+    Path(args.out).with_name("recenti.json").write_text(json.dumps(recent, ensure_ascii=False, separators=(",", ":")),
+                                                        encoding="utf-8")
     print(f"Scritti {len(keep)} avvisi in {args.out}")
     return 0
 

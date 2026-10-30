@@ -29,6 +29,28 @@ def default_year(today=None):
     return f"{y}/{(y + 1) % 100:02d}"
 
 
+PROBLEMI = os.path.join(os.path.dirname(os.path.abspath(__file__)), "bollettini_problemi.json")
+
+
+def write_problems(problems, done=None):
+    """Elenco (solo nomi dei file, mai contenuti) dei bollettini che non si sono potuti leggere con questa versione
+    del lettore: il downloader li riscarica quando il lettore migliora (PARSER_VERSION)."""
+    old = {}
+    try:
+        with open(PROBLEMI, encoding="utf-8") as f:
+            old = json.load(f)
+    except (OSError, ValueError):
+        pass
+    keep = {x["file"]: x for x in old.get("file", []) if isinstance(x, dict) and "file" in x}
+    for x in problems:
+        keep[x["file"]] = x
+    for f in done or []:
+        keep.pop(os.path.basename(f), None)
+    data = {"versione": bollettini.PARSER_VERSION, "file": sorted(keep.values(), key=lambda x: x["file"])}
+    with open(PROBLEMI, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=1)
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("pdf", nargs="*", help="uno o più bollettini di nomina (PDF)")
@@ -54,11 +76,13 @@ def main(argv=None):
     dates = []
     failed = 0
     processed = []
+    problems = []
     for path in paths:
         try:
             sigla, rows = bollettini.read_pdf(path)
         except Exception:
             print(f"ATTENZIONE {os.path.basename(path)}: file non leggibile: file saltato", file=sys.stderr)
+            problems.append({"file": os.path.basename(path), "motivo": "file non leggibile"})
             failed += 1
             continue
         sigla = (args.provincia or sigla or bollettini.sigla_from_name(path) or "").upper()
@@ -66,6 +90,12 @@ def main(argv=None):
             print(f"ATTENZIONE {os.path.basename(path)}: "
                   + ("provincia non riconosciuta (usa --provincia)" if rows else "nessuna riga GPS trovata")
                   + ": file saltato", file=sys.stderr)
+            problems.append({"file": os.path.basename(path),
+                             "motivo": "provincia non riconosciuta" if rows else "nessuna riga GPS trovata"})
+            shape = getattr(bollettini.read_pdf, "last_shape", "")
+            if shape and not rows:
+                print("  Com'è fatto il file (parole sostituite da «x», nessun nome):\n    "
+                      + shape.replace("\n", "\n    "), file=sys.stderr)
             failed += 1
             continue
         processed.append(path)
@@ -74,6 +104,7 @@ def main(argv=None):
         dates.append(bollettini.pdf_date(path))
         print(f"{os.path.basename(path)}: {bollettini.SIGLE[sigla][0]}, bollettino {turno}, {len(rows)} nomine GPS")
 
+    write_problems(problems, processed)
     if not rows_by_sigla:
         return 1
     provinces = bollettini.aggregate(rows_by_sigla)

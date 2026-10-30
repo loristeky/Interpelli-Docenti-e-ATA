@@ -27,7 +27,9 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[2]
 VISTI = Path(__file__).with_name("bollettini_visti.json")
 EXTRA = Path(__file__).with_name("pagine_bollettini.json")
-MAX_BYTES = 60_000_000
+MAX_BYTES = 250_000_000         # i bollettini di Milano, Napoli, Catania... pesano molto
+MAX_SECONDS = 600
+PROBLEMI = Path(__file__).with_name("bollettini_problemi.json")
 DOC_RE = re.compile(r"\.(pdf|xlsx|xlsm)(?:$|[?#])", re.I)
 # Un avviso è un bollettino GPS solo se dice «bollettino» o «nomine (a tempo determinato / da GPS)».
 TITLE_RE = re.compile(r"bollettin\w*|\bnomin[ae]\s+(?:a\s+tempo\s+determinato|da\s+gps|gps|supplenz\w*)|\bnomine\s+gps\b", re.I)
@@ -199,6 +201,8 @@ def sembra_bollettino_gps(path):
 
 
 def download(url, dest):
+    """Scarica a blocchi direttamente su disco (niente file enormi in memoria). Restituisce None o il motivo dell'errore."""
+    import time
     req = Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; InterpelliScuola/1.0)"})
     for ctx in (ssl.create_default_context(), None):
         try:
@@ -206,19 +210,54 @@ def download(url, dest):
                 ctx = ssl.create_default_context()
                 ctx.check_hostname = False
                 ctx.verify_mode = ssl.CERT_NONE
-            with urlopen(req, timeout=60, context=ctx) as resp:
-                data = resp.read(MAX_BYTES + 1)
-            if len(data) > MAX_BYTES:
-                return "file troppo grande"
-            if not (data[:4] == b"%PDF" or data[:2] == b"PK"):
+            total, start, head = 0, time.time(), b""
+            with urlopen(req, timeout=60, context=ctx) as resp, open(dest, "wb") as out:
+                while True:
+                    chunk = resp.read(1 << 20)
+                    if not chunk:
+                        break
+                    if not head:
+                        head = chunk[:4]
+                    total += len(chunk)
+                    if total > MAX_BYTES:
+                        Path(dest).unlink(missing_ok=True)
+                        return f"file troppo grande (oltre {MAX_BYTES // 1_000_000} MB)"
+                    if time.time() - start > MAX_SECONDS:
+                        Path(dest).unlink(missing_ok=True)
+                        return "scaricamento troppo lento"
+                    out.write(chunk)
+            if not (head == b"%PDF" or head[:2] == b"PK"):
+                Path(dest).unlink(missing_ok=True)
                 return "non è un PDF o un Excel"
-            Path(dest).write_bytes(data)
             return None
         except ssl.SSLError:
             continue
         except Exception as ex:                   # rete, 404...
+            Path(dest).unlink(missing_ok=True)
             return str(ex)[:80]
     return "errore di certificato"
+
+
+def queue_retries(seen, origine):
+    """I bollettini che il lettore non sapeva leggere si riprovano quando il lettore migliora (PARSER_VERSION).
+    Restituisce {url_allegato: nome_file} da riscaricare con lo stesso nome (e quindi lo stesso turno)."""
+    sys.path.insert(0, str(Path(__file__).parent))
+    import bollettini
+    data = read_json(PROBLEMI, {})
+    if data.get("versione") == bollettini.PARSER_VERSION:
+        return {}
+    forced = {}
+    for x in data.get("file", []):
+        link_doc = origine.get(x.get("file"))
+        if link_doc:
+            link, doc = link_doc
+            seen.discard(link)
+            seen.discard(doc)
+            forced[doc] = x["file"]
+    PROBLEMI.write_text(json.dumps({"versione": bollettini.PARSER_VERSION, "file": []}, indent=1), encoding="utf-8")
+    if forced:
+        print(f"Lettore migliorato: riprovo {len(forced)} bollettini che prima non si leggevano")
+    return forced
 
 
 def main(argv=None):
@@ -232,6 +271,8 @@ def main(argv=None):
     visti = read_json(VISTI, {"urls": [], "turni": {}})
     seen = set(visti.get("urls", []))
     counters = dict(visti.get("turni", {}))
+    origine = dict(visti.get("origine", {}))
+    forced = queue_retries(seen, origine)
     sources = [(name, url) for srcs in app.SOURCES.values() for name, url, *_ in srcs]
     sources += [(x["nome"], x["url"]) for x in read_json(EXTRA, []) if isinstance(x, dict) and x.get("url")
                 and x.get("tipo") != "elenco"]
@@ -296,6 +337,18 @@ def main(argv=None):
             if doc in seen:
                 continue
             turno = turn_of(title, None)
+            if doc in forced:
+                dest, ext = out / forced[doc], os.path.splitext(forced[doc])[1]
+                if args.prova:
+                    print(f"[prova] riprovo {dest.name} ({doc})")
+                    continue
+                err = download(doc, dest)
+                seen.add(doc)
+                print(f"[ok] riprovato {dest.name}" if not err else f"[!] {name}: {doc}: {err}")
+                got += 0 if err else 1
+                if not err:
+                    origine[dest.name] = [link, doc]
+                continue
             if turno is None:                 # senza numero nel titolo: è il bollettino successivo di quell'ufficio
                 counters[key] = counters.get(key, 0) + 1
                 turno = str(counters[key])
@@ -318,12 +371,14 @@ def main(argv=None):
             if err:
                 print(f"[!] {name}: {doc}: {err}")
             else:
+                origine[dest.name] = [link, doc]
                 got += 1
                 print(f"[ok] {name}: {title[:70]} -> {dest.name}")
         seen.add(link)
 
     if not args.prova:
-        visti = {"urls": sorted(seen)[-8000:], "turni": counters}
+        keep_o = dict(list(origine.items())[-600:])
+        visti = {"urls": sorted(seen)[-8000:], "turni": counters, "origine": keep_o}
         VISTI.write_text(json.dumps(visti, ensure_ascii=False, indent=0), encoding="utf-8")
     print(f"Scaricati {got} file.")
     return 0

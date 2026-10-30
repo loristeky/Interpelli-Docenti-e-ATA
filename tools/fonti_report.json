@@ -1,0 +1,600 @@
+[
+ {
+  "regione": "Abruzzo",
+  "nome": "USP Chieti e Pescara",
+  "url": "https://www.istruzionechietipescara.it/category/interpelli-provinciali/feed/",
+  "stato": "ok",
+  "avvisi": 10,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Abruzzo",
+  "nome": "USP Teramo",
+  "url": "https://www.csateramo.it/wpusp/interpelli",
+  "stato": "ok",
+  "avvisi": 33,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Abruzzo",
+  "nome": "USP L'Aquila",
+  "url": "https://lnx.csalaquila.it/wp/category/interpelli/feed/",
+  "stato": "ok",
+  "avvisi": 12,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Basilicata",
+  "nome": "USP Matera",
+  "url": "https://www.istruzionematera.it/category/interpelli/feed/",
+  "stato": "ok",
+  "avvisi": 10,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Calabria",
+  "nome": "USP Reggio Calabria",
+  "url": "https://www.istruzioneatprc.it/category/recl/int/feed/",
+  "stato": "ok",
+  "avvisi": 10,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Calabria",
+  "nome": "USP Catanzaro",
+  "url": "https://www.istruzione.calabria.it/catanzaro/category/nca/feed/",
+  "stato": "ok",
+  "avvisi": 12,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Calabria",
+  "nome": "USP Cosenza",
+  "url": "https://www.istruzione.calabria.it/cosenza/category/interdoc/feed/",
+  "stato": "ok",
+  "avvisi": 10,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Campania",
+  "nome": "USP Caserta",
+  "url": "https://www.uat-caserta.it/category/segnalazioni-dalle-scuole/feed/",
+  "stato": "ok",
+  "avvisi": 1,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Campania",
+  "nome": "USP Salerno",
+  "url": "https://uat-salerno.it/Documenti/CIRCOLARI/Interpelli-per-reclutamento-personale-docente",
+  "stato": "irraggiungibile",
+  "avvisi": 0,
+  "dettaglio": "",
+  "proposte": []
+ },
+ {
+  "regione": "Campania",
+  "nome": "USP Napoli",
+  "url": "https://www.uat-napoli.it/tag/interpelli-personale-docente/feed/",
+  "stato": "ok",
+  "avvisi": 12,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Emilia-Romagna",
+  "nome": "USP Bologna",
+  "url": "https://bo.istruzioneer.gov.it/category/docenti/feed/",
+  "stato": "ok",
+  "avvisi": 5,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Emilia-Romagna",
+  "nome": "USP Ferrara",
+  "url": "https://fe.istruzioneer.gov.it/category/interpelli_docenti/",
+  "stato": "ok",
+  "avvisi": 10,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Emilia-Romagna",
+  "nome": "USP Modena",
+  "url": "https://mo.istruzioneer.gov.it/category/interpelli-personale-docente-2026-27/",
+  "stato": "ok",
+  "avvisi": 10,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Emilia-Romagna",
+  "nome": "USP Parma",
+  "url": "https://pr.istruzioneer.gov.it/interpelli-docenti/",
+  "stato": "ok",
+  "avvisi": 2,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Emilia-Romagna",
+  "nome": "USP Reggio Emilia",
+  "url": "https://re.istruzioneer.gov.it/category/docenti/feed/",
+  "stato": "ok",
+  "avvisi": 1,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Emilia-Romagna",
+  "nome": "USP Forlì Cesena",
+  "url": "https://fc.istruzioneer.gov.it/category/interpelli-a-s-2026-27/",
+  "stato": "ok",
+  "avvisi": 10,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Emilia-Romagna",
+  "nome": "USP Piacenza",
+  "url": "https://pc.istruzioneer.gov.it/interpelli/",
+  "stato": "ok",
+  "avvisi": 83,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Emilia-Romagna",
+  "nome": "USP Ravenna",
+  "url": "https://ra.istruzioneer.gov.it/conferimento-supplenze-per-esaurimento-graduatorie-di-istituto/",
+  "stato": "ok",
+  "avvisi": 1,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Emilia-Romagna",
+  "nome": "USP Rimini",
+  "url": "https://rn.istruzioneer.gov.it/category/personale-docente/interpelli-docenti-2026-2027/",
+  "stato": "ok",
+  "avvisi": 1,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Lazio",
+  "nome": "USP Frosinone",
+  "url": "https://www.uspistruzione.fr.it/wp2/tag/interpello-nazionale/",
+  "stato": "ok",
+  "avvisi": 13,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Lazio",
+  "nome": "USP Latina",
+  "url": "https://www.csalatina.it/interpelli/",
+  "stato": "ok",
+  "avvisi": 75,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Lazio",
+  "nome": "USP Roma",
+  "url": "https://www.atpromaistruzione.it/atp/category/reclutamento/interpelli-personale-docente/feed/",
+  "stato": "ok",
+  "avvisi": 10,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Lazio",
+  "nome": "USP Viterbo",
+  "url": "http://www.provveditoratostudiviterbo.it/DOCENTI/interpelli/INTERPELLIDOC.htm",
+  "stato": "ok",
+  "avvisi": 165,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Liguria",
+  "nome": "USP Genova",
+  "url": "https://servizi.istruzioneliguria.gov.it/provincia.php?p=GE",
+  "stato": "ok",
+  "avvisi": 96,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Liguria",
+  "nome": "USP La Spezia",
+  "url": "https://servizi.istruzioneliguria.gov.it/provincia.php?p=SP",
+  "stato": "ok",
+  "avvisi": 25,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Liguria",
+  "nome": "USP Imperia",
+  "url": "https://servizi.istruzioneliguria.gov.it/provincia.php?p=IM",
+  "stato": "ok",
+  "avvisi": 14,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Liguria",
+  "nome": "USP Savona",
+  "url": "https://servizi.istruzioneliguria.gov.it/provincia.php?p=SV",
+  "stato": "ok",
+  "avvisi": 28,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Lombardia",
+  "nome": "USP Milano",
+  "url": "https://www.mim.gov.it/web/milano/interpelli-ricerca-supplenti",
+  "stato": "ok",
+  "avvisi": 1,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Lombardia",
+  "nome": "USP Brescia",
+  "url": "https://www.mim.gov.it/web/brescia/interpelli-ricerca-supplenti/",
+  "stato": "ok",
+  "avvisi": 200,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Lombardia",
+  "nome": "USP Bergamo",
+  "url": "https://www.mim.gov.it/web/bergamo/interpelli-ricerca-supplenti/",
+  "stato": "ok",
+  "avvisi": 1,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Lombardia",
+  "nome": "USP Como",
+  "url": "https://www.mim.gov.it/web/como/interpelli-ricerca-supplenti/",
+  "stato": "ok",
+  "avvisi": 200,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Lombardia",
+  "nome": "USP Cremona",
+  "url": "https://www.mim.gov.it/web/cremona/interpelli-ricerca-supplenti",
+  "stato": "ok",
+  "avvisi": 201,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Lombardia",
+  "nome": "USP Lecco",
+  "url": "https://www.mim.gov.it/web/lecco/interpelli-ricerca-supplenti",
+  "stato": "ok",
+  "avvisi": 181,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Lombardia",
+  "nome": "USP Lodi",
+  "url": "https://www.mim.gov.it/web/lodi/interpelli-ricerca-supplenti",
+  "stato": "ok",
+  "avvisi": 1,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Lombardia",
+  "nome": "USP Mantova",
+  "url": "https://www.mim.gov.it/web/mantova/interpelli-ricerca-supplenti",
+  "stato": "ok",
+  "avvisi": 3,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Lombardia",
+  "nome": "USP Monza brianza",
+  "url": "https://www.mim.gov.it/web/monza-brianza/interpelli-ricerca-supplenti",
+  "stato": "ok",
+  "avvisi": 200,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Lombardia",
+  "nome": "USP Pavia",
+  "url": "https://www.mim.gov.it/web/pavia/interpelli-ricerca-supplenti",
+  "stato": "ok",
+  "avvisi": 59,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Lombardia",
+  "nome": "USP Sondrio",
+  "url": "https://www.mim.gov.it/web/sondrio/interpelli-ricerca-supplenti",
+  "stato": "ok",
+  "avvisi": 200,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Lombardia",
+  "nome": "USP Varese",
+  "url": "https://www.mim.gov.it/web/varese/interpelli-ricerca-supplenti",
+  "stato": "ok",
+  "avvisi": 198,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Marche",
+  "nome": "USP Ancona",
+  "url": "https://www.istruzione-ancona.it/category/docenti/feed/",
+  "stato": "ok",
+  "avvisi": 10,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Marche",
+  "nome": "USP Pesaro Urbino",
+  "url": "http://www.usppesarourbino.it/category/interpelli/feed/",
+  "stato": "ok",
+  "avvisi": 6,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Molise",
+  "nome": "USP Campobasso",
+  "url": "https://www.mim.gov.it/web/campobasso/interpelli",
+  "stato": "ok",
+  "avvisi": 3,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Piemonte",
+  "nome": "USP Torino",
+  "url": "https://www.istruzionepiemonte.it/torino/interpelli-supplenze/",
+  "stato": "ok",
+  "avvisi": 9,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Piemonte",
+  "nome": "USP Cuneo",
+  "url": "https://www.istruzionepiemonte.it/cuneo/interpelli-supplenze-personale-docente/",
+  "stato": "ok",
+  "avvisi": 9,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Piemonte",
+  "nome": "USP Novara",
+  "url": "https://www.istruzionepiemonte.it/novara/interpelli-supplenze/",
+  "stato": "ok",
+  "avvisi": 10,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Puglia",
+  "nome": "USP Bari",
+  "url": "https://www.uspbari.it/usp/category/interpelli-della-provincia-di-bari",
+  "stato": "ok",
+  "avvisi": 42,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Puglia",
+  "nome": "USP Foggia",
+  "url": "https://www.ustfoggia.it/feed/",
+  "stato": "ok",
+  "avvisi": 10,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Puglia",
+  "nome": "USP Lecce",
+  "url": "https://www.usplecce.it/category/interpelli/feed/",
+  "stato": "ok",
+  "avvisi": 9,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Puglia",
+  "nome": "USP Taranto",
+  "url": "https://www.usptaranto.it/category/in-evidenza/",
+  "stato": "ok",
+  "avvisi": 17,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Sardegna",
+  "nome": "USP Sassari",
+  "url": "https://www.uspss.it/wordpress/nomine-a-t-d-usp-nazionali",
+  "stato": "ok",
+  "avvisi": 374,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Sicilia",
+  "nome": "USP Agrigento",
+  "url": "https://ag.usr.sicilia.it/category/personale-scuola/personale-docente/interpelli/",
+  "stato": "ok",
+  "avvisi": 1,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Sicilia",
+  "nome": "USP Caltanissetta-Enna",
+  "url": "https://cl-en.usr.sicilia.it/category/personale-scuola/personale-docente/",
+  "stato": "ok",
+  "avvisi": 3,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Sicilia",
+  "nome": "USP Catania",
+  "url": "https://ct.usr.sicilia.it/category/interpelli/feed/",
+  "stato": "ok",
+  "avvisi": 9,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Sicilia",
+  "nome": "USP Palermo",
+  "url": "https://pa.usr.sicilia.it/category/interpelli/feed/",
+  "stato": "vuota",
+  "avvisi": 0,
+  "dettaglio": "",
+  "proposte": [
+   [
+    "https://pa.usr.sicilia.it/personale-scuola/personale-docente/concorsi-docenti/",
+    "Concorsi docenti"
+   ],
+   [
+    "https://pa.usr.sicilia.it/personale-scuola/personale-docente/diritto-allo-studio-docenti/",
+    "Diritto allo studio docenti"
+   ],
+   [
+    "https://pa.usr.sicilia.it/personale-scuola/personale-docente/formazione-docenti/",
+    "Formazione docenti"
+   ],
+   [
+    "https://pa.usr.sicilia.it/personale-scuola/personale-docente/mobilita-docenti/",
+    "Mobilità docenti"
+   ],
+   [
+    "https://pa.usr.sicilia.it/personale-scuola/personale-docente/organici-docenti/",
+    "Organici docenti"
+   ],
+   [
+    "https://pa.usr.sicilia.it/personale-scuola/personale-docente/part-time-docenti/",
+    "Part-time docenti"
+   ]
+  ]
+ },
+ {
+  "regione": "Sicilia",
+  "nome": "USP Siracusa",
+  "url": "https://sr.usr.sicilia.it/tag/interpelli/",
+  "stato": "ok",
+  "avvisi": 1,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Sicilia",
+  "nome": "USP Trapani",
+  "url": "https://tp.usr.sicilia.it/personale-scuola/interpelli/",
+  "stato": "ok",
+  "avvisi": 10,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Sicilia",
+  "nome": "USP Messina",
+  "url": "https://me.usr.sicilia.it/personale-scuola/interpelli/",
+  "stato": "ok",
+  "avvisi": 15,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Toscana",
+  "nome": "USP Firenze",
+  "url": "https://www.ust.fi.it/",
+  "stato": "ok",
+  "avvisi": 2,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Toscana",
+  "nome": "USP Lucca",
+  "url": "https://www.ustlucca.it/feed/",
+  "stato": "ok",
+  "avvisi": 10,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Toscana",
+  "nome": "USP Pisa",
+  "url": "https://www.usp-pi.it/category/interpelli/",
+  "stato": "ok",
+  "avvisi": 10,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Trentino-Alto Adige",
+  "nome": "USP Trento",
+  "url": "https://www.vivoscuola.it/feed/",
+  "stato": "irraggiungibile",
+  "avvisi": 0,
+  "dettaglio": "",
+  "proposte": [
+   [
+    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti",
+    "Docenti"
+   ],
+   [
+    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Educatori+nidi+d%27infanzia",
+    "Educatori nidi d'infanzia"
+   ],
+   [
+    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Insegnanti+scuola+infanzia",
+    "Insegnanti scuola infanzia"
+   ],
+   [
+    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Docenti+scuola+primaria",
+    "Docenti scuola primaria"
+   ],
+   [
+    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Docenti+scuola+secondaria+di+primo+grado",
+    "Docenti scuola secondaria di primo grado"
+   ],
+   [
+    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Docenti+scuola+secondaria+di+secondo+grado",
+    "Docenti scuola secondaria di secondo grado"
+   ]
+  ]
+ },
+ {
+  "regione": "Umbria",
+  "nome": "USP Perugia",
+  "url": "https://istruzione.umbria.it/interpelli/interpelli-aperti/",
+  "stato": "ok",
+  "avvisi": 1,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Valle d'Aosta",
+  "nome": "USP Aosta",
+  "url": "https://scuole.vda.it/interpelli",
+  "stato": "irraggiungibile",
+  "avvisi": 0,
+  "dettaglio": "",
+  "proposte": []
+ },
+ {
+  "regione": "Veneto",
+  "nome": "USP Padova",
+  "url": "https://padova.istruzioneveneto.gov.it/category/interpelli-personale-docente/",
+  "stato": "ok",
+  "avvisi": 34,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Veneto",
+  "nome": "USP Treviso",
+  "url": "https://treviso.istruzioneveneto.gov.it/tag/interpelli-istituti-scolastici/",
+  "stato": "ok",
+  "avvisi": 1,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Veneto",
+  "nome": "USP Venezia",
+  "url": "https://venezia.istruzioneveneto.gov.it/interpelli-supplenze/",
+  "stato": "ok",
+  "avvisi": 9,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Veneto",
+  "nome": "USP Verona",
+  "url": "https://verona.istruzioneveneto.gov.it/index.php/interpelli-2026-2027/",
+  "stato": "ok",
+  "avvisi": 2,
+  "dettaglio": ""
+ },
+ {
+  "regione": "Veneto",
+  "nome": "USP Rovigo",
+  "url": "https://rovigo.istruzioneveneto.gov.it/category/5-interpelli/docenti-rovigo/",
+  "stato": "ok",
+  "avvisi": 10,
+  "dettaglio": ""
+ }
+]
