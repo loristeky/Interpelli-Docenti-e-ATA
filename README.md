@@ -2,17 +2,20 @@
 
 **Interpelli Docenti e ATA** è l'applicazione mobile definitiva pensata per semplificare la ricerca di supplenze in tutta Italia, eliminando lo stress di dover controllare decine di siti web scolastici ogni singolo giorno.
 
-L'app centralizza e aggiorna in tempo reale gli interpelli pubblicati dagli istituti scolastici italiani, offrendo un servizio di ricerca avanzato, veloce e mirato per docenti e personale ATA.
+Supplenze scolastiche in tutta Italia, in un solo tocco.
 
----
+L'app monitora e aggrega quotidianamente gli interpelli di tutti gli Uffici Scolastici d'Italia in un feed unico, chiaro e filtrabile con scadenza, classe di concorso e istituto.
 
-## 🚀 Funzionalità Principali
+🚀 Caratteristiche principali
+Feed Nazionale Interpelli: Elenco completo degli interpelli d'Italia, personalizzabile e filtrabile per regione, ordine di scuola, classe di concorso e stato dell'avviso.
 
-* **🔔 Aggiornamenti in Tempo Reale:** Notifiche istantanee non appena viene pubblicato un nuovo interpello compatibile con il tuo profilo.
-* **🔍 Filtri Avanzati per la Ricerca:** Seleziona la tua regione, provincia, classe di concorso o profilo ATA di interesse per visualizzare solo le offerte pertinenti.
-* **🗺️ Mappa e Dettagli degli Istituti:** Visualizza rapidamente la scuola, la scadenza per la presentazione delle domande e i link diretti agli avvisi ufficiali.
-* **📂 Gestione Candidature:** Salva gli interpelli preferiti, tieni traccia delle domande inviate e organizza la tua ricerca del lavoro in modo impeccabile.
-* **✨ Interfaccia Intuitiva:** Un design pulito e moderno progettato per farti trovare ciò di cui hai bisogno in pochi secondi.
+Sezione «Per te»: Notifiche e vista dedicata con i soli interpelli pertinenti alle tue classi di concorso.
+
+Algoritmo «Dove fare le GPS»: Stima predittiva basata sullo storico dei bollettini di nomina per identificare le province dove il tuo punteggio offre le maggiori probabilità di convocazione.
+
+Calcolatore Punteggio: Calcolo accurato dei titoli e dei servizi, aggiornato con i criteri dell'abilitazione/percorso 60 CFU.
+
+Analytics e Strumenti Advanced: Radar delle opportunità, archivio storico dei trend per scuola/provincia e salvataggio dei preferiti.
 
 ---
 
@@ -40,6 +43,4 @@ Hai riscontrato un bug o vorresti suggerire una nuova funzionalità?
 
 ---
 
-## 📄 Licenza
 
-Distribuito sotto licenza [MIT](LICENSE).
