@@ -886,6 +886,10 @@ def log_source(name, ok=None, found=0, new=0, err=""):
 # Ricerca «in profondità»: oltre alle pagine degli interpelli si guarda anche il resto del sito di ogni ufficio
 # (home, feed delle notizie, comunicazioni, avvisi) e si tengono solo gli avvisi che parlano di interpelli.
 INTERPELLO_RE = re.compile(r"interpell\w*|\binterp\b\.?|ricerca\s+(?:di\s+)?supplent\w*|\bmad\b\s+urgent\w*", re.I)
+GENERAL_FEED_RE = re.compile(
+    INTERPELLO_RE.pattern + r"|disponibilit\w*[^.]{0,80}(?:supplenz\w*|cattedr\w*|\bposti?\b|\bore\b)|"
+    r"(?:supplenz\w*|convocazion\w*)[^.]{0,60}(?:da\s+gps|graduatori\w*|docent\w*|classe\s+di\s+concorso)|"
+    r"\bmad\b|messa\s+a\s+disposizione", re.I)
 DEEP_PATHS = ("", "feed/", "category/notizie/", "category/comunicazioni/", "category/avvisi/")
 MULTI_UFFICIO = ("istruzionepiemonte.it", "toscana.istruzione.it", "toscana-istruzione.it", "mim.gov.it")
 
@@ -1180,6 +1184,10 @@ def parse_source_page(region, source_name, url, known, deep=False):
 
     if deep:
         items = [it for it in items if INTERPELLO_RE.search(it[0])]
+    elif source_name not in DIGEST_SOURCES and "interpell" not in url.lower():
+        # Fonte «generica» (feed o home di tutto il sito, es. USP Foggia): pubblica anche circolari, concorsi, mobilità...
+        # Si tengono solo gli avvisi che parlano di interpelli o di disponibilità di supplenze.
+        items = [it for it in items if GENERAL_FEED_RE.search(it[0])]
     results = []
     seen_links = set()
     for title, link, pub_date in items:
