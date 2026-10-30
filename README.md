@@ -17,6 +17,12 @@ Calcolatore Punteggio: Calcolo accurato dei titoli e dei servizi, aggiornato con
 
 Analytics e Strumenti Advanced: Radar delle opportunità, archivio storico dei trend per scuola/provincia e salvataggio dei preferiti.
 
+Privacy: nessun account e nessuna pubblicità. Classi e preferenze restano sul telefono. Informativa.
+
+Avvertenza: le stime GPS sono indicative e fanno fede gli Uffici Scolastici. L’app non è collegata al Ministero dell’Istruzione e del Merito.
+
+Realizzata in Python con Flet.
+
 ---
 
 ## 📱 Scarica e Installa (APK)
