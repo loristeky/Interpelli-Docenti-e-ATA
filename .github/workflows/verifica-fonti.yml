@@ -1,0 +1,37 @@
+name: Verifica fonti
+
+# Controlla tutte le fonti degli interpelli: quali funzionano, quali no, e per quelle che non vanno propone la pagina
+# giusta. Scrive tools/fonti_report.md (aprilo da GitHub per leggerlo). Parte da solo ogni lunedì e quando vuoi tu
+# (Actions -> Verifica fonti -> Run workflow).
+
+on:
+  schedule:
+    - cron: '20 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verifica:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Installa la lettura dei PDF
+        run: pip install pypdf
+
+      - name: Controlla le fonti
+        run: python tools/verifica_fonti.py --out tools/fonti_report.md
+      - name: Salva il rapporto
+        run: |
+          git add tools/fonti_report.md tools/fonti_report.json
+          if git diff --cached --quiet; then echo "Nessuna modifica"; exit 0; fi
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git commit -m "Rapporto sulle fonti"
+          git pull --rebase -q || true
+          git push
