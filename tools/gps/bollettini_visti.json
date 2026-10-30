@@ -1,1 +1,249 @@
-{"urls": [], "turni": {}}
+{
+"urls": [
+"https://pc.istruzioneer.gov.it/2026/10/27/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-12/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/BOLLETTINO-DEFINITIVO-12°-TURNO.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0007794.27-10-2026.pdf",
+"https://rovigo.istruzioneveneto.gov.it/2026/08/26/avviso-bollettino-conferme-sostegno/",
+"https://rovigo.istruzioneveneto.gov.it/wp-content/uploads/2026/08/Bollettino-conferme-sostegno.prot_.pdf",
+"https://treviso.istruzioneveneto.gov.it/argomenti/reclutamento/nomine-a-tempo-determinato/",
+"https://treviso.istruzioneveneto.gov.it/category/nomine-a-tempo-determinato/",
+"https://treviso.istruzioneveneto.gov.it/category/posti-disponibili-per-nomine-docenti-a-tempo-determinato/",
+"https://ustlucca.it/personale-docente-nomine-gps-a-tempo-determinato-turno-4-a-s-2026-27-del-08-10-2026/",
+"https://ustlucca.it/personale-docente-nomine-gps-a-tempo-determinato-turno-6-a-s-2026-27-del-23-10-2026/",
+"https://ustlucca.it/wp-content/uploads/2026/05/Codicecomportamento.pdf",
+"https://ustlucca.it/wp-content/uploads/2026/10/Bollettino-definitivo-T-6-del-23.10.2026.pdf",
+"https://ustlucca.it/wp-content/uploads/2026/10/Bollettino-definitivo-nomine-GPS-T4-del-08.10.26.pdf",
+"https://ustlucca.it/wp-content/uploads/2026/10/m_pi.AOOUSPLU.REGISTRO-UFFICIALEU.0003040.08-10-2026.pdf",
+"https://ustlucca.it/wp-content/uploads/2026/10/m_pi.AOOUSPLU.REGISTRO-UFFICIALEU.0003187.23-10-2026.pdf",
+"https://www.istruzione-ancona.it/continuita-sostegno-a-s-2026-2027_bollettino-nomine/",
+"https://www.istruzione-ancona.it/docenti-di-ogni-ordine-e-grado-nomine-a-tempo-determinato-a-s-2026-2027/",
+"https://www.istruzione-ancona.it/nomine-a-tempo-determinato-a-s-2026-2027-3/",
+"https://www.istruzione-ancona.it/nomine-a-tempo-determinato-a-s-2026-2027-5/",
+"https://www.istruzione-ancona.it/nomine-a-tempo-determinato-a-s-2026-2027/",
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-vii-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/Bollettino_TotaleNomine_Turno7-1.pdf",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/m_pi.AOOUSPCZ.REGISTRO-UFFICIALEU.0011510.30-10-2026.pdf",
+"https://www.istruzionechietipescara.it/2026/08/28/bollettino-n-1-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/2026/10/08/bollettino-n-5-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/2026/10/27/bollettino-n-6-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/category/nomine-a-tempo-determinato/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/CHIETI-BOLLETTINO-1.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/PESCARA-BOLLETTINO-1-ALLEGATO-B.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0027591.28-08-2026.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0027592.29-08-2026.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-A-CHIETI-Bollettino-Turno-N.5.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-A-CHIETI-Bollettino-Turno-N.6.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-B-PESCARA-BOLLETTINO-TURNO-N.-5.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-B-PESCARA-Bollettino-TURNO-N.-6.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/CHIETI-ReportDettDispScuola-5-Turno.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/CHIETI-ReportDettDispScuola-6-Turno.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0032981.08-10-2026.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0035347.27-10-2026.pdf",
+"https://www.istruzionematera.it/1-bollettino-nomine-a-tempo-determinato-a-s-2026-27/",
+"https://www.istruzionematera.it/wp-content/uploads/2026/09/1°-Bollettino-nomine-a-t.d.-a.s.-26_27.pdf",
+"https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-16-5/",
+"https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-17-5/",
+"https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-18-5/",
+"https://www.istruzionepiemonte.it/cuneo/tag/nomine-gps/",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/AVVISO-Nomine-GPS-FASE-16-1.pdf",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/AVVISO-Nomine-GPS-FASE-17.pdf",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/AVVISO-Nomine-GPS-FASE-18.pdf",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/Bollettino_TotaleNomine-FASE-17.xlsx",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/Bollettino_TotaleNomine.xlsx",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/Bollettino_TotaleNomineFASE16-1.xlsx",
+"https://www.istruzionepiemonte.it/novara/tag/nomine/",
+"https://www.uat-caserta.it/2026/09/21/secondo-bollettino-totale-delle-nomine-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/2026/10/01/avviso-di-convocazione-per-nomine-a-tempo-determinato-profili-aa-cs-oa/",
+"https://www.uat-caserta.it/2026/10/05/assegnazione-sedi-per-nomine-a-tempo-determinato-profili-aa_cs_-oa-a-s-2026-27/",
+"https://www.uat-caserta.it/2026/10/12/terzo-bollettino-totale-delle-nomine-generato-dal-sistema-informativo-del-ministero-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/2026/10/21/personale-a-t-a-avviso-di-convocazione-per-nomine-a-tempo-determinato-a-s-2026-27-profili-aa-cs/",
+"https://www.uat-caserta.it/2026/10/21/quarto-bollettino-totale-delle-nomine-generato-dal-sistema-informativo-del-ministero-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/09/Bollettino_TotaleNomine-20260921.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/09/ReportDettDispScuola-20260921.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/09/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0025393.21-09-2026.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/AA-modello.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/Bollettino_TotaleNomine-20261012.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/Bollettino_TotaleNomine-20261021.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/CS-modello.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/SEDE-ASSEGNATA-OA.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/SEDI-ASSEGNATE-AA.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/SEDI-ASSEGNATE-CS.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/SEDI-DISPONIBILI-AA-modello.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/SEDI-DISPONIBILI-OPERATORE-AZIENDA-AGRARIA-modello.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0026325.01-10-2026.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0026690.05-10-2026.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0027290.12-10-2026.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0028215.21-10-2026.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0028280.21-10-2026.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/reportDispComplessivo-20261012.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/reportDispComplessivo-20261021.pdf"
+],
+"turni": {
+"Catanzaro": 7,
+"Chieti e Pescara": 6,
+"Matera": 1,
+"Caserta": 19,
+"Piacenza": 12,
+"Cuneo": 6,
+"Lucca": 6,
+"Rovigo": 1
+},
+"origine": {
+"Catanzaro_bollettino-7.pdf": [
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-vii-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/Bollettino_TotaleNomine_Turno7-1.pdf"
+],
+"Catanzaro_bollettino-7_2.pdf": [
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-vii-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/m_pi.AOOUSPCZ.REGISTRO-UFFICIALEU.0011510.30-10-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-6.pdf": [
+"https://www.istruzionechietipescara.it/2026/10/27/bollettino-n-6-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0035347.27-10-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-6_2.pdf": [
+"https://www.istruzionechietipescara.it/2026/10/27/bollettino-n-6-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-A-CHIETI-Bollettino-Turno-N.6.pdf"
+],
+"Chieti_e_Pescara_bollettino-6_3.pdf": [
+"https://www.istruzionechietipescara.it/2026/10/27/bollettino-n-6-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-B-PESCARA-Bollettino-TURNO-N.-6.pdf"
+],
+"Chieti_e_Pescara_bollettino-5.pdf": [
+"https://www.istruzionechietipescara.it/2026/10/08/bollettino-n-5-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0032981.08-10-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-5_2.pdf": [
+"https://www.istruzionechietipescara.it/2026/10/08/bollettino-n-5-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-A-CHIETI-Bollettino-Turno-N.5.pdf"
+],
+"Chieti_e_Pescara_bollettino-5_3.pdf": [
+"https://www.istruzionechietipescara.it/2026/10/08/bollettino-n-5-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-B-PESCARA-BOLLETTINO-TURNO-N.-5.pdf"
+],
+"Chieti_e_Pescara_bollettino-1.pdf": [
+"https://www.istruzionechietipescara.it/2026/08/28/bollettino-n-1-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0027592.29-08-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-1_2.pdf": [
+"https://www.istruzionechietipescara.it/2026/08/28/bollettino-n-1-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0027591.28-08-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-1_3.pdf": [
+"https://www.istruzionechietipescara.it/2026/08/28/bollettino-n-1-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/CHIETI-BOLLETTINO-1.pdf"
+],
+"Chieti_e_Pescara_bollettino-1_4.pdf": [
+"https://www.istruzionechietipescara.it/2026/08/28/bollettino-n-1-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/PESCARA-BOLLETTINO-1-ALLEGATO-B.pdf"
+],
+"Caserta_bollettino-1.pdf": [
+"https://www.uat-caserta.it/2026/10/21/quarto-bollettino-totale-delle-nomine-generato-dal-sistema-informativo-del-ministero-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0028280.21-10-2026.pdf"
+],
+"Caserta_bollettino-2.pdf": [
+"https://www.uat-caserta.it/2026/10/21/quarto-bollettino-totale-delle-nomine-generato-dal-sistema-informativo-del-ministero-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/Bollettino_TotaleNomine-20261021.pdf"
+],
+"Caserta_bollettino-4.pdf": [
+"https://www.uat-caserta.it/2026/10/21/personale-a-t-a-avviso-di-convocazione-per-nomine-a-tempo-determinato-a-s-2026-27-profili-aa-cs/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0028215.21-10-2026.pdf"
+],
+"Caserta_bollettino-5.pdf": [
+"https://www.uat-caserta.it/2026/10/21/personale-a-t-a-avviso-di-convocazione-per-nomine-a-tempo-determinato-a-s-2026-27-profili-aa-cs/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/CS-modello.pdf"
+],
+"Caserta_bollettino-6.pdf": [
+"https://www.uat-caserta.it/2026/10/21/personale-a-t-a-avviso-di-convocazione-per-nomine-a-tempo-determinato-a-s-2026-27-profili-aa-cs/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/AA-modello.pdf"
+],
+"Caserta_bollettino-7.pdf": [
+"https://www.uat-caserta.it/2026/10/12/terzo-bollettino-totale-delle-nomine-generato-dal-sistema-informativo-del-ministero-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0027290.12-10-2026.pdf"
+],
+"Caserta_bollettino-8.pdf": [
+"https://www.uat-caserta.it/2026/10/12/terzo-bollettino-totale-delle-nomine-generato-dal-sistema-informativo-del-ministero-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/Bollettino_TotaleNomine-20261012.pdf"
+],
+"Caserta_bollettino-11.pdf": [
+"https://www.uat-caserta.it/2026/10/05/assegnazione-sedi-per-nomine-a-tempo-determinato-profili-aa_cs_-oa-a-s-2026-27/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/SEDI-ASSEGNATE-AA.pdf"
+],
+"Caserta_bollettino-13.pdf": [
+"https://www.uat-caserta.it/2026/10/05/assegnazione-sedi-per-nomine-a-tempo-determinato-profili-aa_cs_-oa-a-s-2026-27/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/SEDE-ASSEGNATA-OA.pdf"
+],
+"Caserta_bollettino-14.pdf": [
+"https://www.uat-caserta.it/2026/10/01/avviso-di-convocazione-per-nomine-a-tempo-determinato-profili-aa-cs-oa/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0026325.01-10-2026.pdf"
+],
+"Caserta_bollettino-15.pdf": [
+"https://www.uat-caserta.it/2026/10/01/avviso-di-convocazione-per-nomine-a-tempo-determinato-profili-aa-cs-oa/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/SEDI-DISPONIBILI-AA-modello.pdf"
+],
+"Caserta_bollettino-16.pdf": [
+"https://www.uat-caserta.it/2026/10/01/avviso-di-convocazione-per-nomine-a-tempo-determinato-profili-aa-cs-oa/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/SEDI-DISPONIBILI-OPERATORE-AZIENDA-AGRARIA-modello.pdf"
+],
+"Caserta_bollettino-17.pdf": [
+"https://www.uat-caserta.it/2026/09/21/secondo-bollettino-totale-delle-nomine-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/09/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0025393.21-09-2026.pdf"
+],
+"Caserta_bollettino-18.pdf": [
+"https://www.uat-caserta.it/2026/09/21/secondo-bollettino-totale-delle-nomine-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/09/Bollettino_TotaleNomine-20260921.pdf"
+],
+"Piacenza_bollettino-12.pdf": [
+"https://pc.istruzioneer.gov.it/2026/10/27/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-12/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0007794.27-10-2026.pdf"
+],
+"Cuneo_bollettino-1.pdf": [
+"https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-18-5/",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/AVVISO-Nomine-GPS-FASE-18.pdf"
+],
+"Cuneo_bollettino-2.xlsx": [
+"https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-18-5/",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/Bollettino_TotaleNomine.xlsx"
+],
+"Cuneo_bollettino-3.pdf": [
+"https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-17-5/",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/AVVISO-Nomine-GPS-FASE-17.pdf"
+],
+"Cuneo_bollettino-4.xlsx": [
+"https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-17-5/",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/Bollettino_TotaleNomine-FASE-17.xlsx"
+],
+"Cuneo_bollettino-5.pdf": [
+"https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-16-5/",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/AVVISO-Nomine-GPS-FASE-16-1.pdf"
+],
+"Cuneo_bollettino-6.xlsx": [
+"https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-16-5/",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/Bollettino_TotaleNomineFASE16-1.xlsx"
+],
+"Lucca_bollettino-6.pdf": [
+"https://ustlucca.it/personale-docente-nomine-gps-a-tempo-determinato-turno-6-a-s-2026-27-del-23-10-2026/",
+"https://ustlucca.it/wp-content/uploads/2026/05/Codicecomportamento.pdf"
+],
+"Lucca_bollettino-6_2.pdf": [
+"https://ustlucca.it/personale-docente-nomine-gps-a-tempo-determinato-turno-6-a-s-2026-27-del-23-10-2026/",
+"https://ustlucca.it/wp-content/uploads/2026/10/m_pi.AOOUSPLU.REGISTRO-UFFICIALEU.0003187.23-10-2026.pdf"
+],
+"Lucca_bollettino-6_3.pdf": [
+"https://ustlucca.it/personale-docente-nomine-gps-a-tempo-determinato-turno-6-a-s-2026-27-del-23-10-2026/",
+"https://ustlucca.it/wp-content/uploads/2026/10/Bollettino-definitivo-T-6-del-23.10.2026.pdf"
+],
+"Lucca_bollettino-4.pdf": [
+"https://ustlucca.it/personale-docente-nomine-gps-a-tempo-determinato-turno-4-a-s-2026-27-del-08-10-2026/",
+"https://ustlucca.it/wp-content/uploads/2026/10/m_pi.AOOUSPLU.REGISTRO-UFFICIALEU.0003040.08-10-2026.pdf"
+],
+"Lucca_bollettino-4_2.pdf": [
+"https://ustlucca.it/personale-docente-nomine-gps-a-tempo-determinato-turno-4-a-s-2026-27-del-08-10-2026/",
+"https://ustlucca.it/wp-content/uploads/2026/10/Bollettino-definitivo-nomine-GPS-T4-del-08.10.26.pdf"
+],
+"Rovigo_bollettino-1.pdf": [
+"https://rovigo.istruzioneveneto.gov.it/2026/08/26/avviso-bollettino-conferme-sostegno/",
+"https://rovigo.istruzioneveneto.gov.it/wp-content/uploads/2026/08/Bollettino-conferme-sostegno.prot_.pdf"
+]
+}
+}
