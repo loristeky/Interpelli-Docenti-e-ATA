@@ -88,6 +88,9 @@ def main(argv=None):
                     by_url[it[1]] = list(it)
                     new += 1
     print(f"Fonti raggiunte: {reached}/{len(jobs)} · nuovi avvisi: {new}")
+    for name in sorted(app.DIGEST_SOURCES):       # fonti con PDF riassuntivo: quante righe ci sono nell'elenco
+        n = sum(1 for r in by_url.values() if r[3] == name)
+        print(f"{name}: {n} interpelli nell'elenco (da PDF riassuntivo)")
 
     # avvisi senza scadenza: riprova a leggerla negli allegati (una volta sola per avviso)
     todo = [r for r in by_url.values() if not r[6] and r[9] and r[1] not in tried][:RECHECK]

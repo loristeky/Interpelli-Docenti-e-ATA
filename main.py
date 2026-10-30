@@ -22,7 +22,7 @@ import xml.etree.ElementTree as ET
 PAGES_TO_FETCH = 5
 
 ATA_KEYWORDS = [
-    "ata", "D.S.G.A.", "dsga", "direttore dei servizi generali", "collaboratore scolastico", 
+    "ata", "dsga", "direttore dei servizi generali", "collaboratore scolastico", 
     "collaboratori scolastici", "assistente amministrativo", "assistenti amministrativi",
     "assistente tecnico", "assistenti tecnici", "operatore scolastico", "operatori scolastici",
     "operatore dei servizi agrari", "addetto aziende agrarie", "cuoco", "cuochi",

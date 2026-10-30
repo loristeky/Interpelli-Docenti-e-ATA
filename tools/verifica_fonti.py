@@ -103,6 +103,13 @@ def diagnosi_digest(app, region, name, url):
                 out.append(f"  - {full[:100]} -> {len(rows)} righe lette ({lettore}; {scarico}; testo estratto: {len(text)} caratteri)")
         except Exception as ex:
             out.append(f"- Avviso non letto: {str(ex)[:100]}")
+    try:                                      # esito finale: ciò che l'app caricherebbe davvero
+        items, ok = app.parse_source_page(region, name, url, set(), False)
+        out.append(f"- Esito finale: {len(items)} interpelli (raggiungibile: {ok})")
+        for it in items[:5]:
+            out.append(f"  - {it[0][:80]} | scade {it[6]} | classe {it[7]} | {it[1][:60]}")
+    except Exception as ex:
+        out.append(f"- Esito finale in errore: {str(ex)[:120]}")
     return out + [""]
 
 
