@@ -22,12 +22,14 @@ import xml.etree.ElementTree as ET
 PAGES_TO_FETCH = 5
 
 ATA_KEYWORDS = [
-    "ata", "dsga", "direttore dei servizi generali", "collaboratore scolastico", 
+    "ata", "D.S.G.A.", "dsga", "direttore dei servizi generali", "collaboratore scolastico", 
     "collaboratori scolastici", "assistente amministrativo", "assistenti amministrativi",
     "assistente tecnico", "assistenti tecnici", "operatore scolastico", "operatori scolastici",
     "operatore dei servizi agrari", "addetto aziende agrarie", "cuoco", "cuochi",
     "infermiere", "infermieri", "guardarobiere", "guardarobieri"
 ]
+
+PRIVACY_URL = "https://github.com/loristeky/Interpelli-Docenti-e-ATA/blob/main/privacy-policy.md"
 
 SOURCES = {
     "Abruzzo": [
@@ -60,8 +62,8 @@ SOURCES = {
         ("USP Rimini", "https://rn.istruzioneer.gov.it/category/personale-docente/interpelli-docenti-2026-2027/", 1)
     ],
     "Lazio": [
-        ("USP Frosinone", "https://lnx.uspistruzione.fr.it/wp2/category/interpello-nazionale/feed/", 1),
-        ("USP Latina", "https://www.csalatina.it/category/interpelli/feed/", 1),
+        ("USP Frosinone", "https://www.uspistruzione.fr.it/wp2/tag/interpello-nazionale/", 1),
+        ("USP Latina", "https://www.csalatina.it/interpelli/", 1),
         ("USP Roma", "https://www.atpromaistruzione.it/atp/category/reclutamento/interpelli-personale-docente/feed/", 1),
         ("USP Viterbo", "http://www.provveditoratostudiviterbo.it/DOCENTI/interpelli/INTERPELLIDOC.htm", 1)
     ],
@@ -72,30 +74,30 @@ SOURCES = {
         ("USP Savona", "https://servizi.istruzioneliguria.gov.it/provincia.php?p=SV", 1)
     ],
     "Lombardia": [
-        ("USP Milano", "https://milano.istruzionelombardia.gov.it/argomento/interpelli-ricerca-supplenti/", 1),
-        ("USP Brescia", "https://brescia.istruzionelombardia.gov.it/argomento/interpelli-ricerca-supplenti/", 1),
-        ("USP Bergamo", "https://bergamo.istruzionelombardia.gov.it/argomento/interpelli-ricerca-supplenti/", 1),
-        ("USP Como", "https://como.istruzionelombardia.gov.it/argomento/interpelli-ricerca-supplenti/", 1),
+        ("USP Milano", "https://www.mim.gov.it/web/milano/interpelli-ricerca-supplenti", 1),
+        ("USP Brescia", "https://www.mim.gov.it/web/brescia/interpelli-ricerca-supplenti/", 1),
+        ("USP Bergamo", "https://www.mim.gov.it/web/bergamo/interpelli-ricerca-supplenti/", 1),
+        ("USP Como", "https://www.mim.gov.it/web/como/interpelli-ricerca-supplenti/", 1),
         ("USP Cremona", "https://www.mim.gov.it/web/cremona/interpelli-ricerca-supplenti", 1),
         ("USP Lecco", "https://www.mim.gov.it/web/lecco/interpelli-ricerca-supplenti", 1),
         ("USP Lodi", "https://www.mim.gov.it/web/lodi/interpelli-ricerca-supplenti", 1),
         ("USP Mantova", "https://www.mim.gov.it/web/mantova/interpelli-ricerca-supplenti", 1),
         ("USP Monza brianza", "https://www.mim.gov.it/web/monza-brianza/interpelli-ricerca-supplenti", 1),
-        ("USP Pavia", "https://pavia.istruzionelombardia.gov.it/argomento/interpelli-ricerca-supplenti/", 1),
+        ("USP Pavia", "https://www.mim.gov.it/web/pavia/interpelli-ricerca-supplenti", 1),
         ("USP Sondrio", "https://www.mim.gov.it/web/sondrio/interpelli-ricerca-supplenti", 1),
-        ("USP Varese", "https://varese.istruzionelombardia.gov.it/argomento/interpelli-ricerca-supplenti/", 1)
+        ("USP Varese", "https://www.mim.gov.it/web/varese/interpelli-ricerca-supplenti", 1)
     ],
     "Marche": [
         ("USP Ancona", "https://www.istruzione-ancona.it/category/docenti/feed/", 1),
         ("USP Pesaro Urbino", "http://www.usppesarourbino.it/category/interpelli/feed/", 1)
     ],
     "Molise": [
-        ("USP Campobasso", "https://www.uspcampobasso.it/category/interpelli/feed/", 1)
+        ("USP Campobasso", "https://www.mim.gov.it/web/campobasso/interpelli", 1)
     ],
     "Piemonte": [
         ("USP Torino", "https://www.istruzionepiemonte.it/torino/interpelli-supplenze/", PAGES_TO_FETCH),
-        ("USP Cuneo", "https://www.istruzionepiemonte.it/cuneo/category/interpelli/feed/", 1),
-        ("USP Novara", "https://www.istruzionepiemonte.it/novara/category/interpelli/feed/", 1)
+        ("USP Cuneo", "https://www.istruzionepiemonte.it/cuneo/interpelli-supplenze-personale-docente/", 1),
+        ("USP Novara", "https://www.istruzionepiemonte.it/novara/interpelli-supplenze/", 1)
     ],
     "Puglia": [
         ("USP Bari", "https://www.uspbari.it/usp/category/interpelli-della-provincia-di-bari", 1),
@@ -118,7 +120,7 @@ SOURCES = {
     "Toscana": [
         ("USP Firenze", "https://www.ust.fi.it/", 1),
         ("USP Lucca", "https://www.ustlucca.it/feed/", 1),
-        ("USP Pisa", "https://www.toscana-istruzione.it/atpisa/category/news/", 1)
+        ("USP Pisa", "https://www.usp-pi.it/category/interpelli/", 1)
     ],
     "Trentino-Alto Adige": [
         ("USP Trento", "https://www.vivoscuola.it/feed/", 1)
@@ -127,7 +129,7 @@ SOURCES = {
         ("USP Perugia", "https://istruzione.umbria.it/interpelli/interpelli-aperti/", 1)
     ],
     "Valle d'Aosta": [
-        ("USP Aosta", "https://www.scuole.vda.it/category/interpelli/feed/", 1)
+        ("USP Aosta", "https://scuole.vda.it/interpelli", 1)
     ],
     "Veneto": [
         ("USP Padova", "https://padova.istruzioneveneto.gov.it/category/interpelli-personale-docente/", 1),
@@ -665,9 +667,15 @@ def analyze_page(page_html, link, rss_published=None):
 
 
 def _open_bytes(url, limit, context=None):
-    req = Request(url, headers={"User-Agent": "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36"})
+    # Si chiede la versione compressa: l'elenco condiviso passa da ~1 MB a circa un quinto.
+    req = Request(url, headers={"User-Agent": "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36",
+                                "Accept-Encoding": "gzip"})
     with urlopen(req, timeout=10, context=context) as resp:
-        return resp.read(limit)
+        data = resp.read(limit)
+        if resp.headers.get("Content-Encoding", "").lower() == "gzip":
+            import gzip
+            data = gzip.decompress(data)
+        return data
 
 
 def fetch_bytes(url, limit=3_000_000):
@@ -742,6 +750,7 @@ def enrich_from_doc(info):
 # Elenco già pronto: l'automazione su GitHub legge le fonti ogni 30 minuti e pubblica interpelli.json (ramo «dati»).
 # Scaricare quel file è molto più veloce che leggere decine di siti, e funziona anche quando l'app è chiusa.
 SHARED_URL = "https://raw.githubusercontent.com/loristeky/interpelli-scuola/dati/interpelli.json"
+SHARED_RECENT_URL = "https://raw.githubusercontent.com/loristeky/interpelli-scuola/dati/recenti.json"   # solo gli ultimi 7 giorni
 INSERT_SQL = """INSERT INTO interpelli (title, url, region, source, target, published, deadline, cdc, post_type, doc_url, email)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(url) DO UPDATE SET title=excluded.title, target=excluded.target,
@@ -750,11 +759,19 @@ INSERT_SQL = """INSERT INTO interpelli (title, url, region, source, target, publ
                 email=CASE WHEN excluded.email != '' THEN excluded.email ELSE interpelli.email END"""
 
 
-def load_shared(conn, known):
+SHARED_INFO = {"age_min": None}
+
+
+def load_shared(conn, known, recent=False):
     """Scarica l'elenco pronto e lo salva. Restituisce la lista degli avvisi NUOVI (righe), o None se non disponibile."""
     try:
-        data = json.loads(fetch_bytes(SHARED_URL, 8_000_000).decode("utf-8"))
+        data = json.loads(fetch_bytes(SHARED_RECENT_URL if recent else SHARED_URL, 12_000_000).decode("utf-8"))
         rows = [r for r in data.get("righe", []) if isinstance(r, list) and len(r) == 11 and isinstance(r[1], str)]
+        try:
+            ts = datetime.strptime(data.get("aggiornato", ""), "%Y-%m-%dT%H:%M:%SZ")
+            SHARED_INFO["age_min"] = (datetime.utcnow() - ts).total_seconds() / 60
+        except ValueError:
+            SHARED_INFO["age_min"] = None
     except Exception:
         return None
     new = []
@@ -894,24 +911,13 @@ def deep_pages(regions_sources):
     return out
 
 
-def parse_source_page(region, source_name, url, known, deep=False):
-    """Scarica una pagina-fonte e restituisce (nuovi_interpelli, raggiungibile).
-
-    Gli avvisi già presenti nel database (`known`) non vengono riscaricati:
-    questo rende gli aggiornamenti successivi al primo molto più veloci.
-    """
+def _feed_items(text):
+    """[(titolo, link, data)] da un feed RSS o Atom; [] se il testo non è un feed."""
+    low = text.lower()
     items = []
-    try:
-        html_content = fetch_url(url)
-    except Exception as ex:
-        if not deep:                      # le pagine «provate» spesso non esistono: nessun errore da segnalare
-            log_source(source_name, err=short_error(ex))
-        return [], False
-
-    lower_content = html_content.lower()
-    if "<rss" in lower_content or "<feed" in lower_content or "<channel" in lower_content:
+    if "<rss" in low or "<feed" in low or "<channel" in low:
         try:
-            root = ET.fromstring(html_content)
+            root = ET.fromstring(text)
             for item in root.findall(".//item"):
                 title = clean_text(item.findtext("title"))
                 link = clean_text(item.findtext("link"))
@@ -930,6 +936,201 @@ def parse_source_page(region, source_name, url, known, deep=False):
                     items.append((title, link, pub_date))
         except Exception:
             pass
+    return items
+
+
+def _light_html(h):
+    """Come strip_chrome ma senza togliere <header>: molti temi mettono il titolo di ogni articolo lì dentro."""
+    h = re.sub(r'<(script|style|noscript)\b.*?</\1>', ' ', h, flags=re.I | re.S)
+    for tag in ("nav", "footer", "aside"):
+        h = re.sub(rf'<{tag}\b.*?</{tag}>', ' ', h, flags=re.I | re.S)
+    return h
+
+
+def _links_in(html_text, url):
+    """[(titolo, indirizzo, data)] dei collegamenti agli avvisi in una pagina HTML."""
+    out = []
+    for href, txt in re.findall(r'<a\b[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', html_text, re.I | re.S):
+        if href.startswith(("#", "mailto:", "tel:", "javascript:")):
+            continue
+        title = clean_text(txt)
+        if len(title) >= 15 and NOTICE_LINK_RE.search(title):
+            full_url = urljoin(url, href)
+            date_match = re.search(r'/(\d{4})/(\d{2})/(\d{2})/', full_url)
+            out.append((title, full_url, f"{date_match.group(1)}-{date_match.group(2)}-{date_match.group(3)}" if date_match else ""))
+    return out
+
+
+# Uffici che non pubblicano un avviso per ogni interpello ma uno solo, riassuntivo, con tutti gli interpelli dentro
+# un PDF (es. Bergamo: «Interpelli per il conferimento di supplenza personale docente n. 72»). Dell'elenco si legge
+# solo l'avviso più recente (i vecchi sono già superati) e ogni riga del PDF diventa un interpello.
+DIGEST_SOURCES = {"USP Bergamo"}
+SCHOOL_CODE_RE = re.compile(r"\b[A-Z]{2}[A-Z]{2}[0-9]{5}[0-9A-Z]\b")
+
+
+def doc_full_text(url, max_pages=80):
+    """Testo di un PDF (riga per riga) o '' se non si legge. Serve pypdf."""
+    try:
+        from pypdf import PdfReader
+        import io
+        reader = PdfReader(io.BytesIO(fetch_bytes(url, limit=25_000_000)))
+        return "\n".join((pg.extract_text() or "") for pg in reader.pages[:max_pages])
+    except Exception:
+        return ""
+
+
+DIGEST_ROW_RE = re.compile(r"(?<![A-Z0-9])([A-Z]{2}[A-Z]{2}[0-9]{5}[0-9A-Z])\s*-\s+")
+DIGEST_DATE_RE = re.compile(r"\b(\d{1,2})/(\d{1,2})/(\d{4})\b")
+
+
+def _iso(d):
+    try:
+        return date(int(d[2]), int(d[1]), int(d[0])).isoformat()
+    except ValueError:
+        return None
+
+
+def parse_digest_rows(text):
+    """Tabella riassuntiva degli interpelli (Bergamo): una riga per interpello, con
+    «CODICE - SCUOLA  CLASSE - DESCRIZIONE  sezione  ore  inizio  fine  scadenza  link avviso  [link candidature]».
+    Restituisce [{codice, scuola, cdc, descrizione, ore, inizio, fine, scadenza, link, candidatura}]."""
+    flat = re.sub(r"\s+", " ", text.replace("\xa0", " "))
+    starts = list(DIGEST_ROW_RE.finditer(flat))
+    rows = []
+    for i, m in enumerate(starts):
+        block = flat[m.end():(starts[i + 1].start() if i + 1 < len(starts) else len(flat))]
+        # classe: la prima sigla «XXXX - » che sia una classe di concorso valida
+        cm = None
+        for c in re.finditer(r"(?<![A-Z0-9])([A-Z]{1,2}[0-9A-Z]{2,3})\s+-\s+", block):
+            if _codes_in(c.group(1)) == [c.group(1)]:
+                cm = c
+                break
+        if not cm:
+            continue
+        school = block[:cm.start()].strip(" -")
+        rest = block[cm.end():]
+        desc = re.split(r"\s+Interpell\w*\s+per\b|\s\d{1,2}\s*-\s*\d|\s\d{1,2}/\d{1,2}/\d{4}|https?://", rest, 1)[0].strip()
+        dates = [_iso(d) for d in DIGEST_DATE_RE.findall(rest)]
+        dates = [d for d in dates if d]
+        urls = re.findall(r"https?://\S+", rest)
+        ore = re.search(r"(\d{1,2})\s*ore\b", rest)
+        rows.append({"codice": m.group(1), "scuola": school, "cdc": cm.group(1), "descrizione": desc,
+                     "ore": ore.group(1) if ore else "",
+                     "inizio": dates[-3] if len(dates) >= 3 else "", "fine": dates[-2] if len(dates) >= 3 else "",
+                     "scadenza": dates[-1] if dates else None,
+                     "link": urls[0] if urls else "", "candidatura": urls[1] if len(urls) > 1 else ""})
+    return rows
+
+
+def digest_items(region, source_name, item, known):
+    """Righe-interpello dal PDF riassuntivo dell'avviso `item` = (titolo, link, data). None se non si riesce a leggere."""
+    title, link, pub = item
+    try:
+        page = fetch_url(link)
+    except Exception:
+        return None
+    # Allegati: «.pdf» ovunque nell'indirizzo (i siti con Liferay scrivono .../file.pdf/codice?versione=1) o cartella
+    # «documents»; prima quelli che parlano di interpelli. Si prova a leggerli finché uno contiene la tabella.
+    hrefs = [urljoin(link, html.unescape(h)) for h in re.findall(r'href=["\']([^"\']+)["\']', page, re.I)]
+    cands = [h for h in dict.fromkeys(hrefs) if re.search(r"\.pdf(?:$|[/?#&])", h, re.I) or "/documents/" in h.lower()]
+    cands.sort(key=lambda h: 0 if re.search(r"interpell|supplenz", h, re.I) else 1)
+    rows, doc = [], ""
+    for cand in cands[:5]:
+        rows = parse_digest_rows(doc_full_text(cand))
+        if rows:
+            doc = cand
+            break
+    if not rows:
+        return None
+    published = parse_date(pub) or ""
+    if not published:
+        dm = re.search(r"\d{1,2}\s+(?:%s)\w*\s+\d{4}" % "|".join(MESI_IT), clean_text(page), re.I)
+        published = (parse_date(dm.group(0)) if dm else "") or ""
+    out, used = [], set()
+    for r in rows:
+        # indirizzo = avviso della scuola (si apre da lì); il frammento lo rende unico per scuola, classe e scadenza
+        base = r["link"] or doc
+        key = f"{r['codice']}-{r['cdc']}-{(r['scadenza'] or '').replace('-', '')}"
+        if "#" in base:                       # pagine web-app con «#/percorso»: non si tocca l'indirizzo
+            url = base if base not in used else f"{base}~{key}"
+        else:
+            url = f"{base}#{key}"
+        used.add(url)
+        if url in known:
+            continue
+        label = f"{r['scuola']} - {r['cdc']} {r['descrizione'].title()}" + (f" ({r['ore']} ore)" if r["ore"] else "")
+        out.append((label, url, region, source_name, "DOCENTI", published, r["scadenza"], r["cdc"],
+                    analyze_post_content(r["descrizione"]), r["candidatura"] or "",
+                    f"{r['codice'].lower()}@istruzione.it"))
+    return out
+
+
+def _table_items(html_text, url):
+    """Siti che elencano gli avvisi in una tabella (es. Latina: id, data, ufficio, nome atto...): il titolo non è un
+    collegamento ma una cella, e il collegamento sta sul numero della riga. [(titolo, indirizzo, data)]."""
+    out = []
+    for row in re.findall(r"<tr\b.*?</tr>", html_text, re.I | re.S):
+        cells = [clean_text(c) for c in re.findall(r"<t[dh]\b[^>]*>(.*?)</t[dh]>", row, re.I | re.S)]
+        if len(cells) < 3:
+            continue
+        m = re.search(r'<a\b[^>]*href=["\']([^"\']+)["\']', row, re.I)
+        if not m or m.group(1).startswith(("#", "mailto:", "tel:", "javascript:")):
+            continue
+        cands = [c for c in cells if len(c) >= 10 and NOTICE_LINK_RE.search(c)]
+        if not cands:
+            continue
+        act = max(cands, key=len)
+        d_idx = next((i for i, c in enumerate(cells) if re.fullmatch(r"\d{4}-\d{2}-\d{2}|\d{1,2}[-/.]\d{1,2}[-/.]\d{4}", c)), None)
+        school = cells[d_idx + 1] if d_idx is not None and d_idx + 1 < len(cells) and cells[d_idx + 1] != act else ""
+        when = cells[d_idx] if d_idx is not None else ""
+        title = f"{school} - {act}" if school and len(school) < 60 else act
+        out.append((title, urljoin(url, re.sub(r'&amp;', '&', m.group(1))), when))
+    return out
+
+
+DATED_DESC_RE = re.compile(r"^\s*(classe\s+di\s+concorso|cdc|posto|profilo|sostegno|interpell)", re.I)
+
+
+def _dated_list_items(html_text, url):
+    """Elenchi dove il titolo è solo il nome della scuola e sotto c'è la descrizione, per esempio (USP Lecco):
+        28 ottobre 2026 / «IC Civate» (collegamento) / «Classe di concorso ADEE».
+    Si tiene un collegamento solo se subito dopo c'è una descrizione di quel tipo. [(titolo, indirizzo, data)]."""
+    out = []
+    anchors = list(re.finditer(r'<a\b[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', html_text, re.I | re.S))
+    for i, m in enumerate(anchors):
+        href = m.group(1)
+        if href.startswith(("#", "mailto:", "tel:", "javascript:")):
+            continue
+        title = clean_text(m.group(2))
+        if not (3 <= len(title) <= 120):
+            continue
+        nxt = anchors[i + 1].start() if i + 1 < len(anchors) else len(html_text)
+        desc = clean_text(html_text[m.end():min(nxt, m.end() + 600)])
+        desc = re.split(r"\s\d{1,2}\s+[A-Za-zàù]+\s+\d{4}", desc, 1)[0].strip()[:120]      # la data seguente è già di un altro avviso
+        if not DATED_DESC_RE.match(desc):
+            continue
+        before = clean_text(html_text[max(0, m.start() - 400):m.start()])
+        dm = re.findall(r"\d{1,2}\s+[A-Za-zàù]+\s+\d{4}", before)
+        out.append((f"{title} - {desc}", urljoin(url, href.replace("&amp;", "&")), dm[-1] if dm else ""))
+    return out
+
+
+def parse_source_page(region, source_name, url, known, deep=False):
+    """Scarica una pagina-fonte e restituisce (nuovi_interpelli, raggiungibile).
+
+    Gli avvisi già presenti nel database (`known`) non vengono riscaricati:
+    questo rende gli aggiornamenti successivi al primo molto più veloci.
+    """
+    items = []
+    try:
+        html_content = fetch_url(url)
+    except Exception as ex:
+        if not deep:                      # le pagine «provate» spesso non esistono: nessun errore da segnalare
+            log_source(source_name, err=short_error(ex))
+        return [], False
+
+    lower_content = html_content.lower()
+    items = _feed_items(html_content)
 
     # Portale USR Liguria: tabella con un link "interpello.php?id=N" per riga.
     if not items and "interpello.php" in lower_content:
@@ -943,16 +1144,39 @@ def parse_source_page(region, source_name, url, known, deep=False):
     # Pagine che non sono feed: cerca i link agli avvisi nel corpo della pagina (senza menu né piè di pagina).
     # Se il feed ha già fornito gli avvisi, i link dentro le descrizioni non si contano.
     if not items:
-        body_html = strip_chrome(html_content)
-        for href, txt in re.findall(r'<a\b[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', body_html, re.I | re.S):
-            if href.startswith(("#", "mailto:", "tel:", "javascript:")):
-                continue
-            title = clean_text(txt)
-            if len(title) >= 15 and NOTICE_LINK_RE.search(title):
-                full_url = urljoin(url, href)
-                date_match = re.search(r'/(\d{4})/(\d{2})/(\d{2})/', full_url)
-                pub_date_str = f"{date_match.group(1)}-{date_match.group(2)}-{date_match.group(3)}" if date_match else ""
-                items.append((title, full_url, pub_date_str))
+        items = _links_in(strip_chrome(html_content), url)
+    if not items:
+        # Molti temi WordPress mettono il titolo di ogni articolo dentro <header>: si toglie solo ciò che sicuramente
+        # non è contenuto (menu, piè di pagina, barre laterali).
+        items = _links_in(_light_html(html_content), url)
+    if not items:
+        items = _table_items(html_content, url)
+    if not items:
+        items = _dated_list_items(strip_chrome(html_content), url)
+    if not items and "<rss" not in lower_content and re.search(r"/(category|tag)/", url) and "feed" not in url:
+        try:                                              # le categorie WordPress hanno quasi sempre un feed
+            items = _feed_items(fetch_url(url.split("?")[0].rstrip("/") + "/feed/"))
+        except Exception:
+            pass
+
+    if source_name in DIGEST_SOURCES:
+        # La lista degli avvisi può stare dentro tag che altrove si scartano (header, aside): per queste fonti si guarda
+        # in tutta la pagina, tenendo poi solo gli avvisi veri.
+        items = list(dict.fromkeys(items + _links_in(_light_html(html_content), url) + _links_in(html_content, url)))
+        # Dell'elenco interessano solo gli avvisi veri («Interpelli per il conferimento di supplenza ... n. 72»), non i
+        # collegamenti alla pagina stessa (briciole di pane, menu laterale: «Interpelli Ricerca Supplenti»).
+        own = url.rstrip("/").lower()
+        items = [it for it in items if it[1].rstrip("/").lower() != own and len(it[0]) > 30
+                 and re.search(r"\bn\.?\s*\d+|conferimento", it[0], re.I)]
+        if deep or not items:
+            return [], True                               # gli avvisi riassuntivi si leggono solo dalla fonte principale
+        # Solo l'avviso più recente (numero più alto; a parità, il primo della pagina): i precedenti sono già superati.
+        items.sort(key=lambda it: -int((re.search(r"\bn\.?\s*(\d+)", it[0], re.I) or [0, 0])[1]))
+        rows = digest_items(region, source_name, items[0], known)
+        if rows is not None:
+            log_source(source_name, ok=True, found=len(rows), new=len(rows))
+            return rows, True
+        items = items[:1]                                 # PDF non leggibile: almeno l'ultimo avviso, come avviso unico
 
     if deep:
         items = [it for it in items if INTERPELLO_RE.search(it[0])]
@@ -2168,6 +2392,20 @@ def build(page: ft.Page, raw_prefs=None):
 
         load_lock = threading.RLock()
 
+        # Il diff di Flet può andare in errore («list index out of range») se un altro thread cambia la lista dei
+        # risultati proprio mentre la pagina si aggiorna (digitando nella ricerca mentre si carica). Tutti gli
+        # aggiornamenti passano dallo stesso lucchetto con cui load_results modifica la lista.
+        try:
+            _page_update = page.update
+
+            def _locked_update(*args, **kwargs):
+                with load_lock:
+                    return _page_update(*args, **kwargs)
+
+            page.update = _locked_update
+        except Exception:
+            pass
+
         def load_results(reset=True, live=False):
             """reset: riparte dall'inizio · live: ricarica quanto già mostrato (durante la ricerca) · altrimenti 'mostra altri'."""
             with load_lock:
@@ -3073,7 +3311,19 @@ def build(page: ft.Page, raw_prefs=None):
                     if not region and prefs.get("shared", True):
                         status_text.value = "Scarico l'elenco già pronto…"
                         page.update()
-                        got = load_shared(conn, known)
+                        # Dopo il primo scaricamento completo basta l'elenco degli ultimi 7 giorni (pochi KB):
+                        # quello completo si riscarica solo se sono passati più di 5 giorni.
+                        try:
+                            last_full = datetime.strptime(prefs.get("shared_full", ""), "%Y-%m-%d").date()
+                            recent = (date.today() - last_full).days <= 5
+                        except ValueError:
+                            recent = False
+                        got = load_shared(conn, known, recent)
+                        if got is None and recent:
+                            got, recent = load_shared(conn, known, False), False
+                        if got is not None and not recent:
+                            prefs["shared_full"] = date.today().isoformat()
+                            save_prefs()
                         if got is not None:
                             shared_ok = True
                             new_count += len(got)
@@ -3081,6 +3331,9 @@ def build(page: ft.Page, raw_prefs=None):
                             load_results(reset=False, live=True)
 
                     target_sources = {region: SOURCES[region]} if region and region in SOURCES else SOURCES
+                    # elenco pronto e recente (meno di 90 minuti): non serve rileggere le fonti, si risparmiano dati e tempo
+                    if shared_ok and (SHARED_INFO["age_min"] is not None and SHARED_INFO["age_min"] < 90):
+                        target_sources = {}
                     tasks_info = []
                     for reg, sources in target_sources.items():
                         for src_tuple in sources:
@@ -3640,7 +3893,9 @@ def build(page: ft.Page, raw_prefs=None):
                 ft.Text("L'app non è collegata né affiliata al Ministero dell'Istruzione e del Merito. "
                         "Non raccoglie dati personali: classi e preferenze restano sul tuo telefono.",
                         size=13)]),
-            actions=[ft.TextButton("Chiudi", on_click=lambda e: close_dialog(info_dlg))])
+            actions=[ft.TextButton("Informativa sulla privacy", icon=ft.Icons.PRIVACY_TIP_OUTLINED,
+                                   on_click=lambda e: open_url(PRIVACY_URL)),
+                     ft.TextButton("Chiudi", on_click=lambda e: close_dialog(info_dlg))])
 
         theme_label = {"": "Come il telefono", "light": "Chiaro", "dark": "Scuro"}
         theme_sub = ft.Text(theme_label[prefs["theme"]], size=11.5, color=ft.Colors.ON_SURFACE_VARIANT)

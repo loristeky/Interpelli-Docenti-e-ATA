@@ -1,6 +1,6 @@
 [project]
 name = "interpelli-scuola"
-version = "1.0.2"
+version = "1.0.0"
 description = "Interpelli e supplenze della scuola in tutta Italia"
 requires-python = ">=3.12,<3.14"
 dependencies = [
