@@ -133,7 +133,7 @@
   "nome": "USP Piacenza",
   "url": "https://pc.istruzioneer.gov.it/interpelli/",
   "stato": "ok",
-  "avvisi": 83,
+  "avvisi": 84,
   "dettaglio": ""
  },
  {
@@ -189,7 +189,7 @@
   "nome": "USP Genova",
   "url": "https://servizi.istruzioneliguria.gov.it/provincia.php?p=GE",
   "stato": "ok",
-  "avvisi": 96,
+  "avvisi": 98,
   "dettaglio": ""
  },
  {
@@ -197,7 +197,7 @@
   "nome": "USP La Spezia",
   "url": "https://servizi.istruzioneliguria.gov.it/provincia.php?p=SP",
   "stato": "ok",
-  "avvisi": 25,
+  "avvisi": 26,
   "dettaglio": ""
  },
  {
@@ -261,7 +261,7 @@
   "nome": "USP Lecco",
   "url": "https://www.mim.gov.it/web/lecco/interpelli-ricerca-supplenti",
   "stato": "ok",
-  "avvisi": 181,
+  "avvisi": 182,
   "dettaglio": ""
  },
  {
@@ -285,7 +285,7 @@
   "nome": "USP Monza brianza",
   "url": "https://www.mim.gov.it/web/monza-brianza/interpelli-ricerca-supplenti",
   "stato": "ok",
-  "avvisi": 200,
+  "avvisi": 201,
   "dettaglio": ""
  },
  {
@@ -389,7 +389,7 @@
   "nome": "USP Taranto",
   "url": "https://www.usptaranto.it/category/in-evidenza/",
   "stato": "ok",
-  "avvisi": 17,
+  "avvisi": 14,
   "dettaglio": ""
  },
  {
@@ -479,7 +479,7 @@
   "nome": "USP Messina",
   "url": "https://me.usr.sicilia.it/personale-scuola/interpelli/",
   "stato": "ok",
-  "avvisi": 15,
+  "avvisi": 14,
   "dettaglio": ""
  },
  {
@@ -487,7 +487,7 @@
   "nome": "USP Firenze",
   "url": "https://www.ust.fi.it/",
   "stato": "ok",
-  "avvisi": 2,
+  "avvisi": 4,
   "dettaglio": ""
  },
  {
@@ -545,7 +545,7 @@
   "nome": "USP Perugia",
   "url": "https://istruzione.umbria.it/interpelli/interpelli-aperti/",
   "stato": "ok",
-  "avvisi": 1,
+  "avvisi": 12,
   "dettaglio": ""
  },
  {
@@ -586,7 +586,7 @@
   "nome": "USP Verona",
   "url": "https://verona.istruzioneveneto.gov.it/index.php/interpelli-2026-2027/",
   "stato": "ok",
-  "avvisi": 2,
+  "avvisi": 3,
   "dettaglio": ""
  },
  {

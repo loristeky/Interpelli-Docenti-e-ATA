@@ -1,4 +1,4 @@
-# Rapporto sulle fonti (29/10/2026 12:11)
+# Rapporto sulle fonti (30/10/2026 10:04)
 
 Fonti controllate: 68. Funzionano: 64. Da guardare: 4.
 
@@ -45,7 +45,7 @@ Fonti controllate: 68. Funzionano: 64. Da guardare: 4.
 - USP Forlì Cesena (Emilia-Romagna): 10 avvisi
 - USP Modena (Emilia-Romagna): 10 avvisi
 - USP Parma (Emilia-Romagna): 2 avvisi
-- USP Piacenza (Emilia-Romagna): 83 avvisi
+- USP Piacenza (Emilia-Romagna): 84 avvisi
 - USP Ravenna (Emilia-Romagna): 1 avvisi
 - USP Reggio Emilia (Emilia-Romagna): 1 avvisi
 - USP Rimini (Emilia-Romagna): 1 avvisi
@@ -53,19 +53,19 @@ Fonti controllate: 68. Funzionano: 64. Da guardare: 4.
 - USP Latina (Lazio): 75 avvisi
 - USP Roma (Lazio): 10 avvisi
 - USP Viterbo (Lazio): 165 avvisi
-- USP Genova (Liguria): 96 avvisi
+- USP Genova (Liguria): 98 avvisi
 - USP Imperia (Liguria): 14 avvisi
-- USP La Spezia (Liguria): 25 avvisi
+- USP La Spezia (Liguria): 26 avvisi
 - USP Savona (Liguria): 28 avvisi
 - USP Bergamo (Lombardia): 1 avvisi
 - USP Brescia (Lombardia): 200 avvisi
 - USP Como (Lombardia): 200 avvisi
 - USP Cremona (Lombardia): 201 avvisi
-- USP Lecco (Lombardia): 181 avvisi
+- USP Lecco (Lombardia): 182 avvisi
 - USP Lodi (Lombardia): 1 avvisi
 - USP Mantova (Lombardia): 3 avvisi
 - USP Milano (Lombardia): 1 avvisi
-- USP Monza brianza (Lombardia): 200 avvisi
+- USP Monza brianza (Lombardia): 201 avvisi
 - USP Pavia (Lombardia): 59 avvisi
 - USP Sondrio (Lombardia): 200 avvisi
 - USP Varese (Lombardia): 198 avvisi
@@ -78,37 +78,37 @@ Fonti controllate: 68. Funzionano: 64. Da guardare: 4.
 - USP Bari (Puglia): 42 avvisi
 - USP Foggia (Puglia): 10 avvisi
 - USP Lecce (Puglia): 9 avvisi
-- USP Taranto (Puglia): 17 avvisi
+- USP Taranto (Puglia): 14 avvisi
 - USP Sassari (Sardegna): 374 avvisi
 - USP Agrigento (Sicilia): 1 avvisi
 - USP Caltanissetta-Enna (Sicilia): 3 avvisi
 - USP Catania (Sicilia): 9 avvisi
-- USP Messina (Sicilia): 15 avvisi
+- USP Messina (Sicilia): 14 avvisi
 - USP Siracusa (Sicilia): 1 avvisi
 - USP Trapani (Sicilia): 10 avvisi
-- USP Firenze (Toscana): 2 avvisi
+- USP Firenze (Toscana): 4 avvisi
 - USP Lucca (Toscana): 10 avvisi
 - USP Pisa (Toscana): 10 avvisi
-- USP Perugia (Umbria): 1 avvisi
+- USP Perugia (Umbria): 12 avvisi
 - USP Padova (Veneto): 34 avvisi
 - USP Rovigo (Veneto): 10 avvisi
 - USP Treviso (Veneto): 1 avvisi
 - USP Venezia (Veneto): 9 avvisi
-- USP Verona (Veneto): 2 avvisi
+- USP Verona (Veneto): 3 avvisi
 
 ### Diagnosi USP Bergamo
 - Pagina: https://www.mim.gov.it/web/bergamo/interpelli-ricerca-supplenti/
-- Pagina scaricata: 377468 caratteri
+- Pagina scaricata: 377480 caratteri
 - Collegamenti da avviso trovati: 201
   - Interpelli ricerca supplenti -> https://www.mim.gov.it/web/bergamo/interpelli-ricerca-supplenti?p_p_id=1_WAR_miurmulticate
+  - Interpelli per il conferimento di supplenza personale docente n. 73 -> https://www.mim.gov.it/web/bergamo/-/interpelli-per-il-conferimento-di-supplenza-personale
   - Interpelli per il conferimento di supplenza personale docente n. 72 -> https://www.mim.gov.it/web/bergamo/-/interpelli-per-il-conferimento-di-supplenza-personale
   - Interpelli per il conferimento di supplenza personale docente n. 71 -> https://www.mim.gov.it/web/bergamo/-/interpelli-per-il-conferimento-di-supplenza-personale
   - Interpelli per il conferimento di supplenza personale docente n. 70 -> https://www.mim.gov.it/web/bergamo/-/interpelli-per-il-conferimento-di-supplenza-personale
   - Interpelli per il conferimento di supplenza personale docente n. 69 -> https://www.mim.gov.it/web/bergamo/-/interpelli-per-il-conferimento-di-supplenza-personale
   - Interpelli per il conferimento di supplenza personale docente n. 68 -> https://www.mim.gov.it/web/bergamo/-/interpelli-per-il-conferimento-di-supplenza-personale
   - Interpelli per il conferimento di supplenza personale docente n. 67 -> https://www.mim.gov.it/web/bergamo/-/interpelli-per-il-conferimento-di-supplenza-personale
-  - Interpelli per il conferimento di supplenza personale docente n. 66 -> https://www.mim.gov.it/web/bergamo/-/interpelli-per-il-conferimento-di-supplenza-personale
 - Avvisi con numero: 200
-- Avviso più recente: Interpelli per il conferimento di supplenza personale docente n. 72 (91561 caratteri), allegati: 1
-  - https://www.mim.gov.it/documents/9081047/10244555/Interpelli+n.+72.pdf/541c9fbd-8772-fb66-6355-c4bca -> 4 righe lette (pypdf ok; 217077 byte, inizia con b'%PDF-'; testo estratto: 1373 caratteri)
+- Avviso più recente: Interpelli per il conferimento di supplenza personale docente n. 73 (91517 caratteri), allegati: 1
+  - https://www.mim.gov.it/documents/9081047/10244555/Interpelli+n.+73.pdf/790b55ec-734d-da6e-9b3c-f3dc6 -> 3 righe lette (pypdf ok; 203791 byte, inizia con b'%PDF-'; testo estratto: 2530 caratteri)
 
