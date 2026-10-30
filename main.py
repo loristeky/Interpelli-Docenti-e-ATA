@@ -613,6 +613,19 @@ DOC_RE = re.compile(r'href=["\']([^"\']+\.(?:pdf|docx?|odt)(?:\?[^"\']*)?)["\']'
 EMAIL_RE = re.compile(r"[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}")
 
 
+def extract_doc_urls(page_html, base_url):
+    """Tutti gli allegati (pdf/doc/docx/odt) della pagina, senza doppioni: prima quelli che si sanno leggere
+    (pdf, docx, odt), e tra questi quelli che parlano di interpello."""
+    found = list(dict.fromkeys(urljoin(base_url, html.unescape(h)) for h in DOC_RE.findall(page_html)))
+
+    def rank(u):
+        low = u.lower().split("?")[0]
+        readable = 0 if low.endswith((".pdf", ".docx", ".odt")) else 1
+        named = 0 if any(k in low for k in ("interpell", "supplenz", "avviso")) else 1
+        return (readable, named)
+    return sorted(found, key=rank)
+
+
 def extract_doc_url(page_html, base_url):
     """Primo allegato (pdf/doc/odt) della pagina, preferendo quelli che parlano di interpello."""
     found = [urljoin(base_url, h) for h in DOC_RE.findall(page_html)]
@@ -661,6 +674,7 @@ def analyze_page(page_html, link, rss_published=None):
         "deadline": deadline,
         "deadline_src": deadline_src,
         "doc_url": extract_doc_url(main_html, link) or extract_doc_url(page_html, link),
+        "doc_urls": extract_doc_urls(main_html, link) or extract_doc_urls(page_html, link),
         "email": extract_email(text),
         "html": main_html[:20000],
     }
@@ -692,30 +706,40 @@ def fetch_bytes(url, limit=3_000_000):
         raise
 
 
-def doc_text(url, max_chars=6000):
-    """Testo dell'allegato (PDF o Word) per cercare scadenza ed email che non stanno nella pagina. '' se non si legge.
-    I PDF si leggono con pypdf se è disponibile; i file .docx con la sola libreria standard."""
-    low = url.lower().split("?")[0]
+def doc_text(url, max_chars=12000):
+    """Testo dell'allegato (PDF, Word .docx o OpenDocument .odt) per cercare scadenza ed email che non stanno nella
+    pagina. '' se non si legge. I PDF si leggono con pypdf se è disponibile; gli altri con la sola libreria standard.
+    Il tipo si riconosce dal contenuto, non solo dal nome (molti siti scrivono indirizzi senza estensione)."""
+    import io
     try:
-        if low.endswith(".pdf"):
+        data = fetch_bytes(url, 6_000_000)
+    except Exception:
+        return ""
+    try:
+        if data[:4] == b"%PDF":
             try:
                 from pypdf import PdfReader
             except Exception:
                 return ""
-            import io
-            reader = PdfReader(io.BytesIO(fetch_bytes(url)))
+            reader = PdfReader(io.BytesIO(data))
             out = []
-            for page in reader.pages[:3]:
+            for page in reader.pages[:8]:
                 out.append(page.extract_text() or "")
                 if sum(len(x) for x in out) > max_chars:
                     break
             return re.sub(r"\s+", " ", " ".join(out))[:max_chars]
-        if low.endswith(".docx"):
-            import io
+        if data[:2] == b"PK":
             import zipfile
-            with zipfile.ZipFile(io.BytesIO(fetch_bytes(url))) as z:
-                xml = z.read("word/document.xml").decode("utf-8", "replace")
-            xml = re.sub(r"</w:p>", "\n", xml)
+            with zipfile.ZipFile(io.BytesIO(data)) as z:
+                names = z.namelist()
+                if "word/document.xml" in names:
+                    xml = z.read("word/document.xml").decode("utf-8", "replace")
+                    xml = re.sub(r"</w:p>", "\n", xml)
+                elif "content.xml" in names:
+                    xml = z.read("content.xml").decode("utf-8", "replace")
+                    xml = re.sub(r"</text:p>", "\n", xml)
+                else:
+                    return ""
             return clean_text(re.sub(r"<[^>]+>", "", xml))[:max_chars]
     except Exception:
         return ""
@@ -723,25 +747,30 @@ def doc_text(url, max_chars=6000):
 
 
 def enrich_from_doc(info):
-    """Se la pagina non dice la scadenza (o l'email), la cerca nell'allegato."""
+    """Se la pagina non dice la scadenza (o l'email), la cerca negli allegati: prova tutti (fino a 4), perché spesso
+    il primo è il modulo di domanda e la scadenza sta nella lettera dell'ufficio."""
     try:
-        if info is None or not info.get("doc_url"):
+        if info is None or not (info.get("doc_url") or info.get("doc_urls")):
             return info
         if info.get("deadline") and info.get("email"):
             return info
-        txt = doc_text(info["doc_url"])
-        if not txt:
-            return info
-        if not info.get("deadline"):
-            dl, src = find_deadline(txt, info.get("published") or None)
-            if dl:
-                info["deadline"], info["deadline_src"] = dl, "allegato"
-        if not info.get("email"):
-            info["email"] = extract_email(txt)
-        if len(info.get("text", "")) < 200:
-            info["text"] = (info.get("text", "") + " " + txt[:3000]).strip()
-            info["post_type"] = analyze_post_content(info["text"]) if info.get("post_type") in (
-                "Non specificato", "Posto Ordinario / Altro") else info["post_type"]
+        urls = list(dict.fromkeys(([info["doc_url"]] if info.get("doc_url") else []) + list(info.get("doc_urls") or [])))
+        for url in urls[:4]:
+            txt = doc_text(url)
+            if not txt:
+                continue
+            if not info.get("deadline"):
+                dl, src = find_deadline(txt, info.get("published") or None)
+                if dl:
+                    info["deadline"], info["deadline_src"] = dl, "allegato"
+            if not info.get("email"):
+                info["email"] = extract_email(txt)
+            if len(info.get("text", "")) < 200:
+                info["text"] = (info.get("text", "") + " " + txt[:3000]).strip()
+                info["post_type"] = analyze_post_content(info["text"]) if info.get("post_type") in (
+                    "Non specificato", "Posto Ordinario / Altro") else info["post_type"]
+            if info.get("deadline") and info.get("email"):
+                break
     except Exception:
         pass
     return info
@@ -800,7 +829,17 @@ def recheck_deadlines(conn, tried, limit=40):
 
     def work(r):
         info = {"doc_url": r[1], "published": r[2] or "", "email": r[3] or "", "deadline": None, "text": ""}
-        return r[0], enrich_from_doc(info)
+        info = enrich_from_doc(info)
+        if info and not info.get("deadline") and not FILE_EXT_RE.search(r[0]):
+            try:                              # l'allegato salvato non bastava: si riapre l'avviso e si provano tutti gli allegati
+                again = fetch_page_details(r[0], r[2] or None)
+                if again and again.get("deadline"):
+                    info["deadline"] = again["deadline"]
+                if again and again.get("email") and not info.get("email"):
+                    info["email"] = again["email"]
+            except Exception:
+                pass
+        return r[0], info
 
     with ThreadPoolExecutor(max_workers=6) as ex:
         for url, info in ex.map(work, todo):

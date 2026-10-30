@@ -97,6 +97,15 @@ def main(argv=None):
     for r in todo:
         info = app.enrich_from_doc({"doc_url": r[9], "published": r[5] or "", "email": r[10] or "",
                                     "deadline": None, "text": ""})
+        if not info.get("deadline"):                      # allegato salvato insufficiente: si riapre l'avviso (tutti gli allegati)
+            try:
+                again = app.fetch_page_details(r[1], r[5] or None)
+                if again and again.get("deadline"):
+                    info["deadline"] = again["deadline"]
+                if again and again.get("email") and not info.get("email"):
+                    info["email"] = again["email"]
+            except Exception:
+                pass
         tried.add(r[1])
         if info.get("deadline"):
             r[6] = info["deadline"]
