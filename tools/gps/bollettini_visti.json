@@ -44,6 +44,7 @@
 "https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-16-5/",
 "https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-17-5/",
 "https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-18-5/",
+"https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-19-5/",
 "https://www.istruzionepiemonte.it/cuneo/tag/nomine-gps/",
 "https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/AVVISO-Nomine-GPS-FASE-16-1.pdf",
 "https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/AVVISO-Nomine-GPS-FASE-17.pdf",
@@ -51,6 +52,8 @@
 "https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/Bollettino_TotaleNomine-FASE-17.xlsx",
 "https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/Bollettino_TotaleNomine.xlsx",
 "https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/10/Bollettino_TotaleNomineFASE16-1.xlsx",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/AVVISO-Nomine-GPS-FASE-19.pdf",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/Bollettino_TotaleNomineFASE19.xlsx",
 "https://www.istruzionepiemonte.it/novara/tag/nomine/",
 "https://www.uat-caserta.it/2026/09/21/secondo-bollettino-totale-delle-nomine-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
 "https://www.uat-caserta.it/2026/10/01/avviso-di-convocazione-per-nomine-a-tempo-determinato-profili-aa-cs-oa/",
@@ -84,7 +87,7 @@
 "Matera": 1,
 "Caserta": 19,
 "Piacenza": 12,
-"Cuneo": 6,
+"Cuneo": 8,
 "Lucca": 6,
 "Rovigo": 1
 },
@@ -244,6 +247,14 @@
 "Rovigo_bollettino-1.pdf": [
 "https://rovigo.istruzioneveneto.gov.it/2026/08/26/avviso-bollettino-conferme-sostegno/",
 "https://rovigo.istruzioneveneto.gov.it/wp-content/uploads/2026/08/Bollettino-conferme-sostegno.prot_.pdf"
+],
+"Cuneo_bollettino-7.pdf": [
+"https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-19-5/",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/AVVISO-Nomine-GPS-FASE-19.pdf"
+],
+"Cuneo_bollettino-8.xlsx": [
+"https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-19-5/",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/Bollettino_TotaleNomineFASE19.xlsx"
 ]
 }
 }
