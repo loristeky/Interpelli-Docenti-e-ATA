@@ -1648,7 +1648,8 @@ def build(page: ft.Page, raw_prefs=None):
         # ---- Preferenze dell'utente (classi di concorso, dati per le candidature)
         prefs = {"classes": [], "name": "", "phone": "", "gps_class": "", "gps_score": "",
                  "fav": [], "applied": [], "profiles": [], "theme": "", "calc": {},
-                 "sources": [], "src_status": {}, "deep": True, "dl_tried": [], "shared": True}
+                 "sources": [], "src_status": {}, "deep": True, "dl_tried": [], "shared": True,
+                 "last_auto": "", "shared_full": ""}
 
         store = ft.SharedPreferences()
 
@@ -1696,7 +1697,7 @@ def build(page: ft.Page, raw_prefs=None):
                         prefs["shared"] = data["shared"]
                     if data.get("theme") in ("light", "dark"):
                         prefs["theme"] = data["theme"]
-                    for key in ("name", "phone", "gps_class", "gps_score"):
+                    for key in ("name", "phone", "gps_class", "gps_score", "last_auto", "shared_full"):
                         if isinstance(data.get(key), str):
                             prefs[key] = data[key]
             except Exception:
@@ -1729,7 +1730,9 @@ def build(page: ft.Page, raw_prefs=None):
             )
 
         settings_button = tool_button(ft.Icons.TUNE_ROUNDED, "Le mie classi e i miei dati")
-        refresh_button = tool_button(ft.Icons.SYNC_ROUNDED, "Cerca nuovi interpelli")
+        refresh_button = ft.FilledTonalButton(content="Cerca nuovi interpelli", icon=ft.Icons.SYNC_ROUNDED, expand=True,
+                                              style=ft.ButtonStyle(padding=ft.Padding.symmetric(horizontal=16, vertical=14)))
+        refresh_row = ft.Row(controls=[refresh_button])
         reset_button = tool_button(ft.Icons.FILTER_ALT_OFF_ROUNDED, "Azzera i filtri", visible=False)
         sources_button = tool_button(ft.Icons.RSS_FEED_ROUNDED, "Stato delle fonti")
 
@@ -1753,8 +1756,6 @@ def build(page: ft.Page, raw_prefs=None):
         menu_button = ft.IconButton(icon=ft.Icons.MENU_ROUNDED, icon_color=ft.Colors.WHITE, icon_size=26,
                                     tooltip="Menù", on_click=lambda e: open_menu(e),
                                     style=ft.ButtonStyle(bgcolor=ft.Colors.with_opacity(0.18, ft.Colors.WHITE)))
-        refresh_button.icon_color = ft.Colors.WHITE
-        refresh_button.style = ft.ButtonStyle(bgcolor=ft.Colors.with_opacity(0.18, ft.Colors.WHITE))
 
         header = ft.Container(
             gradient=ft.LinearGradient(
@@ -1781,7 +1782,6 @@ def build(page: ft.Page, raw_prefs=None):
                                             size=12, color=ft.Colors.with_opacity(0.85, ft.Colors.WHITE)),
                                 ],
                             ),
-                            refresh_button,
                         ],
                     ),
                     search_input,
@@ -2023,6 +2023,7 @@ def build(page: ft.Page, raw_prefs=None):
                 controls=[
                     shortcuts_row,
                     stats_row,
+                    refresh_row,
                     ft.Row(spacing=4, vertical_alignment=ft.CrossAxisAlignment.CENTER,
                            controls=[ft.Container(expand=True, content=pills_row), filters_toggle]),
                     classes_text,
@@ -4081,14 +4082,23 @@ def build(page: ft.Page, raw_prefs=None):
         page.add(home_view, gps_view, calc_view, radar_view, sources_view, menu_view, storico_view, disclaimer)
         load_results(reset=True)
 
-        # Primo avvio: se non c'è ancora nulla, scarica subito.
+        # All'avvio cerca subito i nuovi interpelli (prima dall'elenco già pronto su GitHub, poi, se serve,
+        # dalle fonti). Si vede subito quello che c'è sul telefono e intanto l'elenco si aggiorna.
+        # ...ma al massimo una volta ogni 60 minuti (sempre, se il telefono non ha ancora nulla).
         try:
             conn = db_connect()
             empty = conn.execute("SELECT COUNT(*) FROM interpelli").fetchone()[0] == 0
             conn.close()
         except sqlite3.Error:
-            empty = False
-        if empty:
+            empty = True
+        try:
+            last = datetime.fromisoformat(prefs.get("last_auto", ""))
+            recent = (datetime.now() - last).total_seconds() < 3600
+        except ValueError:
+            recent = False
+        if empty or not recent:
+            prefs["last_auto"] = datetime.now().isoformat(timespec="seconds")
+            save_prefs()
             refresh()
 
     except Exception as ex:
