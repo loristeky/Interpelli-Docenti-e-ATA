@@ -52,6 +52,10 @@ jobs:
           NOTIFY_REGIONS: ${{ vars.NOTIFY_REGIONS }}
           SEEN_FILE: seen.json
         run: |
+          if [ -z "$NTFY_TOPIC" ]; then
+            echo "::notice::Notifiche non attive: manca il secret NTFY_TOPIC (vedi NOTIFICHE.md). Nessun errore."
+            exit 0
+          fi
           if [ "${{ inputs.test }}" = "true" ]; then
             python .github/notifier/notify.py --test
           else

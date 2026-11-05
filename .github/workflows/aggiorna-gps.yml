@@ -37,7 +37,7 @@ jobs:
 
       - name: Installa gli strumenti di lettura
         run: |
-          sudo apt-get update && sudo apt-get install -y poppler-utils
+          sudo apt-get update && sudo apt-get install -y poppler-utils tesseract-ocr tesseract-ocr-ita
           pip install pdfplumber openpyxl
 
       - name: Scarica i nuovi bollettini
@@ -57,7 +57,7 @@ jobs:
       - name: Cancella i PDF letti e salva i dati
         run: |
           while IFS= read -r f; do [ -n "$f" ] && git rm -q --ignore-unmatch "$f"; done < "$RUNNER_TEMP/elaborati.txt"
-          git add assets/gps_data.json tools/gps/bollettini_visti.json
+          git add assets/gps_data.json tools/gps/bollettini_visti.json tools/gps/bollettini_problemi.json
           if git diff --cached --quiet; then echo "Nessuna modifica"; exit 0; fi
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"

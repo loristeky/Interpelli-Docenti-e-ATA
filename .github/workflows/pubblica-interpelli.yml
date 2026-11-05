@@ -33,9 +33,11 @@ jobs:
       - name: Recupera l'elenco precedente
         run: |
           git fetch origin dati 2>/dev/null && git show origin/dati:interpelli.json > "$RUNNER_TEMP/prec.json" || echo '{}' > "$RUNNER_TEMP/prec.json"
+          git show origin/dati:provati.json > "$RUNNER_TEMP/prec-provati.json" 2>/dev/null || echo '[]' > "$RUNNER_TEMP/prec-provati.json"
 
       - name: Aggiorna l'elenco
-        run: python tools/export_interpelli.py --prec "$RUNNER_TEMP/prec.json" --out "$RUNNER_TEMP/interpelli.json"
+        run: |
+          python tools/export_interpelli.py --prec "$RUNNER_TEMP/prec.json" --prec-provati "$RUNNER_TEMP/prec-provati.json" --out "$RUNNER_TEMP/interpelli.json" --out-provati "$RUNNER_TEMP/provati.json"
 
       - name: Pubblica nel ramo dati
         run: |
@@ -45,6 +47,8 @@ jobs:
           git checkout --orphan dati-tmp
           git rm -rf -q . || true
           cp "$RUNNER_TEMP/out.json" interpelli.json
-          git add interpelli.json
+          cp "$RUNNER_TEMP/provati.json" provati.json
+          cp "$RUNNER_TEMP/recenti.json" recenti.json
+          git add interpelli.json provati.json recenti.json
           git commit -q -m "Aggiorna elenco interpelli"
           git push -f origin dati-tmp:dati
