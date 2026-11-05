@@ -25,6 +25,7 @@
 "https://www.istruzione-ancona.it/nomine-a-tempo-determinato-a-s-2026-2027-3/",
 "https://www.istruzione-ancona.it/nomine-a-tempo-determinato-a-s-2026-2027-5/",
 "https://www.istruzione-ancona.it/nomine-a-tempo-determinato-a-s-2026-2027/",
+"https://www.istruzione-ancona.it/nomine-a-tempo-determinato-gps-personale-docente_-ust-ancona_a-s-26-27/",
 "https://www.istruzione-ancona.it/personale-docente-nomine-a-tempo-determinato-47/",
 "https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-vii-bollettino-di-nomine/",
 "https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/Bollettino_TotaleNomine_Turno7-1.pdf",
@@ -32,6 +33,7 @@
 "https://www.istruzionechietipescara.it/2026/08/28/bollettino-n-1-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
 "https://www.istruzionechietipescara.it/2026/10/08/bollettino-n-5-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
 "https://www.istruzionechietipescara.it/2026/10/27/bollettino-n-6-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/2026/11/04/bollettino-n-7-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
 "https://www.istruzionechietipescara.it/category/nomine-a-tempo-determinato/",
 "https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/CHIETI-BOLLETTINO-1.pdf",
 "https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/PESCARA-BOLLETTINO-1-ALLEGATO-B.pdf",
@@ -45,6 +47,10 @@
 "https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/CHIETI-ReportDettDispScuola-6-Turno.pdf",
 "https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0032981.08-10-2026.pdf",
 "https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0035347.27-10-2026.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-A-CHIETI-Bollettino-Turno-N.-7.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-B-PESCARA-Bollettino-Turno-n.-7.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/CHIETI-ReportDettDispScuola-Turno-N.-7.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/Dispositivo-AOOUSPCH-PE-prot.-0036361-del-04-11-2026.pdf",
 "https://www.istruzionematera.it/1-bollettino-nomine-a-tempo-determinato-a-s-2026-27/",
 "https://www.istruzionematera.it/wp-content/uploads/2026/09/1°-Bollettino-nomine-a-t.d.-a.s.-26_27.pdf",
 "https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-16-5/",
@@ -97,11 +103,12 @@
 "https://www.usp-pi.it/wp-content/uploads/2026/11/Bollettino_TotaleNomine.pdf",
 "https://www.usp-pi.it/wp-content/uploads/2026/11/m_pi.AOOUSPPI.REGISTRO-UFFICIALEU.0009062.02-11-2026.pdf",
 "https://www.uspistruzione.fr.it/wp2/nomine-gps-11-bollettino-del-03-11-2026.html",
-"https://www.uspistruzione.fr.it/wp2/wp-content/uploads/2026/11/nomine-11-bollettino-GPS-del-03-11-2026.pdf"
+"https://www.uspistruzione.fr.it/wp2/wp-content/uploads/2026/11/nomine-11-bollettino-GPS-del-03-11-2026.pdf",
+"https://www.usplatina.it/wp/category/reclutamento/nomine-a-tempo-determinato/"
 ],
 "turni": {
 "Catanzaro": 7,
-"Chieti e Pescara": 6,
+"Chieti e Pescara": 7,
 "Matera": 1,
 "Caserta": 19,
 "Piacenza": 13,
@@ -312,6 +319,18 @@
 "Cuneo_bollettino-10.xlsx": [
 "https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-20-5/",
 "https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/Bollettino_TotaleNomineFASE20.xlsx"
+],
+"Chieti_e_Pescara_bollettino-7.pdf": [
+"https://www.istruzionechietipescara.it/2026/11/04/bollettino-n-7-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/Dispositivo-AOOUSPCH-PE-prot.-0036361-del-04-11-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-7_2.pdf": [
+"https://www.istruzionechietipescara.it/2026/11/04/bollettino-n-7-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-A-CHIETI-Bollettino-Turno-N.-7.pdf"
+],
+"Chieti_e_Pescara_bollettino-7_3.pdf": [
+"https://www.istruzionechietipescara.it/2026/11/04/bollettino-n-7-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-B-PESCARA-Bollettino-Turno-n.-7.pdf"
 ]
 }
 }
