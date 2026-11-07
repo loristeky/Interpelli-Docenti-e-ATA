@@ -30,6 +30,12 @@ jobs:
       - name: Installa la lettura dei PDF
         run: pip install pypdf
 
+      # OCR per le scadenze scritte solo in un'immagine o in un PDF scansionato
+      - name: Installa il riconoscimento del testo (OCR)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-ita poppler-utils
+
       - name: Recupera l'elenco precedente
         run: |
           git fetch origin dati 2>/dev/null && git show origin/dati:interpelli.json > "$RUNNER_TEMP/prec.json" || echo '{}' > "$RUNNER_TEMP/prec.json"
@@ -41,6 +47,7 @@ jobs:
 
       - name: Pubblica nel ramo dati
         run: |
+          cp assets/scadenze.json "$RUNNER_TEMP/scadenze.json"
           cp "$RUNNER_TEMP/interpelli.json" "$RUNNER_TEMP/out.json"
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
@@ -49,6 +56,7 @@ jobs:
           cp "$RUNNER_TEMP/out.json" interpelli.json
           cp "$RUNNER_TEMP/provati.json" provati.json
           cp "$RUNNER_TEMP/recenti.json" recenti.json
-          git add interpelli.json provati.json recenti.json
+          cp "$RUNNER_TEMP/scadenze.json" scadenze.json
+          git add interpelli.json provati.json recenti.json scadenze.json
           git commit -q -m "Aggiorna elenco interpelli"
           git push -f origin dati-tmp:dati
