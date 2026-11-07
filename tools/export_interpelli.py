@@ -28,6 +28,7 @@ RECHECK = 60              # avvisi senza scadenza da rileggere per giro
 
 def load_app():
     os.environ.setdefault("FLET_APP_STORAGE_DATA", tempfile.mkdtemp())
+    os.environ.setdefault("INTERPELLI_OCR", "1")        # sul server si leggono anche immagini e PDF scansionati (se c'è tesseract)
     sys.modules.setdefault("flet", MagicMock())
     spec = util.spec_from_file_location("interpelli_app", ROOT / "main.py")
     module = util.module_from_spec(spec)
@@ -51,6 +52,13 @@ def read_prev(path, tried_path=None):
     return rows, tried
 
 
+def read_prev_ocr(path):
+    try:
+        return {u for u in json.loads(Path(path).read_text(encoding="utf-8")).get("ocr", []) if isinstance(u, str)}
+    except (OSError, ValueError, AttributeError, TypeError):
+        return set()
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--prec", default="prec.json")
@@ -61,6 +69,7 @@ def main(argv=None):
 
     app = load_app()
     rows, tried = read_prev(args.prec, args.prec_provati)
+    prev_ocr = read_prev_ocr(args.prec)
     by_url = {r[1]: r for r in rows}
     known = set(by_url)
 
@@ -93,7 +102,11 @@ def main(argv=None):
         print(f"{name}: {n} interpelli nell'elenco (da PDF riassuntivo)")
 
     # avvisi senza scadenza: riprova a leggerla negli allegati (una volta sola per avviso)
-    todo = [r for r in by_url.values() if not r[6] and r[9] and r[1] not in tried][:RECHECK]
+    # con l'OCR attivo gli avvisi già provati senza scadenza si riprovano una volta (chiave con suffisso): ora si leggono
+    # anche immagini e PDF scansionati
+    suffix = "|ocr1" if app.ocr_available() else ""
+    print(f"OCR: {'attivo (' + app.OCR_STATE['lang'] + ')' if suffix else 'non disponibile (manca tesseract)'}")
+    todo = [r for r in by_url.values() if not r[6] and r[9] and r[1] + suffix not in tried][:RECHECK]
     for r in todo:
         info = app.enrich_from_doc({"doc_url": r[9], "published": r[5] or "", "email": r[10] or "",
                                     "deadline": None, "text": ""})
@@ -102,13 +115,17 @@ def main(argv=None):
                 again = app.fetch_page_details(r[1], r[5] or None)
                 if again and again.get("deadline"):
                     info["deadline"] = again["deadline"]
+                    info["ocr"] = bool(again.get("ocr"))
                 if again and again.get("email") and not info.get("email"):
                     info["email"] = again["email"]
             except Exception:
                 pass
         tried.add(r[1])
+        tried.add(r[1] + suffix)
         if info.get("deadline"):
             r[6] = info["deadline"]
+            if info.get("ocr"):
+                app.OCR_FOUND.add(r[1])
         if info.get("email") and not r[10]:
             r[10] = info["email"]
 
@@ -118,15 +135,19 @@ def main(argv=None):
     keep.sort(key=lambda r: r[5] or "", reverse=True)
     keep = keep[:MAX_ROWS]
     alive = {r[1] for r in keep}
-    proved = sorted(tried & alive)[-3000:]
-    out = {"aggiornato": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"), "righe": keep}
+    proved = sorted(tried & (alive | {u + '|ocr1' for u in alive}))[-4000:]
+    with_deadline = {r[1] for r in keep if r[6]}
+    ocr_urls = sorted(((prev_ocr | app.OCR_FOUND) & alive) & with_deadline)       # scadenze lette da immagini: da verificare
+    out = {"aggiornato": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"), "righe": keep, "ocr": ocr_urls}
     if args.out_provati:                      # file a parte: l'app scarica solo l'elenco, non questo
         Path(args.out_provati).write_text(json.dumps(proved, separators=(",", ":")), encoding="utf-8")
     else:
         out["provati"] = proved
     Path(args.out).write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     week = (date.today() - timedelta(days=7)).isoformat()
-    recent = {"aggiornato": out["aggiornato"], "righe": [r for r in keep if (r[5] or "") >= week]}
+    recent_rows = [r for r in keep if (r[5] or "") >= week]
+    recent = {"aggiornato": out["aggiornato"], "righe": recent_rows,
+              "ocr": [u for u in ocr_urls if u in {r[1] for r in recent_rows}]}
     Path(args.out).with_name("recenti.json").write_text(json.dumps(recent, ensure_ascii=False, separators=(",", ":")),
                                                         encoding="utf-8")
     print(f"Scritti {len(keep)} avvisi in {args.out}")
