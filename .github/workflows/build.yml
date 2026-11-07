@@ -35,7 +35,14 @@ jobs:
           yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
 
       - name: Build APK
-        run: flet build apk --yes --no-rich-output --verbose
+        # I server di Gradle/Maven a volte rispondono «429 Too Many Requests»: si riprova fino a 3 volte.
+        run: |
+          for i in 1 2 3; do
+            flet build apk --yes --no-rich-output --verbose && exit 0
+            [ "$i" -eq 3 ] && exit 1
+            echo "::warning::Tentativo $i non riuscito (probabile limite di richieste dei server): riprovo tra 90 secondi"
+            sleep 90
+          done
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4

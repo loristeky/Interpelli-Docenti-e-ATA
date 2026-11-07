@@ -62,9 +62,15 @@ jobs:
           FLET_ANDROID_SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           FLET_ANDROID_SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
         run: |
-          flet build aab --yes --no-rich-output --verbose \
-            --build-version "${{ inputs.version }}" \
-            --build-number "${{ github.run_number }}"
+          # I server di Gradle/Maven a volte rispondono «429 Too Many Requests»: si riprova fino a 3 volte.
+          for i in 1 2 3; do
+            flet build aab --yes --no-rich-output --verbose \
+              --build-version "${{ inputs.version }}" \
+              --build-number "${{ github.run_number }}" && exit 0
+            [ "$i" -eq 3 ] && exit 1
+            echo "::warning::Tentativo $i non riuscito (probabile limite di richieste dei server): riprovo tra 90 secondi"
+            sleep 90
+          done
 
       # Mostra l'impronta del certificato: deve essere identica a ogni build.
       - name: Verifica la firma
