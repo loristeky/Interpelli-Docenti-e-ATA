@@ -30,6 +30,7 @@ EXTRA = Path(__file__).with_name("pagine_bollettini.json")
 MAX_BYTES = 250_000_000         # i bollettini di Milano, Napoli, Catania... pesano molto
 MAX_SECONDS = 600
 PROBLEMI = Path(__file__).with_name("bollettini_problemi.json")
+APP = None                      # modulo dell'app (serve per rispettare robots.txt anche nei download)
 DOC_RE = re.compile(r"\.(pdf|xlsx|xlsm)(?:$|[?#])", re.I)
 # Un avviso è un bollettino GPS solo se dice «bollettino» o «nomine (a tempo determinato / da GPS)».
 TITLE_RE = re.compile(r"bollettin\w*|\bnomin[ae]\s+(?:a\s+tempo\s+determinato|da\s+gps|gps|supplenz\w*)|\bnomine\s+gps\b", re.I)
@@ -203,7 +204,10 @@ def sembra_bollettino_gps(path):
 def download(url, dest):
     """Scarica a blocchi direttamente su disco (niente file enormi in memoria). Restituisce None o il motivo dell'errore."""
     import time
-    req = Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; InterpelliScuola/1.0)"})
+    if APP is not None and not APP.robots_allowed(url):
+        return "il sito non ammette letture automatiche (robots.txt)"
+    req = Request(url, headers={"User-Agent": APP.USER_AGENT if APP is not None else
+                                "Mozilla/5.0 (compatible; InterpelliScuola/1.0)"})
     for ctx in (ssl.create_default_context(), None):
         try:
             if ctx is None:                       # catene incomplete di certificati: solo pagine pubbliche
@@ -267,7 +271,8 @@ def main(argv=None):
     ap.add_argument("--max", type=int, default=150, help="massimo di file scaricati per esecuzione")
     args = ap.parse_args(argv)
 
-    app = load_app()
+    global APP
+    app = APP = load_app()
     visti = read_json(VISTI, {"urls": [], "turni": {}})
     seen = set(visti.get("urls", []))
     counters = dict(visti.get("turni", {}))
