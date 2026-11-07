@@ -50,3 +50,14 @@ a ogni build.
 5. Modulo «Sicurezza dei dati», classificazione dei contenuti, pubblico di destinazione.
 6. Le fonti sono siti pubblici di scuole e uffici scolastici: nella descrizione indica che l'app non
    è ufficiale e non è collegata al Ministero.
+
+## 6. Testo di avvertenza per la scheda del Play Store
+Aggiungi in fondo alla descrizione completa (e tienilo coerente con l'app):
+
+    Interpelli Scuola non è collegata né affiliata al Ministero dell'Istruzione e del Merito né agli Uffici
+    scolastici. Gli avvisi sono pubblici e vengono letti dai siti ufficiali; ogni avviso rimanda alla pagina
+    originale, che fa sempre fede. Le date lette da immagini sono segnate con ⚠ e vanno verificate.
+    Per correzioni o rimozioni di una fonte: lorisbono@hotmail.it. Informativa: (link alla privacy policy).
+
+Nella sezione «Sicurezza dei dati» dichiara che l'app non raccoglie né condivide dati personali (coerente con
+la privacy policy). Non usare nel Play Store lo stemma della Repubblica né i loghi del Ministero o degli Uffici.

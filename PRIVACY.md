@@ -1,6 +1,6 @@
 # Informativa sulla privacy – Interpelli Scuola
 
-Ultimo aggiornamento: 28 ottobre 2026
+Ultimo aggiornamento: 8 novembre 2026
 
 Interpelli Scuola non ha account, non mostra pubblicità e non invia i tuoi dati ai nostri server: classi di concorso, punteggio e preferenze restano sul tuo telefono.
 
@@ -29,6 +29,10 @@ Non chiediamo la registrazione e non conosciamo la tua identità. Non usiamo la 
 ## Connessioni di rete
 
 Per funzionare l'app scarica pagine e file pubblici: i siti degli Uffici scolastici e delle scuole, gli allegati degli avvisi (PDF o Word) e un elenco di avvisi pubblicato su GitHub (raw.githubusercontent.com). Come accade con ogni sito, i server che rispondono ricevono il tuo indirizzo IP e le informazioni tecniche standard di una richiesta web. L'app non invia loro le tue classi, il tuo punteggio o altri dati personali. I link che apri dall'app si aprono nel browser, che ha le sue regole di privacy.
+
+## Fonti dei dati e richieste di rimozione
+
+Gli avvisi mostrati sono pubblicati dagli Uffici scolastici e dalle scuole e sono pubblici. Ogni avviso rimanda alla pagina originale e non ne ospitiamo copie. Se sei il titolare di un sito o di un dato e vuoi una correzione o la rimozione di una fonte, scrivi a lorisbono@hotmail.it. Le date lette da immagini con riconoscimento del testo possono contenere errori e sono segnate nell'app: fa sempre fede l'avviso originale.
 
 ## Candidature e condivisione
 

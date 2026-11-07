@@ -12,6 +12,7 @@ from datetime import datetime, date, timedelta
 from email.utils import parsedate_to_datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError
 from urllib.parse import urljoin, urlparse, quote
 import xml.etree.ElementTree as ET
 
@@ -239,8 +240,70 @@ def clean_text(text):
     return re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', text))).strip()
 
 
+USER_AGENT = "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36"
+ROBOTS_TOKEN = "InterpelliScuola"
+ROBOTS_EXEMPT = ("raw.githubusercontent.com", "github.com", "api.github.com", "ntfy.sh")   # i nostri dati e i servizi propri
+ROBOTS_CACHE = {}                 # host -> RobotFileParser, oppure None se robots.txt non è raggiungibile (si procede)
+ROBOTS_SKIPPED = set()            # siti saltati perché il loro robots.txt non ammette l'accesso automatico
+_robots_lock = threading.Lock()
+
+
+class RobotsDisallowed(Exception):
+    """Il sito chiede (robots.txt) di non essere letto da programmi automatici: non lo leggiamo."""
+
+
+def robots_allowed(url):
+    """Controllo di robots.txt: SPENTO di default (l'app legge tutte le fonti come prima). Si attiva solo con la
+    variabile INTERPELLI_ROBOTS=1; allora True se l'indirizzo si può leggere (se robots.txt manca si procede)."""
+    if os.environ.get("INTERPELLI_ROBOTS") != "1":
+        return True
+    try:
+        pu = urlparse(url)
+        host = pu.netloc.lower()
+        if pu.scheme not in ("http", "https") or not host or host.removeprefix("www.") in ROBOTS_EXEMPT or host in ROBOTS_EXEMPT:
+            return True
+        with _robots_lock:
+            known = host in ROBOTS_CACHE
+        if not known:
+            from urllib.robotparser import RobotFileParser
+            rp = RobotFileParser()
+            robots = f"{pu.scheme}://{host}/robots.txt"
+            try:
+                req = Request(robots, headers={"User-Agent": USER_AGENT})
+                try:
+                    resp = urlopen(req, timeout=6, context=ssl.create_default_context())
+                except ssl.SSLError:
+                    ctx = ssl.create_default_context()
+                    ctx.check_hostname, ctx.verify_mode = False, ssl.CERT_NONE
+                    resp = urlopen(req, timeout=6, context=ctx)
+                with resp:
+                    rp.parse(resp.read(300_000).decode("utf-8", "replace").splitlines())
+            except HTTPError as ex:
+                if ex.code in (401, 403):
+                    rp.disallow_all = True                  # regola standard: accesso negato = vietato
+                elif ex.code >= 500:
+                    rp = None
+                else:
+                    rp.allow_all = True                     # 404 e simili: nessun divieto
+            except Exception:
+                rp = None                                   # sito non raggiungibile: non c'è nulla da rispettare
+            with _robots_lock:
+                ROBOTS_CACHE[host] = rp
+        rp = ROBOTS_CACHE.get(host)
+        if rp is None:
+            return True
+        ok = rp.can_fetch(ROBOTS_TOKEN, url)
+        if not ok:
+            ROBOTS_SKIPPED.add(host)
+        return ok
+    except Exception:
+        return True
+
+
 def _open(url, context=None):
-    req = Request(url, headers={"User-Agent": "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36"})
+    if not robots_allowed(url):
+        raise RobotsDisallowed(url)
+    req = Request(url, headers={"User-Agent": USER_AGENT})
     with urlopen(req, timeout=10, context=context) as resp:
         raw = resp.read(2_000_000)
         return raw.decode(resp.headers.get_content_charset() or 'utf-8', errors='replace')
@@ -783,8 +846,9 @@ def analyze_page(page_html, link, rss_published=None):
 
 def _open_bytes(url, limit, context=None):
     # Si chiede la versione compressa: l'elenco condiviso passa da ~1 MB a circa un quinto.
-    req = Request(url, headers={"User-Agent": "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36",
-                                "Accept-Encoding": "gzip"})
+    if not robots_allowed(url):
+        raise RobotsDisallowed(url)
+    req = Request(url, headers={"User-Agent": USER_AGENT, "Accept-Encoding": "gzip"})
     with urlopen(req, timeout=10, context=context) as resp:
         data = resp.read(limit)
         if resp.headers.get("Content-Encoding", "").lower() == "gzip":
@@ -4456,6 +4520,10 @@ def build(page: ft.Page, raw_prefs=None):
                         "Uffici Scolastici e i bollettini ufficiali.", size=13),
                 ft.Text("L'app non è collegata né affiliata al Ministero dell'Istruzione e del Merito. "
                         "Non raccoglie dati personali: classi e preferenze restano sul tuo telefono.",
+                        size=13),
+                ft.Text("Gli avvisi sono pubblici e vengono letti dai siti ufficiali. "
+                        "Ogni avviso rimanda all'originale, che fa sempre fede. Le date segnate con ⚠ sono lette da "
+                        "un'immagine: controllale nell'avviso. Per correzioni o rimozioni scrivi a lorisbono@hotmail.it.",
                         size=13)]),
             actions=[ft.TextButton("Informativa sulla privacy", icon=ft.Icons.PRIVACY_TIP_OUTLINED,
                                    on_click=lambda e: open_url(PRIVACY_URL)),
