@@ -683,7 +683,11 @@ LINK_WANTED_RE = re.compile(r"interpell|avvis|supplenz|disponibilit|convocazion|
 DATED_POST_RE = re.compile(r"/\d{4}/\d{2}/\d{2}/")
 
 
-def extract_followup_links(page_html, base_url, limit=2):
+def _norm_words(t):
+    return re.sub(r"[^a-z0-9àèéìòù]+", " ", (t or "").lower()).strip()
+
+
+def extract_followup_links(page_html, base_url, limit=2, title=""):
     """Pagine collegate dall'avviso quando il dettaglio (e la scadenza) sta altrove: tipico «Si pubblica l'interpello
     della scuola X» con un solo link al sito della scuola. Si seguono i link a un altro sito e quelli che parlano di
     interpello/avviso; mai gli altri avvisi dello stesso sito (articoli con la data nell'indirizzo), né categorie,
@@ -701,8 +705,14 @@ def extract_followup_links(page_html, base_url, limit=2):
             continue
         same_site = pu.netloc.lower().removeprefix("www.") == here.netloc.lower().removeprefix("www.")
         wanted = bool(LINK_WANTED_RE.search(clean_text(label) + " " + u))
-        if same_site and (DATED_POST_RE.search(u) or not wanted):
+        if same_site and not wanted:
             continue
+        if same_site and DATED_POST_RE.search(u):
+            # un altro articolo dello stesso sito è di solito un altro avviso: si segue solo se il testo del link è
+            # (quasi) il titolo di questa pagina, cioè è lo stesso avviso che rimanda alla sua pagina di dettaglio
+            from difflib import SequenceMatcher
+            if not title or SequenceMatcher(None, _norm_words(clean_text(label)), _norm_words(title)).ratio() < 0.75:
+                continue
         if u not in [x[2] for x in found]:
             found.append((0 if wanted else 1, len(found), u))
     return [x[2] for x in sorted(found)][:limit]
@@ -733,6 +743,12 @@ def extract_email(text):
 FILE_EXT_RE = re.compile(r"\.(?:pdf|docx?|odt|xlsx?|zip)(?:\?.*)?$", re.I)
 
 
+def _page_title(main_html, page_html):
+    m = re.search(r"<h1\b[^>]*>(.*?)</h1>", main_html or "", re.I | re.S) or re.search(
+        r"<h1\b[^>]*>(.*?)</h1>", page_html or "", re.I | re.S)
+    return clean_text(m.group(1)) if m else ""
+
+
 def analyze_page(page_html, link, rss_published=None):
     """Legge una pagina-avviso e ne estrae i dati. Tutte le date partono dal testo dell'avviso."""
     main_html = main_region(page_html)
@@ -759,7 +775,7 @@ def analyze_page(page_html, link, rss_published=None):
                     or (extract_image_urls(main_html, link) or [""])[0]),
         "doc_urls": extract_doc_urls(main_html, link) or extract_doc_urls(page_html, link),
         "img_urls": extract_image_urls(main_html, link),
-        "link_urls": extract_followup_links(main_html, link),
+        "link_urls": extract_followup_links(main_html, link, title=_page_title(main_html, page_html)),
         "email": extract_email(text),
         "html": main_html[:20000],
     }
