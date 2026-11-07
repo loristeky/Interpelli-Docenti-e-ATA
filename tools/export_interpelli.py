@@ -97,6 +97,8 @@ def main(argv=None):
                     by_url[it[1]] = list(it)
                     new += 1
     print(f"Fonti raggiunte: {reached}/{len(jobs)} · nuovi avvisi: {new}")
+    if app.ROBOTS_SKIPPED:
+        print("Siti non letti perché il loro robots.txt vieta l'accesso automatico: " + ", ".join(sorted(app.ROBOTS_SKIPPED)))
     for name in sorted(app.DIGEST_SOURCES):       # fonti con PDF riassuntivo: quante righe ci sono nell'elenco
         n = sum(1 for r in by_url.values() if r[3] == name)
         print(f"{name}: {n} interpelli nell'elenco (da PDF riassuntivo)")
