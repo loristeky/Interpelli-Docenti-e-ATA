@@ -111,6 +111,7 @@ def main(argv=None):
     suffix = "|v2o" if app.ocr_available() else "|v2"      # v2: ora si seguono anche i link verso altre pagine
     print(f"OCR: {'attivo (' + app.OCR_STATE['lang'] + ')' if app.ocr_available() else 'non disponibile (manca tesseract)'}")
     todo = [r for r in by_url.values() if not r[6] and r[1] + suffix not in tried][:RECHECK]
+    diag = 0
     for r in todo:
         info = app.enrich_from_doc({"doc_url": r[9], "published": r[5] or "", "email": r[10] or "",
                                     "deadline": None, "text": ""})
@@ -126,6 +127,9 @@ def main(argv=None):
                     r[9] = again["doc_url"]               # avviso che rimanda a un'altra pagina: «Documento» apre quella
             except Exception:
                 pass
+        if not info.get("deadline") and diag < 25:
+            diag += 1
+            print(f"Senza scadenza: {r[1]}")
         tried.add(r[1])
         tried.add(r[1] + suffix)
         if info.get("deadline"):
