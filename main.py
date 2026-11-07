@@ -674,6 +674,40 @@ def extract_image_urls(page_html, base_url, limit=3):
     return found[:limit]
 
 
+A_TAG_RE = re.compile(r'<a\b[^>]*?href=["\']([^"\'#][^"\']*)["\'][^>]*>(.*?)</a>', re.I | re.S)
+LINK_SKIP_HOST_RE = re.compile(r"facebook\.|twitter\.|//x\.com|youtube\.|youtu\.be|instagram\.|whatsapp\.|t\.me|telegram\.|"
+                               r"linkedin\.|google\.[a-z]+/maps|wa\.me", re.I)
+LINK_SKIP_PATH_RE = re.compile(r"/(?:category|tag|author|feed|wp-json|wp-login)\b|[?&]s=|/page/\d|privacy|cookie|"
+                               r"mailto:|tel:|\.(?:jpe?g|png|gif|svg|webp|zip|xlsx?)(?:\?|$)", re.I)
+LINK_WANTED_RE = re.compile(r"interpell|avvis|supplenz|disponibilit|convocazion|bando|\bmad\b|incaric", re.I)
+DATED_POST_RE = re.compile(r"/\d{4}/\d{2}/\d{2}/")
+
+
+def extract_followup_links(page_html, base_url, limit=2):
+    """Pagine collegate dall'avviso quando il dettaglio (e la scadenza) sta altrove: tipico «Si pubblica l'interpello
+    della scuola X» con un solo link al sito della scuola. Si seguono i link a un altro sito e quelli che parlano di
+    interpello/avviso; mai gli altri avvisi dello stesso sito (articoli con la data nell'indirizzo), né categorie,
+    social o file (i file si leggono già come allegati)."""
+    here = urlparse(base_url)
+    found = []
+    for href, label in A_TAG_RE.findall(page_html or ""):
+        u = urljoin(base_url, html.unescape(href)).split("#")[0]
+        pu = urlparse(u)
+        if pu.scheme not in ("http", "https") or u.rstrip("/") == base_url.split("#")[0].rstrip("/"):
+            continue
+        if FILE_EXT_RE.search(u) or LINK_SKIP_HOST_RE.search(u) or LINK_SKIP_PATH_RE.search(u):
+            continue
+        if not pu.path.strip("/"):                       # home page di un sito: non è l'avviso
+            continue
+        same_site = pu.netloc.lower().removeprefix("www.") == here.netloc.lower().removeprefix("www.")
+        wanted = bool(LINK_WANTED_RE.search(clean_text(label) + " " + u))
+        if same_site and (DATED_POST_RE.search(u) or not wanted):
+            continue
+        if u not in [x[2] for x in found]:
+            found.append((0 if wanted else 1, len(found), u))
+    return [x[2] for x in sorted(found)][:limit]
+
+
 def extract_doc_url(page_html, base_url):
     """Primo allegato (pdf/doc/odt) della pagina, preferendo quelli che parlano di interpello."""
     found = [urljoin(base_url, h) for h in DOC_RE.findall(page_html)]
@@ -725,6 +759,7 @@ def analyze_page(page_html, link, rss_published=None):
                     or (extract_image_urls(main_html, link) or [""])[0]),
         "doc_urls": extract_doc_urls(main_html, link) or extract_doc_urls(page_html, link),
         "img_urls": extract_image_urls(main_html, link),
+        "link_urls": extract_followup_links(main_html, link),
         "email": extract_email(text),
         "html": main_html[:20000],
     }
@@ -874,7 +909,8 @@ def enrich_from_doc(info):
     """Se la pagina non dice la scadenza (o l'email), la cerca negli allegati: prova tutti (fino a 4), perché spesso
     il primo è il modulo di domanda e la scadenza sta nella lettera dell'ufficio."""
     try:
-        if info is None or not (info.get("doc_url") or info.get("doc_urls") or info.get("img_urls")):
+        if info is None or not (info.get("doc_url") or info.get("doc_urls") or info.get("img_urls")
+                                or info.get("link_urls")):
             return info
         if info.get("deadline") and info.get("email"):
             return info
@@ -899,6 +935,23 @@ def enrich_from_doc(info):
                     "Non specificato", "Posto Ordinario / Altro") else info["post_type"]
             if info.get("deadline") and info.get("email"):
                 break
+        # la scadenza non c'è né nella pagina né negli allegati: l'avviso rimanda a un'altra pagina (es. il sito della
+        # scuola) che contiene il testo o il PDF. Si segue un solo salto (follow=False evita i giri a catena).
+        if not info.get("deadline") and info.get("link_urls"):
+            for u in info["link_urls"][:2]:
+                sub = fetch_page_details(u, info.get("published") or None, follow=False)
+                if not sub:
+                    continue
+                if not info.get("doc_url"):
+                    info["doc_url"] = sub.get("doc_url") or u
+                if not info.get("email") and sub.get("email"):
+                    info["email"] = sub["email"]
+                if sub.get("deadline"):
+                    info["deadline"] = sub["deadline"]
+                    info["deadline_src"] = "pagina collegata: " + (sub.get("deadline_src") or "")[:80]
+                    if sub.get("ocr"):
+                        info["ocr"] = True
+                    break
     except Exception:
         pass
     return info
@@ -950,7 +1003,7 @@ def recheck_deadlines(conn, tried, limit=40):
     `tried` = indirizzi già provati (non si riprova all'infinito). Restituisce quante scadenze ha trovato."""
     rows = conn.execute(
         "SELECT url, doc_url, published, email FROM interpelli "
-        "WHERE (deadline IS NULL OR deadline = '') AND doc_url IS NOT NULL AND doc_url != '' "
+        "WHERE (deadline IS NULL OR deadline = '') "
         "AND (published = '' OR published >= date('now', '-45 day')) ORDER BY published DESC LIMIT ?",
         (limit * 3,)).fetchall()
     todo = [r for r in rows if r[0] not in tried][:limit]
@@ -982,14 +1035,18 @@ def recheck_deadlines(conn, tried, limit=40):
     return found
 
 
-def fetch_page_details(link, rss_published=None):
-    """Come analyze_page ma scaricando la pagina; None se non raggiungibile."""
+def fetch_page_details(link, rss_published=None, follow=True):
+    """Come analyze_page ma scaricando la pagina; None se non raggiungibile.
+    follow=False: non segue i link verso altre pagine (usato per il salto successivo)."""
     if FILE_EXT_RE.search(link):
         return enrich_from_doc({"text": "", "post_type": "Non specificato", "published": rss_published or "",
                                 "published_src": "elenco dell'ufficio" if rss_published else "", "deadline": None,
                                 "deadline_src": "", "doc_url": link, "email": ""})
     try:
-        info = enrich_from_doc(analyze_page(fetch_url(link), link, rss_published))
+        info = analyze_page(fetch_url(link), link, rss_published)
+        if not follow:
+            info["link_urls"] = []
+        info = enrich_from_doc(info)
         if info and info.get("ocr"):
             OCR_FOUND.add(link)
         return info
