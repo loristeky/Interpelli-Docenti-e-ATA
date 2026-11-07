@@ -4080,6 +4080,28 @@ def build(page: ft.Page, raw_prefs=None):
             ]),
         )
         page.add(home_view, gps_view, calc_view, radar_view, sources_view, menu_view, storico_view, disclaimer)
+
+        # Tasto «indietro» di Android: l'app è una sola schermata (le pagine si mostrano e si nascondono), quindi
+        # per Flet non c'è nessuna vista da chiudere e il sistema chiuderebbe l'app. Si blocca la chiusura automatica
+        # della vista principale e ogni pressione passa da qui: se c'è una pagina aperta (menù, GPS, calcolo...) si
+        # torna alla home e si annulla la chiusura; se si è già alla home si lascia uscire.
+        def _confirm_pop(e):
+            try:
+                handled = bool(go_back(None))
+            except Exception:
+                handled = False
+            try:
+                (getattr(e, "control", None) or page.views[0]).confirm_pop(not handled)
+            except Exception:
+                pass
+
+        try:
+            _root_view = page.views[0]
+            _root_view.can_pop = False
+            _root_view.on_confirm_pop = _confirm_pop
+            page.update()
+        except Exception as ex:
+            print(f"Tasto indietro non configurato: {ex}")
         load_results(reset=True)
 
         # All'avvio cerca subito i nuovi interpelli (prima dall'elenco già pronto su GitHub, poi, se serve,
