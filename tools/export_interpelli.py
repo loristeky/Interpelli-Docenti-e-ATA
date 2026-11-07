@@ -104,6 +104,10 @@ def main(argv=None):
     # avvisi senza scadenza: riprova a leggerla negli allegati (una volta sola per avviso)
     # con l'OCR attivo gli avvisi già provati senza scadenza si riprovano una volta (chiave con suffisso): ora si leggono
     # anche immagini e PDF scansionati
+    if not hasattr(app, "ocr_available"):
+        print("ATTENZIONE: main.py è una versione vecchia (senza OCR): caricalo su GitHub insieme agli altri file.")
+        app.OCR_FOUND = set()
+        app.ocr_available = lambda: False
     suffix = "|ocr1" if app.ocr_available() else ""
     print(f"OCR: {'attivo (' + app.OCR_STATE['lang'] + ')' if suffix else 'non disponibile (manca tesseract)'}")
     todo = [r for r in by_url.values() if not r[6] and r[9] and r[1] + suffix not in tried][:RECHECK]
