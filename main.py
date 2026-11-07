@@ -338,8 +338,33 @@ CONTRACT_WORDS = re.compile(r"supplenz|incaric|contratt|nomina|assunzion|servizi
                             r"fino\s+al|sino\s+al|termine\s+delle\s+(?:lezioni|attivit)", re.I)
 
 
+_TIME_RE = re.compile(r"(?:\bore\b|\bh\b\.?)\s*(\d{1,2})(?:\s?[:.,]\s?(\d{2}))?(?!\d)|(?<![\d/.])(\d{1,2})\s?[:.]\s?(\d{2})(?![\d/.]\d)", re.I)
+
+
+def _first_time(chunk):
+    """Prima ora valida in un pezzo di testo («ore 08:00», «alle 12.30», «h 14»): 'HH:MM' oppure None."""
+    for m in _TIME_RE.finditer(chunk or ""):
+        hh = m.group(1) if m.group(1) is not None else m.group(3)
+        mm = m.group(2) if m.group(1) is not None else m.group(4)
+        h, mi = int(hh), int(mm or 0)
+        if 0 <= h <= 23 and 0 <= mi <= 59:
+            return f"{h:02d}:{mi:02d}"
+    return None
+
+
+def deadline_time_near(text, start, end, key, between):
+    """Orario della scadenza: prima tra parola chiave e data («entro le ore 08:00 del giorno 2 novembre»),
+    poi subito dopo la data («2/11/2026 ore 12:00»)."""
+    t = _first_time(key + " " + between)
+    if t:
+        return t
+    after = re.match(r"[\s,;(\-–]{0,6}((?:alle\s+|entro\s+le\s+|ore\s+|h\s*)[^\n]{0,14})", text[end:end + 40], re.I)
+    return _first_time(after.group(1)) if after else None
+
+
 def find_deadline(text, published=None):
-    """Cerca la scadenza per presentare la disponibilità. Restituisce (data ISO, frase trovata)."""
+    """Cerca la scadenza per presentare la disponibilità. Restituisce (data ISO, frase trovata).
+    Se nel testo c'è anche l'ora, la data è 'AAAA-MM-GG HH:MM'."""
     pub = to_date(published) if published else None
     default_year = pub.year if pub else date.today().year
     best = None
@@ -378,7 +403,8 @@ def find_deadline(text, published=None):
         if score >= 1 and (best is None or score > best[0]):
             a = max(0, m.start() - 25)
             snippet = text[a:m.end() + 25].strip()
-            best = (score, iso, snippet)
+            hhmm = deadline_time_near(text, m.start(), m.end(), key, between)
+            best = (score, f"{iso} {hhmm}" if hhmm else iso, snippet)
     if best:
         return best[1], best[2]
     return None, ""
@@ -626,6 +652,28 @@ def extract_doc_urls(page_html, base_url):
     return sorted(found, key=rank)
 
 
+IMG_HREF_RE = re.compile(r'<a\b[^>]*?href=["\']([^"\']+\.(?:jpe?g|png)(?:\?[^"\']*)?)["\']', re.I)
+IMG_SRC_RE = re.compile(r'<img\b[^>]*?\b(?:data-src|src)=["\']([^"\']+\.(?:jpe?g|png)(?:\?[^"\']*)?)["\']', re.I)
+IMG_SKIP_RE = re.compile(r"logo|icon|favicon|banner|header|stemma|emoji|avatar|sprite|social|spacer|pixel|"
+                         r"facebook|twitter|whatsapp|telegram|instagram|youtube|\bqr", re.I)
+
+
+def extract_image_urls(page_html, base_url, limit=3):
+    """Immagini dell'avviso che potrebbero contenere il testo (locandine, scansioni): prima i link all'originale,
+    poi le immagini nella pagina; senza loghi e icone. Di quelle ridimensionate («-300x200») si prova prima l'originale."""
+    found = []
+    for pat in (IMG_HREF_RE, IMG_SRC_RE):
+        for h in pat.findall(page_html or ""):
+            u = urljoin(base_url, html.unescape(h))
+            if IMG_SKIP_RE.search(u.rsplit("/", 1)[-1]) or u in found:
+                continue
+            orig = re.sub(r"-\d{2,4}x\d{2,4}(?=\.\w+(?:\?|$))", "", u)
+            for cand in ([orig] if orig != u else []) + [u]:
+                if cand not in found:
+                    found.append(cand)
+    return found[:limit]
+
+
 def extract_doc_url(page_html, base_url):
     """Primo allegato (pdf/doc/odt) della pagina, preferendo quelli che parlano di interpello."""
     found = [urljoin(base_url, h) for h in DOC_RE.findall(page_html)]
@@ -673,8 +721,10 @@ def analyze_page(page_html, link, rss_published=None):
         "published_src": pub_src,
         "deadline": deadline,
         "deadline_src": deadline_src,
-        "doc_url": extract_doc_url(main_html, link) or extract_doc_url(page_html, link),
+        "doc_url": (extract_doc_url(main_html, link) or extract_doc_url(page_html, link)
+                    or (extract_image_urls(main_html, link) or [""])[0]),
         "doc_urls": extract_doc_urls(main_html, link) or extract_doc_urls(page_html, link),
+        "img_urls": extract_image_urls(main_html, link),
         "email": extract_email(text),
         "html": main_html[:20000],
     }
@@ -706,28 +756,102 @@ def fetch_bytes(url, limit=3_000_000):
         raise
 
 
+# Lettura del testo da immagini e PDF scansionati (OCR). Solo sul server (GitHub Actions: tesseract + poppler-utils)
+# e solo se INTERPELLI_OCR=1: l'app sul telefono non la usa mai. I PDF con testo normale non passano da qui.
+OCR_BUDGET = {"left": int(os.environ.get("OCR_MAX", "80"))}       # documenti letti con l'OCR per esecuzione
+OCR_STATE = {"lang": None}
+OCR_FOUND = set()                  # avvisi la cui scadenza è stata letta con l'OCR (da far verificare)
+_ocr_lock = threading.Lock()
+
+
+def ocr_available():
+    if os.environ.get("INTERPELLI_OCR") != "1":
+        return False
+    if OCR_STATE["lang"] is None:
+        OCR_STATE["lang"] = ""
+        try:
+            import shutil
+            import subprocess
+            if shutil.which("tesseract"):
+                langs = subprocess.run(["tesseract", "--list-langs"], capture_output=True, text=True,
+                                       timeout=20).stdout.split()
+                OCR_STATE["lang"] = "ita+eng" if "ita" in langs and "eng" in langs else (
+                    "ita" if "ita" in langs else "eng")
+        except Exception:
+            OCR_STATE["lang"] = ""
+    return bool(OCR_STATE["lang"])
+
+
+def ocr_bytes(data, kind="img", max_pages=3):
+    """Testo letto con tesseract da un'immagine (kind='img') o dalle prime pagine di un PDF (kind='pdf'); '' se non si può."""
+    if not ocr_available():
+        return ""
+    with _ocr_lock:
+        if OCR_BUDGET["left"] <= 0:
+            return ""
+        OCR_BUDGET["left"] -= 1
+    import glob
+    import subprocess
+    import tempfile
+    try:
+        with tempfile.TemporaryDirectory() as d:
+            if kind == "pdf":
+                f = os.path.join(d, "a.pdf")
+                with open(f, "wb") as fh:
+                    fh.write(data)
+                subprocess.run(["pdftoppm", "-r", "150", "-f", "1", "-l", str(max_pages), "-png", f,
+                                os.path.join(d, "p")], capture_output=True, timeout=120)
+                pics = sorted(glob.glob(os.path.join(d, "p*.png")))
+            else:
+                f = os.path.join(d, "a.png" if data[:4] == b"\x89PNG" else "a.jpg")
+                with open(f, "wb") as fh:
+                    fh.write(data)
+                pics = [f]
+            out = []
+            for pic in pics:
+                r = subprocess.run(["tesseract", pic, "stdout", "-l", OCR_STATE["lang"], "--psm", "3"],
+                                   capture_output=True, timeout=120)
+                out.append(r.stdout.decode("utf-8", "replace"))
+        return re.sub(r"\s+", " ", " ".join(out)).strip()[:12000]
+    except Exception:
+        return ""
+
+
 def doc_text(url, max_chars=12000):
+    return doc_text_ex(url, max_chars)[0]
+
+
+def doc_text_ex(url, max_chars=12000):
     """Testo dell'allegato (PDF, Word .docx o OpenDocument .odt) per cercare scadenza ed email che non stanno nella
     pagina. '' se non si legge. I PDF si leggono con pypdf se è disponibile; gli altri con la sola libreria standard.
     Il tipo si riconosce dal contenuto, non solo dal nome (molti siti scrivono indirizzi senza estensione)."""
     import io
     try:
-        data = fetch_bytes(url, 6_000_000)
+        data = fetch_bytes(url, 8_000_000)
     except Exception:
-        return ""
+        return "", False
     try:
         if data[:4] == b"%PDF":
+            text = ""
             try:
                 from pypdf import PdfReader
+                reader = PdfReader(io.BytesIO(data))
+                out = []
+                for page in reader.pages[:8]:
+                    out.append(page.extract_text() or "")
+                    if sum(len(x) for x in out) > max_chars:
+                        break
+                text = re.sub(r"\s+", " ", " ".join(out))[:max_chars]
             except Exception:
-                return ""
-            reader = PdfReader(io.BytesIO(data))
-            out = []
-            for page in reader.pages[:8]:
-                out.append(page.extract_text() or "")
-                if sum(len(x) for x in out) > max_chars:
-                    break
-            return re.sub(r"\s+", " ", " ".join(out))[:max_chars]
+                pass
+            if len(text.strip()) < 40:                    # PDF scansionato: senza testo da leggere
+                scanned = ocr_bytes(data, "pdf")
+                if scanned:
+                    return scanned[:max_chars], True
+            return text, False
+        if data[:4] == b"\x89PNG" or data[:3] == b"\xff\xd8\xff":
+            txt = ocr_bytes(data, "img")                  # immagine (locandina, foto di un avviso)
+            return txt[:max_chars], bool(txt)
         if data[:2] == b"PK":
             import zipfile
             with zipfile.ZipFile(io.BytesIO(data)) as z:
@@ -739,30 +863,34 @@ def doc_text(url, max_chars=12000):
                     xml = z.read("content.xml").decode("utf-8", "replace")
                     xml = re.sub(r"</text:p>", "\n", xml)
                 else:
-                    return ""
-            return clean_text(re.sub(r"<[^>]+>", "", xml))[:max_chars]
+                    return "", False
+            return clean_text(re.sub(r"<[^>]+>", "", xml))[:max_chars], False
     except Exception:
-        return ""
-    return ""
+        return "", False
+    return "", False
 
 
 def enrich_from_doc(info):
     """Se la pagina non dice la scadenza (o l'email), la cerca negli allegati: prova tutti (fino a 4), perché spesso
     il primo è il modulo di domanda e la scadenza sta nella lettera dell'ufficio."""
     try:
-        if info is None or not (info.get("doc_url") or info.get("doc_urls")):
+        if info is None or not (info.get("doc_url") or info.get("doc_urls") or info.get("img_urls")):
             return info
         if info.get("deadline") and info.get("email"):
             return info
         urls = list(dict.fromkeys(([info["doc_url"]] if info.get("doc_url") else []) + list(info.get("doc_urls") or [])))
-        for url in urls[:4]:
-            txt = doc_text(url)
+        # le immagini si leggono per ultime (l'OCR è più lento e meno preciso) e solo se manca la scadenza
+        imgs = [u for u in (info.get("img_urls") or []) if u not in urls] if (ocr_available() and not info.get("deadline")) else []
+        for url in urls[:4] + imgs[:3]:
+            txt, via_ocr = doc_text_ex(url)
             if not txt:
                 continue
             if not info.get("deadline"):
                 dl, src = find_deadline(txt, info.get("published") or None)
                 if dl:
                     info["deadline"], info["deadline_src"] = dl, "allegato"
+                    if via_ocr:
+                        info["deadline_src"], info["ocr"] = "immagine (letta con OCR)", True
             if not info.get("email"):
                 info["email"] = extract_email(txt)
             if len(info.get("text", "")) < 200:
@@ -788,7 +916,7 @@ INSERT_SQL = """INSERT INTO interpelli (title, url, region, source, target, publ
                 email=CASE WHEN excluded.email != '' THEN excluded.email ELSE interpelli.email END"""
 
 
-SHARED_INFO = {"age_min": None}
+SHARED_INFO = {"age_min": None, "ocr": set()}
 
 
 def load_shared(conn, known, recent=False):
@@ -796,6 +924,7 @@ def load_shared(conn, known, recent=False):
     try:
         data = json.loads(fetch_bytes(SHARED_RECENT_URL if recent else SHARED_URL, 12_000_000).decode("utf-8"))
         rows = [r for r in data.get("righe", []) if isinstance(r, list) and len(r) == 11 and isinstance(r[1], str)]
+        SHARED_INFO["ocr"] = {u for u in (data.get("ocr") or []) if isinstance(u, str)}
         try:
             ts = datetime.strptime(data.get("aggiornato", ""), "%Y-%m-%dT%H:%M:%SZ")
             SHARED_INFO["age_min"] = (datetime.utcnow() - ts).total_seconds() / 60
@@ -860,7 +989,10 @@ def fetch_page_details(link, rss_published=None):
                                 "published_src": "elenco dell'ufficio" if rss_published else "", "deadline": None,
                                 "deadline_src": "", "doc_url": link, "email": ""})
     try:
-        return enrich_from_doc(analyze_page(fetch_url(link), link, rss_published))
+        info = enrich_from_doc(analyze_page(fetch_url(link), link, rss_published))
+        if info and info.get("ocr"):
+            OCR_FOUND.add(link)
+        return info
     except Exception:
         return None
 
@@ -1264,15 +1396,60 @@ def parse_source_page(region, source_name, url, known, deep=False):
 # Formattazione
 # ----------------------------------------------------------------------------
 def to_date(iso):
+    """Data da 'AAAA-MM-GG' (anche se seguita dall'ora: 'AAAA-MM-GG HH:MM')."""
     try:
-        return datetime.strptime(iso, "%Y-%m-%d").date()
+        return datetime.strptime((iso or "")[:10], "%Y-%m-%d").date()
     except Exception:
         return None
+
+
+def to_time(iso):
+    """'HH:MM' se la scadenza ha l'ora, altrimenti None."""
+    m = re.match(r"^\d{4}-\d{2}-\d{2}[ T](\d{2}:\d{2})", iso or "")
+    return m.group(1) if m else None
 
 
 def fmt_date(iso):
     d = to_date(iso)
     return f"{d.day} {MESI[d.month - 1]} {d.year}" if d else (iso or "—")
+
+
+def fmt_deadline(iso):
+    """'2 novembre 2026, entro le 08:00' (l'ora solo se nota)."""
+    t = to_time(iso)
+    return f"{fmt_date(iso)}, entro le {t}" if t else fmt_date(iso)
+
+
+def reminder_when(deadline, now=None):
+    """Quando ricordare la scadenza: il giorno prima alle 18:00; se è già passato (scadenza oggi o domani presto),
+    fra un'ora. None se la scadenza è già trascorsa o non c'è."""
+    d = to_date(deadline)
+    now = now or datetime.now()
+    if not d or deadline_passed_today(deadline) or d < now.date():
+        return None
+    when = datetime(d.year, d.month, d.day, 18, 0) - timedelta(days=1)
+    if when <= now:
+        when = (now + timedelta(hours=1)).replace(second=0, microsecond=0)
+    return when
+
+
+def reminder_url(title, url, deadline, now=None):
+    """Link che apre il calendario del telefono con l'evento già compilato (si conferma con un tocco)."""
+    when = reminder_when(deadline, now)
+    if not when:
+        return None
+    fmt = "%Y%m%dT%H%M%S"
+    details = f"Scadenza: {fmt_deadline(deadline)}\n{url}"
+    return ("https://calendar.google.com/calendar/render?action=TEMPLATE"
+            f"&text={quote('Scade: ' + (title or 'interpello')[:100])}"
+            f"&dates={when.strftime(fmt)}/{(when + timedelta(minutes=30)).strftime(fmt)}"
+            f"&details={quote(details)}&ctz=Europe%2FRome")
+
+
+def deadline_passed_today(iso):
+    """True se la scadenza è oggi, con un'ora già trascorsa."""
+    d, t = to_date(iso), to_time(iso)
+    return bool(d and t and d == date.today() and t < datetime.now().strftime("%H:%M"))
 
 
 def fmt_short(d):
@@ -1286,20 +1463,25 @@ def deadline_info(deadline):
         return ("Scadenza non indicata", ft.Colors.SURFACE_CONTAINER_HIGHEST, ft.Colors.ON_SURFACE_VARIANT,
                 ft.Icons.SCHEDULE_ROUNDED)
     days = (d - date.today()).days
+    t = to_time(deadline)
+    at = f" alle {t}" if t else ""
     if days < 0:
         return (f"Scaduto il {fmt_short(d)}", ft.Colors.SURFACE_CONTAINER_HIGHEST, ft.Colors.OUTLINE,
                 ft.Icons.EVENT_BUSY_ROUNDED)
+    if days == 0 and deadline_passed_today(deadline):
+        return (f"Scaduto oggi{at}", ft.Colors.SURFACE_CONTAINER_HIGHEST, ft.Colors.OUTLINE,
+                ft.Icons.EVENT_BUSY_ROUNDED)
     if days == 0:
-        return ("Scade oggi", ft.Colors.ERROR_CONTAINER, ft.Colors.ON_ERROR_CONTAINER,
+        return (f"Scade oggi{at}", ft.Colors.ERROR_CONTAINER, ft.Colors.ON_ERROR_CONTAINER,
                 ft.Icons.TIMER_ROUNDED)
     if days == 1:
-        return ("Scade domani", ft.Colors.ERROR_CONTAINER, ft.Colors.ON_ERROR_CONTAINER,
+        return (f"Scade domani{at}", ft.Colors.ERROR_CONTAINER, ft.Colors.ON_ERROR_CONTAINER,
                 ft.Icons.TIMER_ROUNDED)
     if days <= 3:
-        return (f"Scade tra {days} giorni", ft.Colors.ERROR_CONTAINER, ft.Colors.ON_ERROR_CONTAINER,
+        return (f"Scade tra {days} giorni{at}", ft.Colors.ERROR_CONTAINER, ft.Colors.ON_ERROR_CONTAINER,
                 ft.Icons.TIMER_ROUNDED)
-    return (f"Scade il {fmt_short(d)}", ft.Colors.TERTIARY_CONTAINER, ft.Colors.ON_TERTIARY_CONTAINER,
-            ft.Icons.EVENT_AVAILABLE_ROUNDED)
+    return (f"Scade il {fmt_short(d)}{', ore ' + t if t else ''}", ft.Colors.TERTIARY_CONTAINER,
+            ft.Colors.ON_TERTIARY_CONTAINER, ft.Icons.EVENT_AVAILABLE_ROUNDED)
 
 
 def is_new(published):
@@ -1316,7 +1498,7 @@ def status_of(deadline):
     if not d:
         return "unknown"
     days = (d - date.today()).days
-    if days < 0:
+    if days < 0 or (days == 0 and deadline_passed_today(deadline)):
         return "expired"
     return "soon" if days <= SOON_DAYS else "active"
 
@@ -1367,6 +1549,93 @@ def load_gps_data(path=GPS_FILE):
     except (OSError, ValueError):
         pass
     return None
+
+
+# ----------------------------------------------------------------------------
+# Scadenze del mese: scadenze degli interpelli + date utili (GPS, domande, graduatorie)
+# ----------------------------------------------------------------------------
+# Le «date utili» stanno in assets/scadenze.json (formato: {"voci": [{"data": "2026-11-30", "titolo": "...",
+# "tipo": "GPS|Domande|Graduatorie|Altro", "url": "https://..."}]}). Lo stesso file viene copiato nel ramo «dati»
+# dal workflow «Pubblica elenco interpelli»: così si aggiornano le date senza rifare la build dell'app.
+SCADENZE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "scadenze.json")
+SCADENZE_URL = "https://raw.githubusercontent.com/loristeky/interpelli-scuola/dati/scadenze.json"
+TIPI_SCADENZA = {"GPS": "#7048E8", "Domande": "#E8590C", "Graduatorie": "#1C7ED6", "Altro": "#6B7280"}
+MESI_LUNGHI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre",
+               "ottobre", "novembre", "dicembre"]
+GIORNI = ["lun", "mar", "mer", "gio", "ven", "sab", "dom"]
+
+
+def _scadenze_voci(data):
+    """Voci valide ({data ISO, titolo, tipo, url}) da un dizionario letto dal file."""
+    out = []
+    for v in (data.get("voci") if isinstance(data, dict) else None) or []:
+        if not isinstance(v, dict):
+            continue
+        d = to_date(str(v.get("data") or ""))
+        titolo = str(v.get("titolo") or "").strip()
+        if d and titolo:
+            tipo = v.get("tipo") if v.get("tipo") in TIPI_SCADENZA else "Altro"
+            out.append({"data": d.strftime("%Y-%m-%d"), "titolo": titolo, "tipo": tipo,
+                        "url": str(v.get("url") or "")})
+    return out
+
+
+def load_scadenze(remote=True):
+    """Date utili: prima il file aggiornato su GitHub (se raggiungibile), altrimenti quello dentro l'app."""
+    if remote:
+        try:
+            return _scadenze_voci(json.loads(fetch_bytes(SCADENZE_URL, 300_000).decode("utf-8")))
+        except Exception:
+            pass
+    try:
+        with open(SCADENZE_FILE, encoding="utf-8") as f:
+            return _scadenze_voci(json.load(f))
+    except (OSError, ValueError):
+        return []
+
+
+def province_label(source):
+    """'USP Bergamo' -> 'Bergamo' (per l'elenco dei filtri)."""
+    return re.sub(r"^(?:USP|UST|AT|Ufficio\s+Scolastico\s+(?:Provinciale|Territoriale)(?:\s+di)?)\s+", "",
+                  source or "", flags=re.I).strip() or (source or "")
+
+
+def province_options(conn, region=""):
+    """[(ufficio, etichetta)] degli uffici/province che hanno avvisi, ordinati per nome (filtrati per regione)."""
+    sql, params = "SELECT DISTINCT source FROM interpelli WHERE source IS NOT NULL AND source != ''", []
+    if region:
+        sql += " AND region = ?"
+        params.append(region)
+    names = [r[0] for r in conn.execute(sql, params).fetchall()]
+    return sorted(((n, province_label(n)) for n in names), key=lambda x: x[1].lower())
+
+
+def month_events(conn, year, month, voci=(), mode="all", classes=(), saved=(), source=""):
+    """Eventi del mese: {'AAAA-MM-GG': [evento, ...]} con evento = {kind, titolo, tipo, url, ora}.
+    mode: 'all' tutti gli interpelli | 'mine' solo le classi dell'utente | 'saved' solo i salvati."""
+    first = date(year, month, 1)
+    last = (date(year + (month == 12), month % 12 + 1, 1) - timedelta(days=1))
+    rows = conn.execute(
+        "SELECT title, url, deadline, cdc FROM interpelli WHERE deadline IS NOT NULL AND deadline != '' "
+        "AND substr(deadline, 1, 10) BETWEEN ? AND ? " + ("AND source = ? " if source else "") + "ORDER BY deadline",
+        (first.isoformat(), last.isoformat()) + ((source,) if source else ())).fetchall()
+    days = {}
+    for title, url, deadline, cdc in rows:
+        if mode == "mine" and not matches_classes(title, cdc, list(classes)):
+            continue
+        if mode == "saved" and url not in saved:
+            continue
+        days.setdefault((deadline or "")[:10], []).append(
+            {"kind": "interpello", "titolo": title or "Interpello", "tipo": "Interpello", "url": url,
+             "ora": to_time(deadline)})
+    for v in voci:
+        if first.isoformat() <= v["data"] <= last.isoformat():
+            days.setdefault(v["data"], []).insert(
+                0, {"kind": "data", "titolo": v["titolo"], "tipo": v["tipo"], "url": v["url"], "ora": None})
+    for lst in days.values():
+        lst.sort(key=lambda ev: (ev["kind"] != "data", ev["ora"] or "99:99"))
+    return dict(sorted(days.items()))
+
 
 
 def parse_score(text):
@@ -1642,14 +1911,14 @@ def build(page: ft.Page, raw_prefs=None):
 
         init_db()
 
-        state = {"profile": "", "region": "", "status": "", "sort": "new", "shown": 0, "refreshing": False}
+        state = {"profile": "", "region": "", "province": "", "status": "", "sort": "new", "shown": 0, "refreshing": False}
         timers = {"search": None}
 
         # ---- Preferenze dell'utente (classi di concorso, dati per le candidature)
         prefs = {"classes": [], "name": "", "phone": "", "gps_class": "", "gps_score": "",
                  "fav": [], "applied": [], "profiles": [], "theme": "", "calc": {},
                  "sources": [], "src_status": {}, "deep": True, "dl_tried": [], "shared": True,
-                 "last_auto": "", "shared_full": ""}
+                 "last_auto": "", "shared_full": "", "ocr_urls": []}
 
         store = ft.SharedPreferences()
 
@@ -1691,6 +1960,8 @@ def build(page: ft.Page, raw_prefs=None):
                                                if isinstance(k, str) and isinstance(v, dict)}
                     if isinstance(data.get("dl_tried"), list):
                         prefs["dl_tried"] = [u for u in data["dl_tried"] if isinstance(u, str)][-600:]
+                    if isinstance(data.get("ocr_urls"), list):
+                        prefs["ocr_urls"] = [u for u in data["ocr_urls"] if isinstance(u, str)][-800:]
                     if isinstance(data.get("deep"), bool):
                         prefs["deep"] = data["deep"]
                     if isinstance(data.get("shared"), bool):
@@ -1846,6 +2117,31 @@ def build(page: ft.Page, raw_prefs=None):
             border_color=ft.Colors.TRANSPARENT,
         )
 
+        province_dropdown = ft.Dropdown(
+            label="Provincia / ufficio",
+            options=[ft.DropdownOption(key="", text="Tutte")],
+            value="",
+            expand=True,
+            dense=True,
+            border_radius=14,
+            filled=True,
+            border_color=ft.Colors.TRANSPARENT,
+        )
+
+        def fill_provinces(region=""):
+            """Elenco delle province con avvisi (solo quelle della regione scelta); mantiene la scelta se ancora valida."""
+            try:
+                conn = db_connect()
+                opts = province_options(conn, region)
+                conn.close()
+            except Exception:
+                opts = []
+            province_dropdown.options = [ft.DropdownOption(key="", text="Tutte")] + [
+                ft.DropdownOption(key=n, text=label) for n, label in opts]
+            if state["province"] and state["province"] not in {n for n, _ in opts}:
+                state["province"] = ""
+            province_dropdown.value = state["province"]
+
         status_dropdown = ft.Dropdown(
             label="Stato",
             expand=True,
@@ -1925,7 +2221,7 @@ def build(page: ft.Page, raw_prefs=None):
                     continue
                 title, deadline = found[u]
                 tag = " [candidatura inviata]" if u in prefs["applied"] else ""
-                lines.append(f"• {title}{tag}\n  Scadenza: {fmt_date(deadline) if deadline else 'non indicata'}\n  {u}")
+                lines.append(f"• {title}{tag}\n  Scadenza: {fmt_deadline(deadline) if deadline else 'non indicata'}\n  {u}")
             return "I miei interpelli\n\n" + "\n\n".join(lines)
 
         def saved_copy(e=None):
@@ -1998,14 +2294,15 @@ def build(page: ft.Page, raw_prefs=None):
                                     "WHERE deadline IS NOT NULL AND deadline >= ?", (today_s,)).fetchall()
                 conn.close()
                 stat_texts["open"].value = str(len(rows))
-                stat_texts["soon"].value = str(sum(1 for r in rows if r[2] <= soon_s))
+                stat_texts["soon"].value = str(sum(1 for r in rows if r[2][:10] <= soon_s))
                 stat_texts["mine"].value = (str(sum(1 for r in rows if matches_classes(r[0], r[1], prefs["classes"])))
                                             if prefs["classes"] else "–")
             except Exception:
                 pass
 
         filters_panel = ft.Column(spacing=10, visible=False, controls=[
-            ft.Row(spacing=10, controls=[region_dropdown, status_dropdown]), sort_dropdown])
+            ft.Row(spacing=10, controls=[region_dropdown, province_dropdown]),
+            ft.Row(spacing=10, controls=[status_dropdown]), sort_dropdown])
         filters_toggle = ft.TextButton(content="Filtri", icon=ft.Icons.TUNE_ROUNDED)
 
         def toggle_filters(e=None):
@@ -2126,6 +2423,8 @@ def build(page: ft.Page, raw_prefs=None):
             title, url, region, source, target, published, deadline, cdc, post_type, doc_url, email, verified = row
             is_ata = target == "ATA"
             d_text, d_bg, d_fg, d_icon = deadline_info(deadline)
+            if deadline and url in prefs["ocr_urls"]:
+                d_text += " ⚠"                       # scadenza letta da un'immagine: da verificare nell'avviso
             status = status_of(deadline)
             mine = matches_classes(title, cdc, prefs["classes"])
 
@@ -2204,6 +2503,12 @@ def build(page: ft.Page, raw_prefs=None):
             def share(e):
                 open_url("https://wa.me/?text=" + quote(f"{title}\n{url}"))
 
+            remind = reminder_url(title, url, deadline)
+            if remind:
+                actions.append(ft.IconButton(
+                    icon=ft.Icons.ALARM_ADD_ROUNDED, icon_size=21, icon_color=ft.Colors.OUTLINE,
+                    tooltip="Promemoria sul calendario (il giorno prima alle 18:00)",
+                    on_click=lambda e, u=remind: open_url(u)))
             actions += [
                 mark_button("fav", ft.Icons.BOOKMARK_ROUNDED, ft.Icons.BOOKMARK_BORDER_ROUNDED, GOLD, "Salva"),
                 mark_button("applied", ft.Icons.CHECK_CIRCLE_ROUNDED, ft.Icons.CHECK_CIRCLE_OUTLINE_ROUNDED, GREEN,
@@ -2287,7 +2592,7 @@ def build(page: ft.Page, raw_prefs=None):
                               fmt_date(stored_pub) if stored_pub else "Non indicata",
                               "Non verificata: la pagina non risponde"),
                     date_line(ft.Icons.EVENT_BUSY_ROUNDED, "Scadenza",
-                              fmt_date(stored_deadline) if stored_deadline else "Non indicata",
+                              fmt_deadline(stored_deadline) if stored_deadline else "Non indicata",
                               "Non verificata: la pagina non risponde"),
                     ft.Text("Controlla la connessione e riprova, oppure apri l'avviso e verifica le date.",
                             size=12, color=ft.Colors.ON_SURFACE_VARIANT),
@@ -2301,8 +2606,9 @@ def build(page: ft.Page, raw_prefs=None):
                           fmt_date(pub) if pub else "Non trovata nella pagina",
                           f"Letta da: {info['published_src']}" if pub else "Controllala nell'avviso"),
                 date_line(ft.Icons.EVENT_BUSY_ROUNDED, "Scadenza per la candidatura",
-                          fmt_date(deadline) if deadline else "Non trovata nella pagina",
-                          f"«…{info['deadline_src']}…»" if deadline else
+                          fmt_deadline(deadline) if deadline else "Non trovata nella pagina",
+                          (f"«…{info['deadline_src']}…»" if "OCR" not in (info.get("deadline_src") or "") else
+                           "Letta da un'immagine con il riconoscimento del testo: controlla nell'avviso") if deadline else
                           "Potrebbe essere scritta solo nell'allegato: aprilo per controllare",
                           color=STATUS_COLORS[status_of(deadline)] if deadline else None),
             ]
@@ -2414,6 +2720,9 @@ def build(page: ft.Page, raw_prefs=None):
             if state["region"]:
                 where.append("region = ?")
                 params.append(state["region"])
+            if state["province"]:
+                where.append("source = ?")
+                params.append(state["province"])
 
             today = date.today()
             today_s = today.strftime("%Y-%m-%d")
@@ -2421,7 +2730,7 @@ def build(page: ft.Page, raw_prefs=None):
                 where.append("(deadline IS NULL OR deadline = '' OR deadline >= ?)")
                 params.append(today_s)
             elif state["status"] == "soon":
-                where.append("(deadline >= ? AND deadline <= ?)")
+                where.append("(deadline >= ? AND substr(deadline, 1, 10) <= ?)")
                 params.extend([today_s, (today + timedelta(days=SOON_DAYS)).strftime("%Y-%m-%d")])
             elif state["status"] == "expired":
                 where.append("(deadline IS NOT NULL AND deadline != '' AND deadline < ?)")
@@ -2511,7 +2820,7 @@ def build(page: ft.Page, raw_prefs=None):
 
         # ---- Eventi filtri --------------------------------------------------
         def update_reset_visibility():
-            reset_button.visible = bool(state["profile"] or state["region"] or state["status"]
+            reset_button.visible = bool(state["profile"] or state["region"] or state["province"] or state["status"]
                                         or (search_input.value or "").strip())
 
         reset_button.on_click = lambda e: reset_filters()
@@ -2533,10 +2842,12 @@ def build(page: ft.Page, raw_prefs=None):
         def reset_filters():
             state["profile"] = ""
             state["region"] = ""
+            state["province"] = ""
             state["status"] = ""
             search_input.value = ""
             clear_button.visible = False
             region_dropdown.value = ""
+            fill_provinces("")
             status_dropdown.value = ""
             paint_pills()
             load_results(reset=True)
@@ -3318,6 +3629,11 @@ def build(page: ft.Page, raw_prefs=None):
 
         def on_region(e):
             state["region"] = region_dropdown.value or ""
+            fill_provinces(state["region"])
+            load_results(reset=True)
+
+        def on_province(e):
+            state["province"] = province_dropdown.value or ""
             load_results(reset=True)
 
         def on_status(e):
@@ -3327,6 +3643,7 @@ def build(page: ft.Page, raw_prefs=None):
         search_input.on_change = on_search_change
         clear_button.on_click = on_clear
         region_dropdown.on_select = on_region
+        province_dropdown.on_select = on_province
         status_dropdown.on_select = on_status
 
         # ---- Aggiornamento fonti -------------------------------------------
@@ -3373,6 +3690,8 @@ def build(page: ft.Page, raw_prefs=None):
                             prefs["shared_full"] = date.today().isoformat()
                             save_prefs()
                         if got is not None:
+                            prefs["ocr_urls"] = list(dict.fromkeys(prefs["ocr_urls"] + sorted(SHARED_INFO["ocr"])))[-800:]
+                            save_prefs()
                             shared_ok = True
                             new_count += len(got)
                             mine_count += sum(1 for r in got if matches_classes(r[0], r[7], prefs["classes"]))
@@ -3468,6 +3787,7 @@ def build(page: ft.Page, raw_prefs=None):
                     state["refreshing"] = False
                     progress_bar.visible = False
                     refresh_button.disabled = False
+                    fill_provinces(state["region"])
                     load_results(reset=False, live=True)
                     msg = f"{new_count} nuovi interpelli" if new_count else "Nessun nuovo interpello"
                     if mine_count:
@@ -3930,6 +4250,129 @@ def build(page: ft.Page, raw_prefs=None):
                     st_out]))])
         storico_view = ft.Column(expand=True, spacing=0, visible=False, controls=[storico_header, storico_body])
 
+        # ---- Scadenze del mese: interpelli in scadenza + date utili ---------------------------------
+        sc_state = {"y": date.today().year, "m": date.today().month, "voci": None}
+        sc_mode = ft.Dropdown(value="all", border_radius=14, dense=True, expand=True, label="Mostra",
+                              options=[ft.DropdownOption(key="all", text="Tutti gli interpelli"),
+                                       ft.DropdownOption(key="mine", text="Solo le mie classi"),
+                                       ft.DropdownOption(key="saved", text="Solo i salvati")])
+        sc_prov = ft.Dropdown(value="", border_radius=14, dense=True, expand=True, label="Provincia / ufficio",
+                              options=[ft.DropdownOption(key="", text="Tutte")])
+        sc_month = ft.Text("", size=16, weight=ft.FontWeight.W_800, color=ft.Colors.WHITE)
+        sc_out = ft.Column(spacing=10)
+
+        def paint_scadenze(e=None):
+            try:
+                conn = db_connect()
+                days = month_events(conn, sc_state["y"], sc_state["m"], sc_state["voci"] or [], sc_mode.value or "all",
+                                    prefs["classes"], prefs["fav"], sc_prov.value or "")
+                conn.close()
+            except Exception:
+                days = {}
+            sc_month.value = f"{MESI_LUNGHI[sc_state['m'] - 1].capitalize()} {sc_state['y']}"
+            today_s = date.today().isoformat()
+            blocks = []
+            for day, events in days.items():
+                d = to_date(day)
+                is_today, past = day == today_s, day < today_s
+                rows = []
+                for ev in events:
+                    color = TIPI_SCADENZA.get(ev["tipo"], BRAND_LIGHT) if ev["kind"] == "data" else (
+                        ft.Colors.OUTLINE if past else GREEN)
+                    label = ev["tipo"] if ev["kind"] == "data" else (f"entro le {ev['ora']}" if ev["ora"] else "Interpello")
+                    rows.append(ft.Container(
+                        ink=bool(ev["url"]), border_radius=10, padding=ft.Padding.symmetric(vertical=4, horizontal=6),
+                        on_click=(lambda x, ev=ev: (open_interpello(ev["url"]) if ev["kind"] == "interpello"
+                                                    else open_url(ev["url"]))) if ev["url"] else None,
+                        content=ft.Column(spacing=1, controls=[
+                            ft.Text(label, size=11, weight=ft.FontWeight.W_700, color=color),
+                            ft.Text(ev["titolo"], size=13, max_lines=3, overflow=ft.TextOverflow.ELLIPSIS)])))
+                blocks.append(ft.Container(
+                    border_radius=18, padding=ft.Padding.symmetric(horizontal=12, vertical=10),
+                    bgcolor=ft.Colors.SURFACE_CONTAINER_LOW, opacity=0.65 if past else 1,
+                    border=ft.Border.all(1.5 if is_today else 1, BRAND_LIGHT if is_today else ft.Colors.OUTLINE_VARIANT),
+                    content=ft.Row(vertical_alignment=ft.CrossAxisAlignment.START, spacing=12, controls=[
+                        ft.Column(spacing=0, width=44, horizontal_alignment=ft.CrossAxisAlignment.CENTER, controls=[
+                            ft.Text(str(d.day), size=22, weight=ft.FontWeight.W_800),
+                            ft.Text(GIORNI[d.weekday()], size=11, color=ft.Colors.ON_SURFACE_VARIANT)]),
+                        ft.Column(expand=True, spacing=2, controls=rows)])))
+            if not blocks:
+                blocks = [section_card([ft.Text(
+                    "Nessuna scadenza questo mese con i filtri scelti. Gli interpelli compaiono qui solo se l'app "
+                    "ha trovato la scadenza nell'avviso o nel suo allegato.", size=13)])]
+            sc_out.controls = blocks
+            page.update()
+
+        def sc_shift(delta):
+            m = sc_state["m"] - 1 + delta
+            sc_state["y"] += m // 12
+            sc_state["m"] = m % 12 + 1
+            paint_scadenze()
+
+        def close_scadenze(e=None):
+            scad_view.visible = False
+            home_view.visible = True
+            page.update()
+
+        def open_scadenze(e=None):
+            hide_all_pages()
+            home_view.visible = False
+            scad_view.visible = True
+            sc_state["y"], sc_state["m"] = date.today().year, date.today().month
+            try:
+                conn = db_connect()
+                opts = province_options(conn)
+                conn.close()
+            except Exception:
+                opts = []
+            sc_prov.options = [ft.DropdownOption(key="", text="Tutte")] + [
+                ft.DropdownOption(key=n, text=label) for n, label in opts]
+            if sc_prov.value not in {n for n, _ in opts}:
+                sc_prov.value = ""
+            if prefs["classes"] and sc_mode.value == "all":
+                sc_mode.value = "mine"
+            if sc_state["voci"] is None:
+                sc_state["voci"] = load_scadenze(remote=False)       # subito quelle dell'app, poi aggiorna da GitHub
+
+                def refresh_voci():
+                    try:
+                        voci = load_scadenze(remote=True)
+                        if voci != sc_state["voci"]:
+                            sc_state["voci"] = voci
+                            if scad_view.visible:
+                                paint_scadenze()
+                    except Exception:
+                        pass
+                threading.Thread(target=refresh_voci, daemon=True).start()
+            paint_scadenze()
+
+        sc_mode.on_select = paint_scadenze
+        sc_prov.on_select = paint_scadenze
+
+        scad_header = ft.Container(
+            gradient=ft.LinearGradient(begin=ft.Alignment.TOP_LEFT, end=ft.Alignment.BOTTOM_RIGHT,
+                                       colors=[BRAND_DARK, BRAND_LIGHT]),
+            padding=ft.Padding.only(left=6, right=18, top=18, bottom=14),
+            border_radius=ft.BorderRadius.only(bottom_left=28, bottom_right=28),
+            content=ft.Column(spacing=4, controls=[
+                ft.Row(vertical_alignment=ft.CrossAxisAlignment.CENTER, spacing=4, controls=[
+                    ft.IconButton(icon=ft.Icons.ARROW_BACK_ROUNDED, icon_color=ft.Colors.WHITE, icon_size=26,
+                                  tooltip="Indietro", on_click=close_scadenze),
+                    ft.Column(expand=True, spacing=0, controls=[
+                        ft.Text("Scadenze del mese", size=20, weight=ft.FontWeight.W_800, color=ft.Colors.WHITE),
+                        ft.Text("Interpelli in scadenza e date utili", size=12,
+                                color=ft.Colors.with_opacity(0.88, ft.Colors.WHITE))])]),
+                ft.Row(alignment=ft.MainAxisAlignment.CENTER, vertical_alignment=ft.CrossAxisAlignment.CENTER, controls=[
+                    ft.IconButton(icon=ft.Icons.CHEVRON_LEFT_ROUNDED, icon_color=ft.Colors.WHITE, tooltip="Mese precedente",
+                                  on_click=lambda e: sc_shift(-1)),
+                    ft.Container(width=170, alignment=ft.Alignment.CENTER, content=sc_month),
+                    ft.IconButton(icon=ft.Icons.CHEVRON_RIGHT_ROUNDED, icon_color=ft.Colors.WHITE, tooltip="Mese successivo",
+                                  on_click=lambda e: sc_shift(1))])]))
+        scad_body = ft.Column(expand=True, scroll=ft.ScrollMode.AUTO, controls=[
+            ft.Container(padding=ft.Padding.only(left=16, right=16, top=16, bottom=28), content=ft.Column(
+                spacing=14, controls=[ft.Row(controls=[sc_mode]), ft.Row(controls=[sc_prov]), sc_out]))])
+        scad_view = ft.Column(expand=True, spacing=0, visible=False, controls=[scad_header, scad_body])
+
         # ---- Menù: tutte le funzioni in una pagina ---------------------------------------
         info_dlg = ft.AlertDialog(
             title=ft.Text("Informazioni"),
@@ -3957,7 +4400,7 @@ def build(page: ft.Page, raw_prefs=None):
             page.update()
 
         def hide_all_pages():
-            for v in (gps_view, calc_view, radar_view, sources_view, menu_view, storico_view):
+            for v in (gps_view, calc_view, radar_view, sources_view, menu_view, storico_view, scad_view):
                 v.visible = False
 
         def open_menu(e=None):
@@ -4038,7 +4481,8 @@ def build(page: ft.Page, raw_prefs=None):
                     ft.Row(spacing=12, controls=[
                         menu_tile(ft.Icons.INSIGHTS_ROUNDED, "Storico interpelli", "Quanti e per quali classi, per ufficio",
                                   lambda e: open_menu_item(open_storico), "#7048E8"),
-                        ft.Container(expand=True)]),
+                        menu_tile(ft.Icons.EVENT_NOTE_ROUNDED, "Scadenze del mese", "Interpelli e date utili",
+                                  lambda e: open_menu_item(open_scadenze), "#1C7ED6")]),
                     menu_label("APP"),
                     ft.Row(spacing=12, controls=[
                         menu_tile(ft.Icons.TUNE_ROUNDED, "Le mie classi", "Classi, nome per le candidature",
@@ -4055,6 +4499,9 @@ def build(page: ft.Page, raw_prefs=None):
         _go_back_sources = go_back
 
         def go_back(e=None):
+            if scad_view.visible:
+                close_scadenze()
+                return True
             if storico_view.visible:
                 close_storico()
                 return True
@@ -4079,7 +4526,7 @@ def build(page: ft.Page, raw_prefs=None):
                         size=10.5, color=ft.Colors.ON_SURFACE_VARIANT, expand=True),
             ]),
         )
-        page.add(home_view, gps_view, calc_view, radar_view, sources_view, menu_view, storico_view, disclaimer)
+        page.add(home_view, gps_view, calc_view, radar_view, sources_view, menu_view, storico_view, scad_view, disclaimer)
 
         # Tasto «indietro» di Android: l'app è una sola schermata (le pagine si mostrano e si nascondono), quindi
         # per Flet non c'è nessuna vista da chiudere e il sistema chiuderebbe l'app. Si blocca la chiusura automatica
@@ -4102,6 +4549,7 @@ def build(page: ft.Page, raw_prefs=None):
             page.update()
         except Exception as ex:
             print(f"Tasto indietro non configurato: {ex}")
+        fill_provinces(state["region"])
         load_results(reset=True)
 
         # All'avvio cerca subito i nuovi interpelli (prima dall'elenco già pronto su GitHub, poi, se serve,
