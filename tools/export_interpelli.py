@@ -108,9 +108,9 @@ def main(argv=None):
         print("ATTENZIONE: main.py è una versione vecchia (senza OCR): caricalo su GitHub insieme agli altri file.")
         app.OCR_FOUND = set()
         app.ocr_available = lambda: False
-    suffix = "|ocr1" if app.ocr_available() else ""
-    print(f"OCR: {'attivo (' + app.OCR_STATE['lang'] + ')' if suffix else 'non disponibile (manca tesseract)'}")
-    todo = [r for r in by_url.values() if not r[6] and r[9] and r[1] + suffix not in tried][:RECHECK]
+    suffix = "|v2o" if app.ocr_available() else "|v2"      # v2: ora si seguono anche i link verso altre pagine
+    print(f"OCR: {'attivo (' + app.OCR_STATE['lang'] + ')' if app.ocr_available() else 'non disponibile (manca tesseract)'}")
+    todo = [r for r in by_url.values() if not r[6] and r[1] + suffix not in tried][:RECHECK]
     for r in todo:
         info = app.enrich_from_doc({"doc_url": r[9], "published": r[5] or "", "email": r[10] or "",
                                     "deadline": None, "text": ""})
@@ -122,6 +122,8 @@ def main(argv=None):
                     info["ocr"] = bool(again.get("ocr"))
                 if again and again.get("email") and not info.get("email"):
                     info["email"] = again["email"]
+                if again and again.get("doc_url") and not r[9]:
+                    r[9] = again["doc_url"]               # avviso che rimanda a un'altra pagina: «Documento» apre quella
             except Exception:
                 pass
         tried.add(r[1])
@@ -139,7 +141,7 @@ def main(argv=None):
     keep.sort(key=lambda r: r[5] or "", reverse=True)
     keep = keep[:MAX_ROWS]
     alive = {r[1] for r in keep}
-    proved = sorted(tried & (alive | {u + '|ocr1' for u in alive}))[-4000:]
+    proved = sorted(tried & (alive | {u + x for u in alive for x in ('|v2', '|v2o')}))[-4000:]
     with_deadline = {r[1] for r in keep if r[6]}
     ocr_urls = sorted(((prev_ocr | app.OCR_FOUND) & alive) & with_deadline)       # scadenze lette da immagini: da verificare
     out = {"aggiornato": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"), "righe": keep, "ocr": ocr_urls}
