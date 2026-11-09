@@ -124,7 +124,7 @@ SOURCES = {
         ("USP Pisa", "https://www.usp-pi.it/category/interpelli/", 1)
     ],
     "Trentino-Alto Adige": [
-        ("USP Trento", "https://www.vivoscuola.it/feed/", 1)
+        ("USP Trento", "https://www.vivoscuola.it/Lavora-con-noi/Quadri-di-disponibilita", 1)
     ],
     "Umbria": [
         ("USP Perugia", "https://istruzione.umbria.it/interpelli/interpelli-aperti/", 1)
@@ -1084,8 +1084,9 @@ def recheck_deadlines(conn, tried, limit=40):
     rows = conn.execute(
         "SELECT url, doc_url, published, email FROM interpelli "
         "WHERE (deadline IS NULL OR deadline = '') "
+        "AND source NOT IN (" + ",".join("?" * len(NO_RECHECK_SOURCES)) + ") "
         "AND (published = '' OR published >= date('now', '-45 day')) ORDER BY published DESC LIMIT ?",
-        (limit * 3,)).fetchall()
+        tuple(sorted(NO_RECHECK_SOURCES)) + (limit * 3,)).fetchall()
     todo = [r for r in rows if r[0] not in tried][:limit]
     found = 0
 
@@ -1277,6 +1278,9 @@ def _links_in(html_text, url):
 # un PDF (es. Bergamo: «Interpelli per il conferimento di supplenza personale docente n. 72»). Dell'elenco si legge
 # solo l'avviso più recente (i vecchi sono già superati) e ogni riga del PDF diventa un interpello.
 DIGEST_SOURCES = {"USP Bergamo"}
+TRENTO_PAGE = "https://www.vivoscuola.it/Lavora-con-noi/Quadri-di-disponibilita"
+# Fonti il cui elenco non ha una scadenza da cercare riaprendo la pagina: non si riprovano
+NO_RECHECK_SOURCES = DIGEST_SOURCES | {"USP Trento"}
 SCHOOL_CODE_RE = re.compile(r"\b[A-Z]{2}[A-Z]{2}[0-9]{5}[0-9A-Z]\b")
 
 
@@ -1438,6 +1442,178 @@ def _dated_list_items(html_text, url):
     return out
 
 
+# ----------------------------------------------------------------------------
+# Trento: «Quadri di disponibilità» di vivoscuola.it. La pagina è una tabella che si riempie con JavaScript: i dati
+# arrivano da un indirizzo interno (DataTables lato server) che restituisce JSON. Sono posti disponibili, non avvisi con
+# scadenza: ogni riga diventa un avviso senza scadenza che rimanda alla pagina dei quadri.
+# ----------------------------------------------------------------------------
+TRENTO_COLUMNS = "classe_concorso|tipo_posto|scuola|numero_ore_incarico|tipo_incarico|data_inizio_incarico|data_fine_incarico"
+TRENTO_FILTERS = "scuola|classe_concorso|tipo_istituzione|tipo_incarico|tipo_posto|numero_ore_incarico|miurcode"
+TRENTO_API = ("https://www.vivoscuola.it/facetsearch/datatable_search/quadro_disponibilita/"
+              + quote(TRENTO_COLUMNS, safe="") + "/" + quote(TRENTO_FILTERS, safe="") + "/29192//false")
+
+
+def trento_request_url(start=0, length=500):
+    from urllib.parse import urlencode
+    q = [("draw", "1")]
+    for i in range(7):
+        q += [(f"columns[{i}][data]", str(i)), (f"columns[{i}][name]", ""), (f"columns[{i}][searchable]", "true"),
+              (f"columns[{i}][orderable]", "true"), (f"columns[{i}][search][value]", ""),
+              (f"columns[{i}][search][regex]", "false")]
+    q += [("order[0][column]", "0"), ("order[0][dir]", "asc"), ("start", str(start)), ("length", str(length)),
+          ("search[value]", ""), ("search[regex]", "false")]
+    q += [(k, "") for k in TRENTO_FILTERS.split("|")]
+    return TRENTO_API + "?" + urlencode(q)
+
+
+def fetch_xhr_json(url, referer):
+    """Scarica una risposta JSON come farebbe la pagina (richiesta XHR), con gli stessi criteri sui certificati."""
+    req = Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json, text/javascript, */*; q=0.01",
+                                "X-Requested-With": "XMLHttpRequest", "Referer": referer})
+    try:
+        ctx = ssl.create_default_context()
+        with urlopen(req, timeout=15, context=ctx) as resp:
+            return json.loads(resp.read(8_000_000).decode("utf-8", "replace"))
+    except ssl.SSLError:
+        ctx = ssl.create_default_context()
+        ctx.check_hostname, ctx.verify_mode = False, ssl.CERT_NONE
+        with urlopen(req, timeout=15, context=ctx) as resp:
+            return json.loads(resp.read(8_000_000).decode("utf-8", "replace"))
+
+
+def _cell(v):
+    return clean_text(re.sub(r"<[^>]+>", " ", html.unescape(str(v if v is not None else "")))).strip()
+
+
+TRENTO_DETAIL = "https://www.vivoscuola.it/seiimport/getworksdetails/"
+
+
+def _trento_row_id(raw):
+    """Numero che identifica il posto (serve per aprire la finestra di dettaglio): lo si cerca nei campi tipici
+    (id, DT_RowId...) e, in mancanza, in un indirizzo «getworksdetails/N», in «data-id=N» o in un numero di 5-9 cifre."""
+    if isinstance(raw, dict):
+        for k, v in raw.items():
+            if re.search(r"(?:^|_)(?:id|nid|rowid|work\w*)$", str(k), re.I) and re.fullmatch(r"\D{0,8}(\d{4,9})", str(v)):
+                return re.search(r"(\d{4,9})", str(v)).group(1)
+    dump = json.dumps(raw, ensure_ascii=False)
+    for pat in (r"getworksdetails/(\d{4,9})", r"data-(?:id|work\w*|nid)=\\?[\"']?(\d{4,9})", r"\b(?:id|nid)=\\?[\"']?(\d{4,9})",
+                r"\((\d{5,9})\)", r"(?<![\d/.:-])(\d{5,9})(?![\d/.:-])"):
+        m = re.search(pat, dump)
+        if m:
+            return m.group(1)
+    return ""
+
+
+def _date_in(text):
+    m = re.search(r"(\d{4})-(\d{2})-(\d{2})", text or "")
+    if m:
+        return f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
+    m = re.search(r"(\d{1,2})[/.](\d{1,2})[/.](\d{4})", text or "")
+    return f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}" if m else ""
+
+
+def trento_published(detail):
+    """«Data/ora richiesta pubblicazione» dalla finestra di dettaglio (JSON di forma non nota: si cerca la chiave o
+    l'etichetta che parla di pubblicazione/richiesta e la data accanto)."""
+    def walk(o):
+        if isinstance(o, dict):
+            label = any(isinstance(v, str) and re.search(r"richiesta.*pubblic|pubblic.*richiesta", v, re.I) for v in o.values())
+            for k, v in o.items():
+                if re.search(r"pubblic|richiesta", str(k), re.I) and isinstance(v, (str, int)) and _date_in(str(v)):
+                    return _date_in(str(v))
+                if label and isinstance(v, (str, int)) and not re.search(r"pubblic", str(v), re.I) and _date_in(str(v)):
+                    return _date_in(str(v))
+            for v in o.values():
+                r = walk(v)
+                if r:
+                    return r
+        elif isinstance(o, list):
+            for v in o:
+                r = walk(v)
+                if r:
+                    return r
+        return ""
+    return walk(detail)
+
+
+def trento_details(rid):
+    """(data di pubblicazione, email, scadenza) dalla finestra di dettaglio di un posto; vuoti se non si leggono."""
+    try:
+        detail = fetch_xhr_json(TRENTO_DETAIL + rid, TRENTO_PAGE)
+    except Exception:
+        return "", "", ""
+    text = clean_text(re.sub(r"<[^>]+>", " ", html.unescape(json.dumps(detail, ensure_ascii=False))))
+    email = extract_email(text) or ""
+    deadline, _src = find_deadline(text, trento_published(detail) or None)
+    return trento_published(detail), email, deadline or ""
+
+
+def trento_rows(payload):
+    """Righe di una risposta DataTables: ogni riga = 7 celle (classe, tipo posto, scuola, ore, tipo incarico, inizio, fine)
+    e, come ottavo elemento, l'id del posto per aprirne il dettaglio."""
+    out = []
+    for r in (payload.get("data") if isinstance(payload, dict) else None) or []:
+        if isinstance(r, dict):
+            keys = TRENTO_COLUMNS.split("|")
+            cells = [r.get(str(i), r.get(keys[i], "")) for i in range(7)]
+            if not any(cells):
+                cells = list(r.values())[:7]
+        elif isinstance(r, (list, tuple)):
+            cells = list(r)[:7]
+        else:
+            continue
+        cells = [_cell(c) for c in cells] + [""] * (7 - len(cells))
+        if any(cells):
+            out.append(cells + [_trento_row_id(r)])
+    return out
+
+
+def trento_items(region, source_name, known):
+    import hashlib
+    rows, start, total = [], 0, None
+    for _ in range(12):                                           # fino a ~6000 righe
+        payload = fetch_xhr_json(trento_request_url(start), TRENTO_PAGE)
+        got = trento_rows(payload)
+        rows += got
+        total = payload.get("recordsFiltered", payload.get("recordsTotal")) if isinstance(payload, dict) else None
+        start += len(got)
+        if not got or (isinstance(total, int) and start >= total):
+            break
+    today = date.today().isoformat()
+    fresh = []
+    for row in rows:
+        key = hashlib.sha1("|".join(row[:7]).encode("utf-8")).hexdigest()[:10]
+        if f"{TRENTO_PAGE}#{key}" not in known:
+            fresh.append(row)
+    details = {}
+    ids = [r[7] for r in fresh if r[7]][:400]                       # un tetto per esecuzione: il resto alla prossima
+    if ids:
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor(max_workers=8) as ex:
+            details = dict(zip(ids, ex.map(trento_details, ids)))
+    out = []
+    for cdc_txt, tipo_posto, scuola, ore, tipo_inc, inizio, fine, rid in fresh:
+        m = re.search(r"\b([A-Z]{1,2}-?\d{2,3}|[A-Z]{4})\b", cdc_txt)
+        cdc = m.group(1).replace("-", "") if m else ""
+        mm = re.fullmatch(r"([A-Z])(\d{2,3})", cdc)
+        if mm:
+            cdc = f"{mm.group(1)}{int(mm.group(2)):03d}"          # A28 -> A028 (come nel resto dell'app)
+        key = hashlib.sha1("|".join((cdc_txt, tipo_posto, scuola, ore, tipo_inc, inizio, fine)).encode("utf-8")).hexdigest()[:10]
+        url = f"{TRENTO_PAGE}#{key}"
+        if url in known:
+            continue
+        desc = re.sub(r"^\s*[A-Z]{1,2}-?\d{2,3}\s*[-–:]?\s*|^\s*[A-Z]{4}\s*[-–:]?\s*", "", cdc_txt).strip()
+        periodo = " - ".join(x for x in (parse_date(inizio) or inizio, parse_date(fine) or fine) if x)
+        label = f"{scuola} - {cdc} {desc}".strip(" -") + (f" ({ore} ore)" if ore else "")
+        if periodo:
+            label += f" · {periodo}"
+        pub, mail, dl = details.get(rid, ("", "", ""))
+        out.append((label, url, region, source_name, "DOCENTI", pub or today, dl, cdc,
+                    analyze_post_content(f"{tipo_posto} {tipo_inc} {desc}"), "", mail))
+    return out, True
+
+
+
 def parse_source_page(region, source_name, url, known, deep=False):
     """Scarica una pagina-fonte e restituisce (nuovi_interpelli, raggiungibile).
 
@@ -1445,6 +1621,14 @@ def parse_source_page(region, source_name, url, known, deep=False):
     questo rende gli aggiornamenti successivi al primo molto più veloci.
     """
     items = []
+    if "vivoscuola.it" in url and "Quadri-di-disponibilita" in url:        # Trento: i dati arrivano da un'API JSON
+        if deep:
+            return [], True
+        try:
+            return trento_items(region, source_name, known)
+        except Exception as ex:
+            log_source(source_name, err=short_error(ex))
+            return [], False
     try:
         html_content = fetch_url(url)
     except Exception as ex:

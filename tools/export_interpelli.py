@@ -112,7 +112,7 @@ def main(argv=None):
         app.ocr_available = lambda: False
     suffix = "|v2o" if app.ocr_available() else "|v2"      # v2: ora si seguono anche i link verso altre pagine
     print(f"OCR: {'attivo (' + app.OCR_STATE['lang'] + ')' if app.ocr_available() else 'non disponibile (manca tesseract)'}")
-    todo = [r for r in by_url.values() if not r[6] and r[1] + suffix not in tried][:RECHECK]
+    todo = [r for r in by_url.values() if not r[6] and r[3] not in app.NO_RECHECK_SOURCES and r[1] + suffix not in tried][:RECHECK]
     diag = 0
     for r in todo:
         info = app.enrich_from_doc({"doc_url": r[9], "published": r[5] or "", "email": r[10] or "",
