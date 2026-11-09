@@ -84,6 +84,9 @@ def diagnosi_digest(app, region, name, url):
     good = [x for x in links if len(x[0]) > 30 and _re.search(r"\bn\.?\s*\d+|conferimento", x[0], _re.I)
             and x[1].rstrip("/").lower() != url.rstrip("/").lower()]
     out.append(f"- Avvisi con numero: {len(good)}")
+    ordine = sorted(good, key=lambda x: -app.digest_number(x[0]))
+    out.append("- Ordine di lettura (numero → titolo): " + "; ".join(
+        f"{app.digest_number(x[0])} → {x[0][-40:]}" for x in ordine[:4]))
     if good:
         try:
             notice = app.fetch_url(good[0][1])

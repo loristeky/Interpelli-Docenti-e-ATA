@@ -119,7 +119,7 @@ SOURCES = {
         ("USP Messina", "https://me.usr.sicilia.it/personale-scuola/interpelli/", 1)
     ],
     "Toscana": [
-        ("USP Firenze", "https://www.ust.fi.it/", 1),
+        ("USP Firenze", "https://www.ust.fi.it/mese/interpelli/", 1),
         ("USP Lucca", "https://www.ustlucca.it/feed/", 1),
         ("USP Pisa", "https://www.usp-pi.it/category/interpelli/", 1)
     ],
@@ -1352,6 +1352,12 @@ def _unique_link(base, key, used):
     return f"{path}{sep}ref={key}#{frag}"
 
 
+def digest_number(title):
+    """Numero d'ordine di un avviso riassuntivo («... n. 85» -> 85); 0 se non c'è. Solo 1-3 cifre."""
+    m = re.search(r"\bn\.?\s*(\d{1,3})\b", title or "", re.I)
+    return int(m.group(1)) if m else 0
+
+
 def digest_items(region, source_name, item, known):
     """Righe-interpello dal PDF riassuntivo dell'avviso `item` = (titolo, link, data). None se non si riesce a leggere."""
     title, link, pub = item
@@ -1669,7 +1675,7 @@ def parse_source_page(region, source_name, url, known, deep=False):
     if source_name in DIGEST_SOURCES:
         # La lista degli avvisi può stare dentro tag che altrove si scartano (header, aside): per queste fonti si guarda
         # in tutta la pagina, tenendo poi solo gli avvisi veri.
-        items = list(dict.fromkeys(items + _links_in(_light_html(html_content), url) + _links_in(html_content, url)))
+        items = list(dict.fromkeys(_links_in(html_content, url) + _links_in(_light_html(html_content), url) + items))
         # Dell'elenco interessano solo gli avvisi veri («Interpelli per il conferimento di supplenza ... n. 72»), non i
         # collegamenti alla pagina stessa (briciole di pane, menu laterale: «Interpelli Ricerca Supplenti»).
         own = url.rstrip("/").lower()
@@ -1678,8 +1684,17 @@ def parse_source_page(region, source_name, url, known, deep=False):
         if deep or not items:
             return [], True                               # gli avvisi riassuntivi si leggono solo dalla fonte principale
         # Solo l'avviso più recente (numero più alto; a parità, il primo della pagina): i precedenti sono già superati.
-        items.sort(key=lambda it: -int((re.search(r"\bn\.?\s*(\d+)", it[0], re.I) or [0, 0])[1]))
-        rows = digest_items(region, source_name, items[0], known)
+        # Il numero è «n. 85»: al massimo 3 cifre (così non si scambiano per numero di avviso un protocollo o un anno);
+        # si prova dal più alto e ci si ferma al primo che ha righe leggibili.
+        items.sort(key=lambda it: -digest_number(it[0]))
+        rows = None
+        for cand in items[:3]:
+            got = digest_items(region, source_name, cand, known)
+            if got:
+                rows = got
+                break
+            if got is not None and rows is None:
+                rows = got
         if rows is not None:
             log_source(source_name, ok=True, found=len(rows), new=len(rows))
             return rows, True
