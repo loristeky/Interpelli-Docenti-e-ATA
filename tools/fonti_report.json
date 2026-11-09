@@ -46,12 +46,7 @@
   "stato": "vuota",
   "avvisi": 0,
   "dettaglio": "",
-  "proposte": [
-   [
-    "https://www.istruzione.calabria.it/percorsoformazione/",
-    "Formazione docenti neoassunti 2023-2024"
-   ]
-  ]
+  "proposte": []
  },
  {
   "regione": "Calabria",
@@ -74,7 +69,7 @@
   "nome": "USP Salerno",
   "url": "https://www.mim.gov.it/web/miur-usr-campania/uat-salerno",
   "stato": "ok",
-  "avvisi": 10,
+  "avvisi": 11,
   "dettaglio": ""
  },
  {
@@ -138,7 +133,7 @@
   "nome": "USP Piacenza",
   "url": "https://pc.istruzioneer.gov.it/interpelli/",
   "stato": "ok",
-  "avvisi": 93,
+  "avvisi": 94,
   "dettaglio": ""
  },
  {
@@ -202,7 +197,7 @@
   "nome": "USP La Spezia",
   "url": "https://servizi.istruzioneliguria.gov.it/provincia.php?p=SP",
   "stato": "ok",
-  "avvisi": 29,
+  "avvisi": 30,
   "dettaglio": ""
  },
  {
@@ -218,7 +213,7 @@
   "nome": "USP Savona",
   "url": "https://servizi.istruzioneliguria.gov.it/provincia.php?p=SV",
   "stato": "ok",
-  "avvisi": 26,
+  "avvisi": 32,
   "dettaglio": ""
  },
  {
@@ -314,7 +309,7 @@
   "nome": "USP Varese",
   "url": "https://www.mim.gov.it/web/varese/interpelli-ricerca-supplenti",
   "stato": "ok",
-  "avvisi": 198,
+  "avvisi": 199,
   "dettaglio": ""
  },
  {
@@ -370,7 +365,7 @@
   "nome": "USP Bari",
   "url": "https://www.uspbari.it/usp/category/interpelli-della-provincia-di-bari",
   "stato": "ok",
-  "avvisi": 46,
+  "avvisi": 48,
   "dettaglio": ""
  },
  {
@@ -426,7 +421,7 @@
   "nome": "USP Catania",
   "url": "https://ct.usr.sicilia.it/category/interpelli/feed/",
   "stato": "ok",
-  "avvisi": 9,
+  "avvisi": 10,
   "dettaglio": ""
  },
  {
@@ -474,7 +469,7 @@
   "nome": "USP Lucca",
   "url": "https://www.ustlucca.it/feed/",
   "stato": "ok",
-  "avvisi": 8,
+  "avvisi": 7,
   "dettaglio": ""
  },
  {
@@ -498,7 +493,7 @@
   "nome": "USP Perugia",
   "url": "https://istruzione.umbria.it/interpelli/interpelli-aperti/",
   "stato": "ok",
-  "avvisi": 17,
+  "avvisi": 18,
   "dettaglio": ""
  },
  {
