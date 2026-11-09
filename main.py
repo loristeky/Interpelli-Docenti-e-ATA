@@ -1039,8 +1039,8 @@ def enrich_from_doc(info):
 
 # Elenco già pronto: l'automazione su GitHub legge le fonti ogni 30 minuti e pubblica interpelli.json (ramo «dati»).
 # Scaricare quel file è molto più veloce che leggere decine di siti, e funziona anche quando l'app è chiusa.
-SHARED_URL = "https://raw.githubusercontent.com/loristeky/interpelli-scuola/dati/interpelli.json"
-SHARED_RECENT_URL = "https://raw.githubusercontent.com/loristeky/interpelli-scuola/dati/recenti.json"   # solo gli ultimi 7 giorni
+SHARED_URL = "https://raw.githubusercontent.com/loristeky/Interpelli-Docenti-e-ATA/dati/interpelli.json"
+SHARED_RECENT_URL = "https://raw.githubusercontent.com/loristeky/Interpelli-Docenti-e-ATA/dati/recenti.json"   # solo gli ultimi 7 giorni
 INSERT_SQL = """INSERT INTO interpelli (title, url, region, source, target, published, deadline, cdc, post_type, doc_url, email)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(url) DO UPDATE SET title=excluded.title, target=excluded.target,
@@ -1695,7 +1695,7 @@ def load_gps_data(path=GPS_FILE):
 # "tipo": "GPS|Domande|Graduatorie|Altro", "url": "https://..."}]}). Lo stesso file viene copiato nel ramo «dati»
 # dal workflow «Pubblica elenco interpelli»: così si aggiornano le date senza rifare la build dell'app.
 SCADENZE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "scadenze.json")
-SCADENZE_URL = "https://raw.githubusercontent.com/loristeky/interpelli-scuola/dati/scadenze.json"
+SCADENZE_URL = "https://raw.githubusercontent.com/loristeky/Interpelli-Docenti-e-ATA/dati/scadenze.json"
 TIPI_SCADENZA = {"GPS": "#7048E8", "Domande": "#E8590C", "Graduatorie": "#1C7ED6", "Altro": "#6B7280"}
 MESI_LUNGHI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre",
                "ottobre", "novembre", "dicembre"]
