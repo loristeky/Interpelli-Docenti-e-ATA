@@ -1334,6 +1334,20 @@ def parse_digest_rows(text):
     return rows
 
 
+def _unique_link(base, key, used):
+    """Indirizzo unico per ogni riga di un elenco riassuntivo. Se il link porta già a un avviso preciso
+    (web-app Argo «#/SG20955/atti/4759080») resta com'è; se è generico («#/?customerCode=…», «#/» o senza frammento) e
+    la stessa scuola ha più interpelli, serve distinguerli senza rompere il link: si aggiunge «?ref=…» PRIMA del
+    frammento (che le web-app ignorano), mai dentro il frammento (dove cambierebbe i parametri)."""
+    if "#" not in base:
+        return f"{base}#{key}"
+    path, frag = base.split("#", 1)
+    if re.search(r"/atti/|/\d{5,}", frag) and base not in used:
+        return base
+    sep = "&" if "?" in path else "?"
+    return f"{path}{sep}ref={key}#{frag}"
+
+
 def digest_items(region, source_name, item, known):
     """Righe-interpello dal PDF riassuntivo dell'avviso `item` = (titolo, link, data). None se non si riesce a leggere."""
     title, link, pub = item
@@ -1363,10 +1377,7 @@ def digest_items(region, source_name, item, known):
         # indirizzo = avviso della scuola (si apre da lì); il frammento lo rende unico per scuola, classe e scadenza
         base = r["link"] or doc
         key = f"{r['codice']}-{r['cdc']}-{(r['scadenza'] or '').replace('-', '')}"
-        if "#" in base:                       # pagine web-app con «#/percorso»: non si tocca l'indirizzo
-            url = base if base not in used else f"{base}~{key}"
-        else:
-            url = f"{base}#{key}"
+        url = _unique_link(base, key, used)
         used.add(url)
         if url in known:
             continue
