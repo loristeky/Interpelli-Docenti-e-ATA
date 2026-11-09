@@ -1,4 +1,4 @@
-# Rapporto sulle fonti (09/11/2026 09:47)
+# Rapporto sulle fonti (09/11/2026 10:14)
 
 Fonti controllate: 68. Funzionano: 61. Da guardare: 7.
 
@@ -9,6 +9,12 @@ Fonti controllate: 68. Funzionano: 61. Da guardare: 7.
 
 ### USP Trento (Trentino-Alto Adige) - irraggiungibile
 - Indirizzo attuale: https://www.vivoscuola.it/feed/
+- Forse: [Docenti](https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti)
+- Forse: [Educatori nidi d'infanzia](https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Educatori+nidi+d%27infanzia)
+- Forse: [Insegnanti scuola infanzia](https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Insegnanti+scuola+infanzia)
+- Forse: [Docenti scuola primaria](https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Docenti+scuola+primaria)
+- Forse: [Docenti scuola secondaria di primo grado](https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Docenti+scuola+secondaria+di+primo+grado)
+- Forse: [Docenti scuola secondaria di secondo grado](https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Docenti+scuola+secondaria+di+secondo+grado)
 
 ### USP Aosta (Valle d'Aosta) - irraggiungibile
 - Indirizzo attuale: https://scuole.vda.it/interpelli
@@ -121,7 +127,7 @@ Fonti controllate: 68. Funzionano: 61. Da guardare: 7.
   - Interpelli per il conferimento di supplenza personale docente n. 80 -> https://www.mim.gov.it/web/bergamo/-/interpelli-per-il-conferimento-di-supplenza-personale
   - Interpelli per il conferimento di supplenza personale docente n. 79 -> https://www.mim.gov.it/web/bergamo/-/interpelli-per-il-conferimento-di-supplenza-personale
 - Avvisi con numero: 200
-- Avviso più recente: Interpelli per il conferimento di supplenza personale docente n. 85 (117526 caratteri), allegati: 1
+- Avviso più recente: Interpelli per il conferimento di supplenza personale docente n. 85 (117485 caratteri), allegati: 1
   - https://www.mim.gov.it/documents/9081047/0/Interpelli+n.+85.pdf/ced7179d-08f7-c3e0-10e6-473ad8c46503 -> 4 righe lette (pypdf ok; 218084 byte, inizia con b'%PDF-'; testo estratto: 1287 caratteri)
 - Esito finale: 1 interpelli (raggiungibile: True)
   - I. C. "MARIA PIAZZOLI" - RANICA - AAAA Scuola Dell'Infanzia | scade 2026-10-06 | classe AAAA | https://www.icranica.edu.it/servizio/interpello/#BGIC867007-

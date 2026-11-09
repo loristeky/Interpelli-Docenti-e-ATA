@@ -555,7 +555,32 @@
   "stato": "irraggiungibile",
   "avvisi": 0,
   "dettaglio": "",
-  "proposte": []
+  "proposte": [
+   [
+    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti",
+    "Docenti"
+   ],
+   [
+    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Educatori+nidi+d%27infanzia",
+    "Educatori nidi d'infanzia"
+   ],
+   [
+    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Insegnanti+scuola+infanzia",
+    "Insegnanti scuola infanzia"
+   ],
+   [
+    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Docenti+scuola+primaria",
+    "Docenti scuola primaria"
+   ],
+   [
+    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Docenti+scuola+secondaria+di+primo+grado",
+    "Docenti scuola secondaria di primo grado"
+   ],
+   [
+    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Docenti+scuola+secondaria+di+secondo+grado",
+    "Docenti scuola secondaria di secondo grado"
+   ]
+  ]
  },
  {
   "regione": "Umbria",
