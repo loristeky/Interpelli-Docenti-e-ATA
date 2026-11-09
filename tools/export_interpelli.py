@@ -14,7 +14,8 @@ import json
 import os
 import sys
 import tempfile
-from concurrent.futures import ThreadPoolExecutor, as_completed
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError
 from datetime import date, datetime, timedelta
 from importlib import util
 from pathlib import Path
@@ -24,6 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 KEEP_DAYS = 60            # quanto indietro tenere gli avvisi
 MAX_ROWS = 8000
 RECHECK = 60              # avvisi senza scadenza da rileggere per giro
+RECHECK_SECONDS = 600     # tempo massimo per quel lavoro (poi si prosegue e il resto va al giro dopo)
 
 
 def load_app():
@@ -114,32 +116,56 @@ def main(argv=None):
     print(f"OCR: {'attivo (' + app.OCR_STATE['lang'] + ')' if app.ocr_available() else 'non disponibile (manca tesseract)'}")
     todo = [r for r in by_url.values() if not r[6] and r[3] not in app.NO_RECHECK_SOURCES and r[1] + suffix not in tried][:RECHECK]
     diag = 0
-    for r in todo:
+
+    def ricontrolla(r):
+        """Cerca la scadenza (e la mail) di un avviso: allegato salvato, poi riapre la pagina (allegati, immagini, link)."""
         info = app.enrich_from_doc({"doc_url": r[9], "published": r[5] or "", "email": r[10] or "",
                                     "deadline": None, "text": ""})
+        again = None
         if not info.get("deadline"):                      # allegato salvato insufficiente: si riapre l'avviso (tutti gli allegati)
             try:
                 again = app.fetch_page_details(r[1], r[5] or None)
-                if again and again.get("deadline"):
-                    info["deadline"] = again["deadline"]
-                    info["ocr"] = bool(again.get("ocr"))
-                if again and again.get("email") and not info.get("email"):
-                    info["email"] = again["email"]
-                if again and again.get("doc_url") and not r[9]:
-                    r[9] = again["doc_url"]               # avviso che rimanda a un'altra pagina: «Documento» apre quella
             except Exception:
-                pass
-        if not info.get("deadline") and diag < 25:
-            diag += 1
-            print(f"Senza scadenza: {r[1]}")
-        tried.add(r[1])
-        tried.add(r[1] + suffix)
-        if info.get("deadline"):
-            r[6] = info["deadline"]
-            if info.get("ocr"):
-                app.OCR_FOUND.add(r[1])
-        if info.get("email") and not r[10]:
-            r[10] = info["email"]
+                again = None
+        return info, again
+
+    # In parallelo e con un tempo massimo: gli avvisi non finiti nel tempo restano da fare al giro successivo
+    t0 = time.time()
+    done = 0
+    pool = ThreadPoolExecutor(max_workers=8)
+    futs = {pool.submit(ricontrolla, r): r for r in todo}
+    try:
+        for fut in as_completed(futs, timeout=RECHECK_SECONDS):
+            r = futs[fut]
+            try:
+                info, again = fut.result()
+            except Exception:
+                continue
+            if again and again.get("deadline"):
+                info["deadline"] = again["deadline"]
+                info["ocr"] = bool(again.get("ocr"))
+            if again and again.get("email") and not info.get("email"):
+                info["email"] = again["email"]
+            if again and again.get("doc_url") and not r[9]:
+                r[9] = again["doc_url"]                   # avviso che rimanda a un'altra pagina: «Documento» apre quella
+            if not info.get("deadline") and diag < 25:
+                diag += 1
+                print(f"Senza scadenza: {r[1]}", flush=True)
+            tried.add(r[1])
+            tried.add(r[1] + suffix)
+            if info.get("deadline"):
+                r[6] = info["deadline"]
+                if info.get("ocr"):
+                    app.OCR_FOUND.add(r[1])
+            if info.get("email") and not r[10]:
+                r[10] = info["email"]
+            done += 1
+            if done % 10 == 0:
+                print(f"Riletti {done}/{len(todo)} avvisi senza scadenza ({int(time.time() - t0)} s)", flush=True)
+    except TimeoutError:
+        print(f"Tempo massimo per rileggere le scadenze ({RECHECK_SECONDS} s): il resto al prossimo giro", flush=True)
+    pool.shutdown(wait=False, cancel_futures=True)
+    print(f"Riletti {done}/{len(todo)} avvisi senza scadenza in {int(time.time() - t0)} s", flush=True)
 
     limit = (date.today() - timedelta(days=KEEP_DAYS)).isoformat()
     grace = (date.today() - timedelta(days=14)).isoformat()
@@ -167,4 +193,7 @@ def main(argv=None):
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    _code = main()
+    sys.stdout.flush()
+    sys.stderr.flush()
+    os._exit(_code or 0)   # niente attese su eventuali letture rimaste appese
