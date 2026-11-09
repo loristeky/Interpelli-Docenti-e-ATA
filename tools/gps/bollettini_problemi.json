@@ -1,4 +1,97 @@
 {
  "versione": 2,
- "file": []
+ "file": [
+  {
+   "file": "Caserta_bollettino-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Caserta_bollettino-10.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Caserta_bollettino-14.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Caserta_bollettino-16.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Caserta_bollettino-17.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Caserta_bollettino-18.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Caserta_bollettino-19.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Caserta_bollettino-4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Caserta_bollettino-7.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Caserta_bollettino-8.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Caserta_bollettino-9.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Catanzaro_bollettino-7_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Chieti_e_Pescara_bollettino-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Chieti_e_Pescara_bollettino-1_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Cuneo_bollettino-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Cuneo_bollettino-3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Cuneo_bollettino-5.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Cuneo_bollettino-7.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Lucca_bollettino-6.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Lucca_bollettino-6_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Napoli_bollettino-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-13.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Pisa_bollettino-2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  }
+ ]
 }
