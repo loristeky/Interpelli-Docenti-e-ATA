@@ -237,7 +237,7 @@
   "nome": "USP Imperia",
   "url": "https://servizi.istruzioneliguria.gov.it/provincia.php?p=IM",
   "stato": "ok",
-  "avvisi": 11,
+  "avvisi": 12,
   "dettaglio": ""
  },
  {
@@ -405,7 +405,7 @@
   "nome": "USP Foggia",
   "url": "https://www.ustfoggia.it/feed/",
   "stato": "ok",
-  "avvisi": 8,
+  "avvisi": 7,
   "dettaglio": ""
  },
  {

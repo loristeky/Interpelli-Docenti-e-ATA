@@ -1,4 +1,4 @@
-# Rapporto sulle fonti (09/11/2026 10:14)
+# Rapporto sulle fonti (09/11/2026 10:33)
 
 Fonti controllate: 68. Funzionano: 61. Da guardare: 7.
 
@@ -73,7 +73,7 @@ Fonti controllate: 68. Funzionano: 61. Da guardare: 7.
 - USP Roma (Lazio): 10 avvisi
 - USP Viterbo (Lazio): 169 avvisi
 - USP Genova (Liguria): 104 avvisi
-- USP Imperia (Liguria): 11 avvisi
+- USP Imperia (Liguria): 12 avvisi
 - USP La Spezia (Liguria): 29 avvisi
 - USP Savona (Liguria): 25 avvisi
 - USP Bergamo (Lombardia): 1 avvisi
@@ -95,7 +95,7 @@ Fonti controllate: 68. Funzionano: 61. Da guardare: 7.
 - USP Novara (Piemonte): 10 avvisi
 - USP Torino (Piemonte): 10 avvisi
 - USP Bari (Puglia): 46 avvisi
-- USP Foggia (Puglia): 8 avvisi
+- USP Foggia (Puglia): 7 avvisi
 - USP Lecce (Puglia): 9 avvisi
 - USP Taranto (Puglia): 14 avvisi
 - USP Sassari (Sardegna): 367 avvisi
