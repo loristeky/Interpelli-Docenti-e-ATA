@@ -72,11 +72,10 @@
  {
   "regione": "Campania",
   "nome": "USP Salerno",
-  "url": "https://uat-salerno.it/Documenti/CIRCOLARI/Interpelli-per-reclutamento-personale-docente",
-  "stato": "irraggiungibile",
-  "avvisi": 0,
-  "dettaglio": "",
-  "proposte": []
+  "url": "https://www.mim.gov.it/web/miur-usr-campania/uat-salerno",
+  "stato": "ok",
+  "avvisi": 10,
+  "dettaglio": ""
  },
  {
   "regione": "Campania",
@@ -89,36 +88,10 @@
  {
   "regione": "Emilia-Romagna",
   "nome": "USP Bologna",
-  "url": "https://bo.istruzioneer.gov.it/category/docenti/feed/",
-  "stato": "vuota",
-  "avvisi": 0,
-  "dettaglio": "",
-  "proposte": [
-   [
-    "https://bo.istruzioneer.gov.it/2026/11/05/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-15-turno-a-s-2026-27/",
-    "Continua a leggere"
-   ],
-   [
-    "https://bo.istruzioneer.gov.it/2026/11/05/nomine-gps-a-t-d-ogni-ordine-e-grado-disponibilita-15-turno-a-s-2026-27/",
-    "Continua a leggere"
-   ],
-   [
-    "https://bo.istruzioneer.gov.it/2026/11/04/restituzione-posti-per-esaurimento-gps-e-c-c-esaurite-aaaa-eeee-a-s-26-27-11/",
-    "Continua a leggere"
-   ],
-   [
-    "https://bo.istruzioneer.gov.it/2026/11/02/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-14-turno-a-s-2026-27/",
-    "Continua a leggere"
-   ],
-   [
-    "https://bo.istruzioneer.gov.it/2026/11/02/nomine-gps-a-t-d-ogni-ordine-e-grado-disponibilita-14-turno-a-s-2026-27/",
-    "Continua a leggere"
-   ],
-   [
-    "https://bo.istruzioneer.gov.it/2026/10/27/restituzione-posti-per-esaurimento-gps-e-c-c-esaurite-aaaa-eeee-a-s-26-27-10/",
-    "Continua a leggere"
-   ]
-  ]
+  "url": "https://bo.istruzioneer.gov.it/tag/interpello/",
+  "stato": "ok",
+  "avvisi": 7,
+  "dettaglio": ""
  },
  {
   "regione": "Emilia-Romagna",
@@ -165,7 +138,7 @@
   "nome": "USP Piacenza",
   "url": "https://pc.istruzioneer.gov.it/interpelli/",
   "stato": "ok",
-  "avvisi": 91,
+  "avvisi": 93,
   "dettaglio": ""
  },
  {
@@ -245,7 +218,7 @@
   "nome": "USP Savona",
   "url": "https://servizi.istruzioneliguria.gov.it/provincia.php?p=SV",
   "stato": "ok",
-  "avvisi": 25,
+  "avvisi": 26,
   "dettaglio": ""
  },
  {
@@ -459,36 +432,10 @@
  {
   "regione": "Sicilia",
   "nome": "USP Palermo",
-  "url": "https://pa.usr.sicilia.it/category/interpelli/feed/",
-  "stato": "vuota",
-  "avvisi": 0,
-  "dettaglio": "",
-  "proposte": [
-   [
-    "https://pa.usr.sicilia.it/personale-scuola/personale-docente/concorsi-docenti/",
-    "Concorsi docenti"
-   ],
-   [
-    "https://pa.usr.sicilia.it/personale-scuola/personale-docente/diritto-allo-studio-docenti/",
-    "Diritto allo studio docenti"
-   ],
-   [
-    "https://pa.usr.sicilia.it/personale-scuola/personale-docente/formazione-docenti/",
-    "Formazione docenti"
-   ],
-   [
-    "https://pa.usr.sicilia.it/personale-scuola/personale-docente/mobilita-docenti/",
-    "Mobilità docenti"
-   ],
-   [
-    "https://pa.usr.sicilia.it/personale-scuola/personale-docente/organici-docenti/",
-    "Organici docenti"
-   ],
-   [
-    "https://pa.usr.sicilia.it/personale-scuola/personale-docente/part-time-docenti/",
-    "Part-time docenti"
-   ]
-  ]
+  "url": "https://pa.usr.sicilia.it/page/1/?s=interpell",
+  "stato": "ok",
+  "avvisi": 1,
+  "dettaglio": ""
  },
  {
   "regione": "Sicilia",
@@ -517,27 +464,17 @@
  {
   "regione": "Toscana",
   "nome": "USP Firenze",
-  "url": "https://www.ust.fi.it/",
-  "stato": "vuota",
-  "avvisi": 0,
-  "dettaglio": "",
-  "proposte": [
-   [
-    "https://www.ust.fi.it/mese/interpelli/",
-    "Interpelli"
-   ],
-   [
-    "https://www.ust.fi.it/mese/interpelli-ata/",
-    "Interpelli ATA"
-   ]
-  ]
+  "url": "https://www.ust.fi.it/?s=interpell&submit=",
+  "stato": "ok",
+  "avvisi": 14,
+  "dettaglio": ""
  },
  {
   "regione": "Toscana",
   "nome": "USP Lucca",
   "url": "https://www.ustlucca.it/feed/",
   "stato": "ok",
-  "avvisi": 9,
+  "avvisi": 8,
   "dettaglio": ""
  },
  {

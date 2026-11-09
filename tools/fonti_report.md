@@ -1,11 +1,8 @@
-# Rapporto sulle fonti (09/11/2026 11:55)
+# Rapporto sulle fonti (09/11/2026 12:58)
 
-Fonti controllate: 68. Funzionano: 62. Da guardare: 6.
+Fonti controllate: 68. Funzionano: 66. Da guardare: 2.
 
 ## Da guardare
-
-### USP Salerno (Campania) - irraggiungibile
-- Indirizzo attuale: https://uat-salerno.it/Documenti/CIRCOLARI/Interpelli-per-reclutamento-personale-docente
 
 ### USP Aosta (Valle d'Aosta) - irraggiungibile
 - Indirizzo attuale: https://scuole.vda.it/interpelli
@@ -14,32 +11,6 @@ Fonti controllate: 68. Funzionano: 62. Da guardare: 6.
 - Indirizzo attuale: https://www.istruzione.calabria.it/catanzaro/category/nca/feed/
 - La pagina si apre ma non ci trovo avvisi: forse è cambiata la struttura o è la pagina sbagliata.
 - Forse: [Formazione docenti neoassunti 2023-2024](https://www.istruzione.calabria.it/percorsoformazione/)
-
-### USP Bologna (Emilia-Romagna) - vuota
-- Indirizzo attuale: https://bo.istruzioneer.gov.it/category/docenti/feed/
-- La pagina si apre ma non ci trovo avvisi: forse è cambiata la struttura o è la pagina sbagliata.
-- Forse: [Continua a leggere](https://bo.istruzioneer.gov.it/2026/11/05/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-15-turno-a-s-2026-27/)
-- Forse: [Continua a leggere](https://bo.istruzioneer.gov.it/2026/11/05/nomine-gps-a-t-d-ogni-ordine-e-grado-disponibilita-15-turno-a-s-2026-27/)
-- Forse: [Continua a leggere](https://bo.istruzioneer.gov.it/2026/11/04/restituzione-posti-per-esaurimento-gps-e-c-c-esaurite-aaaa-eeee-a-s-26-27-11/)
-- Forse: [Continua a leggere](https://bo.istruzioneer.gov.it/2026/11/02/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-14-turno-a-s-2026-27/)
-- Forse: [Continua a leggere](https://bo.istruzioneer.gov.it/2026/11/02/nomine-gps-a-t-d-ogni-ordine-e-grado-disponibilita-14-turno-a-s-2026-27/)
-- Forse: [Continua a leggere](https://bo.istruzioneer.gov.it/2026/10/27/restituzione-posti-per-esaurimento-gps-e-c-c-esaurite-aaaa-eeee-a-s-26-27-10/)
-
-### USP Palermo (Sicilia) - vuota
-- Indirizzo attuale: https://pa.usr.sicilia.it/category/interpelli/feed/
-- La pagina si apre ma non ci trovo avvisi: forse è cambiata la struttura o è la pagina sbagliata.
-- Forse: [Concorsi docenti](https://pa.usr.sicilia.it/personale-scuola/personale-docente/concorsi-docenti/)
-- Forse: [Diritto allo studio docenti](https://pa.usr.sicilia.it/personale-scuola/personale-docente/diritto-allo-studio-docenti/)
-- Forse: [Formazione docenti](https://pa.usr.sicilia.it/personale-scuola/personale-docente/formazione-docenti/)
-- Forse: [Mobilità docenti](https://pa.usr.sicilia.it/personale-scuola/personale-docente/mobilita-docenti/)
-- Forse: [Organici docenti](https://pa.usr.sicilia.it/personale-scuola/personale-docente/organici-docenti/)
-- Forse: [Part-time docenti](https://pa.usr.sicilia.it/personale-scuola/personale-docente/part-time-docenti/)
-
-### USP Firenze (Toscana) - vuota
-- Indirizzo attuale: https://www.ust.fi.it/
-- La pagina si apre ma non ci trovo avvisi: forse è cambiata la struttura o è la pagina sbagliata.
-- Forse: [Interpelli](https://www.ust.fi.it/mese/interpelli/)
-- Forse: [Interpelli ATA](https://www.ust.fi.it/mese/interpelli-ata/)
 
 ## Funzionano
 
@@ -51,11 +22,13 @@ Fonti controllate: 68. Funzionano: 62. Da guardare: 6.
 - USP Reggio Calabria (Calabria): 10 avvisi
 - USP Caserta (Campania): 1 avvisi
 - USP Napoli (Campania): 12 avvisi
+- USP Salerno (Campania): 10 avvisi
+- USP Bologna (Emilia-Romagna): 7 avvisi
 - USP Ferrara (Emilia-Romagna): 10 avvisi
 - USP Forlì Cesena (Emilia-Romagna): 10 avvisi
 - USP Modena (Emilia-Romagna): 10 avvisi
 - USP Parma (Emilia-Romagna): 2 avvisi
-- USP Piacenza (Emilia-Romagna): 91 avvisi
+- USP Piacenza (Emilia-Romagna): 93 avvisi
 - USP Ravenna (Emilia-Romagna): 1 avvisi
 - USP Reggio Emilia (Emilia-Romagna): 2 avvisi
 - USP Rimini (Emilia-Romagna): 1 avvisi
@@ -66,7 +39,7 @@ Fonti controllate: 68. Funzionano: 62. Da guardare: 6.
 - USP Genova (Liguria): 108 avvisi
 - USP Imperia (Liguria): 12 avvisi
 - USP La Spezia (Liguria): 29 avvisi
-- USP Savona (Liguria): 25 avvisi
+- USP Savona (Liguria): 26 avvisi
 - USP Bergamo (Lombardia): 1 avvisi
 - USP Brescia (Lombardia): 200 avvisi
 - USP Como (Lombardia): 199 avvisi
@@ -94,9 +67,11 @@ Fonti controllate: 68. Funzionano: 62. Da guardare: 6.
 - USP Caltanissetta-Enna (Sicilia): 2 avvisi
 - USP Catania (Sicilia): 9 avvisi
 - USP Messina (Sicilia): 18 avvisi
+- USP Palermo (Sicilia): 1 avvisi
 - USP Siracusa (Sicilia): 1 avvisi
 - USP Trapani (Sicilia): 10 avvisi
-- USP Lucca (Toscana): 9 avvisi
+- USP Firenze (Toscana): 14 avvisi
+- USP Lucca (Toscana): 8 avvisi
 - USP Pisa (Toscana): 10 avvisi
 - USP Trento (Trentino-Alto Adige): 13 avvisi
 - USP Perugia (Umbria): 17 avvisi
@@ -108,7 +83,7 @@ Fonti controllate: 68. Funzionano: 62. Da guardare: 6.
 
 ### Diagnosi USP Bergamo
 - Pagina: https://www.mim.gov.it/web/bergamo/interpelli-ricerca-supplenti/
-- Pagina scaricata: 378020 caratteri
+- Pagina scaricata: 378066 caratteri
 - Collegamenti da avviso trovati: 201
   - Interpelli ricerca supplenti -> https://www.mim.gov.it/web/bergamo/interpelli-ricerca-supplenti?p_p_id=1_WAR_miurmulticate
   - Interpelli per il conferimento di supplenza personale docente n. 85 -> https://www.mim.gov.it/web/bergamo/-/interpelli-per-il-conferimento-di-supplenza-personale
@@ -119,6 +94,7 @@ Fonti controllate: 68. Funzionano: 62. Da guardare: 6.
   - Interpelli per il conferimento di supplenza personale docente n. 80 -> https://www.mim.gov.it/web/bergamo/-/interpelli-per-il-conferimento-di-supplenza-personale
   - Interpelli per il conferimento di supplenza personale docente n. 79 -> https://www.mim.gov.it/web/bergamo/-/interpelli-per-il-conferimento-di-supplenza-personale
 - Avvisi con numero: 200
+- Ordine di lettura (numero → titolo): 217 → to di supplenza personale docente n. 217; 216 → to di supplenza personale docente n. 216; 215 → to di supplenza personale docente n. 215; 214 → to di supplenza personale docente n. 214
 - Avviso più recente: Interpelli per il conferimento di supplenza personale docente n. 85 (117485 caratteri), allegati: 1
   - https://www.mim.gov.it/documents/9081047/0/Interpelli+n.+85.pdf/ced7179d-08f7-c3e0-10e6-473ad8c46503 -> 4 righe lette (pypdf ok; 218084 byte, inizia con b'%PDF-'; testo estratto: 1287 caratteri)
 - Esito finale: 1 interpelli (raggiungibile: True)
