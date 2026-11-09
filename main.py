@@ -1688,9 +1688,10 @@ def parse_source_page(region, source_name, url, known, deep=False):
         if deep or not items:
             return [], True                               # gli avvisi riassuntivi si leggono solo dalla fonte principale
         # Solo l'avviso più recente (numero più alto; a parità, il primo della pagina): i precedenti sono già superati.
-        # Il numero è «n. 85»: al massimo 3 cifre (così non si scambiano per numero di avviso un protocollo o un anno);
-        # si prova dal più alto e ci si ferma al primo che ha righe leggibili.
-        items.sort(key=lambda it: -digest_number(it[0]))
+        # Si prende il PRIMO avviso numerato nell'ordine della pagina (il più recente sta in cima). Non si ordina per
+        # numero: la numerazione riparte ogni anno e in fondo alla pagina ci sono avvisi vecchi con numeri più alti
+        # (es. n. 217 di anni fa contro n. 85 di oggi). Se il primo non ha righe leggibili, si prova col successivo.
+        items = [it for it in items if digest_number(it[0])]
         rows = None
         for cand in items[:3]:
             got = digest_items(region, source_name, cand, known)
