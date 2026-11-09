@@ -1,20 +1,11 @@
-# Rapporto sulle fonti (09/11/2026 10:33)
+# Rapporto sulle fonti (09/11/2026 11:55)
 
-Fonti controllate: 68. Funzionano: 61. Da guardare: 7.
+Fonti controllate: 68. Funzionano: 62. Da guardare: 6.
 
 ## Da guardare
 
 ### USP Salerno (Campania) - irraggiungibile
 - Indirizzo attuale: https://uat-salerno.it/Documenti/CIRCOLARI/Interpelli-per-reclutamento-personale-docente
-
-### USP Trento (Trentino-Alto Adige) - irraggiungibile
-- Indirizzo attuale: https://www.vivoscuola.it/feed/
-- Forse: [Docenti](https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti)
-- Forse: [Educatori nidi d'infanzia](https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Educatori+nidi+d%27infanzia)
-- Forse: [Insegnanti scuola infanzia](https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Insegnanti+scuola+infanzia)
-- Forse: [Docenti scuola primaria](https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Docenti+scuola+primaria)
-- Forse: [Docenti scuola secondaria di primo grado](https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Docenti+scuola+secondaria+di+primo+grado)
-- Forse: [Docenti scuola secondaria di secondo grado](https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Docenti+scuola+secondaria+di+secondo+grado)
 
 ### USP Aosta (Valle d'Aosta) - irraggiungibile
 - Indirizzo attuale: https://scuole.vda.it/interpelli
@@ -72,7 +63,7 @@ Fonti controllate: 68. Funzionano: 61. Da guardare: 7.
 - USP Latina (Lazio): 75 avvisi
 - USP Roma (Lazio): 10 avvisi
 - USP Viterbo (Lazio): 169 avvisi
-- USP Genova (Liguria): 104 avvisi
+- USP Genova (Liguria): 108 avvisi
 - USP Imperia (Liguria): 12 avvisi
 - USP La Spezia (Liguria): 29 avvisi
 - USP Savona (Liguria): 25 avvisi
@@ -88,7 +79,7 @@ Fonti controllate: 68. Funzionano: 61. Da guardare: 7.
 - USP Pavia (Lombardia): 59 avvisi
 - USP Sondrio (Lombardia): 200 avvisi
 - USP Varese (Lombardia): 198 avvisi
-- USP Ancona (Marche): 9 avvisi
+- USP Ancona (Marche): 8 avvisi
 - USP Pesaro Urbino (Marche): 6 avvisi
 - USP Campobasso (Molise): 4 avvisi
 - USP Cuneo (Piemonte): 9 avvisi
@@ -107,6 +98,7 @@ Fonti controllate: 68. Funzionano: 61. Da guardare: 7.
 - USP Trapani (Sicilia): 10 avvisi
 - USP Lucca (Toscana): 9 avvisi
 - USP Pisa (Toscana): 10 avvisi
+- USP Trento (Trentino-Alto Adige): 13 avvisi
 - USP Perugia (Umbria): 17 avvisi
 - USP Padova (Veneto): 35 avvisi
 - USP Rovigo (Veneto): 10 avvisi

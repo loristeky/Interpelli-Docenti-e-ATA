@@ -221,7 +221,7 @@
   "nome": "USP Genova",
   "url": "https://servizi.istruzioneliguria.gov.it/provincia.php?p=GE",
   "stato": "ok",
-  "avvisi": 104,
+  "avvisi": 108,
   "dettaglio": ""
  },
  {
@@ -349,7 +349,7 @@
   "nome": "USP Ancona",
   "url": "https://www.istruzione-ancona.it/category/docenti/feed/",
   "stato": "ok",
-  "avvisi": 9,
+  "avvisi": 8,
   "dettaglio": ""
  },
  {
@@ -551,36 +551,10 @@
  {
   "regione": "Trentino-Alto Adige",
   "nome": "USP Trento",
-  "url": "https://www.vivoscuola.it/feed/",
-  "stato": "irraggiungibile",
-  "avvisi": 0,
-  "dettaglio": "",
-  "proposte": [
-   [
-    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti",
-    "Docenti"
-   ],
-   [
-    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Educatori+nidi+d%27infanzia",
-    "Educatori nidi d'infanzia"
-   ],
-   [
-    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Insegnanti+scuola+infanzia",
-    "Insegnanti scuola infanzia"
-   ],
-   [
-    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Docenti+scuola+primaria",
-    "Docenti scuola primaria"
-   ],
-   [
-    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Docenti+scuola+secondaria+di+primo+grado",
-    "Docenti scuola secondaria di primo grado"
-   ],
-   [
-    "https://www.vivoscuola.it/vivoscuola/tags_view/Utenti/Docenti/Docenti+scuola+secondaria+di+secondo+grado",
-    "Docenti scuola secondaria di secondo grado"
-   ]
-  ]
+  "url": "https://www.vivoscuola.it/Lavora-con-noi/Quadri-di-disponibilita",
+  "stato": "ok",
+  "avvisi": 13,
+  "dettaglio": ""
  },
  {
   "regione": "Umbria",
