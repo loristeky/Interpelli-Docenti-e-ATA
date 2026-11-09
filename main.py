@@ -48,11 +48,11 @@ SOURCES = {
     ],
     "Campania": [
         ("USP Caserta", "https://www.uat-caserta.it/category/segnalazioni-dalle-scuole/feed/", 1),
-        ("USP Salerno", "https://uat-salerno.it/Documenti/CIRCOLARI/Interpelli-per-reclutamento-personale-docente", 1),
+        ("USP Salerno", "https://www.mim.gov.it/web/miur-usr-campania/uat-salerno", 1),
         ("USP Napoli", "https://www.uat-napoli.it/tag/interpelli-personale-docente/feed/", 1)
     ],
     "Emilia-Romagna": [
-        ("USP Bologna", "https://bo.istruzioneer.gov.it/category/docenti/feed/", 1),
+        ("USP Bologna", "https://bo.istruzioneer.gov.it/tag/interpello/", 1),
         ("USP Ferrara", "https://fe.istruzioneer.gov.it/category/interpelli_docenti/", 1),
         ("USP Modena", "https://mo.istruzioneer.gov.it/category/interpelli-personale-docente-2026-27/", 1),
         ("USP Parma", "https://pr.istruzioneer.gov.it/interpelli-docenti/", 1),
@@ -113,13 +113,13 @@ SOURCES = {
         ("USP Agrigento", "https://ag.usr.sicilia.it/category/personale-scuola/personale-docente/interpelli/", 1),
         ("USP Caltanissetta-Enna", "https://cl-en.usr.sicilia.it/category/personale-scuola/personale-docente/", 1),
         ("USP Catania", "https://ct.usr.sicilia.it/category/interpelli/feed/", 1),
-        ("USP Palermo", "https://pa.usr.sicilia.it/category/interpelli/feed/", 1),
+        ("USP Palermo", "https://pa.usr.sicilia.it/page/1/?s=interpell", 1),
         ("USP Siracusa", "https://sr.usr.sicilia.it/tag/interpelli/", 1),
         ("USP Trapani", "https://tp.usr.sicilia.it/personale-scuola/interpelli/", 1),
         ("USP Messina", "https://me.usr.sicilia.it/personale-scuola/interpelli/", 1)
     ],
     "Toscana": [
-        ("USP Firenze", "https://www.ust.fi.it/mese/interpelli/", 1),
+        ("USP Firenze", "https://www.ust.fi.it/?s=interpell&submit=", 1),
         ("USP Lucca", "https://www.ustlucca.it/feed/", 1),
         ("USP Pisa", "https://www.usp-pi.it/category/interpelli/", 1)
     ],
@@ -1281,6 +1281,10 @@ DIGEST_SOURCES = {"USP Bergamo"}
 TRENTO_PAGE = "https://www.vivoscuola.it/Lavora-con-noi/Quadri-di-disponibilita"
 # Fonti il cui elenco non ha una scadenza da cercare riaprendo la pagina: non si riprovano
 NO_RECHECK_SOURCES = DIGEST_SOURCES | {"USP Trento"}
+# Home di un ufficio con ogni tipo di notizia (circolari, ATA, permessi...): si tengono solo gli avvisi che nel titolo
+# hanno la parola «interpello/interpelli».
+STRICT_INTERPELLO_SOURCES = {"USP Salerno"}
+STRICT_INTERPELLO_RE = re.compile(r"interpell\w*", re.I)
 SCHOOL_CODE_RE = re.compile(r"\b[A-Z]{2}[A-Z]{2}[0-9]{5}[0-9A-Z]\b")
 
 
@@ -1700,7 +1704,12 @@ def parse_source_page(region, source_name, url, known, deep=False):
             return rows, True
         items = items[:1]                                 # PDF non leggibile: almeno l'ultimo avviso, come avviso unico
 
-    if deep:
+    if source_name in STRICT_INTERPELLO_SOURCES:
+        # l'elenco può stare in parti della pagina che altrove si scartano: si guarda in tutta la pagina
+        own = url.rstrip("/").lower()
+        items = list(dict.fromkeys(_links_in(html_content, url) + _links_in(_light_html(html_content), url) + items))
+        items = [it for it in items if STRICT_INTERPELLO_RE.search(it[0]) and it[1].rstrip("/").lower() != own]
+    elif deep:
         items = [it for it in items if INTERPELLO_RE.search(it[0])]
     elif source_name not in DIGEST_SOURCES and "interpell" not in url.lower():
         # Fonte «generica» (feed o home di tutto il sito, es. USP Foggia): pubblica anche circolari, concorsi, mobilità...
