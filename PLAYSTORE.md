@@ -61,3 +61,131 @@ Aggiungi in fondo alla descrizione completa (e tienilo coerente con l'app):
 
 Nella sezione «Sicurezza dei dati» dichiara che l'app non raccoglie né condivide dati personali (coerente con
 la privacy policy). Non usare nel Play Store lo stemma della Repubblica né i loghi del Ministero o degli Uffici.
+
+
+## 7. Descrizioni complete per Google Play (rifiuto «link alla fonte mancante»)
+Sostituisci la descrizione completa in ENTRAMBE le lingue (it e en-US), poi invia l'aggiornamento.
+
+### Italiano
+
+    Interpelli Scuola è un'app INDIPENDENTE: non rappresenta alcun ente governativo e non è collegata né affiliata al Ministero dell'Istruzione e del Merito né agli Uffici Scolastici.
+    
+    Raccoglie in un unico posto gli interpelli e le convocazioni pubblicati dagli Uffici Scolastici e dalle scuole, con filtri per classe di concorso, provincia e scadenza, promemoria e calendario delle scadenze.
+    
+    FONTI UFFICIALI (informazioni governative)
+    Tutte le informazioni provengono da siti pubblici ufficiali. Ogni avviso mostra il link alla pagina originale, che fa sempre fede; l'elenco completo delle fonti è nell'app (menu Fonti).
+    • Ministero dell'Istruzione e del Merito: https://www.mim.gov.it/
+    • https://ag.usr.sicilia.it/
+    • https://atpromaistruzione.it/
+    • https://bo.istruzioneer.gov.it/
+    • https://cl-en.usr.sicilia.it/
+    • https://csalatina.it/
+    • https://csateramo.it/
+    • https://ct.usr.sicilia.it/
+    • https://fc.istruzioneer.gov.it/
+    • https://fe.istruzioneer.gov.it/
+    • https://istruzione-ancona.it/
+    • https://istruzione.calabria.it/
+    • https://istruzione.umbria.it/
+    • https://istruzioneatprc.it/
+    • https://istruzionechietipescara.it/
+    • https://istruzionematera.it/
+    • https://istruzionepiemonte.it/
+    • https://lnx.csalaquila.it/
+    • https://me.usr.sicilia.it/
+    • https://mo.istruzioneer.gov.it/
+    • https://pa.usr.sicilia.it/
+    • https://padova.istruzioneveneto.gov.it/
+    • https://pc.istruzioneer.gov.it/
+    • https://pr.istruzioneer.gov.it/
+    • https://provveditoratostudiviterbo.it/
+    • https://ra.istruzioneer.gov.it/
+    • https://re.istruzioneer.gov.it/
+    • https://rn.istruzioneer.gov.it/
+    • https://rovigo.istruzioneveneto.gov.it/
+    • https://scuole.vda.it/
+    • https://servizi.istruzioneliguria.gov.it/
+    • https://sr.usr.sicilia.it/
+    • https://tp.usr.sicilia.it/
+    • https://treviso.istruzioneveneto.gov.it/
+    • https://uat-caserta.it/
+    • https://uat-napoli.it/
+    • https://usp-pi.it/
+    • https://uspbari.it/
+    • https://uspistruzione.fr.it/
+    • https://usplecce.it/
+    • https://usppesarourbino.it/
+    • https://uspss.it/
+    • https://usptaranto.it/
+    • https://ust.fi.it/
+    • https://ustfoggia.it/
+    • https://ustlucca.it/
+    • https://venezia.istruzioneveneto.gov.it/
+    • https://verona.istruzioneveneto.gov.it/
+    • https://vivoscuola.it/
+    
+    Le date lette da immagini sono segnate con ⚠ e vanno verificate nell'avviso originale. Le stime GPS sono indicative.
+    Correzioni o rimozioni di una fonte: lorisbono@hotmail.it
+    Privacy: https://github.com/loristeky/Interpelli-Docenti-e-ATA/blob/main/privacy-policy.md
+
+### English (en-US)
+
+    Interpelli Scuola is an INDEPENDENT app: it does not represent any government entity and is not connected to or affiliated with the Italian Ministry of Education and Merit or any School Offices.
+    
+    It gathers in one place the school job notices (interpelli) published by Italian School Offices and schools, with filters by teaching class, province and deadline, reminders and a deadline calendar.
+    
+    OFFICIAL SOURCES (government information)
+    All information comes from official public websites. Every notice links to the original page, which always prevails; the full list of sources is in the app (Sources menu).
+    • Ministry of Education and Merit: https://www.mim.gov.it/
+    • https://ag.usr.sicilia.it/
+    • https://atpromaistruzione.it/
+    • https://bo.istruzioneer.gov.it/
+    • https://cl-en.usr.sicilia.it/
+    • https://csalatina.it/
+    • https://csateramo.it/
+    • https://ct.usr.sicilia.it/
+    • https://fc.istruzioneer.gov.it/
+    • https://fe.istruzioneer.gov.it/
+    • https://istruzione-ancona.it/
+    • https://istruzione.calabria.it/
+    • https://istruzione.umbria.it/
+    • https://istruzioneatprc.it/
+    • https://istruzionechietipescara.it/
+    • https://istruzionematera.it/
+    • https://istruzionepiemonte.it/
+    • https://lnx.csalaquila.it/
+    • https://me.usr.sicilia.it/
+    • https://mo.istruzioneer.gov.it/
+    • https://pa.usr.sicilia.it/
+    • https://padova.istruzioneveneto.gov.it/
+    • https://pc.istruzioneer.gov.it/
+    • https://pr.istruzioneer.gov.it/
+    • https://provveditoratostudiviterbo.it/
+    • https://ra.istruzioneer.gov.it/
+    • https://re.istruzioneer.gov.it/
+    • https://rn.istruzioneer.gov.it/
+    • https://rovigo.istruzioneveneto.gov.it/
+    • https://scuole.vda.it/
+    • https://servizi.istruzioneliguria.gov.it/
+    • https://sr.usr.sicilia.it/
+    • https://tp.usr.sicilia.it/
+    • https://treviso.istruzioneveneto.gov.it/
+    • https://uat-caserta.it/
+    • https://uat-napoli.it/
+    • https://usp-pi.it/
+    • https://uspbari.it/
+    • https://uspistruzione.fr.it/
+    • https://usplecce.it/
+    • https://usppesarourbino.it/
+    • https://uspss.it/
+    • https://usptaranto.it/
+    • https://ust.fi.it/
+    • https://ustfoggia.it/
+    • https://ustlucca.it/
+    • https://venezia.istruzioneveneto.gov.it/
+    • https://verona.istruzioneveneto.gov.it/
+    • https://vivoscuola.it/
+    
+    Dates read from images are marked ⚠ and must be checked in the original notice. GPS estimates are indicative.
+    Corrections or source removal: lorisbono@hotmail.it
+    Privacy: https://github.com/loristeky/Interpelli-Docenti-e-ATA/blob/main/privacy-policy.md
