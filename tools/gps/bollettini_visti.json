@@ -21,7 +21,18 @@
 "https://www.istruzione-ancona.it/nomine-a-tempo-determinato-a-s-2026-2027/",
 "https://www.istruzione-ancona.it/nomine-a-tempo-determinato-gps-personale-docente_-ust-ancona_a-s-26-27/",
 "https://www.istruzione-ancona.it/personale-docente-nomine-a-tempo-determinato-47/",
+"https://www.istruzione.calabria.it/catanzaro/m_pi-aoouspcz-registro-ufficialeu-0011819-06-11-2026/",
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-vii-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/Bollettino_TotaleNomine_Turno7-1.pdf",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/m_pi.AOOUSPCZ.REGISTRO-UFFICIALEU.0011510.30-10-2026.pdf",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/AllegatiAttiAlboPretorio/BollettinoTotaleNomine_8.pdf",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/AllegatiAttiAlboPretorio/m_pi.AOOUSPCZ.REGISTRO-UFFICIALEU.0011819.06-11-2026.pdf",
+"https://www.istruzionechietipescara.it/2026/11/10/bollettino-n-8-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
 "https://www.istruzionechietipescara.it/category/nomine-a-tempo-determinato/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-A-CHIETI-Bollettino-Turno-N.-8.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-B-PESCARA-Bollettino-Turno-n.-8.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/CHIETI-ReportDettDispScuola-Turno-N.-8.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0037007.10-11-2026.pdf",
 "https://www.istruzionematera.it/1-bollettino-nomine-a-tempo-determinato-a-s-2026-27/",
 "https://www.istruzionematera.it/wp-content/uploads/2026/09/1°-Bollettino-nomine-a-t.d.-a.s.-26_27.pdf",
 "https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-17-5/",
@@ -76,9 +87,14 @@
 "https://www.uat-napoli.it/wp-content/uploads/2026/11/4°Bollettino_Tot_Nomine_Ogni_ord_e_grado_NA.pdf",
 "https://www.uat-napoli.it/wp-content/uploads/2026/11/REPORT_ULTIMI_NOMINATI_SU_POSTO_INTERO_4°BOLL_SUPP_03_11_2026.pdf",
 "https://www.uat-napoli.it/wp-content/uploads/2026/11/m_pi.AOOUSPNA.REGISTRO-UFFICIALEU.0027855.03-11-2026_nota_bollettino_gps.pdf",
+"https://www.usp-pi.it/incarichi-a-tempo-determinato-nono-turno-nomine-da-gps-a-s-2026-27/",
 "https://www.usp-pi.it/incarichi-a-tempo-determinato-ottavo-turno-nomine-da-gps-a-s-2026-27/",
+"https://www.usp-pi.it/wp-content/uploads/2026/11/Bollettino_TotaleNomine-27.pdf",
 "https://www.usp-pi.it/wp-content/uploads/2026/11/Bollettino_TotaleNomine.pdf",
 "https://www.usp-pi.it/wp-content/uploads/2026/11/m_pi.AOOUSPPI.REGISTRO-UFFICIALEU.0009062.02-11-2026.pdf",
+"https://www.usp-pi.it/wp-content/uploads/2026/11/m_pi.AOOUSPPI.REGISTRO-UFFICIALEU.0009220.11-11-2026.pdf",
+"https://www.uspistruzione.fr.it/wp2/nomine-12-bollettino-gps-dell-11-11-26.html",
+"https://www.uspistruzione.fr.it/wp2/wp-content/uploads/2026/11/NOMINE-TOTALI-12°-BOLLETTINO-GPS-DEL-11-11-2026.pdf",
 "https://www.usplatina.it/wp/category/reclutamento/nomine-a-tempo-determinato/"
 ],
 "turni": {
@@ -88,8 +104,11 @@
 "Napoli": 3,
 "Piacenza": 13,
 "Cuneo": 10,
-"Pisa": 2,
-"Rovigo": 2
+"Pisa": 4,
+"Rovigo": 2,
+"Catanzaro": 8,
+"Chieti e Pescara": 8,
+"Frosinone": 12
 },
 "origine": {
 "Lucca_bollettino-7.pdf": [
@@ -235,6 +254,34 @@
 "Rovigo_bollettino-2.pdf": [
 "https://rovigo.istruzioneveneto.gov.it/2026/08/26/avviso-bollettino-conferme-sostegno/",
 "https://rovigo.istruzioneveneto.gov.it/wp-content/uploads/2026/08/Bollettino-conferme-sostegno.prot_.pdf"
+],
+"Catanzaro_bollettino-7.pdf": [
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-vii-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/Bollettino_TotaleNomine_Turno7-1.pdf"
+],
+"Catanzaro_bollettino-7_2.pdf": [
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-vii-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/m_pi.AOOUSPCZ.REGISTRO-UFFICIALEU.0011510.30-10-2026.pdf"
+],
+"Pisa_bollettino-3.pdf": [
+"https://www.usp-pi.it/incarichi-a-tempo-determinato-nono-turno-nomine-da-gps-a-s-2026-27/",
+"https://www.usp-pi.it/wp-content/uploads/2026/11/Bollettino_TotaleNomine-27.pdf"
+],
+"Pisa_bollettino-4.pdf": [
+"https://www.usp-pi.it/incarichi-a-tempo-determinato-nono-turno-nomine-da-gps-a-s-2026-27/",
+"https://www.usp-pi.it/wp-content/uploads/2026/11/m_pi.AOOUSPPI.REGISTRO-UFFICIALEU.0009220.11-11-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-8.pdf": [
+"https://www.istruzionechietipescara.it/2026/11/10/bollettino-n-8-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0037007.10-11-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-8_2.pdf": [
+"https://www.istruzionechietipescara.it/2026/11/10/bollettino-n-8-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-A-CHIETI-Bollettino-Turno-N.-8.pdf"
+],
+"Chieti_e_Pescara_bollettino-8_3.pdf": [
+"https://www.istruzionechietipescara.it/2026/11/10/bollettino-n-8-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-B-PESCARA-Bollettino-Turno-n.-8.pdf"
 ]
 }
 }
