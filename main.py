@@ -1951,6 +1951,14 @@ def load_scadenze(remote=True):
         return []
 
 
+def host_of(url):
+    """Dominio leggibile di un indirizzo («www.mim.gov.it» -> «mim.gov.it»)."""
+    try:
+        return urlparse(url).netloc.lower().removeprefix("www.") or url
+    except Exception:
+        return url
+
+
 def province_label(source):
     """'USP Bergamo' -> 'Bergamo' (per l'elenco dei filtri)."""
     return re.sub(r"^(?:USP|UST|AT|Ufficio\s+Scolastico\s+(?:Provinciale|Territoriale)(?:\s+di)?)\s+", "",
@@ -2275,7 +2283,7 @@ def build(page: ft.Page, raw_prefs=None):
         prefs = {"classes": [], "name": "", "phone": "", "gps_class": "", "gps_score": "",
                  "fav": [], "applied": [], "profiles": [], "theme": "", "calc": {},
                  "sources": [], "src_status": {}, "deep": True, "dl_tried": [], "shared": True,
-                 "last_auto": "", "shared_full": "", "ocr_urls": []}
+                 "last_auto": "", "shared_full": "", "ocr_urls": [], "intro_ok": ""}
 
         store = ft.SharedPreferences()
 
@@ -2325,7 +2333,7 @@ def build(page: ft.Page, raw_prefs=None):
                         prefs["shared"] = data["shared"]
                     if data.get("theme") in ("light", "dark"):
                         prefs["theme"] = data["theme"]
-                    for key in ("name", "phone", "gps_class", "gps_score", "last_auto", "shared_full"):
+                    for key in ("name", "phone", "gps_class", "gps_score", "last_auto", "shared_full", "intro_ok"):
                         if isinstance(data.get(key), str):
                             prefs[key] = data[key]
             except Exception:
@@ -2831,7 +2839,7 @@ def build(page: ft.Page, raw_prefs=None):
             )
 
             # Azioni come sul sito: documento originale e candidatura via email
-            actions = []
+            actions = [ft.TextButton(content=f"Fonte: {host_of(url)}"[:34], icon=ft.Icons.LINK_ROUNDED, url=url)]
             if doc_url:
                 actions.append(ft.TextButton(content="Documento", icon=ft.Icons.DOWNLOAD_ROUNDED, url=doc_url))
             if email and status != "expired":
@@ -4379,6 +4387,8 @@ def build(page: ft.Page, raw_prefs=None):
                         ft.Container(width=10, height=10, border_radius=5, bgcolor=color),
                         ft.Column(expand=True, spacing=0, controls=[
                             ft.Text(n + ("  (tua)" if is_custom else ""), size=13.5, weight=ft.FontWeight.W_700),
+                            ft.TextButton(content=host_of(u), icon=ft.Icons.LINK_ROUNDED, url=u,
+                                          style=ft.ButtonStyle(padding=ft.Padding.symmetric(horizontal=0, vertical=0))),
                             ft.Text(msg, size=11.5, color=ft.Colors.ON_SURFACE_VARIANT)]),
                         *trailing])))
             sv_list.controls = rows
@@ -4444,7 +4454,7 @@ def build(page: ft.Page, raw_prefs=None):
                     ft.Column(expand=True, spacing=0, controls=[
                         ft.Text("Fonti degli interpelli", size=20, weight=ft.FontWeight.W_800,
                                 color=ft.Colors.WHITE),
-                        ft.Text("Quali siti rispondono e quali no", size=12,
+                        ft.Text("Fonti ufficiali: ogni voce apre il sito originale", size=12,
                                 color=ft.Colors.with_opacity(0.88, ft.Colors.WHITE))])]),
                 ft.Container(padding=ft.Padding.only(left=16), content=sv_summary)]))
 
@@ -4738,9 +4748,15 @@ def build(page: ft.Page, raw_prefs=None):
                         "e li mostra in un posto solo.", size=13),
                 ft.Text("Le stime GPS (province, riserva del 15%, punteggio) sono indicative: fanno fede gli "
                         "Uffici Scolastici e i bollettini ufficiali.", size=13),
-                ft.Text("L'app non è collegata né affiliata al Ministero dell'Istruzione e del Merito. "
-                        "Non raccoglie dati personali: classi e preferenze restano sul tuo telefono.",
-                        size=13),
+                ft.Text("Interpelli Scuola NON è un'app governativa e non rappresenta nessun ente pubblico: è "
+                        "un'app indipendente, non collegata né affiliata al Ministero dell'Istruzione e del Merito né "
+                        "agli Uffici Scolastici. Non raccoglie dati personali: classi e preferenze restano sul tuo "
+                        "telefono.", size=13, weight=ft.FontWeight.W_600),
+                ft.Text("Fonti ufficiali delle informazioni:", size=13, weight=ft.FontWeight.W_700),
+                ft.TextButton(content="Ministero dell'Istruzione e del Merito (mim.gov.it)",
+                              icon=ft.Icons.ACCOUNT_BALANCE_ROUNDED, url="https://www.mim.gov.it/"),
+                ft.TextButton(content="Elenco di tutti i siti degli Uffici Scolastici letti dall'app",
+                              icon=ft.Icons.LIST_ALT_ROUNDED, on_click=lambda e: (close_dialog(info_dlg), open_sources())),
                 ft.Text("Gli avvisi sono pubblici e vengono letti dai siti ufficiali. "
                         "Ogni avviso rimanda all'originale, che fa sempre fede. Le date segnate con ⚠ sono lette da "
                         "un'immagine: controllale nell'avviso. Per correzioni o rimozioni scrivi a lorisbono@hotmail.it.",
@@ -4882,9 +4898,11 @@ def build(page: ft.Page, raw_prefs=None):
             bgcolor=ft.Colors.SURFACE_CONTAINER_LOW,
             content=ft.Row(spacing=8, vertical_alignment=ft.CrossAxisAlignment.CENTER, controls=[
                 ft.Icon(ft.Icons.INFO_OUTLINE_ROUNDED, size=14, color=ft.Colors.ON_SURFACE_VARIANT),
-                ft.Text("Le stime GPS sono indicative: fanno fede gli Uffici Scolastici. "
-                        "L'app non è collegata al Ministero dell'Istruzione e del Merito.",
+                ft.Text("App indipendente, non governativa: non è collegata al Ministero dell'Istruzione e del Merito "
+                        "né agli Uffici Scolastici. Fanno sempre fede gli avvisi originali.",
                         size=10.5, color=ft.Colors.ON_SURFACE_VARIANT, expand=True),
+                ft.TextButton(content="Fonti", icon=ft.Icons.LINK_ROUNDED, on_click=lambda e: open_sources(),
+                              style=ft.ButtonStyle(padding=ft.Padding.symmetric(horizontal=4, vertical=0))),
             ]),
         )
         page.add(home_view, gps_view, calc_view, radar_view, sources_view, menu_view, storico_view, scad_view, disclaimer)
@@ -4927,6 +4945,28 @@ def build(page: ft.Page, raw_prefs=None):
             recent = (datetime.now() - last).total_seconds() < 3600
         except ValueError:
             recent = False
+        if prefs.get("intro_ok") != "1":
+            def intro_close(e=None):
+                prefs["intro_ok"] = "1"
+                save_prefs()
+                close_dialog(intro_dlg)
+            intro_dlg = ft.AlertDialog(
+                modal=True,
+                title=ft.Text("Prima di iniziare"),
+                content=ft.Column(tight=True, spacing=8, controls=[
+                    ft.Text("Interpelli Scuola è un'app indipendente e NON rappresenta nessun ente governativo: non è "
+                            "collegata al Ministero dell'Istruzione e del Merito né agli Uffici Scolastici.", size=13,
+                            weight=ft.FontWeight.W_600),
+                    ft.Text("Gli avvisi sono letti dai siti ufficiali; ogni avviso ha il link alla fonte originale, che "
+                            "fa sempre fede. Controlla lì prima di candidarti.", size=13),
+                    ft.TextButton(content="Ministero dell'Istruzione e del Merito", icon=ft.Icons.ACCOUNT_BALANCE_ROUNDED,
+                                  url="https://www.mim.gov.it/"),
+                    ft.TextButton(content="Elenco delle fonti ufficiali", icon=ft.Icons.LIST_ALT_ROUNDED,
+                                  on_click=lambda e: (intro_close(), open_sources())),
+                ]),
+                actions=[ft.TextButton(content="Ho capito", on_click=intro_close)],
+            )
+            show_dialog(intro_dlg)
         if empty or not recent:
             prefs["last_auto"] = datetime.now().isoformat(timespec="seconds")
             save_prefs()
