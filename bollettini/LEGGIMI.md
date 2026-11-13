@@ -28,11 +28,11 @@ L'automazione «Aggiorna dati GPS» parte da sola due volte al giorno: cerca nel
 - Il registro dell'esecuzione dice quali pagine non rispondono e quali file non è riuscita a leggere.
 - Se un bollettino non viene letto, puoi sempre caricarlo a mano in questa cartella come prima.
 
-### Elenco di Orizzonte Scuola
+### Solo siti degli Uffici Scolastici
 
-L'automazione legge anche la pagina di Orizzonte Scuola con i link diretti ai bollettini di tutte le province
-(«Supplenze docenti, ecco i bollettini nomine…»), saltando le rettifiche. Per aggiungere altre pagine-elenco dello
-stesso tipo, mettile in `tools/gps/pagine_bollettini.json` con `"tipo": "elenco"`.
+L'automazione cerca i bollettini solo sui siti ufficiali degli Uffici Scolastici, nelle sezioni notizie e
+comunicazioni di ogni provincia (oltre alle pagine delle fonti dell'app), saltando le rettifiche. Se un ufficio
+ha una pagina-elenco con i bollettini, mettila in `tools/gps/pagine_bollettini.json` con `"tipo": "elenco"`.
 
 ## Bollettini che non si leggono o sono molto grandi
 - I PDF grandi si leggono a blocchi di 150 pagine; si scaricano fino a 250 MB.
