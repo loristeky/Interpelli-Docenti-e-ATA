@@ -148,7 +148,6 @@ SOURCES = {
 MAX_WORKERS = 15
 PAGE_SIZE = 25          # interpelli mostrati per "blocco"
 DB_VERSION = 6          # alzare per forzare il rifacimento della cache
-GPS_LISTS_URL = "https://www.orizzontescuola.it/gps-docenti-2026-27-ecco-le-prime-graduatorie-in-aggiornamento/"
 SOON_DAYS = 3           # "in scadenza" = scade entro questi giorni
 
 MESI = ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"]
@@ -3724,12 +3723,6 @@ def build(page: ft.Page, raw_prefs=None):
                             ft.FilledTonalButton(content="Esito su tutte le mie classi",
                                                  icon=ft.Icons.FACT_CHECK_ROUNDED, on_click=run_all),
                             gps_all_out]),
-                        section_card([
-                            ft.Text("Altri strumenti", size=14, weight=ft.FontWeight.W_700),
-                            ft.TextButton(content="Graduatorie GPS di ogni provincia",
-                                          icon=ft.Icons.OPEN_IN_NEW_ROUNDED,
-                                          on_click=lambda e: gps_open(GPS_LISTS_URL)),
-                        ]),
                         ft.Text("Riserva servizio civile: il 15% dei chiamati di ogni classe in ogni bollettino (es. 20 chiamati: 3 posti riservati). I bollettini "
                                 "non dicono chi sono, quindi «ci saresti» vale anche con la quota piena (tolgo quei posti "
                                 "dai punteggi più bassi); «forse» se il tuo punteggio basta solo se i riservisti sono "
