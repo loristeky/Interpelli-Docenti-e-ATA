@@ -69,7 +69,7 @@ def news_pages(sources):
 
 
 # Pagine che raccolgono i link diretti ai bollettini di tutte le province (le rettifiche si saltano).
-ELENCHI = ["https://www.orizzontescuola.it/supplenze-docenti-ecco-i-bollettini-nomine-al-31-agosto-o-30-giugno-2027-in-aggiornamento/"]
+ELENCHI = []                    # solo pagine di Uffici Scolastici (aggiungile in pagine_bollettini.json con tipo «elenco»)
 RETTIFICA_RE = re.compile(r"rettific\w*|\berrata\b|\bavviso\b.*\bmodific", re.I)
 ESTERNI_NO = ("facebook.", "twitter.", "x.com", "whatsapp.", "t.me", "telegram.", "google.", "linkedin.", "instagram.",
               "youtube.", "orizzontescuola.", "mailto:", "tecnicadellascuola.", "wa.me")
