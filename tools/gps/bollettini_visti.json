@@ -1,5 +1,6 @@
 {
 "urls": [
+"https://padova.istruzioneveneto.gov.it/wp-content/uploads/2026/11/Bollettino-XIX-turno-GPS-16.11.2026.pdf",
 "https://pc.istruzioneer.gov.it/2026/11/12/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-14/",
 "https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/BOLLETTINO-DEFINITIVO-TURNO-14.pdf",
 "https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0008430.12-11-2026.pdf",
@@ -20,6 +21,7 @@
 "https://www.istruzione-ancona.it/nomine-a-tempo-determinato-a-s-2026-2027-6/",
 "https://www.istruzione-ancona.it/nomine-a-tempo-determinato-a-s-2026-2027/",
 "https://www.istruzione-ancona.it/nomine-a-tempo-determinato-gps-personale-docente_-ust-ancona_a-s-26-27/",
+"https://www.istruzione-ancona.it/personale-docente-nomine-a-tempo-determinato-48/",
 "https://www.istruzione.calabria.it/catanzaro/m_pi-aoouspcz-registro-ufficialeu-0011819-06-11-2026/",
 "https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-ix-bollettino-di-nomine/",
 "https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-vii-bollettino-di-nomine/",
@@ -41,15 +43,18 @@
 "https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-20-5/",
 "https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-21-5/",
 "https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-22-5/",
+"https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-23-5/",
 "https://www.istruzionepiemonte.it/cuneo/tag/nomine-gps/",
 "https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/AVVISO-Nomine-GPS-FASE-19.pdf",
 "https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/AVVISO-Nomine-GPS-FASE-20.pdf",
 "https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/AVVISO-Nomine-GPS-FASE-21.pdf",
 "https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/AVVISO-Nomine-GPS-FASE-22.pdf",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/AVVISO-Nomine-GPS-FASE-23.pdf",
 "https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/Bollettino_TotaleNomineFASE19.xlsx",
 "https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/Bollettino_TotaleNomineFASE20.xlsx",
 "https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/Bollettino_TotaleNomineFASE21.xlsx",
 "https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/Bollettino_TotaleNomineFASE22.xlsx",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/Bollettino_TotaleNomineFASE23.xlsx",
 "https://www.istruzionepiemonte.it/novara/tag/nomine/",
 "https://www.mim.gov.it/documents/7673905/0/BOLLETTINI.7z/8e9fe96d-efeb-6103-5fde-98d1dc189c26?t=1787142974150",
 "https://www.mim.gov.it/documents/7673905/10936887/Bollettini+a.s.2023_24_privacy.zip/1314196a-3abc-91d8-b18c-d72c53159fbe?t=1792585523229",
@@ -93,7 +98,8 @@
 "https://www.usp-pi.it/wp-content/uploads/2026/11/m_pi.AOOUSPPI.REGISTRO-UFFICIALEU.0009062.02-11-2026.pdf",
 "https://www.usp-pi.it/wp-content/uploads/2026/11/m_pi.AOOUSPPI.REGISTRO-UFFICIALEU.0009220.11-11-2026.pdf",
 "https://www.uspistruzione.fr.it/wp2/nomine-12-bollettino-gps-dell-11-11-26.html",
-"https://www.uspistruzione.fr.it/wp2/wp-content/uploads/2026/11/NOMINE-TOTALI-12°-BOLLETTINO-GPS-DEL-11-11-2026.pdf"
+"https://www.uspistruzione.fr.it/wp2/wp-content/uploads/2026/11/NOMINE-TOTALI-12°-BOLLETTINO-GPS-DEL-11-11-2026.pdf",
+"https://www.usplatina.it/wp/category/reclutamento/nomine-a-tempo-determinato/"
 ],
 "turni": {
 "Catanzaro": 9,
@@ -105,8 +111,9 @@
 "Napoli": 3,
 "Piacenza": 14,
 "Frosinone": 12,
-"Cuneo": 8,
-"Rovigo": 2
+"Cuneo": 10,
+"Rovigo": 2,
+"Padova": 1
 },
 "origine": {
 "Catanzaro_bollettino-9.pdf": [
@@ -280,6 +287,18 @@
 "Rovigo_bollettino-2.pdf": [
 "https://rovigo.istruzioneveneto.gov.it/2026/11/10/bollettino-nomine-supplenze-n-10-del-10-11-26/",
 "https://rovigo.istruzioneveneto.gov.it/wp-content/uploads/2026/11/Bollettino-totale-nomine-turno-10-del-10.11.26.pdf"
+],
+"Cuneo_bollettino-9.pdf": [
+"https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-23-5/",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/AVVISO-Nomine-GPS-FASE-23.pdf"
+],
+"Cuneo_bollettino-10.xlsx": [
+"https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-23-5/",
+"https://www.istruzionepiemonte.it/cuneo/wp-content/uploads/sites/5/2026/11/Bollettino_TotaleNomineFASE23.xlsx"
+],
+"Padova_bollettino-1.pdf": [
+"https://padova.istruzioneveneto.gov.it/wp-content/uploads/2026/11/Bollettino-XIX-turno-GPS-16.11.2026.pdf",
+"https://padova.istruzioneveneto.gov.it/wp-content/uploads/2026/11/Bollettino-XIX-turno-GPS-16.11.2026.pdf"
 ]
 }
 }
