@@ -12,7 +12,7 @@
   "nome": "USP Teramo",
   "url": "https://www.csateramo.it/wpusp/interpelli",
   "stato": "ok",
-  "avvisi": 37,
+  "avvisi": 40,
   "dettaglio": ""
  },
  {
@@ -43,10 +43,9 @@
   "regione": "Calabria",
   "nome": "USP Catanzaro",
   "url": "https://www.istruzione.calabria.it/catanzaro/category/nca/feed/",
-  "stato": "vuota",
-  "avvisi": 0,
-  "dettaglio": "",
-  "proposte": []
+  "stato": "ok",
+  "avvisi": 1,
+  "dettaglio": ""
  },
  {
   "regione": "Calabria",
@@ -116,9 +115,35 @@
   "regione": "Emilia-Romagna",
   "nome": "USP Reggio Emilia",
   "url": "https://re.istruzioneer.gov.it/category/docenti/feed/",
-  "stato": "ok",
-  "avvisi": 2,
-  "dettaglio": ""
+  "stato": "vuota",
+  "avvisi": 0,
+  "dettaglio": "",
+  "proposte": [
+   [
+    "https://re.istruzioneer.gov.it/come-si-diventa-docenti/",
+    "Diventare docenti"
+   ],
+   [
+    "https://re.istruzioneer.gov.it/category/docenti/interpello/",
+    "INTERPELLI per il reclutamento del Personale Docente ed Educativo"
+   ],
+   [
+    "https://re.istruzioneer.gov.it/2026/11/09/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-diciottesima-fase/",
+    "9 Novembre 2026"
+   ],
+   [
+    "https://re.istruzioneer.gov.it/2026/11/06/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-diciassettesima-fase/",
+    "6 Novembre 2026"
+   ],
+   [
+    "https://re.istruzioneer.gov.it/2026/11/04/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-sedicesima-fase/",
+    "Nomine a tempo determinato personale docente ed educativo a.s. 2026/2027 – SEDICESIMA FASE"
+   ],
+   [
+    "https://re.istruzioneer.gov.it/2026/10/28/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quindicesima-fase/",
+    "28 Ottobre 2026"
+   ]
+  ]
  },
  {
   "regione": "Emilia-Romagna",
@@ -133,7 +158,7 @@
   "nome": "USP Piacenza",
   "url": "https://pc.istruzioneer.gov.it/interpelli/",
   "stato": "ok",
-  "avvisi": 94,
+  "avvisi": 103,
   "dettaglio": ""
  },
  {
@@ -181,7 +206,7 @@
   "nome": "USP Viterbo",
   "url": "http://www.provveditoratostudiviterbo.it/DOCENTI/interpelli/INTERPELLIDOC.htm",
   "stato": "ok",
-  "avvisi": 169,
+  "avvisi": 171,
   "dettaglio": ""
  },
  {
@@ -189,7 +214,7 @@
   "nome": "USP Genova",
   "url": "https://servizi.istruzioneliguria.gov.it/provincia.php?p=GE",
   "stato": "ok",
-  "avvisi": 108,
+  "avvisi": 100,
   "dettaglio": ""
  },
  {
@@ -205,7 +230,7 @@
   "nome": "USP Imperia",
   "url": "https://servizi.istruzioneliguria.gov.it/provincia.php?p=IM",
   "stato": "ok",
-  "avvisi": 12,
+  "avvisi": 16,
   "dettaglio": ""
  },
  {
@@ -213,7 +238,7 @@
   "nome": "USP Savona",
   "url": "https://servizi.istruzioneliguria.gov.it/provincia.php?p=SV",
   "stato": "ok",
-  "avvisi": 32,
+  "avvisi": 30,
   "dettaglio": ""
  },
  {
@@ -237,7 +262,7 @@
   "nome": "USP Bergamo",
   "url": "https://www.mim.gov.it/web/bergamo/interpelli-ricerca-supplenti/",
   "stato": "ok",
-  "avvisi": 1,
+  "avvisi": 4,
   "dettaglio": ""
  },
  {
@@ -245,7 +270,7 @@
   "nome": "USP Como",
   "url": "https://www.mim.gov.it/web/como/interpelli-ricerca-supplenti/",
   "stato": "ok",
-  "avvisi": 199,
+  "avvisi": 198,
   "dettaglio": ""
  },
  {
@@ -261,7 +286,7 @@
   "nome": "USP Lecco",
   "url": "https://www.mim.gov.it/web/lecco/interpelli-ricerca-supplenti",
   "stato": "ok",
-  "avvisi": 191,
+  "avvisi": 196,
   "dettaglio": ""
  },
  {
@@ -301,7 +326,7 @@
   "nome": "USP Sondrio",
   "url": "https://www.mim.gov.it/web/sondrio/interpelli-ricerca-supplenti",
   "stato": "ok",
-  "avvisi": 200,
+  "avvisi": 190,
   "dettaglio": ""
  },
  {
@@ -317,7 +342,7 @@
   "nome": "USP Ancona",
   "url": "https://www.istruzione-ancona.it/category/docenti/feed/",
   "stato": "ok",
-  "avvisi": 8,
+  "avvisi": 10,
   "dettaglio": ""
  },
  {
@@ -365,7 +390,7 @@
   "nome": "USP Bari",
   "url": "https://www.uspbari.it/usp/category/interpelli-della-provincia-di-bari",
   "stato": "ok",
-  "avvisi": 48,
+  "avvisi": 51,
   "dettaglio": ""
  },
  {
@@ -373,7 +398,7 @@
   "nome": "USP Foggia",
   "url": "https://www.ustfoggia.it/feed/",
   "stato": "ok",
-  "avvisi": 7,
+  "avvisi": 9,
   "dettaglio": ""
  },
  {
@@ -389,7 +414,7 @@
   "nome": "USP Taranto",
   "url": "https://www.usptaranto.it/category/in-evidenza/",
   "stato": "ok",
-  "avvisi": 14,
+  "avvisi": 7,
   "dettaglio": ""
  },
  {
@@ -413,7 +438,7 @@
   "nome": "USP Caltanissetta-Enna",
   "url": "https://cl-en.usr.sicilia.it/category/personale-scuola/personale-docente/",
   "stato": "ok",
-  "avvisi": 2,
+  "avvisi": 1,
   "dettaglio": ""
  },
  {
@@ -453,7 +478,7 @@
   "nome": "USP Messina",
   "url": "https://me.usr.sicilia.it/personale-scuola/interpelli/",
   "stato": "ok",
-  "avvisi": 18,
+  "avvisi": 16,
   "dettaglio": ""
  },
  {
@@ -461,7 +486,7 @@
   "nome": "USP Firenze",
   "url": "https://www.ust.fi.it/?s=interpell&submit=",
   "stato": "ok",
-  "avvisi": 14,
+  "avvisi": 13,
   "dettaglio": ""
  },
  {
@@ -469,7 +494,7 @@
   "nome": "USP Lucca",
   "url": "https://www.ustlucca.it/feed/",
   "stato": "ok",
-  "avvisi": 7,
+  "avvisi": 9,
   "dettaglio": ""
  },
  {
@@ -477,7 +502,7 @@
   "nome": "USP Pisa",
   "url": "https://www.usp-pi.it/category/interpelli/",
   "stato": "ok",
-  "avvisi": 10,
+  "avvisi": 9,
   "dettaglio": ""
  },
  {
@@ -485,7 +510,7 @@
   "nome": "USP Trento",
   "url": "https://www.vivoscuola.it/Lavora-con-noi/Quadri-di-disponibilita",
   "stato": "ok",
-  "avvisi": 13,
+  "avvisi": 16,
   "dettaglio": ""
  },
  {
