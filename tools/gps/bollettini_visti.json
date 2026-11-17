@@ -2,8 +2,11 @@
 "urls": [
 "https://padova.istruzioneveneto.gov.it/wp-content/uploads/2026/11/Bollettino-XIX-turno-GPS-16.11.2026.pdf",
 "https://pc.istruzioneer.gov.it/2026/11/12/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-14/",
+"https://pc.istruzioneer.gov.it/2026/11/17/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-15/",
 "https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/BOLLETTINO-DEFINITIVO-TURNO-14.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/Bollettino_TotaleNomine.pdf",
 "https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0008430.12-11-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0008609.17-11-2026.pdf",
 "https://rovigo.istruzioneveneto.gov.it/2026/08/26/avviso-bollettino-conferme-sostegno/",
 "https://rovigo.istruzioneveneto.gov.it/2026/11/10/bollettino-nomine-supplenze-n-10-del-10-11-26/",
 "https://rovigo.istruzioneveneto.gov.it/wp-content/uploads/2026/08/Bollettino-conferme-sostegno.prot_.pdf",
@@ -109,7 +112,7 @@
 "Matera": 1,
 "Caserta": 21,
 "Napoli": 3,
-"Piacenza": 14,
+"Piacenza": 15,
 "Frosinone": 12,
 "Cuneo": 10,
 "Rovigo": 2,
@@ -299,6 +302,14 @@
 "Padova_bollettino-1.pdf": [
 "https://padova.istruzioneveneto.gov.it/wp-content/uploads/2026/11/Bollettino-XIX-turno-GPS-16.11.2026.pdf",
 "https://padova.istruzioneveneto.gov.it/wp-content/uploads/2026/11/Bollettino-XIX-turno-GPS-16.11.2026.pdf"
+],
+"Piacenza_bollettino-15.pdf": [
+"https://pc.istruzioneer.gov.it/2026/11/17/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-15/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0008609.17-11-2026.pdf"
+],
+"Piacenza_bollettino-15_2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/11/17/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-15/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/Bollettino_TotaleNomine.pdf"
 ]
 }
 }
