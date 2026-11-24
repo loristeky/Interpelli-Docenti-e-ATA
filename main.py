@@ -1940,6 +1940,38 @@ def load_gps_data(path=GPS_FILE):
     return None
 
 
+# I dati più recenti si scaricano dal ramo «dati» (pubblicati dall'automazione): non serve rifare la build.
+GPS_URL = "https://raw.githubusercontent.com/loristeky/Interpelli-Docenti-e-ATA/dati/gps_data.json"
+
+
+def gps_cache_path():
+    return os.path.join(os.path.dirname(get_db_path()), "gps_data_scaricato.json")
+
+
+def load_gps_best():
+    """I dati più recenti tra quelli inclusi nell'app e quelli scaricati dopo."""
+    base = load_gps_data()
+    new = load_gps_data(gps_cache_path())
+    if new and (not base or (new.get("aggiornato", ""), len(new["province"])) >= (base.get("aggiornato", ""), len(base["province"]))):
+        return new
+    return base
+
+
+def download_gps_data():
+    """Scarica i dati GPS aggiornati. Restituisce (dati, errore)."""
+    try:
+        data = json.loads(fetch_bytes(GPS_URL, 20_000_000).decode("utf-8"))
+        if not (isinstance(data, dict) and isinstance(data.get("province"), dict) and data["province"]):
+            return None, "file non valido"
+        path = gps_cache_path()
+        with open(path + ".tmp", "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
+        os.replace(path + ".tmp", path)
+        return data, ""
+    except Exception as ex:
+        return None, str(ex)[:80]
+
+
 # ----------------------------------------------------------------------------
 # Scadenze del mese: scadenze degli interpelli + date utili (GPS, domande, graduatorie)
 # ----------------------------------------------------------------------------
@@ -2315,7 +2347,7 @@ def build(page: ft.Page, raw_prefs=None):
         prefs = {"classes": [], "name": "", "phone": "", "gps_class": "", "gps_score": "",
                  "fav": [], "applied": [], "profiles": [], "theme": "", "calc": {},
                  "sources": [], "src_status": {}, "deep": True, "dl_tried": [], "shared": True,
-                 "last_auto": "", "shared_full": "", "ocr_urls": [], "intro_ok": ""}
+                 "last_auto": "", "shared_full": "", "ocr_urls": [], "intro_ok": "", "gps_checked": ""}
 
         store = ft.SharedPreferences()
 
@@ -2365,7 +2397,7 @@ def build(page: ft.Page, raw_prefs=None):
                         prefs["shared"] = data["shared"]
                     if data.get("theme") in ("light", "dark"):
                         prefs["theme"] = data["theme"]
-                    for key in ("name", "phone", "gps_class", "gps_score", "last_auto", "shared_full", "intro_ok"):
+                    for key in ("name", "phone", "gps_class", "gps_score", "last_auto", "shared_full", "intro_ok", "gps_checked"):
                         if isinstance(data.get(key), str):
                             prefs[key] = data[key]
             except Exception:
@@ -3357,7 +3389,7 @@ def build(page: ft.Page, raw_prefs=None):
         def gps_open(url):
             open_url(url)
 
-        gps_data = load_gps_data()
+        gps_data = load_gps_best() or {}
 
         def gps_data_info():
             prov = (gps_data or {}).get("province", {})
@@ -3597,7 +3629,7 @@ def build(page: ft.Page, raw_prefs=None):
                 gps_info.visible = True
                 if not rows and tipo == "GUI" and cls.startswith("AD") and not gps_data_info()["gui"]:
                     gps_info.value = ("I dati caricati nell'app non contengono le graduatorie GUI (" + gps_data_text()
-                                      + "). Sostituisci il file assets/gps_data.json con quello nuovo e rifai la build.")
+                                      + "). Premi «Aggiorna i bollettini» qui sotto per scaricare i dati più recenti.")
                 elif not rows:
                     gps_info.value = (f"Nessuna nomina trovata per {cls}{' · ' + tipo if cls.startswith('AD') else ''} "
                                       f"({GPS_FASCE.get(fascia, '')}) nelle province con dati. "
@@ -3711,6 +3743,43 @@ def build(page: ft.Page, raw_prefs=None):
             "I dati dei bollettini non sono ancora nell'app: usa i servizi esterni qui sotto.",
             size=12, color=ft.Colors.ON_SURFACE_VARIANT, visible=not gps_data)
 
+        gps_data_label = ft.Text("Dati nell'app: " + gps_data_text(), size=11.5, weight=ft.FontWeight.W_700,
+                                 color=ft.Colors.ON_SURFACE_VARIANT)
+        gps_update_status = ft.Text("", size=11.5, color=ft.Colors.ON_SURFACE_VARIANT)
+        gps_update_button = ft.OutlinedButton(content="Aggiorna i bollettini", icon=ft.Icons.REFRESH_ROUNDED)
+
+        def update_gps(e=None, auto=False):
+            """Scarica in secondo piano i dati GPS più recenti, senza aggiornare l'app."""
+            def worker():
+                gps_update_button.disabled = True
+                gps_update_status.value = "Scarico i bollettini…"
+                page.update()
+                data, err = download_gps_data()
+                try:
+                    prefs["gps_checked"] = datetime.now().isoformat(timespec="minutes")
+                    save_prefs()
+                except Exception:
+                    pass
+                if data:
+                    before = gps_data_text()
+                    gps_data.clear()
+                    gps_data.update(data)
+                    gps_province.options = ([ft.DropdownOption(key="", text="Tutte le province")]
+                                            + [ft.DropdownOption(key=p, text=p) for p in sorted(gps_data.get("province", {}))])
+                    gps_data_label.value = "Dati nell'app: " + gps_data_text()
+                    gps_calc_button.visible = bool(gps_data)
+                    gps_no_data.visible = not gps_data
+                    gps_update_status.value = ("Già aggiornato." if gps_data_text() == before
+                                               else "Bollettini aggiornati.")
+                elif not auto:
+                    gps_update_status.value = f"Non riesco a scaricare i dati ({err}). Riprova più tardi."
+                else:
+                    gps_update_status.value = ""
+                gps_update_button.disabled = False
+                page.update()
+            threading.Thread(target=worker, daemon=True).start()
+        gps_update_button.on_click = update_gps
+
         def close_gps(e=None):
             gps_view.visible = False
             home_view.visible = True
@@ -3774,8 +3843,9 @@ def build(page: ft.Page, raw_prefs=None):
                                 "non dicono chi sono, quindi «ci saresti» vale anche con la quota piena (tolgo quei posti "
                                 "dai punteggi più bassi); «forse» se il tuo punteggio basta solo se i riservisti sono "
                                 "stati meno.", size=11.5, color=ft.Colors.ON_SURFACE_VARIANT),
-                        ft.Text("Dati nell'app: " + gps_data_text(), size=11.5, weight=ft.FontWeight.W_700,
-                                color=ft.Colors.ON_SURFACE_VARIANT),
+                        gps_data_label,
+                        ft.Row(spacing=10, wrap=True, vertical_alignment=ft.CrossAxisAlignment.CENTER,
+                               controls=[gps_update_button, gps_update_status]),
                         ft.Text("Solo le province con bollettini già caricati. Nei bollettini successivi si scende "
                                 "più in basso, quindi è una stima prudente. Fa fede l'Ufficio Scolastico della "
                                 "provincia.", size=11.5, color=ft.Colors.ON_SURFACE_VARIANT),
@@ -3801,6 +3871,13 @@ def build(page: ft.Page, raw_prefs=None):
             home_view.visible = False
             gps_view.visible = True
             page.update()
+            try:                                   # al massimo una volta ogni 6 ore, da solo
+                last = datetime.fromisoformat(prefs.get("gps_checked", ""))
+                due = (datetime.now() - last).total_seconds() > 6 * 3600
+            except ValueError:
+                due = True
+            if due:
+                update_gps(auto=True)
 
         gps_button.on_click = open_gps
 
