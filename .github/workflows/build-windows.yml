@@ -10,10 +10,6 @@ jobs:
   build:
     runs-on: windows-latest
     timeout-minutes: 45
-    env:
-      # Su Windows la console usa cp1252 e Flet va in errore scrivendo simboli come «√»
-      PYTHONUTF8: "1"
-      PYTHONIOENCODING: "utf-8"
 
     steps:
       - name: Checkout repository

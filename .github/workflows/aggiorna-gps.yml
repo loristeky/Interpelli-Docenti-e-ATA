@@ -24,6 +24,7 @@ concurrency:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   aggiorna:
@@ -63,3 +64,5 @@ jobs:
           git config user.email "github-actions@users.noreply.github.com"
           git commit -m "Aggiorna dati GPS dai bollettini"
           git push
+          # pubblica subito i nuovi dati nel ramo «dati», da cui l'app li scarica (senza aspettare il giro successivo)
+          GH_TOKEN="${{ github.token }}" gh workflow run pubblica-interpelli.yml --ref "${{ github.ref_name }}" || true

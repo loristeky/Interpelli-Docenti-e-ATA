@@ -42,12 +42,15 @@ jobs:
           git show origin/dati:provati.json > "$RUNNER_TEMP/prec-provati.json" 2>/dev/null || echo '[]' > "$RUNNER_TEMP/prec-provati.json"
 
       - name: Aggiorna l'elenco
+        env:
+          PYTHONUNBUFFERED: '1'
         run: |
           python tools/export_interpelli.py --prec "$RUNNER_TEMP/prec.json" --prec-provati "$RUNNER_TEMP/prec-provati.json" --out "$RUNNER_TEMP/interpelli.json" --out-provati "$RUNNER_TEMP/provati.json"
 
       - name: Pubblica nel ramo dati
         run: |
           cp assets/scadenze.json "$RUNNER_TEMP/scadenze.json"
+          cp assets/gps_data.json "$RUNNER_TEMP/gps_data.json"
           cp "$RUNNER_TEMP/interpelli.json" "$RUNNER_TEMP/out.json"
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
@@ -57,6 +60,7 @@ jobs:
           cp "$RUNNER_TEMP/provati.json" provati.json
           cp "$RUNNER_TEMP/recenti.json" recenti.json
           cp "$RUNNER_TEMP/scadenze.json" scadenze.json
-          git add interpelli.json provati.json recenti.json scadenze.json
+          cp "$RUNNER_TEMP/gps_data.json" gps_data.json
+          git add interpelli.json provati.json recenti.json scadenze.json gps_data.json
           git commit -q -m "Aggiorna elenco interpelli"
           git push -f origin dati-tmp:dati
