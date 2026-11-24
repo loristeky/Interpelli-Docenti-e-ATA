@@ -1,8 +1,9 @@
 name: Build programma Windows
 
-# Crea la versione per Windows (cartella con Interpelli Scuola.exe, in uno zip).
+# Crea la versione per Windows (cartella con il programma, in uno zip).
 # Si avvia a mano: Azioni -> "Build programma Windows" -> Run workflow.
 # Quando finisce, scarica lo zip dalla sezione "Artifacts" in fondo alla pagina dell'esecuzione.
+# Il registro completo della compilazione è sempre nell'artifact "registro-windows" (anche se fallisce).
 on:
   workflow_dispatch:
 
@@ -10,6 +11,11 @@ jobs:
   build:
     runs-on: windows-latest
     timeout-minutes: 45
+    env:
+      # Su Windows la console usa cp1252 e il programma di compilazione va in errore scrivendo simboli come «√»
+      PYTHONUTF8: "1"
+      PYTHONIOENCODING: "utf-8"
+      NO_COLOR: "1"
 
     steps:
       - name: Checkout repository
@@ -28,12 +34,25 @@ jobs:
       - name: Build Windows
         shell: bash
         run: |
+          # python -X utf8: forza UTF-8 anche se le variabili d'ambiente non bastassero; l'uscita va su file
           for i in 1 2 3; do
-            flet build windows --yes --no-rich-output --verbose && exit 0
+            python -X utf8 -c "import sys; from flet_cli.cli import main; sys.argv = ['flet'] + sys.argv[1:]; main()" \
+              build windows --yes --no-rich-output --verbose > build.log 2>&1 && ok=1 || ok=0
+            if [ "$ok" -eq 1 ]; then break; fi
+            echo "::warning::Tentativo $i non riuscito"
+            python -X utf8 -c "import io; t = io.open('build.log', encoding='utf-8', errors='replace').read().splitlines(); print('\n'.join(t[-60:]).encode('ascii', 'replace').decode())"
             [ "$i" -eq 3 ] && exit 1
-            echo "::warning::Tentativo $i non riuscito: riprovo tra 60 secondi"
             sleep 60
           done
+          echo "Compilazione riuscita"
+
+      - name: Registro della compilazione
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: registro-windows
+          path: build.log
+          if-no-files-found: ignore
 
       - name: Comprimi la cartella
         shell: pwsh
