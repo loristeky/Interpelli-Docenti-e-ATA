@@ -2,6 +2,18 @@
  "versione": 2,
  "file": [
   {
+   "file": "9%C2%B0-Bollettino-nomine-a-tempo-determinato.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino-Nomine-turno-XV_Firmato.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_12.xlsx",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
    "file": "Caserta_bollettino-1.pdf",
    "motivo": "nessuna riga GPS trovata"
   },
@@ -175,6 +187,10 @@
   },
   {
    "file": "Pisa_bollettino-7.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "bollettino-ii-turno-nomine-gps-a.pdf",
    "motivo": "nessuna riga GPS trovata"
   }
  ]
