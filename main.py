@@ -1074,7 +1074,34 @@ def load_shared(conn, known, recent=False):
         except sqlite3.Error:
             pass
     conn.commit()
+    SHARED_INFO["ocr"] |= set(fix_trento_deadlines(conn))
     return new
+
+
+def trento_assumed_deadline(published):
+    """Interpelli del Trentino senza scadenza: si assume il giorno prima della pubblicazione (da verificare, ⚠)."""
+    try:
+        return (date.fromisoformat((published or "")[:10]) - timedelta(days=1)).isoformat()
+    except ValueError:
+        return ""
+
+
+def fix_trento_deadlines(conn):
+    """Dà la scadenza presunta agli avvisi di Trento già salvati senza scadenza. Restituisce gli indirizzi cambiati."""
+    changed = []
+    try:
+        rows = conn.execute("SELECT url, published FROM interpelli WHERE source = 'USP Trento' "
+                            "AND (deadline IS NULL OR deadline = '')").fetchall()
+        for url, pub in rows:
+            dl = trento_assumed_deadline(pub)
+            if dl:
+                conn.execute("UPDATE interpelli SET deadline = ? WHERE url = ?", (dl, url))
+                changed.append(url)
+        if changed:
+            conn.commit()
+    except sqlite3.Error:
+        pass
+    return changed
 
 
 def recheck_deadlines(conn, tried, limit=40):
@@ -1617,6 +1644,12 @@ def trento_items(region, source_name, known):
         if periodo:
             label += f" · {periodo}"
         pub, mail, dl = details.get(rid, ("", "", ""))
+        if not dl:                       # senza scadenza indicata: si assume il giorno prima della pubblicazione, da verificare (⚠)
+            try:
+                dl = (date.fromisoformat((pub or today)[:10]) - timedelta(days=1)).isoformat()
+                OCR_FOUND.add(url)
+            except ValueError:
+                dl = ""
         out.append((label, url, region, source_name, "DOCENTI", pub or today, dl, cdc,
                     analyze_post_content(f"{tipo_posto} {tipo_inc} {desc}"), "", mail))
     return out, True
@@ -2658,11 +2691,25 @@ def build(page: ft.Page, raw_prefs=None):
                                     "WHERE deadline IS NOT NULL AND deadline >= ?", (today_s,)).fetchall()
                 conn.close()
                 stat_texts["open"].value = str(len(rows))
-                stat_texts["soon"].value = str(sum(1 for r in rows if r[2][:10] <= soon_s))
-                stat_texts["mine"].value = (str(sum(1 for r in rows if matches_classes(r[0], r[1], prefs["classes"])))
-                                            if prefs["classes"] else "–")
-            except Exception:
-                pass
+                stat_texts["soon"].value = str(sum(1 for r in rows if r[2][:10] <= soon_s
+                                                   and status_of(r[2]) != "expired"))
+                if prefs["classes"]:
+                    # stessi criteri della lista «Per te» (classe nel titolo o nel campo classi, avviso ancora aperto)
+                    parts, params = [], []
+                    for c in prefs["classes"]:
+                        parts.append("(cdc LIKE ? OR title LIKE ?)")
+                        params += [f"%{c}%", f"%{c}%"]
+                    conn = db_connect()
+                    mine_rows = conn.execute("SELECT deadline FROM interpelli WHERE (" + " OR ".join(parts) + ") "
+                                             "AND deadline IS NOT NULL AND deadline >= ?",
+                                             params + [today_s]).fetchall()
+                    conn.close()
+                    # solo avvisi non scaduti (anche con l'ora: scadenza di oggi già passata = scaduto)
+                    stat_texts["mine"].value = str(sum(1 for r in mine_rows if status_of(r[0]) != "expired"))
+                else:
+                    stat_texts["mine"].value = "–"
+            except Exception as ex:
+                print(f"Contatori non aggiornati: {ex}")
 
         filters_panel = ft.Column(spacing=10, visible=False, controls=[
             ft.Row(spacing=10, controls=[region_dropdown, province_dropdown]),
@@ -4145,8 +4192,16 @@ def build(page: ft.Page, raw_prefs=None):
                     state["refreshing"] = False
                     progress_bar.visible = False
                     refresh_button.disabled = False
+                    try:
+                        if OCR_FOUND:
+                            prefs["ocr_urls"] = list(dict.fromkeys(prefs["ocr_urls"] + sorted(OCR_FOUND)))[-800:]
+                            save_prefs()
+                    except Exception:
+                        pass
                     fill_provinces(state["region"])
                     load_results(reset=False, live=True)
+                    paint_stats()
+                    page.update()
                     msg = f"{new_count} nuovi interpelli" if new_count else "Nessun nuovo interpello"
                     if mine_count:
                         msg = f"⭐ {mine_count} nuovi per te · " + msg
@@ -4752,7 +4807,7 @@ def build(page: ft.Page, raw_prefs=None):
                               icon=ft.Icons.LIST_ALT_ROUNDED, on_click=lambda e: (close_dialog(info_dlg), open_sources())),
                 ft.Text("Gli avvisi sono pubblici e vengono letti dai siti ufficiali. "
                         "Ogni avviso rimanda all'originale, che fa sempre fede. Le date segnate con ⚠ sono lette da "
-                        "un'immagine: controllale nell'avviso. Per correzioni o rimozioni scrivi a lorisbono@hotmail.it.",
+                        "un'immagine: controllale nell'avviso. Per correzioni o rimozioni usa il contatto indicato nella scheda dello store e nell'informativa privacy.",
                         size=13)]),
             actions=[ft.TextButton("Informativa sulla privacy", icon=ft.Icons.PRIVACY_TIP_OUTLINED,
                                    on_click=lambda e: open_url(PRIVACY_URL)),

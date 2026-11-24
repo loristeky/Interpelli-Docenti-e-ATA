@@ -167,6 +167,13 @@ def main(argv=None):
     pool.shutdown(wait=False, cancel_futures=True)
     print(f"Riletti {done}/{len(todo)} avvisi senza scadenza in {int(time.time() - t0)} s", flush=True)
 
+    if hasattr(app, "trento_assumed_deadline"):         # Trento senza scadenza: giorno prima della pubblicazione, con ⚠
+        for r in by_url.values():
+            if r[3] == "USP Trento" and not r[6]:
+                r[6] = app.trento_assumed_deadline(r[5])
+                if r[6]:
+                    app.OCR_FOUND.add(r[1])
+
     limit = (date.today() - timedelta(days=KEEP_DAYS)).isoformat()
     grace = (date.today() - timedelta(days=14)).isoformat()
     keep = [r for r in by_url.values() if (r[5] or "9") >= limit or (r[6] or "") >= grace]

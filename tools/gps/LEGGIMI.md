@@ -41,3 +41,11 @@ I bollettini non dicono chi sono i riservisti (colonne oscurate), quindi l'app m
 
 La percentuale è `GPS_RISERVA` in `main.py`. Ogni bollettino è un turno: per questo non vanno uniti
 bollettini di turni diversi della stessa provincia (i PDF dello stesso turno, per esempio allegati A e B, sì).
+
+## Bollettini già noti (bollettini_noti.json)
+Il file `tools/gps/bollettini_noti.json` elenca, provincia per provincia, i collegamenti diretti alle pagine
+ufficiali degli Uffici Scolastici che pubblicano i bollettini (con il numero del turno già ricavato dal titolo o
+dall'indirizzo). Il programma li scarica tutti, salta quelli già visti e le rettifiche, e ne legge solo i dati
+aggregati. Se un turno ha il numero sbagliato, correggi il campo `turno` di quella riga.
+Per aggiungere un bollettino a mano basta una riga: `{"provincia":"Bari","titolo":"turno 5","url":"https://...","turno":5}`.
+Le fonti sono sempre e solo i siti ufficiali degli Uffici Scolastici.

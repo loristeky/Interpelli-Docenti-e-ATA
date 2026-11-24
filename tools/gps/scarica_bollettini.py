@@ -27,6 +27,10 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[2]
 VISTI = Path(__file__).with_name("bollettini_visti.json")
 EXTRA = Path(__file__).with_name("pagine_bollettini.json")
+NOTI = Path(__file__).with_name("bollettini_noti.json")      # collegamenti diretti ai bollettini sui siti degli uffici
+# Come si chiamano nel resto dell'app alcune province (serve a numerare i turni con lo stesso nome dei file già scaricati).
+NOMI_UFFICIO = {"Chieti Pescara": "Chieti e Pescara", "Caltanissetta ed Enna": "Caltanissetta-Enna",
+                "L’Aquila": "L'Aquila", "Forlì Cesena": "Forlì Cesena"}
 MAX_BYTES = 250_000_000         # i bollettini di Milano, Napoli, Catania... pesano molto
 MAX_SECONDS = 600
 PROBLEMI = Path(__file__).with_name("bollettini_problemi.json")
@@ -72,7 +76,7 @@ def news_pages(sources):
 ELENCHI = []                    # solo pagine di Uffici Scolastici (aggiungile in pagine_bollettini.json con tipo «elenco»)
 RETTIFICA_RE = re.compile(r"rettific\w*|\berrata\b|\bavviso\b.*\bmodific", re.I)
 ESTERNI_NO = ("facebook.", "twitter.", "x.com", "whatsapp.", "t.me", "telegram.", "google.", "linkedin.", "instagram.",
-              "youtube.", "orizzontescuola.", "mailto:", "tecnicadellascuola.", "wa.me")
+              "youtube.", "mailto:", "wa.me")
 
 
 def province_in(text):
@@ -268,7 +272,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--cartella", default="bollettini")
     ap.add_argument("--prova", action="store_true", help="elenca cosa scaricherebbe, senza scaricare né ricordare nulla")
-    ap.add_argument("--max", type=int, default=150, help="massimo di file scaricati per esecuzione")
+    ap.add_argument("--max", type=int, default=400, help="massimo di file scaricati per esecuzione")
     args = ap.parse_args(argv)
 
     global APP
@@ -311,6 +315,12 @@ def main(argv=None):
                     todo.append((province_in(title) or "Bollettino", url, title, link))
         except Exception as ex:
             print(f"[!] elenco {url[:70]}: non raggiungibile ({str(ex)[:60]})")
+    forced_turn = {}
+    for x in read_json(NOTI, []):                       # bollettini già noti: ognuno con la sua provincia e il suo turno
+        if isinstance(x, dict) and x.get("url") and x.get("provincia") and x["url"] not in seen:
+            todo.append((NOMI_UFFICIO.get(x["provincia"], x["provincia"]), x["url"], x.get("titolo", ""), x["url"]))
+            if isinstance(x.get("turno"), int):
+                forced_turn[x["url"]] = x["turno"]
     n_elenco = len(todo)
     with ThreadPoolExecutor(max_workers=12) as ex:
         for name, url, cands, err in ex.map(scan, sources):
@@ -341,7 +351,7 @@ def main(argv=None):
         for doc in docs:
             if doc in seen:
                 continue
-            turno = turn_of(title, None)
+            turno = str(forced_turn[link]) if link in forced_turn else turn_of(title, None)
             if doc in forced:
                 dest, ext = out / forced[doc], os.path.splitext(forced[doc])[1]
                 if args.prova:
