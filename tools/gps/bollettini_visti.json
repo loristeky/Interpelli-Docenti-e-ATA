@@ -2,6 +2,7 @@
 "urls": [
 "https://padova.istruzioneveneto.gov.it/wp-content/uploads/2026/11/Bollettino-XIX-turno-GPS-16.11.2026.pdf",
 "https://padova.istruzioneveneto.gov.it/wp-content/uploads/2026/11/Bollettino-XX-turno-GPS-18.11.2026.pdf",
+"https://padova.istruzioneveneto.gov.it/wp-content/uploads/2026/11/Bollettino-XXI-turno-GPS-24.11.2026.pdf",
 "https://pc.istruzioneer.gov.it/2026/11/12/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-14/",
 "https://pc.istruzioneer.gov.it/2026/11/17/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-15/",
 "https://pc.istruzioneer.gov.it/2026/11/20/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-16/",
@@ -50,15 +51,20 @@
 "https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/AllegatiAttiAlboPretorio/m_pi.AOOUSPCZ.REGISTRO-UFFICIALEU.0012404.19-11-2026_1.pdf",
 "https://www.istruzionechietipescara.it/2026/11/10/bollettino-n-8-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
 "https://www.istruzionechietipescara.it/2026/11/17/bollettino-n-9-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/2026/11/24/bollettino-n-10-nomine-a-tempo-determinato-da-gps-a-s-2026-2027-province-di-chieti-e-pescara/",
 "https://www.istruzionechietipescara.it/category/nomine-a-tempo-determinato/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-A-CHIETI-Bollettino-Turno-N.-10.pdf",
 "https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-A-CHIETI-Bollettino-Turno-N.-8.pdf",
 "https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-A-CHIETI-Bollettino-Turno-N.-9.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-B-PESCARA-Bollettino-Turno-n.-10.pdf",
 "https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-B-PESCARA-Bollettino-Turno-n.-8.pdf",
 "https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-B-PESCARA-Bollettino-Turno-n.-9.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/CHIETI-ReportDettDispScuola-Turno-10.pdf",
 "https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/CHIETI-ReportDettDispScuola-Turno-9.pdf",
 "https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/CHIETI-ReportDettDispScuola-Turno-N.-8.pdf",
 "https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0037007.10-11-2026.pdf",
 "https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0037941.17-11-2026.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0038969.24-11-2026.pdf",
 "https://www.istruzionematera.it/1-bollettino-nomine-a-tempo-determinato-a-s-2026-27/",
 "https://www.istruzionematera.it/wp-content/uploads/2026/09/1°-Bollettino-nomine-a-t.d.-a.s.-26_27.pdf",
 "https://www.istruzionepiemonte.it/cuneo/nomine-gps-fase-19-5/",
@@ -143,7 +149,7 @@
 "Catanzaro": 10,
 "Lucca": 7,
 "Pisa": 7,
-"Chieti e Pescara": 9,
+"Chieti e Pescara": 10,
 "Matera": 1,
 "Caserta": 24,
 "Napoli": 3,
@@ -151,7 +157,7 @@
 "Frosinone": 13,
 "Cuneo": 14,
 "Rovigo": 4,
-"Padova": 2
+"Padova": 3
 },
 "origine": {
 "Catanzaro_bollettino-9.pdf": [
@@ -421,6 +427,22 @@
 "Rovigo_bollettino-4.pdf": [
 "https://rovigo.istruzioneveneto.gov.it/2026/11/23/bollettino-nomine-supplenze-n-12-del-23-11-2026/",
 "https://rovigo.istruzioneveneto.gov.it/wp-content/uploads/2026/11/Bollettino-totale-nomine-turno-12-del-23.11.26.pdf"
+],
+"Chieti_e_Pescara_bollettino-10.pdf": [
+"https://www.istruzionechietipescara.it/2026/11/24/bollettino-n-10-nomine-a-tempo-determinato-da-gps-a-s-2026-2027-province-di-chieti-e-pescara/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0038969.24-11-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-10_2.pdf": [
+"https://www.istruzionechietipescara.it/2026/11/24/bollettino-n-10-nomine-a-tempo-determinato-da-gps-a-s-2026-2027-province-di-chieti-e-pescara/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-A-CHIETI-Bollettino-Turno-N.-10.pdf"
+],
+"Chieti_e_Pescara_bollettino-10_3.pdf": [
+"https://www.istruzionechietipescara.it/2026/11/24/bollettino-n-10-nomine-a-tempo-determinato-da-gps-a-s-2026-2027-province-di-chieti-e-pescara/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-B-PESCARA-Bollettino-Turno-n.-10.pdf"
+],
+"Padova_bollettino-3.pdf": [
+"https://padova.istruzioneveneto.gov.it/wp-content/uploads/2026/11/Bollettino-XXI-turno-GPS-24.11.2026.pdf",
+"https://padova.istruzioneveneto.gov.it/wp-content/uploads/2026/11/Bollettino-XXI-turno-GPS-24.11.2026.pdf"
 ]
 }
 }
