@@ -2,16 +2,312 @@
  "versione": 2,
  "file": [
   {
+   "file": "10-turno-esito-supplenze-da-GPS-I.0006055.04-11-2026.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "12%C2%B0-turno-Bollettino-Nomine-A.S.-2026_27_GPS_20261022-1.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "2026-08-31_11078_AOOUSPUD_assunzioni-TD-docenti_provvedimento.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "2026-09-07_11425_AOOUSPUD_assunzioni-TD-docenti_provvedimento.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "2026-09-14_11758_AOOUSPUD_assunzioni-TD-docenti_provvedimento.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "2026-09-17_12016_AOOUSPUD_assunzioni-TD-docenti_provvedimento.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "2026-09-25_m_pi.AOOUSPUD.REGISTRO-UFFICIALEU.0012350.25-09-2026.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "2026-10-06_12679_AOOUSPUD_assunzioni-TD-docenti_provvedimento.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "2026-10-09_12850_AOOUSPUD_assunzioni-TD-docenti_provvedimento.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "2026-10-14_13004_AOOUSPUD_assunzioni-TD-docenti_provvedimento.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "2026-10-19_13161_AOOUSPUD_assunzioni-TD-docenti_provvedimento.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "2026-11-05_13800_AOOUSPUD_assunzioni-TD-docenti_provvedimento.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "2026-11-09_13907_AOOUSPUD_assunzioni-TD-docenti_provvedimento.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "2026-11-11_13999_AOOUSPUD_assunzioni-TD-docenti_provvedimento.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "2026-11-17_14301_AOOUSPUD_assunzioni-TD-docenti_provvedimento.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "6%C2%B0-turno-Bollettino-Nomine-A.S.-2026_27_GPS_20260923.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
    "file": "9%C2%B0-Bollettino-nomine-a-tempo-determinato.pdf",
    "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "ALLEGATO%20-%20IV%20TURNO%20GPS.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino-DEFINITIVO-1.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-DEFINITIVO-1_55c03560.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino-DEFINITIVO_5cc0cc80.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino-DEFINITIVO_8e8ff38c.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-DEFINITIVO_b79f23c6.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-II-Turno-supplenze-09-09-2026-Rovigo.pdf",
+   "motivo": "provincia non riconosciuta"
   },
   {
    "file": "Bollettino-Nomine-turno-XV_Firmato.pdf",
    "motivo": "nessuna riga GPS trovata"
   },
   {
+   "file": "Bollettino-Totale-Nomine-1_43403e0a.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-Totale-Nomine-3.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-Totale-Nomine_a3dc8c05.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino-VIII-turno-07-10-2026.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino-X-turno-14-10-2026.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-XI-Turno-16-10-2026.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino-XIV-turno-27.10.2026.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-XIX-turno-GPS-16.11.2026.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-XV-turno-30.10.2026.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-XVI-turno-4.11.2026.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-XVII-turno-6.11.2026.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-XVIII-turno-9-11-2026-1.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-XX-turno-GPS-18.11.2026.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino-definitivo-III-Turno-supplenze-15-09-2026.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-n.-7.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino-n.-8.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino-supplenze-III-Turno-16-09-2026.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino-totale-XIV-turno-di-nomina-a-tempo-determinato-da-GPS.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino-totale-nomine-del-12-novembre-signed.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-totale-nomine-del-16-novembre-signed.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-totale-nomine-del-19-novembre-signed.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-totale-nomine-del-22-ottobre-2026-signed.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-totale-nomine-del-23-novembre-signed.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-totale-nomine-del-29-ottobre-2026-signed.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-totale-nomine-del-7.10.2026.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino-totale-nomine-del-9-novembre-signed.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-totale-nomine-signed-1.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino-totale-nomine-signed.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
    "file": "Bollettino_12.xlsx",
    "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_3_turno-signed.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino_AA_AAAA 11.9.26.xlsx",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_AA_AAAA 12.10.xlsx",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_AA_AAAA 18.9.26.xlsx",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_AA_AAAA 2.10.xlsx",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_EE_EEEE 11.9.26.xlsx",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_EE_EEEE 18.9.26.xlsx",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_EE_EEEE 2.10.xlsx",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_EE_EEIL 4.11.26.xlsx",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_TotaleNomine-1_e539c883.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_TotaleNomine_2026-09-10-signed.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino_TotaleNomine_IX_TURNO.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_TotaleNomine_IX_TURNO.xlsx",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_TotaleNomine_VIII_TURNO.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_TotaleNomine_VIII_TURNO.xlsx",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_TotaleNomine_VII_TURNO.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_TotaleNomine_VII_TURNO.xlsx",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_TotaleNomine_XI_TURNO.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_TotaleNomine_X_TURNO.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_TotaleNomine_X_TURNO.xlsx",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_TotaleNomine_e9eeab56.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Bollettino_V%20turno%20GPS.xlsx",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Bollettino_nomine_turno_4-signed.pdf",
+   "motivo": "provincia non riconosciuta"
   },
   {
    "file": "Caserta_bollettino-1.pdf",
@@ -138,6 +434,34 @@
    "motivo": "nessuna riga GPS trovata"
   },
   {
+   "file": "DIPONIBILITA'%20III%20TURNO%20GPS.xlsx",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Elenco-individuazione-personale-docente-destinatario-proposta-di-stipula-contratto-a-tempo-determina.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Esiti-nomine-a-T.D.-del-03-novembre-2026-signed.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Esito-bollettino-del-6-novembre-signed.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Esito-conferimento-incarichi-a-T.D.-terzo-turno-I.0005141.17-09-2026.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Esito-turno-del-16-11-2026.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Esito-turno-del-20-11-2026.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
    "file": "Lucca_bollettino-6.pdf",
    "motivo": "nessuna riga GPS trovata"
   },
@@ -190,7 +514,55 @@
    "motivo": "nessuna riga GPS trovata"
   },
   {
+   "file": "Turno-10-Allegato-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Turno-12-Allegato-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Turno-3-allegato-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Turno-5-Allegato-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Turno-6-Allegato-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Turno-7-Allegato-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Turno-8-Allegato-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Turno-9-Allegato-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Turno_4_-_allegato_11.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
    "file": "bollettino-ii-turno-nomine-gps-a.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "bollettino-totale-nomine-1_ced15649.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "bollettino_GPS_turno_1-signed.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "nomine_10_11_26.pdf",
    "motivo": "nessuna riga GPS trovata"
   }
  ]
