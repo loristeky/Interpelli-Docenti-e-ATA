@@ -63,6 +63,14 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
           git commit -m "Aggiorna dati GPS dai bollettini"
-          git push
+          # Il lavoro dura parecchi minuti: nel frattempo il ramo può essere cambiato. Ci si riallinea e si riprova
+          # (in caso di conflitto sui dati vincono quelli appena calcolati).
+          for i in 1 2 3 4 5; do
+            git pull --rebase -X theirs origin "${{ github.ref_name }}" && git push && break
+            echo "Salvataggio non riuscito (tentativo $i): riprovo"
+            git rebase --abort 2>/dev/null || true
+            sleep $((i * 5))
+            [ "$i" -eq 5 ] && exit 1
+          done
           # pubblica subito i nuovi dati nel ramo «dati», da cui l'app li scarica (senza aspettare il giro successivo)
           GH_TOKEN="${{ github.token }}" gh workflow run pubblica-interpelli.yml --ref "${{ github.ref_name }}" || true
