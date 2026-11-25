@@ -1078,8 +1078,18 @@ def load_shared(conn, known, recent=False):
     return new
 
 
-def trento_assumed_deadline(published):
-    """Interpelli del Trentino senza scadenza: si assume il giorno prima della pubblicazione (da verificare, ⚠)."""
+def trento_start_date(title):
+    """Data di inizio incarico di un posto di Trento: sta nel titolo dopo « · » (prima data del periodo)."""
+    m = re.search(r"·\s*(\d{4}-\d{2}-\d{2})", title or "")
+    return m.group(1) if m else ""
+
+
+def trento_assumed_deadline(published, title=None):
+    """Posti del Trentino: la scadenza è il giorno di inizio incarico (da verificare, ⚠). Se la data di inizio manca,
+    si assume il giorno prima della pubblicazione."""
+    start = trento_start_date(title)
+    if start:
+        return start
     try:
         return (date.fromisoformat((published or "")[:10]) - timedelta(days=1)).isoformat()
     except ValueError:
@@ -1087,14 +1097,13 @@ def trento_assumed_deadline(published):
 
 
 def fix_trento_deadlines(conn):
-    """Dà la scadenza presunta agli avvisi di Trento già salvati senza scadenza. Restituisce gli indirizzi cambiati."""
+    """Allinea la scadenza degli avvisi di Trento già salvati al giorno di inizio incarico. Restituisce gli indirizzi cambiati."""
     changed = []
     try:
-        rows = conn.execute("SELECT url, published FROM interpelli WHERE source = 'USP Trento' "
-                            "AND (deadline IS NULL OR deadline = '')").fetchall()
-        for url, pub in rows:
-            dl = trento_assumed_deadline(pub)
-            if dl:
+        rows = conn.execute("SELECT url, published, title, deadline FROM interpelli WHERE source = 'USP Trento'").fetchall()
+        for url, pub, title, old in rows:
+            dl = trento_assumed_deadline(pub, title)
+            if dl and dl != (old or ""):
                 conn.execute("UPDATE interpelli SET deadline = ? WHERE url = ?", (dl, url))
                 changed.append(url)
         if changed:
@@ -1644,12 +1653,10 @@ def trento_items(region, source_name, known):
         if periodo:
             label += f" · {periodo}"
         pub, mail, dl = details.get(rid, ("", "", ""))
-        if not dl:                       # senza scadenza indicata: si assume il giorno prima della pubblicazione, da verificare (⚠)
-            try:
-                dl = (date.fromisoformat((pub or today)[:10]) - timedelta(days=1)).isoformat()
-                OCR_FOUND.add(url)
-            except ValueError:
-                dl = ""
+        # la scadenza è il giorno di inizio incarico (da verificare, ⚠); senza data di inizio, il giorno prima della pubblicazione
+        dl = trento_assumed_deadline(pub or today, label)
+        if dl:
+            OCR_FOUND.add(url)
         out.append((label, url, region, source_name, "DOCENTI", pub or today, dl, cdc,
                     analyze_post_content(f"{tipo_posto} {tipo_inc} {desc}"), "", mail))
     return out, True
