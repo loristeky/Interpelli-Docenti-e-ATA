@@ -1,4 +1,957 @@
 {
  "versione": 2,
- "file": []
+ "file": [
+  {
+   "file": "Avellino_bollettino-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Avellino_bollettino-4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Avellino_bollettino-5.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Caserta_bollettino-2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Caserta_bollettino-3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Caserta_bollettino-4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Caserta_bollettino-5.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Catanzaro_bollettino-3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Catanzaro_bollettino-6_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Catanzaro_bollettino-7_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Catanzaro_bollettino-9_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Chieti_e_Pescara_bollettino-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Chieti_e_Pescara_bollettino-1_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Chieti_e_Pescara_bollettino-2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Chieti_e_Pescara_bollettino-3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Chieti_e_Pescara_bollettino-4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Chieti_e_Pescara_bollettino-5.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Chieti_e_Pescara_bollettino-6.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Chieti_e_Pescara_bollettino-8.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Chieti_e_Pescara_bollettino-9.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Cosenza_bollettino-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Cosenza_bollettino-2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Cosenza_bollettino-3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Cosenza_bollettino-4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Cosenza_bollettino-6.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Cosenza_bollettino-8.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Cosenza_bollettino-9.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ferrara_bollettino-10_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ferrara_bollettino-10_4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ferrara_bollettino-11_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ferrara_bollettino-12.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ferrara_bollettino-13.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ferrara_bollettino-14_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ferrara_bollettino-1_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ferrara_bollettino-2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ferrara_bollettino-3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ferrara_bollettino-7.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ferrara_bollettino-9.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-1.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-10.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-10_2.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-12.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-12_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-12_3.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-15.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-15_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-15_3.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-16.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-16_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-16_3.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-19.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-19_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-19_3.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-1_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-1_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-1_4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-22.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-22_2.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-22_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-22_4.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-22_5.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-23.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-23_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-23_3.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-26.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-26_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-26_3.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-28.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-28_2.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-29.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-29_2.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-29_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-3_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-3_3.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-6.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-6_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-6_3.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-7.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-9.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-9_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Forl_Cesena_bollettino-9_3.pdf",
+   "motivo": "provincia non riconosciuta"
+  },
+  {
+   "file": "Gorizia_bollettino-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Gorizia_bollettino-1_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Gorizia_bollettino-4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Gorizia_bollettino-4_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Gorizia_bollettino-5.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Gorizia_bollettino-5_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Gorizia_bollettino-6_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Gorizia_bollettino-7_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "L_Aquila_bollettino-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "L_Aquila_bollettino-2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "L_Aquila_bollettino-3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "L_Aquila_bollettino-4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "L_Aquila_bollettino-5.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "L_Aquila_bollettino-6.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "L_Aquila_bollettino-7.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "L_Aquila_bollettino-7_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "L_Aquila_bollettino-8.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "L_Aquila_bollettino-8_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Modena_bollettino-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Modena_bollettino-11.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Modena_bollettino-2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Modena_bollettino-3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Modena_bollettino-4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Modena_bollettino-5.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Modena_bollettino-6.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Modena_bollettino-7.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Modena_bollettino-7_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Modena_bollettino-8.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Modena_bollettino-9.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Napoli_bollettino-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Napoli_bollettino-2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Napoli_bollettino-3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Napoli_bollettino-4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-10.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-11.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-12.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-13.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-14.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-15.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-16.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-17.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-18.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-19.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-20.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-21.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-21_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-22.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-23.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-24.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-24_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-25.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-25_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-26.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-26_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-6.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-7.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-7_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-8.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Parma_bollettino-8_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-10.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-11.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-12.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-13.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-14.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-15.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-16.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-17.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-5.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-6.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-7.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-8.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Piacenza_bollettino-9.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Pordenone_bollettino-3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Pordenone_bollettino-3_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-10.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-11.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-12.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-13.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-14.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-15.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-16.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-17.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-18.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-5.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-6.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-7.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-7_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-8.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Ravenna_bollettino-9.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-10.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-10_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-11.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-11_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-12.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-12_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-13.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-13_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-14.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-14_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-15.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-15_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-16.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-16_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-17.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-17_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-18.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-18_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-19.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-19_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-1_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-2_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-3_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-4_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-5.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-5_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-6.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-6_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-7.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-7_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-8.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-8_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-9.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Reggio_Emilia_bollettino-9_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Rimini_bollettino-11.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Teramo_bollettino-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Teramo_bollettino-2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Teramo_bollettino-2_3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Teramo_bollettino-2_4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Teramo_bollettino-3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Teramo_bollettino-4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Teramo_bollettino-5.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Teramo_bollettino-6.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Teramo_bollettino-7.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Teramo_bollettino-8.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Teramo_bollettino-9.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Teramo_bollettino-9_2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Vibo_Valentia_bollettino-1.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Vibo_Valentia_bollettino-2.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Vibo_Valentia_bollettino-3.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Vibo_Valentia_bollettino-4.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Vibo_Valentia_bollettino-5.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Vibo_Valentia_bollettino-6.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Vibo_Valentia_bollettino-8.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  },
+  {
+   "file": "Vibo_Valentia_bollettino-9.pdf",
+   "motivo": "nessuna riga GPS trovata"
+  }
+ ]
 }

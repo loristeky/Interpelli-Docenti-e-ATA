@@ -1,1 +1,2365 @@
-{"urls": [], "turni": {}}
+{
+"urls": [
+"http://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/Copia-di-BOLLETTINO-NOMINE-X-TURNO-DI-NOMINA.pdf",
+"http://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/dispositivo-di-nomina-X-turno-di-nomina-prot.pdf",
+"https://atavellino.it/graduatorie-provinciali-di-supplenza-primo-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-avellino-e-provincia/",
+"https://atavellino.it/graduatorie-provinciali-di-supplenza-quarto-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-avellino-e-provincia/",
+"https://atavellino.it/graduatorie-provinciali-di-supplenza-quinto-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-avellino-e-provincia/",
+"https://atavellino.it/graduatorie-provinciali-di-supplenza-secondo-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-avellino-e-provincia/",
+"https://atavellino.it/graduatorie-provinciali-di-supplenza-terzo-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-avellino-e-provincia/",
+"https://atavellino.it/wp-content/uploads/2026/08/BOLLETTINO-DI-NOMINE-GPS-TURNO-UNO-31AGO26.pdf",
+"https://atavellino.it/wp-content/uploads/2026/08/Diponibilita-primo-turno-di-nomina-supplenze.pdf",
+"https://atavellino.it/wp-content/uploads/2026/08/m_pi.AOOUSPAV.REGISTRO-UFFICIALEU.0010359.31-08-2026.pdf",
+"https://atavellino.it/wp-content/uploads/2026/09/BOLLETTINO-SECONDO-II-TURNO-DI-NOMINA-signed.pdf",
+"https://atavellino.it/wp-content/uploads/2026/09/m_pi.AOOUSPAV.REGISTRO-UFFICIALEU.0011428.21-09-2026.pdf",
+"https://atavellino.it/wp-content/uploads/2026/10/TERZO-TURNO-DI-NOMINA-GPS-20OTT26-signed.pdf",
+"https://atavellino.it/wp-content/uploads/2026/10/m_pi.AOOUSPAV.REGISTRO-UFFICIALEU.0012550.20-10-2026.pdf",
+"https://atavellino.it/wp-content/uploads/2026/11/BOLLETTINO-DI-NOMINE-QUARTO-TURNO-05NOV26.pdf",
+"https://atavellino.it/wp-content/uploads/2026/11/QUINTO-TURNO-DI-NOMINA-GPS-17NOV26-signed.pdf",
+"https://atavellino.it/wp-content/uploads/2026/11/m_pi.AOOUSPAV.REGISTRO-UFFICIALEU.0013296.05-11-2026.pdf",
+"https://atavellino.it/wp-content/uploads/2026/11/m_pi.AOOUSPAV.REGISTRO-UFFICIALEU.0013870.18-11-2026.pdf",
+"https://bo.istruzioneer.gov.it/2026/08/31/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-1-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/09/07/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-2-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/09/21/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-4-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/09/24/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-5-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/09/28/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-6-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/10/05/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-8-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/10/08/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-9-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/10/12/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-10-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/10/16/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-11-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/10/20/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-12-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/10/26/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-13-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/11/02/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-14-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/11/05/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-15-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/11/09/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-16-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/11/12/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-17-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/11/16/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-18-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/11/19/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-19-turno-a-s-2026-27/",
+"https://bo.istruzioneer.gov.it/2026/11/24/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-20-turno-a-s-2026-27/",
+"https://fc.istruzioneer.gov.it/2026/08/31/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-31-08-2026/",
+"https://fc.istruzioneer.gov.it/2026/09/10/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-10-09-2026/",
+"https://fc.istruzioneer.gov.it/2026/09/22/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-22-09-2026/",
+"https://fc.istruzioneer.gov.it/2026/09/28/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-28-09-2026/",
+"https://fc.istruzioneer.gov.it/2026/10/01/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-01-10-2026/",
+"https://fc.istruzioneer.gov.it/2026/10/07/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-07-10-2026/",
+"https://fc.istruzioneer.gov.it/2026/10/15/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-15-10-2026/",
+"https://fc.istruzioneer.gov.it/2026/10/22/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-22-10-2026/",
+"https://fc.istruzioneer.gov.it/2026/10/26/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-26-10-2026/",
+"https://fc.istruzioneer.gov.it/2026/10/29/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-29-10-2026/",
+"https://fc.istruzioneer.gov.it/2026/11/03/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-03-11-2026/",
+"https://fc.istruzioneer.gov.it/2026/11/06/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-06-11-2026/",
+"https://fc.istruzioneer.gov.it/2026/11/09/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-09-11-2026/",
+"https://fc.istruzioneer.gov.it/2026/11/12/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-12-11-2026/",
+"https://fc.istruzioneer.gov.it/2026/11/16/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-16-11-2026/",
+"https://fc.istruzioneer.gov.it/2026/11/19/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-19-11-2026/",
+"https://fc.istruzioneer.gov.it/2026/11/23/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-23-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/08/bollettino_GPS_turno_1-signed.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/08/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0004585.31-08-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/08/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0004590.31-08-2026_errata-corrige.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/08/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0004718.04-09-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/09/Bollettino_3_turno-signed.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/09/Bollettino_TotaleNomine_2026-09-10-signed.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/09/Bollettino_nomine_turno_4-signed.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/09/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0004854.10-09-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/09/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005237.22-09-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/09/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005375.28-09-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/Bollettino-totale-nomine-del-22-ottobre-2026-signed.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/Bollettino-totale-nomine-del-29-ottobre-2026-signed.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/Bollettino-totale-nomine-del-7.10.2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/Bollettino-totale-nomine-signed-1.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/Bollettino-totale-nomine-signed.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005462.01-10-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005463.01-10-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005518.07-10-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005519.07-10-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005656.15-10-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005657.15-10-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005766.22-10-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005767.22-10-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005912.26-10-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005913.26-10-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005999.29-10-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006000.29-10-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/Bollettino-totale-nomine-del-12-novembre-signed.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/Bollettino-totale-nomine-del-16-novembre-signed.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/Bollettino-totale-nomine-del-19-novembre-signed.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/Bollettino-totale-nomine-del-23-novembre-signed.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/Bollettino-totale-nomine-del-9-novembre-signed.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/Esiti-nomine-a-T.D.-del-03-novembre-2026-signed.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/Esito-bollettino-del-6-novembre-signed.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006104.03-11-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006105.03-11-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006154.06-11-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006155.06-11-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006197.09-11-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006199.09-11-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006259.12-11-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006260.12-11-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006346.16-11-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006348.16-11-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006497.19-11-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006498.19-11-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006529.23-11-2026.pdf",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006530.23-11-2026.pdf",
+"https://fe.istruzioneer.gov.it/2026/08/31/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-1/",
+"https://fe.istruzioneer.gov.it/2026/09/11/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-2/",
+"https://fe.istruzioneer.gov.it/2026/09/21/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-3/",
+"https://fe.istruzioneer.gov.it/2026/10/09/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-7/",
+"https://fe.istruzioneer.gov.it/2026/10/20/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-9/",
+"https://fe.istruzioneer.gov.it/2026/10/23/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-10/",
+"https://fe.istruzioneer.gov.it/2026/10/28/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-11/",
+"https://fe.istruzioneer.gov.it/2026/11/03/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-12/",
+"https://fe.istruzioneer.gov.it/2026/11/09/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-13/",
+"https://fe.istruzioneer.gov.it/2026/11/13/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-14/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/08/BOLLETTINO-GPS-TURNO-1.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/08/TURNO-1_m_pi.AOOUSPFE.REGISTRO-UFFICIALEU.0007840.31-08-2026.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/09/Bollettino-3-TURNO-GPS.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/09/Bollettino-II-TURNO-GPS.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/09/Disp.-NOMINE-GPS-II-TURNO_m_pi.AOOUSPFE.REGISTRO-UFFICIALEU.0008405.11-09-2026.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/09/Dispositivo-3-TURNO-GPS_m_pi.AOOUSPFE.REGISTRO-UFFICIALEU.0008715.21-09-2026.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/BOLLETTINO-IX-TURNO-DI-NOMINA.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/Bollettino-VII-TURNO-GPS.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/Copia-di-BOLLETTINO-NOMINE-X-TURNO-DI-NOMINA.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/DISPOSITIVO-IX-TURNO-DI-NOMINA-PROT.9800_20.10.2026.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/Disp.-Nomine-GPS-11-TURNO_m_pi.AOOUSPFE.REGISTRO-UFFICIALEU.0010152.28-10-2026.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/Disp.-nomine-da-GPS-as-22026-27_VII-TURNO_m_pi.AOOUSPFE.REGISTRO-UFFICIALEU.0009524.09-10-2026.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/bollettino-11-turno-di-nomina.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/dispositivo-di-nomina-X-turno-di-nomina-prot.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/11/BOLLETTINO-NOMINE-XII-TURNO-GPS.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/11/BOLLETTINO-XIII-TURNO-DI-NOMINA.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/11/BOLLETTINO-XIV-TURNO-DI-NOMINA.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/11/DISPOSITIVO-XIV-TURNO-DI-NOMINA-PROT.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/11/Disp.-XII-TURNO-GPS_m_pi.AOOUSPFE.REGISTRO-UFFICIALEU.0010375.03-11-2026.pdf",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/11/Disp.-nomine-XIII-turno-GPS-PROT.pdf",
+"https://lnx.csalaquila.it/wp/2026/08/28/bollettino-n-1-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/2026/09/08/bollettino-n-2-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/2026/09/16/bollettino-n-3-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/2026/09/25/bollettino-n-4-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/2026/10/20/bollettino-n-5-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/2026/10/29/bollettino-n-6-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/2026/11/10/bollettino-n-7-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/2026/11/17/bollettino-n-8-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/08/GPS-2026_provvedimento_bollettino-n.1_prot.-n.-12971-del-28-agosto-2026.pdf",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/08/bollettino-1-1.pdf",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/09/Bollettino-3.pdf",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/09/Bollettino-4.pdf",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/09/GPS-2026_provvedimento-bollettino-n.-2_prot.-n.-13616_8_09_2026.pdf",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/09/GPS_provvedimento-n.-14517_25_09_2026_bollettino-n.-4.pdf",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/09/bollettino-n.2.pdf",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/09/m_pi.AOOUSPAQ.REGISTRO-UFFICIALEU.0014061.16-09-2026.pdf",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/10/Bollettino-n.-5-1.pdf",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/10/Bollettino-n.-6.pdf",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/10/m_pi.AOOUSPAQ.REGISTRO-UFFICIALEU.0015976.20-10-2026.pdf",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/10/m_pi.AOOUSPAQ.REGISTRO-UFFICIALEU.0016531.29-10-2026.pdf",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/11/Bollettino-n.-7.pdf",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/11/Bollettino-n.-8.pdf",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/11/provvedimento-bollettino-n.-7-GPS_17242.10-11-2026.pdf",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/11/provvedimento-bollettino-n.-8-GPS-17628.17-11-2026.pdf",
+"https://mo.istruzioneer.gov.it/2026/08/31/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-1-turno-a-s-2026-27/",
+"https://mo.istruzioneer.gov.it/2026/09/11/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-2-turno/",
+"https://mo.istruzioneer.gov.it/2026/10/02/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-4-turno/",
+"https://mo.istruzioneer.gov.it/2026/10/15/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-5-turno/",
+"https://mo.istruzioneer.gov.it/2026/10/19/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-6-turno/",
+"https://mo.istruzioneer.gov.it/2026/10/22/nomine-a-tempo-determinato-personale-docente-a-s-2026-27-esoneri-semiesoneri/",
+"https://mo.istruzioneer.gov.it/2026/10/23/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-7-turno/",
+"https://mo.istruzioneer.gov.it/2026/10/30/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-8-turno/",
+"https://mo.istruzioneer.gov.it/2026/11/03/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-9-turno/",
+"https://mo.istruzioneer.gov.it/2026/11/11/nomine-a-t-d-personale-docente-a-s-2026-27-esoneri-semiesoneri-3-turno/",
+"https://mo.istruzioneer.gov.it/2026/11/12/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-11-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/08/Bollettino_TotaleNomine.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/08/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0014163.31-08-2026.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/09/Bollettino_TotaleNomine.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/09/ReportDettDispScuola.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/09/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0015032.11-09-2026.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/Bollettino_TotaleNomine-1.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/Bollettino_TotaleNomine-2.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/Bollettino_TotaleNomine-3.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/Bollettino_TotaleNomine-4.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/Bollettino_TotaleNomine-5.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/Bollettino_TotaleNomine.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/ReportDettDispScuola-1.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/ReportDettDispScuola-2.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/ReportDettDispScuola-3.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/ReportDettDispScuola.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/ReportSintDispComplessivo.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0016282.02-10-2026.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0017032.15-10-2026.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0017133.19-10-2026.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0017430.22-10-2026.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0017506.23-10-2026.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0017864.30-10-2026.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/11/Bollettino_TotaleNomine-3.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/11/Bollettino_TotaleNomine-5.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/11/Bollettino_TotaleNomine.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/11/ReportDettDispScuola-2.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/11/ReportDettDispScuola-4.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/11/ReportDettDispScuola.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/11/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0017974.03-11-2026.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/11/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0018350.11-11-2026.pdf",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/11/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0018463.12-11-2026.pdf",
+"https://pc.istruzioneer.gov.it/2026/08/31/nomine-a-tempo-determinato-a-s-2026-2027-esito-primo-turno/",
+"https://pc.istruzioneer.gov.it/2026/09/11/nomine-a-tempo-determinato-a-s-2026-2027-esito-secondo-turno/",
+"https://pc.istruzioneer.gov.it/2026/09/16/nomine-a-tempo-determinato-a-s-2026-2027-esito-terzo-turno/",
+"https://pc.istruzioneer.gov.it/2026/09/22/nomine-a-tempo-determinato-a-s-2026-2027-esito-quarto-turno/",
+"https://pc.istruzioneer.gov.it/2026/09/25/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-5/",
+"https://pc.istruzioneer.gov.it/2026/09/29/nomine-a-tempo-determinato-a-s-2026-2027-esito-sesto-turno/",
+"https://pc.istruzioneer.gov.it/2026/10/02/nomine-a-tempo-determinato-a-s-2026-2027-esito-settimo-turno/",
+"https://pc.istruzioneer.gov.it/2026/10/06/nomine-a-tempo-determinato-a-s-2026-2027-esito-ottavo-turno/",
+"https://pc.istruzioneer.gov.it/2026/10/09/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-9/",
+"https://pc.istruzioneer.gov.it/2026/10/13/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-10/",
+"https://pc.istruzioneer.gov.it/2026/10/20/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-11/",
+"https://pc.istruzioneer.gov.it/2026/10/27/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-12/",
+"https://pc.istruzioneer.gov.it/2026/11/04/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-13/",
+"https://pc.istruzioneer.gov.it/2026/11/12/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-14/",
+"https://pc.istruzioneer.gov.it/2026/11/17/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-15/",
+"https://pc.istruzioneer.gov.it/2026/11/20/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-16/",
+"https://pc.istruzioneer.gov.it/2026/11/23/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-17/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/08/Bollettino_TotaleNomine-002.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/08/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0005716.31-08-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/BOLLETTINO-DEFINITIVO-TURNO-6.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/BOLLETTINO-DEFINITIVO-TURNO-IV.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/Bollettino_TotaleNomine-esito-secondo-turno.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/Bollettino_TotaleNomine.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/NOMINE-GPS-TURNO-5.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0006616.22-09-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0006738.25-09-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0006809.29-09-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0006282.11-09-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0006466.16-09-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/BOLLETTINO-DEFINITIVO-12°-TURNO.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/BOLLETTINO-DEFINITIVO-9-TURNO.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/BOLLETTINO-DEFINITIVO.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/Bollettino_MM_ADMM.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/Bollettino_TotaleNomine-1.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/Bollettino_TotaleNomine.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0007276.13-10-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0006995.02-10-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0007076.06-10-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0007198.09-10-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0007549.20-10-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0007794.27-10-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/BOLLETTINO-DEFINITIVO-13-TURNO.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/BOLLETTINO-DEFINITIVO-17-TURNO.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/BOLLETTINO-DEFINITIVO-TURNO-14.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/BOLLETTINO-DEFINITIVO-TURNO-16.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/Bollettino_TotaleNomine.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0008137.04-11-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0008430.12-11-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0008837.20-11-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0008902.23-11-2026.pdf",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0008609.17-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/2026/08/31/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-1-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/09/23/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-6-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/09/25/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-7-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/10/02/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-8-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/10/09/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-10-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/10/13/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-11-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/10/16/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-12-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/10/23/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-13-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/10/26/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-14-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/10/28/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-15-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/10/30/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-16-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/11/03/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-17-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/11/05/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-18-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/11/09/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-19-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/11/11/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-20-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/11/16/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-21-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/11/17/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-22-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/11/18/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-23-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/11/20/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-24-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/11/23/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-25-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/2026/11/24/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-26-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/08/PostiOrario_AA.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/08/PostiOrario_EE.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/08/PostiOrario_MM.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/08/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0007923.31-08-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/09/Bollettino_TotaleNomine-1.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/09/Bollettino_TotaleNomine-2.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/09/PostiOrario_SS_455900-1.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/09/ReportDettDispScuola-1.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/09/ReportDettDispScuola.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/09/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0008846.23-09-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/09/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0008934.25-09-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/Bollettino-Totale-Nomine-1.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/Bollettino-Totale-Nomine-2.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/Bollettino-Totale-Nomine-3.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/Bollettino-Totale-Nomine-del-23-10-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/Bollettino-Totale-Nomine.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/Bollettino_TotaleNomine-1.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/Bollettino_TotaleNomine-2.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/Bollettino_TotaleNomine.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/ReportDettDispScuola-1.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/ReportDettDispScuola-3.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/ReportDettDispScuola-4.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/ReportDettDispScuola-5.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/ReportDettDispScuola-6.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/ReportDettDispScuola-7.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0009313.02-10-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0009613.09-10-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0009688.13-10-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0009902.16-10-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0010143.23-10-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0010266.26-10-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0010388.28-10-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0010484.30-10-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Bollettino_TotaleNomine-1.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Bollettino_TotaleNomine.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Disponibilta-turno-del-20-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Disponiblita-turno-del-16-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Esito-turno-del-11-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Esito-turno-del-16-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Esito-turno-del-17-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Esito-turno-del-18-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Esito-turno-del-20-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Esito-turno-del-24-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/ReportDettDispScuola-1.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/ReportDettDispScuola-2.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/ReportDettDispScuola.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/bollettino-totale-nomine-1.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/bollettino-totale-nomine.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.00011213.16-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0010649.03-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0010786.05-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0010883.09-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0010998.11-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0011255.17-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0011302.18-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0011396.20-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0011412.23-11-2026.pdf",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0011524.24-11-2026.pdf",
+"https://ra.istruzioneer.gov.it/2026/09/09/gps-esiti-del-secondo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/2026/09/15/gps-a-s-2026-27-esiti-del-terzo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/2026/09/21/gps-a-s-2026-27-esiti-del-quarto-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/2026/09/24/gps-a-s-2026-27-esiti-del-quinto-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/2026/09/29/gps-a-s-2026-27-esiti-del-sesto-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/2026/10/06/gps-a-s-2026-27-esiti-del-settimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/2026/10/08/gps-a-s-2026-27-esiti-dellottavo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/2026/10/13/gps-a-s-2026-27-esiti-del-nono-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/2026/10/14/gps-a-s-2026-27-esiti-del-decimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/2026/10/15/gps-a-s-2026-27-esiti-del-undicesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/2026/10/20/gps-a-s-2026-27-esiti-del-dodicesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/2026/10/26/gps-a-s-2026-27-esiti-del-dodicesimo-turno-di-nomina-2/",
+"https://ra.istruzioneer.gov.it/2026/10/30/gps-a-s-2026-27-esiti-del-quattordicesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/2026/11/04/gps-a-s-2026-27-esiti-del-quindicesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/2026/11/06/gps-a-s-2026-27-esiti-del-sedicesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/2026/11/10/gps-a-s-2026-27-esiti-del-diciassettesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/2026/11/12/gps-a-s-2026-27-esiti-del-diciottesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/2026/11/17/gps-a-s-2026-27-esiti-del-diciannovesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/6927-26_allegato-a.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/6927-26_allegato-b.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/AA.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/ALLEGATO-A-1.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/ALLEGATO-A.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/ALLEGATO-B-1.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/ALLEGATO-B-2.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/ALLEGATO-B.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/Allegato-A-DispScuola-1.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/Bollettino_TotaleNomine-1.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/PostiOrario_MM_451891.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/REPORT-DISP-SCUOLA-1.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/disp_6927-26.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0006493.09-09-2026.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0006658.15-09-2026.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0006803.21-09-2026.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0007012.29-09-2026.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/7170-26_all_a.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/7170-26_all_b.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/7170-26_posti_orario.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/7232-26_all_a.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/7232-26_all_b.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/7423-26_t11_all_a.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/7423-26_t11_all_b.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/7503-26_11t_all_a.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/7503-26_11t_all_b.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/ALLEGATO-A-1.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/ALLEGATO-A-2.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/ALLEGATO-A.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/ALLEGATO-B-1.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/ALLEGATO-B.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/Allegato-B.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/Bollettino_TotaleNomine.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/ReportDettDispScuola.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/disp_7170-26.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/disp_7232-26_viii.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/disp_7423-26_t11.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/disp_7503-26_11t.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0007346.13-10-2026.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0007390.14-10-2026.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0007663.26-10-2026.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0007787.30-10-2026.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/7879-26_15t_all_a.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/7879-26_15t_all_b.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/8107-26_18t-all-a.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/8107-26_18t-all-b.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/8212-26_all_A.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/8212-26_all_B.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/ALLEGATO-A.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/ALLEGATO-B.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/disp_7879-26_15t.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/disp_8030-26_17t.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/disp_8030-26_17t_all_a.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/disp_8030-26_17t_all_b.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/disp_8107-26_18t.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/disp_8212-2026_T19.pdf",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0007931.06-11-2026.pdf",
+"https://re.istruzioneer.gov.it/2026/08/31/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-prima-fase/",
+"https://re.istruzioneer.gov.it/2026/09/11/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-seconda-fase/",
+"https://re.istruzioneer.gov.it/2026/09/21/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-terza-fase/",
+"https://re.istruzioneer.gov.it/2026/09/24/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quarta-fase/",
+"https://re.istruzioneer.gov.it/2026/09/29/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quinta-fase/",
+"https://re.istruzioneer.gov.it/2026/10/02/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-sesta-fase/",
+"https://re.istruzioneer.gov.it/2026/10/06/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-settima-fase/",
+"https://re.istruzioneer.gov.it/2026/10/12/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-nona-fase/",
+"https://re.istruzioneer.gov.it/2026/10/13/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-decima-fase/",
+"https://re.istruzioneer.gov.it/2026/10/14/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-undicesima-fase/",
+"https://re.istruzioneer.gov.it/2026/10/16/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-fase-esoneri-semiesoneri/",
+"https://re.istruzioneer.gov.it/2026/10/19/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-seconda-fase-esoneri-semiesoneri/",
+"https://re.istruzioneer.gov.it/2026/10/22/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-tredicesima-fase/",
+"https://re.istruzioneer.gov.it/2026/10/26/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quattordicesima-fase/",
+"https://re.istruzioneer.gov.it/2026/10/28/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quindicesima-fase/",
+"https://re.istruzioneer.gov.it/2026/11/04/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-sedicesima-fase/",
+"https://re.istruzioneer.gov.it/2026/11/06/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-diciassettesima-fase/",
+"https://re.istruzioneer.gov.it/2026/11/09/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-diciottesima-fase/",
+"https://re.istruzioneer.gov.it/2026/11/18/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-diciannovesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/08/Bollettino_TotaleNomine-3.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/08/ReportDettDispScuola-4.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/08/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0010281.31-08-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/Bollettino_TotaleNomine-1.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/Bollettino_TotaleNomine-2.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/Bollettino_TotaleNomine-3.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/Bollettino_TotaleNomine.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/ReportDettDispScuola-1.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/ReportDettDispScuola-2.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/ReportDettDispScuola-3.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/ReportDettDispScuola.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0011228.11-09-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0011688.21-09-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0011890.24-09-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0012130.29-09-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-1.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-10.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-11.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-3.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-4.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-5.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-7.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-8.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-9.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-1.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-10.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-11.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-3.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-4.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-5.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-7.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-8.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-9.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0012443.02-10-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0012604.06-10-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0012869.12-10-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0012923.13-10-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0012986.14-10-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0013136.16-10-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0013248.19-10-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0013468.22-10-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0013619.26-10-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0013728.28-10-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/Bollettino_TotaleNomine-1.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/Bollettino_TotaleNomine-2.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/Bollettino_TotaleNomine-3.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/Bollettino_TotaleNomine.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/ReportDettDispScuola-1.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/ReportDettDispScuola-2.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/ReportDettDispScuola-3.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/ReportDettDispScuola.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0014023.04-11-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0014174.06-11-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0014294.09-11-2026.pdf",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0014937.18-11-2026.pdf",
+"https://rn.istruzioneer.gov.it/2026/08/31/supplenze-personale-docente-ed-educativo-a-s-2026-2027-i-turno-31-08-2026/",
+"https://rn.istruzioneer.gov.it/2026/09/10/turno-ii-nomine-a-tempo-determinato-da-gae-gps-a-s-2026-27-personale-docente/",
+"https://rn.istruzioneer.gov.it/2026/09/22/turno-iii-nomine-a-tempo-determinato-da-gae-gps-a-s-2026-27-personale-docente/",
+"https://rn.istruzioneer.gov.it/2026/09/30/turno-iv-nomine-a-tempo-determinato-da-gae-gps-a-s-2026-27-personale-docente/",
+"https://rn.istruzioneer.gov.it/2026/10/06/turno-v-nomine-a-tempo-determinato-da-gae-gps-a-s-2026-27-personale-docente/",
+"https://rn.istruzioneer.gov.it/2026/10/09/turno-vi-nomine-a-tempo-determinato-da-gae-gps-a-s-2026-27-personale-docente/",
+"https://rn.istruzioneer.gov.it/2026/10/19/turno-vii-nomine-a-tempo-determinato-da-gae-gps-a-s-2026-27-personale-docente/",
+"https://rn.istruzioneer.gov.it/2026/10/22/turno-viii-nomine-a-tempo-determinato-da-gae-gps-a-s-2026-27-personale-docente/",
+"https://rn.istruzioneer.gov.it/2026/11/02/turno-ix-nomine-a-tempo-determinato-da-gae-gps-a-s-2026-27-personale-docente/",
+"https://rn.istruzioneer.gov.it/2026/11/09/turno-x-nomine-a-tempo-determinato-da-gae-gps-a-s-2026-27-personale-docente/",
+"https://rn.istruzioneer.gov.it/2026/11/16/turno-xi-nomine-a-tempo-determinato-da-gae-gps-a-s-2026-27-personale-docente/",
+"https://rn.istruzioneer.gov.it/2026/11/23/turno-xii-nomine-a-tempo-determinato-da-gae-gps-a-s-2026-27-personale-docente/",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-gorizia/allegati/Bollettino_TotaleNomine-4-del-11_09_2026.pdf",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-gorizia/allegati/Bollettino_TotaleNomine-5.pdf",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-gorizia/allegati/Bollettino_TotaleNomine-8.pdf",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-gorizia/allegati/Bollettino_Totale_Nomine-n_3.pdf",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-gorizia/allegati/ReportSintDispComplessivo-8.pdf",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-gorizia/allegati/ReportSintDispComplessivo.pdf",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-gorizia/allegati/m_pi.AOOUSPGO.REGISTRO-UFFICIALEU.0003503.31-08-2026-Nomine-Supplenze.pdf",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-gorizia/allegati/m_pi.AOOUSPGO.REGISTRO-UFFICIALEU.0003748.11-09-2026.pdf",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-pordenone/allegati/260828-AOOUSPPN.REGISTRO-UFFICIALEU.0007776_turno3.pdf",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-pordenone/allegati/260828-allegato2_nomine.pdf",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-pordenone/allegati/260909_AOOUSPPN.REGISTRO_UFFICIALEU.0008546_turno41.pdf",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-pordenone/allegati/Turno_4_-_allegato_11.pdf",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-pordenone/allegati/Turno_4_-_allegato_21.pdf",
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-gorizia/notizie/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia-00001/",
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-gorizia/notizie/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia-00002/",
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-gorizia/notizie/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia-00005/",
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-gorizia/notizie/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia/",
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-pordenone/notizie/article/Conferimento-delle-nomine-a-tempo-determinato-PERSONALE-DOCENTE-00001.-Turno-4/",
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-pordenone/notizie/article/Conferimento-delle-nomine-a-tempo-determinato-PERSONALE-DOCENTE.-Turno-3./",
+"https://usrfvg.gov.it/pdflink/it/d6a236ad-4558-4628-b211-bcc7cff695b5/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia-00001.pdf",
+"https://usrfvg.gov.it/pdflink/it/d6a236ad-4558-4628-b211-bcc7cff695b5/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia-00002.pdf",
+"https://usrfvg.gov.it/pdflink/it/d6a236ad-4558-4628-b211-bcc7cff695b5/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia-00005.pdf",
+"https://usrfvg.gov.it/pdflink/it/d6a236ad-4558-4628-b211-bcc7cff695b5/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia.pdf",
+"https://usrfvg.gov.it/pdflink/it/d6a236ad-4558-4628-b211-bcc7cff695b5/Conferimento-delle-nomine-a-tempo-determinato-PERSONALE-DOCENTE-00001.-Turno-4.pdf",
+"https://usrfvg.gov.it/pdflink/it/d6a236ad-4558-4628-b211-bcc7cff695b5/Conferimento-delle-nomine-a-tempo-determinato-PERSONALE-DOCENTE.-Turno-3..pdf",
+"https://www.csateramo.it/wpusp/archive/dispositivo-pubblicazione-bollettino-nomine-da-gps-del-21102026-turno-ins-n-7",
+"https://www.csateramo.it/wpusp/archive/dispositivo-pubblicazione-esiti-turno-ins-n-1-del-28082026",
+"https://www.csateramo.it/wpusp/archive/pubblicazione-dispositivo-esiti-nomine-ins-del-06102026",
+"https://www.csateramo.it/wpusp/archive/pubblicazione-dispositivo-nomine-a-t-d-turno-ins-n-2-del-07092026",
+"https://www.csateramo.it/wpusp/archive/pubblicazione-dispositivo-nomine-a-t-d-turno-ins-n-4-del-22092026",
+"https://www.csateramo.it/wpusp/archive/pubblicazione-dispositivo-nomine-a-t-d-turno-ins-n-5-del-29092026",
+"https://www.csateramo.it/wpusp/archive/pubblicazione-dispositivo-nomine-da-gps-a-s-20262027-turno-n-9-del-03112026",
+"https://www.csateramo.it/wpusp/archive/pubblicazione-disposito-nomine-a-t-d-turno-ins-n-3-del-16092026",
+"https://www.csateramo.it/wpusp/page/2",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/08/BOLLETTINO-DEFINITIVO.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/08/BOLLETTINO-DEFINITIVO.xlsx",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/08/Dispositivo-pubblicazione-esiti-turno-INS-n.-1-del-28.8.2026-2.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Bollettino-DEFINITIVO-.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Bollettino-DEFINITIVO-1.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Bollettino-DEFINITIVO-totale.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Bollettino-DEFINITIVO-totale.xlsx",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Bollettino-DEFINITIVO.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Dispositivo-pubblicazione-esiti-turno-INS-n.-3-del-16.9.2026.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Dispositivo-pubblicazione-esiti-turno-INS-n.-4-del-22.9.2026.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Dispositivo-pubblicazione-esiti-turno-INS-n.-5-del-29.9.2026.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Dispositivo-pubblicazione-esiti-turno-INS-n.2-del-7.9.2026.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/10/Bollettino-DEFINITIVO-1.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/10/Bollettino-DEFINITIVO.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/10/Dispositivo-pubblicazione-esiti-turno-INS-n.-6-del-06.10.2026.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/10/Dispositivo-pubblicazione-esiti-turno-INS-n.-7-del-21.10.2026.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/10/Dispositivo-pubblicazione-esiti-turno-INS-n.-8-del-29.10.2026.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/11/Bollettino-DEFINITIVO-1.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/11/Bollettino-DEFINITIVO.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/11/Dispositivo-pubblicazione-esiti-turno-INS-n.-10-del-9.11.2026.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/11/Dispositivo-pubblicazione-esiti-turno-INS-n.-9-del-03.11.2026.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/11/m_pi.AOODRAB.REGISTRO-UFFICIALEE.0028249.05-11-2026.pdf",
+"https://www.istruzione.calabria.it/catanzaro/m_pi-aoouspcz-registro-ufficialeu-0008935-31-08-2026/",
+"https://www.istruzione.calabria.it/catanzaro/m_pi-aoouspcz-registro-ufficialeu-0009525-11-09-2026/",
+"https://www.istruzione.calabria.it/catanzaro/m_pi-aoouspcz-registro-ufficialeu-0010555-07-10-2026/",
+"https://www.istruzione.calabria.it/catanzaro/m_pi-aoouspcz-registro-ufficialeu-0011819-06-11-2026/",
+"https://www.istruzione.calabria.it/catanzaro/m_pi-aoouspcz-registro-ufficialeu-0012404-19-11-2026/",
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-iii-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-ix-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-v-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-vi-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-vii-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/09/BollettinoTotaleNomine_N3-1.pdf",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/09/m_pi.AOOUSPCZ.REGISTRO-UFFICIALEU.0010058.25-09-2026.pdf",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/BollettinoTotaleNomine_6-1.pdf",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/Bollettino_TotaleNomine_5-1.pdf",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/Bollettino_TotaleNomine_Turno7-1.pdf",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/m_pi.AOOUSPCZ.REGISTRO-UFFICIALEU.0010960.16-10-2026.pdf",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/m_pi.AOOUSPCZ.REGISTRO-UFFICIALEU.0011101.20-10-2026.pdf",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/m_pi.AOOUSPCZ.REGISTRO-UFFICIALEU.0011510.30-10-2026.pdf",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/11/BollettinoTotaleNomine_9.pdf",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/11/m_pi.AOOUSPCZ.REGISTRO-UFFICIALEU.0012078.12-11-2026.pdf",
+"https://www.istruzione.calabria.it/cosenza/aoouspcs13532-202600909/",
+"https://www.istruzione.calabria.it/cosenza/aoouspcs13628-202600911/",
+"https://www.istruzione.calabria.it/cosenza/aoouspcs14281-202600924/",
+"https://www.istruzione.calabria.it/cosenza/aoouspcs14744-202601001/",
+"https://www.istruzione.calabria.it/cosenza/aoouspcs15554-20261016/",
+"https://www.istruzione.calabria.it/cosenza/aoouspcs15732-20261020/",
+"https://www.istruzione.calabria.it/cosenza/aoouspcs16123-20261027/",
+"https://www.istruzione.calabria.it/cosenza/aoouspcs16340-20261030/",
+"https://www.istruzione.calabria.it/cosenza/aoouspcs16727-20261106/",
+"https://www.istruzione.calabria.it/cosenza/aoouspcs17568-20261120/",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/09/Bollettino-Totale-Nomine-3.pdf",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/09/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0013532.09-09-2026.pdf",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/09/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0013628.11-09-2026.pdf",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/09/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0014281.24-09-2026.pdf",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/10/BollettinoTotaleNomine-5.pdf",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/10/BollettinoTotaleNomine.pdf",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/10/Bollettino_TotaleNomine-PUBBLICAZIONE.pdf",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/10/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0014744.01-10-2026.pdf",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/10/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0015554.16-10-2026.pdf",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/10/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0015732.20-10-2026.pdf",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/10/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0016123.27-10-2026.pdf",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/10/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0016340.30-10-2026.pdf",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/11/Bollettino-totale-nomine-4.pdf",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/11/bollettino-nomine-settimo-turno.pdf",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/11/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0016727.06-11-2026.pdf",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/11/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0017568.20-11-2026.pdf",
+"https://www.istruzione.calabria.it/crotone/bollettino-n-1-per-nomine-a-tempo-determinato/",
+"https://www.istruzione.calabria.it/crotone/bollettino-n-2-per-nomine-a-tempo-determinato-personale-docente/",
+"https://www.istruzione.calabria.it/crotone/bollettino-n-6-nomine-a-tempo-determinato-personale-docente/",
+"https://www.istruzione.calabria.it/crotone/quarto-bollettino-nomine-a-tempo-determinato/",
+"https://www.istruzione.calabria.it/crotone/terzo-bollettino-di-nomine-per-contratti-a-tempo-determinato-personale-docente/",
+"https://www.istruzione.calabria.it/crotone/wp-content/uploads/2026/08/BOLLETTINO-N.-1.pdf",
+"https://www.istruzione.calabria.it/crotone/wp-content/uploads/2026/09/bollettino-n.-2-nomine-a-tempo-determinato-personale-docente.pdf",
+"https://www.istruzione.calabria.it/crotone/wp-content/uploads/2026/10/III-bollettino-nomine-a-t.d.-2026-2027.pdf",
+"https://www.istruzione.calabria.it/crotone/wp-content/uploads/2026/10/bollettino-n.-4-nomine-a-tempo-determinato.pdf",
+"https://www.istruzione.calabria.it/crotone/wp-content/uploads/2026/11/bollettino-n.-6-nomine-a-tempo-determinato-personale-docente.pdf",
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionapprova-attoid442/",
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid457/",
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid458/",
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid472/",
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid476/",
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid477/",
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid483/",
+"https://www.istruzione.calabria.it/vibovalentia/personale-docente-pubblicazione-viii-bollettino-supplenze-a-s-2026-27/",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/08/I-BOLLETTINO.pdf",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/08/m_pi.AOOUSPVV.REGISTRO-UFFICIALEU.0006371.31-08-2026.pdf",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/09/II-Bollettino.pdf",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/09/m_pi.AOOUSPVV.REGISTRO-UFFICIALEU.0007149.22-09-2026.pdf",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/09/m_pi.AOOUSPVV.REGISTRO-UFFICIALEU.0007184.23-09-2026.pdf",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/10/Bollettino-V.pdf",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/10/Bollettino-VI.pdf",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/10/Bollettino-VII.pdf",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/10/m_pi.AOOUSPVV.REGISTRO-UFFICIALEU.0007802.16-10-2026.pdf",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/10/m_pi.AOOUSPVV.REGISTRO-UFFICIALEU.0007949.23-10-2026.pdf",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/10/m_pi.AOOUSPVV.REGISTRO-UFFICIALEU.0008123.30-10-2026.pdf",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/11/Bollettino-8.pdf",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/11/Bollettino-9.pdf",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/11/m_pi.AOOUSPVV.REGISTRO-UFFICIALEU.0008383.10-11-2026.pdf",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/11/m_pi.AOOUSPVV.REGISTRO-UFFICIALEU.0008645.20-11-2026.pdf",
+"https://www.istruzioneatprc.it/aoousprc14671-20260829/",
+"https://www.istruzioneatprc.it/aoousprc16117-20260917/",
+"https://www.istruzioneatprc.it/aoousprc17153-20261006/",
+"https://www.istruzioneatprc.it/aoousprc17798-20261016/",
+"https://www.istruzioneatprc.it/aoousprc18242-20261023/",
+"https://www.istruzioneatprc.it/aoousprc18796-20261030/",
+"https://www.istruzioneatprc.it/aoousprc19102-20261104/",
+"https://www.istruzioneatprc.it/aoousprc19769-20261113/",
+"https://www.istruzioneatprc.it/aoousprc20041-20261118/",
+"https://www.istruzionechietipescara.it/2026/08/28/bollettino-n-1-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/2026/09/08/bollettino-n-2-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/2026/09/17/bollettino-n-3-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/2026/10/01/bollettino-n-4-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/2026/10/08/bollettino-n-5-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/2026/10/27/bollettino-n-6-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/2026/11/10/bollettino-n-8-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/2026/11/17/bollettino-n-9-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/CHIETI-BOLLETTINO-1.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/PESCARA-BOLLETTINO-1-ALLEGATO-B.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0027591.28-08-2026.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0027592.29-08-2026.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/09/ALLEGATO-A-CHIETI-BOLLETTINO-3.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/09/ALLEGATO-B-PESCARA-BOLLETTINO-TURNO-N.3.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/09/CHIETI-BOLLETTINO-2.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/09/CHIETI-reportDettDispScuola-TURNO-N.3.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/09/PESCARA-BOLLETTINO-2.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/09/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0029308.08-09-2026-1.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/09/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0030572.17-09-2026.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-A-CHIETI-Bollettino-Turno-N.4.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-A-CHIETI-Bollettino-Turno-N.5.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-A-CHIETI-Bollettino-Turno-N.6.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-B-PESCARA-BOLLETTINO-TURNO-N.-5.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-B-PESCARA-Bollettino-TURNO-N.-6.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-B-PESCARA-Bollettino-Turno-N.-4.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/CHIETI-ReportDettDispScuola-4-Turno.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/CHIETI-ReportDettDispScuola-5-Turno.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/CHIETI-ReportDettDispScuola-6-Turno.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/Dispositivo-AOOUSPCH-PE-prot.-0032086-del-01-10-2026.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0032981.08-10-2026.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0035347.27-10-2026.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-A-CHIETI-Bollettino-Turno-N.-8.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-A-CHIETI-Bollettino-Turno-N.-9.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-B-PESCARA-Bollettino-Turno-n.-8.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-B-PESCARA-Bollettino-Turno-n.-9.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/CHIETI-ReportDettDispScuola-Turno-9.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/CHIETI-ReportDettDispScuola-Turno-N.-8.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0037007.10-11-2026.pdf",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0037941.17-11-2026.pdf",
+"https://www.istruzionematera.it/1-bollettino-nomine-a-tempo-determinato-a-s-2026-27/",
+"https://www.istruzionematera.it/decreto-10-bollettino-nomine-a-t-d-2026-27/",
+"https://www.istruzionematera.it/decreto-2-bollettino-nomine-a-t-d-2026/",
+"https://www.istruzionematera.it/decreto-3-bollettino-nomine-a-t-d-2026-27/",
+"https://www.istruzionematera.it/decreto-5-bollettino-nomine-a-t-d-2026-27/",
+"https://www.istruzionematera.it/decreto-6-bollettino-nomine-a-t-d-2026-27/",
+"https://www.istruzionematera.it/wp-content/uploads/2026/09/1°-Bollettino-nomine-a-t.d.-a.s.-26_27.pdf",
+"https://www.istruzionematera.it/wp-content/uploads/2026/09/2°-Bollettino-nomine-a-t.d..pdf",
+"https://www.istruzionematera.it/wp-content/uploads/2026/09/3°-Bollettino.pdf",
+"https://www.istruzionematera.it/wp-content/uploads/2026/10/6°-Bollettino.pdf",
+"https://www.istruzionematera.it/wp-content/uploads/2026/10/Bollettino-V..pdf",
+"https://www.istruzionematera.it/wp-content/uploads/2026/11/10°-Bollettino-nomine-a-tempo-determinato.pdf",
+"https://www.istruzionepotenza.it/2-decreto-di-conferimento-delle-nomine-a-t-d/",
+"https://www.istruzionepotenza.it/3-decreto-di-conferimento-delle-nomine-a-t-d/",
+"https://www.istruzionepotenza.it/5-decreto-di-conferimento-delle-nomine-a-t-d/",
+"https://www.istruzionepotenza.it/wp-content/uploads/2026/09/2_Bollettino-PRIVACY.pdf",
+"https://www.istruzionepotenza.it/wp-content/uploads/2026/10/3_Bollettino-PRIVACY.pdf",
+"https://www.istruzionepotenza.it/wp-content/uploads/2026/11/5_Bollettino-PRIVACY.pdf",
+"https://www.mim.gov.it/web/miur-usr-campania/-/personale-docente-decreto-pubblicazione-6-bollettino-supplenze",
+"https://www.mim.gov.it/web/miur-usr-campania/-/personale-docente-decreto-pubblicazione-7-bollettino-supplenze",
+"https://www.mim.gov.it/web/miur-usr-campania/-/personale-docente-decreto-pubblicazione-8-bollettino-supplenze",
+"https://www.mim.gov.it/web/miur-usr-campania/-/personale-docente-decreto-pubblicazione-9-bollettino-supplenze",
+"https://www.mim.gov.it/web/miur-usr-campania/-/personale-docente-decreto-pubblicazione-ii-bollettino",
+"https://www.uat-caserta.it/2026/08/31/bollettino-totale-delle-nomine-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/2026/09/21/secondo-bollettino-totale-delle-nomine-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/2026/10/12/terzo-bollettino-totale-delle-nomine-generato-dal-sistema-informativo-del-ministero-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/2026/10/21/quarto-bollettino-totale-delle-nomine-generato-dal-sistema-informativo-del-ministero-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/2026/11/09/quinto-bollettino-totale-delle-nomine-generato-dal-sistema-informativo-del-ministero-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/08/Bollettino_TotaleNomine-20260831.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/08/reportDispComplessivo-20260831.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/09/Bollettino_TotaleNomine-20260921.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/09/ReportDettDispScuola-20260921.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/09/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0025393.21-09-2026.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/Bollettino_TotaleNomine-20261012.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/Bollettino_TotaleNomine-20261021.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0027290.12-10-2026.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0028280.21-10-2026.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/reportDispComplessivo-20261012.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/reportDispComplessivo-20261021.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/11/Bollettino_TotaleNomine-20261109.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/11/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0029963.09-11-2026.pdf",
+"https://www.uat-caserta.it/wp-content/uploads/2026/11/reportDispComplessivo-20261109.pdf",
+"https://www.uat-napoli.it/graduatorie-provinciali-di-supplenza-primo-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-napoli-e-provincia/",
+"https://www.uat-napoli.it/graduatorie-provinciali-di-supplenza-quarto-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-napoli-e-provincia/",
+"https://www.uat-napoli.it/graduatorie-provinciali-di-supplenza-secondo-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-napoli-e-provincia/",
+"https://www.uat-napoli.it/graduatorie-provinciali-di-supplenza-terzo-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-napoli-e-provincia/",
+"https://www.uat-napoli.it/wp-content/uploads/2026/08/1°Bollettino_TotaleNomine_supplenze_202627_Ogni_ordine_e_grado_Na.pdf",
+"https://www.uat-napoli.it/wp-content/uploads/2026/08/m_pi.AOOUSPNA.REGISTRO-UFFICIALEI.0022309.31-08-2026.pdf",
+"https://www.uat-napoli.it/wp-content/uploads/2026/09/2°Bollettino_Tot_Nomine_Ogni_ord_e_grado_NA-1.pdf",
+"https://www.uat-napoli.it/wp-content/uploads/2026/09/ISTITUZIONE_SCIOGLIMENTO-POSTI-ORARIO.pdf",
+"https://www.uat-napoli.it/wp-content/uploads/2026/09/REPORT-ULTIMI-NOMINATI-SU-POSTO-INTERO-SUPPLENZE-DEL-21_09_2026.pdf",
+"https://www.uat-napoli.it/wp-content/uploads/2026/09/m_pi.AOOUSPNA.REGISTRO-UFFICIALEI.0024670.21-09-2026.pdf",
+"https://www.uat-napoli.it/wp-content/uploads/2026/10/3°Bollettino_TotaleNomine_Ogni_Ordine_e_Grado_Na.pdf",
+"https://www.uat-napoli.it/wp-content/uploads/2026/10/REPORT_ULTIMI_NOMINATI_SU_POSTO_INTERO_SUPP_13_10_2026.pdf",
+"https://www.uat-napoli.it/wp-content/uploads/2026/10/m_pi.AOOUSPNA.REGISTRO-UFFICIALEI.0026408.13-10-2026.pdf",
+"https://www.uat-napoli.it/wp-content/uploads/2026/11/4°Bollettino_Tot_Nomine_Ogni_ord_e_grado_NA.pdf",
+"https://www.uat-napoli.it/wp-content/uploads/2026/11/REPORT_ULTIMI_NOMINATI_SU_POSTO_INTERO_4°BOLL_SUPP_03_11_2026.pdf",
+"https://www.uat-napoli.it/wp-content/uploads/2026/11/m_pi.AOOUSPNA.REGISTRO-UFFICIALEU.0027855.03-11-2026_nota_bollettino_gps.pdf"
+],
+"turni": {
+"L'Aquila": 8,
+"Chieti e Pescara": 9,
+"Teramo": 9,
+"Matera": 10,
+"Potenza": 5,
+"Catanzaro": 9,
+"Cosenza": 9,
+"Crotone": 6,
+"Vibo Valentia": 9,
+"Avellino": 5,
+"Caserta": 5,
+"Napoli": 4,
+"Ferrara": 14,
+"Forlì Cesena": 29,
+"Modena": 11,
+"Parma": 26,
+"Piacenza": 17,
+"Ravenna": 18,
+"Reggio Emilia": 19,
+"Rimini": 11,
+"Gorizia": 7,
+"Pordenone": 3
+},
+"origine": {
+"L_Aquila_bollettino-1.pdf": [
+"https://lnx.csalaquila.it/wp/2026/08/28/bollettino-n-1-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/08/GPS-2026_provvedimento_bollettino-n.1_prot.-n.-12971-del-28-agosto-2026.pdf"
+],
+"L_Aquila_bollettino-1_2.pdf": [
+"https://lnx.csalaquila.it/wp/2026/08/28/bollettino-n-1-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/08/bollettino-1-1.pdf"
+],
+"L_Aquila_bollettino-2.pdf": [
+"https://lnx.csalaquila.it/wp/2026/09/08/bollettino-n-2-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/09/GPS-2026_provvedimento-bollettino-n.-2_prot.-n.-13616_8_09_2026.pdf"
+],
+"L_Aquila_bollettino-2_2.pdf": [
+"https://lnx.csalaquila.it/wp/2026/09/08/bollettino-n-2-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/09/bollettino-n.2.pdf"
+],
+"L_Aquila_bollettino-3.pdf": [
+"https://lnx.csalaquila.it/wp/2026/09/16/bollettino-n-3-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/09/m_pi.AOOUSPAQ.REGISTRO-UFFICIALEU.0014061.16-09-2026.pdf"
+],
+"L_Aquila_bollettino-3_2.pdf": [
+"https://lnx.csalaquila.it/wp/2026/09/16/bollettino-n-3-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/09/Bollettino-3.pdf"
+],
+"L_Aquila_bollettino-4.pdf": [
+"https://lnx.csalaquila.it/wp/2026/09/25/bollettino-n-4-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/09/GPS_provvedimento-n.-14517_25_09_2026_bollettino-n.-4.pdf"
+],
+"L_Aquila_bollettino-4_2.pdf": [
+"https://lnx.csalaquila.it/wp/2026/09/25/bollettino-n-4-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/09/Bollettino-4.pdf"
+],
+"L_Aquila_bollettino-5.pdf": [
+"https://lnx.csalaquila.it/wp/2026/10/20/bollettino-n-5-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/10/m_pi.AOOUSPAQ.REGISTRO-UFFICIALEU.0015976.20-10-2026.pdf"
+],
+"L_Aquila_bollettino-5_2.pdf": [
+"https://lnx.csalaquila.it/wp/2026/10/20/bollettino-n-5-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/10/Bollettino-n.-5-1.pdf"
+],
+"L_Aquila_bollettino-6.pdf": [
+"https://lnx.csalaquila.it/wp/2026/10/29/bollettino-n-6-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/10/m_pi.AOOUSPAQ.REGISTRO-UFFICIALEU.0016531.29-10-2026.pdf"
+],
+"L_Aquila_bollettino-6_2.pdf": [
+"https://lnx.csalaquila.it/wp/2026/10/29/bollettino-n-6-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/10/Bollettino-n.-6.pdf"
+],
+"L_Aquila_bollettino-7.pdf": [
+"https://lnx.csalaquila.it/wp/2026/11/10/bollettino-n-7-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/11/provvedimento-bollettino-n.-7-GPS_17242.10-11-2026.pdf"
+],
+"L_Aquila_bollettino-7_2.pdf": [
+"https://lnx.csalaquila.it/wp/2026/11/10/bollettino-n-7-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/11/Bollettino-n.-7.pdf"
+],
+"L_Aquila_bollettino-8.pdf": [
+"https://lnx.csalaquila.it/wp/2026/11/17/bollettino-n-8-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/11/provvedimento-bollettino-n.-8-GPS-17628.17-11-2026.pdf"
+],
+"L_Aquila_bollettino-8_2.pdf": [
+"https://lnx.csalaquila.it/wp/2026/11/17/bollettino-n-8-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://lnx.csalaquila.it/wp/wp-content/uploads/2026/11/Bollettino-n.-8.pdf"
+],
+"Chieti_e_Pescara_bollettino-1.pdf": [
+"https://www.istruzionechietipescara.it/2026/08/28/bollettino-n-1-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0027592.29-08-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-1_2.pdf": [
+"https://www.istruzionechietipescara.it/2026/08/28/bollettino-n-1-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0027591.28-08-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-1_3.pdf": [
+"https://www.istruzionechietipescara.it/2026/08/28/bollettino-n-1-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/CHIETI-BOLLETTINO-1.pdf"
+],
+"Chieti_e_Pescara_bollettino-1_4.pdf": [
+"https://www.istruzionechietipescara.it/2026/08/28/bollettino-n-1-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/08/PESCARA-BOLLETTINO-1-ALLEGATO-B.pdf"
+],
+"Chieti_e_Pescara_bollettino-2.pdf": [
+"https://www.istruzionechietipescara.it/2026/09/08/bollettino-n-2-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/09/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0029308.08-09-2026-1.pdf"
+],
+"Chieti_e_Pescara_bollettino-2_2.pdf": [
+"https://www.istruzionechietipescara.it/2026/09/08/bollettino-n-2-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/09/CHIETI-BOLLETTINO-2.pdf"
+],
+"Chieti_e_Pescara_bollettino-2_3.pdf": [
+"https://www.istruzionechietipescara.it/2026/09/08/bollettino-n-2-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/09/PESCARA-BOLLETTINO-2.pdf"
+],
+"Chieti_e_Pescara_bollettino-3.pdf": [
+"https://www.istruzionechietipescara.it/2026/09/17/bollettino-n-3-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/09/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0030572.17-09-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-3_2.pdf": [
+"https://www.istruzionechietipescara.it/2026/09/17/bollettino-n-3-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/09/ALLEGATO-A-CHIETI-BOLLETTINO-3.pdf"
+],
+"Chieti_e_Pescara_bollettino-3_3.pdf": [
+"https://www.istruzionechietipescara.it/2026/09/17/bollettino-n-3-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/09/ALLEGATO-B-PESCARA-BOLLETTINO-TURNO-N.3.pdf"
+],
+"Chieti_e_Pescara_bollettino-4.pdf": [
+"https://www.istruzionechietipescara.it/2026/10/01/bollettino-n-4-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/Dispositivo-AOOUSPCH-PE-prot.-0032086-del-01-10-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-4_2.pdf": [
+"https://www.istruzionechietipescara.it/2026/10/01/bollettino-n-4-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-A-CHIETI-Bollettino-Turno-N.4.pdf"
+],
+"Chieti_e_Pescara_bollettino-4_3.pdf": [
+"https://www.istruzionechietipescara.it/2026/10/01/bollettino-n-4-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-B-PESCARA-Bollettino-Turno-N.-4.pdf"
+],
+"Chieti_e_Pescara_bollettino-5.pdf": [
+"https://www.istruzionechietipescara.it/2026/10/08/bollettino-n-5-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0032981.08-10-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-5_2.pdf": [
+"https://www.istruzionechietipescara.it/2026/10/08/bollettino-n-5-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-A-CHIETI-Bollettino-Turno-N.5.pdf"
+],
+"Chieti_e_Pescara_bollettino-5_3.pdf": [
+"https://www.istruzionechietipescara.it/2026/10/08/bollettino-n-5-nomine-a-tempo-determinato-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-B-PESCARA-BOLLETTINO-TURNO-N.-5.pdf"
+],
+"Chieti_e_Pescara_bollettino-6.pdf": [
+"https://www.istruzionechietipescara.it/2026/10/27/bollettino-n-6-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0035347.27-10-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-6_2.pdf": [
+"https://www.istruzionechietipescara.it/2026/10/27/bollettino-n-6-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-A-CHIETI-Bollettino-Turno-N.6.pdf"
+],
+"Chieti_e_Pescara_bollettino-6_3.pdf": [
+"https://www.istruzionechietipescara.it/2026/10/27/bollettino-n-6-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/10/ALLEGATO-B-PESCARA-Bollettino-TURNO-N.-6.pdf"
+],
+"Chieti_e_Pescara_bollettino-8.pdf": [
+"https://www.istruzionechietipescara.it/2026/11/10/bollettino-n-8-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0037007.10-11-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-8_2.pdf": [
+"https://www.istruzionechietipescara.it/2026/11/10/bollettino-n-8-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-A-CHIETI-Bollettino-Turno-N.-8.pdf"
+],
+"Chieti_e_Pescara_bollettino-8_3.pdf": [
+"https://www.istruzionechietipescara.it/2026/11/10/bollettino-n-8-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-B-PESCARA-Bollettino-Turno-n.-8.pdf"
+],
+"Chieti_e_Pescara_bollettino-9.pdf": [
+"https://www.istruzionechietipescara.it/2026/11/17/bollettino-n-9-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/m_pi.AOOUSPCH-PE.REGISTRO-UFFICIALEU.0037941.17-11-2026.pdf"
+],
+"Chieti_e_Pescara_bollettino-9_2.pdf": [
+"https://www.istruzionechietipescara.it/2026/11/17/bollettino-n-9-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-A-CHIETI-Bollettino-Turno-N.-9.pdf"
+],
+"Chieti_e_Pescara_bollettino-9_3.pdf": [
+"https://www.istruzionechietipescara.it/2026/11/17/bollettino-n-9-nomine-a-tempo-determinato-da-gps-a-s-2026-2027/",
+"https://www.istruzionechietipescara.it/wp-content/uploads/2026/11/ALLEGATO-B-PESCARA-Bollettino-Turno-n.-9.pdf"
+],
+"Teramo_bollettino-1.pdf": [
+"https://www.csateramo.it/wpusp/archive/dispositivo-pubblicazione-esiti-turno-ins-n-1-del-28082026",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/08/Dispositivo-pubblicazione-esiti-turno-INS-n.-1-del-28.8.2026-2.pdf"
+],
+"Teramo_bollettino-1_2.pdf": [
+"https://www.csateramo.it/wpusp/archive/dispositivo-pubblicazione-esiti-turno-ins-n-1-del-28082026",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/08/BOLLETTINO-DEFINITIVO.pdf"
+],
+"Teramo_bollettino-1.xlsx": [
+"https://www.csateramo.it/wpusp/archive/dispositivo-pubblicazione-esiti-turno-ins-n-1-del-28082026",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/08/BOLLETTINO-DEFINITIVO.xlsx"
+],
+"Teramo_bollettino-2.pdf": [
+"https://www.csateramo.it/wpusp/archive/pubblicazione-dispositivo-nomine-a-t-d-turno-ins-n-2-del-07092026",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Dispositivo-pubblicazione-esiti-turno-INS-n.2-del-7.9.2026.pdf"
+],
+"Teramo_bollettino-2_2.pdf": [
+"https://www.csateramo.it/wpusp/archive/pubblicazione-dispositivo-nomine-a-t-d-turno-ins-n-2-del-07092026",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Bollettino-DEFINITIVO-totale.pdf"
+],
+"Teramo_bollettino-2.xlsx": [
+"https://www.csateramo.it/wpusp/archive/pubblicazione-dispositivo-nomine-a-t-d-turno-ins-n-2-del-07092026",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Bollettino-DEFINITIVO-totale.xlsx"
+],
+"Teramo_bollettino-3.pdf": [
+"https://www.csateramo.it/wpusp/archive/pubblicazione-disposito-nomine-a-t-d-turno-ins-n-3-del-16092026",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Dispositivo-pubblicazione-esiti-turno-INS-n.-3-del-16.9.2026.pdf"
+],
+"Teramo_bollettino-3_2.pdf": [
+"https://www.csateramo.it/wpusp/archive/pubblicazione-disposito-nomine-a-t-d-turno-ins-n-3-del-16092026",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Bollettino-DEFINITIVO-.pdf"
+],
+"Teramo_bollettino-4.pdf": [
+"https://www.csateramo.it/wpusp/archive/pubblicazione-dispositivo-nomine-a-t-d-turno-ins-n-4-del-22092026",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Dispositivo-pubblicazione-esiti-turno-INS-n.-4-del-22.9.2026.pdf"
+],
+"Teramo_bollettino-4_2.pdf": [
+"https://www.csateramo.it/wpusp/archive/pubblicazione-dispositivo-nomine-a-t-d-turno-ins-n-4-del-22092026",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Bollettino-DEFINITIVO.pdf"
+],
+"Teramo_bollettino-5.pdf": [
+"https://www.csateramo.it/wpusp/archive/pubblicazione-dispositivo-nomine-a-t-d-turno-ins-n-5-del-29092026",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Dispositivo-pubblicazione-esiti-turno-INS-n.-5-del-29.9.2026.pdf"
+],
+"Teramo_bollettino-5_2.pdf": [
+"https://www.csateramo.it/wpusp/archive/pubblicazione-dispositivo-nomine-a-t-d-turno-ins-n-5-del-29092026",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/09/Bollettino-DEFINITIVO-1.pdf"
+],
+"Teramo_bollettino-6.pdf": [
+"https://www.csateramo.it/wpusp/archive/pubblicazione-dispositivo-esiti-nomine-ins-del-06102026",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/10/Dispositivo-pubblicazione-esiti-turno-INS-n.-6-del-06.10.2026.pdf"
+],
+"Teramo_bollettino-6_2.pdf": [
+"https://www.csateramo.it/wpusp/archive/pubblicazione-dispositivo-esiti-nomine-ins-del-06102026",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/10/Bollettino-DEFINITIVO.pdf"
+],
+"Teramo_bollettino-7.pdf": [
+"https://www.csateramo.it/wpusp/archive/dispositivo-pubblicazione-bollettino-nomine-da-gps-del-21102026-turno-ins-n-7",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/10/Dispositivo-pubblicazione-esiti-turno-INS-n.-7-del-21.10.2026.pdf"
+],
+"Teramo_bollettino-7_2.pdf": [
+"https://www.csateramo.it/wpusp/archive/dispositivo-pubblicazione-bollettino-nomine-da-gps-del-21102026-turno-ins-n-7",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/10/Bollettino-DEFINITIVO-1.pdf"
+],
+"Teramo_bollettino-8.pdf": [
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/10/Dispositivo-pubblicazione-esiti-turno-INS-n.-8-del-29.10.2026.pdf",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/10/Dispositivo-pubblicazione-esiti-turno-INS-n.-8-del-29.10.2026.pdf"
+],
+"Teramo_bollettino-9.pdf": [
+"https://www.csateramo.it/wpusp/archive/pubblicazione-dispositivo-nomine-da-gps-a-s-20262027-turno-n-9-del-03112026",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/11/Dispositivo-pubblicazione-esiti-turno-INS-n.-9-del-03.11.2026.pdf"
+],
+"Teramo_bollettino-9_2.pdf": [
+"https://www.csateramo.it/wpusp/archive/pubblicazione-dispositivo-nomine-da-gps-a-s-20262027-turno-n-9-del-03112026",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/11/Bollettino-DEFINITIVO.pdf"
+],
+"Teramo_bollettino-2_3.pdf": [
+"https://www.csateramo.it/wpusp/page/2",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/11/Dispositivo-pubblicazione-esiti-turno-INS-n.-10-del-9.11.2026.pdf"
+],
+"Teramo_bollettino-2_4.pdf": [
+"https://www.csateramo.it/wpusp/page/2",
+"https://www.csateramo.it/wpusp/wp-content/uploads/2026/11/Bollettino-DEFINITIVO-1.pdf"
+],
+"Matera_bollettino-5.pdf": [
+"https://www.istruzionematera.it/decreto-5-bollettino-nomine-a-t-d-2026-27/",
+"https://www.istruzionematera.it/wp-content/uploads/2026/10/Bollettino-V..pdf"
+],
+"Potenza_bollettino-2.pdf": [
+"https://www.istruzionepotenza.it/2-decreto-di-conferimento-delle-nomine-a-t-d/",
+"https://www.istruzionepotenza.it/wp-content/uploads/2026/09/2_Bollettino-PRIVACY.pdf"
+],
+"Potenza_bollettino-3.pdf": [
+"https://www.istruzionepotenza.it/3-decreto-di-conferimento-delle-nomine-a-t-d/",
+"https://www.istruzionepotenza.it/wp-content/uploads/2026/10/3_Bollettino-PRIVACY.pdf"
+],
+"Potenza_bollettino-5.pdf": [
+"https://www.istruzionepotenza.it/5-decreto-di-conferimento-delle-nomine-a-t-d/",
+"https://www.istruzionepotenza.it/wp-content/uploads/2026/11/5_Bollettino-PRIVACY.pdf"
+],
+"Catanzaro_bollettino-3.pdf": [
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-iii-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/09/m_pi.AOOUSPCZ.REGISTRO-UFFICIALEU.0010058.25-09-2026.pdf"
+],
+"Catanzaro_bollettino-3_2.pdf": [
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-iii-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/09/BollettinoTotaleNomine_N3-1.pdf"
+],
+"Catanzaro_bollettino-5.pdf": [
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-v-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/Bollettino_TotaleNomine_5-1.pdf"
+],
+"Catanzaro_bollettino-6.pdf": [
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-vi-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/BollettinoTotaleNomine_6-1.pdf"
+],
+"Catanzaro_bollettino-6_2.pdf": [
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-vi-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/m_pi.AOOUSPCZ.REGISTRO-UFFICIALEU.0011101.20-10-2026.pdf"
+],
+"Catanzaro_bollettino-7.pdf": [
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-vii-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/Bollettino_TotaleNomine_Turno7-1.pdf"
+],
+"Catanzaro_bollettino-7_2.pdf": [
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-vii-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/10/m_pi.AOOUSPCZ.REGISTRO-UFFICIALEU.0011510.30-10-2026.pdf"
+],
+"Catanzaro_bollettino-9.pdf": [
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-ix-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/11/BollettinoTotaleNomine_9.pdf"
+],
+"Catanzaro_bollettino-9_2.pdf": [
+"https://www.istruzione.calabria.it/catanzaro/personale-docente-supplenze-a-s-2026-2027-ix-bollettino-di-nomine/",
+"https://www.istruzione.calabria.it/catanzaro/wp-content/uploads/2026/11/m_pi.AOOUSPCZ.REGISTRO-UFFICIALEU.0012078.12-11-2026.pdf"
+],
+"Cosenza_bollettino-1.pdf": [
+"https://www.istruzione.calabria.it/cosenza/aoouspcs13532-202600909/",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/09/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0013532.09-09-2026.pdf"
+],
+"Cosenza_bollettino-1_2.pdf": [
+"https://www.istruzione.calabria.it/cosenza/aoouspcs13532-202600909/",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/09/Bollettino-Totale-Nomine-3.pdf"
+],
+"Cosenza_bollettino-2.pdf": [
+"https://www.istruzione.calabria.it/cosenza/aoouspcs13628-202600911/",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/09/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0013628.11-09-2026.pdf"
+],
+"Cosenza_bollettino-3.pdf": [
+"https://www.istruzione.calabria.it/cosenza/aoouspcs14744-202601001/",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/10/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0014744.01-10-2026.pdf"
+],
+"Cosenza_bollettino-3_2.pdf": [
+"https://www.istruzione.calabria.it/cosenza/aoouspcs14744-202601001/",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/10/Bollettino_TotaleNomine-PUBBLICAZIONE.pdf"
+],
+"Cosenza_bollettino-4.pdf": [
+"https://www.istruzione.calabria.it/cosenza/aoouspcs15554-20261016/",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/10/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0015554.16-10-2026.pdf"
+],
+"Cosenza_bollettino-4_2.pdf": [
+"https://www.istruzione.calabria.it/cosenza/aoouspcs15554-20261016/",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/10/BollettinoTotaleNomine-5.pdf"
+],
+"Cosenza_bollettino-6.pdf": [
+"https://www.istruzione.calabria.it/cosenza/aoouspcs16123-20261027/",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/10/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0016123.27-10-2026.pdf"
+],
+"Cosenza_bollettino-6_2.pdf": [
+"https://www.istruzione.calabria.it/cosenza/aoouspcs16123-20261027/",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/10/BollettinoTotaleNomine.pdf"
+],
+"Cosenza_bollettino-8.pdf": [
+"https://www.istruzione.calabria.it/cosenza/aoouspcs16727-20261106/",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/11/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0016727.06-11-2026.pdf"
+],
+"Cosenza_bollettino-8_2.pdf": [
+"https://www.istruzione.calabria.it/cosenza/aoouspcs16727-20261106/",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/11/Bollettino-totale-nomine-4.pdf"
+],
+"Cosenza_bollettino-9.pdf": [
+"https://www.istruzione.calabria.it/cosenza/aoouspcs17568-20261120/",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/11/m_pi.AOOUSPCS.REGISTRO-UFFICIALEU.0017568.20-11-2026.pdf"
+],
+"Cosenza_bollettino-9_2.pdf": [
+"https://www.istruzione.calabria.it/cosenza/aoouspcs17568-20261120/",
+"https://www.istruzione.calabria.it/cosenza/wp-content/uploads/2026/11/bollettino-nomine-settimo-turno.pdf"
+],
+"Crotone_bollettino-1.pdf": [
+"https://www.istruzione.calabria.it/crotone/bollettino-n-1-per-nomine-a-tempo-determinato/",
+"https://www.istruzione.calabria.it/crotone/wp-content/uploads/2026/08/BOLLETTINO-N.-1.pdf"
+],
+"Crotone_bollettino-2.pdf": [
+"https://www.istruzione.calabria.it/crotone/bollettino-n-2-per-nomine-a-tempo-determinato-personale-docente/",
+"https://www.istruzione.calabria.it/crotone/wp-content/uploads/2026/09/bollettino-n.-2-nomine-a-tempo-determinato-personale-docente.pdf"
+],
+"Crotone_bollettino-3.pdf": [
+"https://www.istruzione.calabria.it/crotone/terzo-bollettino-di-nomine-per-contratti-a-tempo-determinato-personale-docente/",
+"https://www.istruzione.calabria.it/crotone/wp-content/uploads/2026/10/III-bollettino-nomine-a-t.d.-2026-2027.pdf"
+],
+"Crotone_bollettino-4.pdf": [
+"https://www.istruzione.calabria.it/crotone/quarto-bollettino-nomine-a-tempo-determinato/",
+"https://www.istruzione.calabria.it/crotone/wp-content/uploads/2026/10/bollettino-n.-4-nomine-a-tempo-determinato.pdf"
+],
+"Crotone_bollettino-6.pdf": [
+"https://www.istruzione.calabria.it/crotone/bollettino-n-6-nomine-a-tempo-determinato-personale-docente/",
+"https://www.istruzione.calabria.it/crotone/wp-content/uploads/2026/11/bollettino-n.-6-nomine-a-tempo-determinato-personale-docente.pdf"
+],
+"Vibo_Valentia_bollettino-1.pdf": [
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionapprova-attoid442/",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/08/m_pi.AOOUSPVV.REGISTRO-UFFICIALEU.0006371.31-08-2026.pdf"
+],
+"Vibo_Valentia_bollettino-1_2.pdf": [
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionapprova-attoid442/",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/08/I-BOLLETTINO.pdf"
+],
+"Vibo_Valentia_bollettino-2.pdf": [
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid457/",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/09/m_pi.AOOUSPVV.REGISTRO-UFFICIALEU.0007149.22-09-2026.pdf"
+],
+"Vibo_Valentia_bollettino-2_2.pdf": [
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid457/",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/09/II-Bollettino.pdf"
+],
+"Vibo_Valentia_bollettino-3.pdf": [
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid458/",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/09/m_pi.AOOUSPVV.REGISTRO-UFFICIALEU.0007184.23-09-2026.pdf"
+],
+"Vibo_Valentia_bollettino-4.pdf": [
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid472/",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/10/m_pi.AOOUSPVV.REGISTRO-UFFICIALEU.0007802.16-10-2026.pdf"
+],
+"Vibo_Valentia_bollettino-4_2.pdf": [
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid472/",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/10/Bollettino-V.pdf"
+],
+"Vibo_Valentia_bollettino-5.pdf": [
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid476/",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/10/m_pi.AOOUSPVV.REGISTRO-UFFICIALEU.0007949.23-10-2026.pdf"
+],
+"Vibo_Valentia_bollettino-5_2.pdf": [
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid476/",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/10/Bollettino-VI.pdf"
+],
+"Vibo_Valentia_bollettino-6.pdf": [
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid477/",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/10/m_pi.AOOUSPVV.REGISTRO-UFFICIALEU.0008123.30-10-2026.pdf"
+],
+"Vibo_Valentia_bollettino-6_2.pdf": [
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid477/",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/10/Bollettino-VII.pdf"
+],
+"Vibo_Valentia_bollettino-8.pdf": [
+"https://www.istruzione.calabria.it/vibovalentia/personale-docente-pubblicazione-viii-bollettino-supplenze-a-s-2026-27/",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/11/m_pi.AOOUSPVV.REGISTRO-UFFICIALEU.0008383.10-11-2026.pdf"
+],
+"Vibo_Valentia_bollettino-8_2.pdf": [
+"https://www.istruzione.calabria.it/vibovalentia/personale-docente-pubblicazione-viii-bollettino-supplenze-a-s-2026-27/",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/11/Bollettino-8.pdf"
+],
+"Vibo_Valentia_bollettino-9.pdf": [
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid483/",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/11/m_pi.AOOUSPVV.REGISTRO-UFFICIALEU.0008645.20-11-2026.pdf"
+],
+"Vibo_Valentia_bollettino-9_2.pdf": [
+"https://www.istruzione.calabria.it/vibovalentia/https-www-istruzione-calabria-it-vibovalentia-wp-admin-admin-phppageattiactionview-attoid483/",
+"https://www.istruzione.calabria.it/vibovalentia/wp-content/uploads/2026/11/Bollettino-9.pdf"
+],
+"Avellino_bollettino-1.pdf": [
+"https://atavellino.it/graduatorie-provinciali-di-supplenza-primo-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-avellino-e-provincia/",
+"https://atavellino.it/wp-content/uploads/2026/08/m_pi.AOOUSPAV.REGISTRO-UFFICIALEU.0010359.31-08-2026.pdf"
+],
+"Avellino_bollettino-1_2.pdf": [
+"https://atavellino.it/graduatorie-provinciali-di-supplenza-primo-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-avellino-e-provincia/",
+"https://atavellino.it/wp-content/uploads/2026/08/BOLLETTINO-DI-NOMINE-GPS-TURNO-UNO-31AGO26.pdf"
+],
+"Avellino_bollettino-2.pdf": [
+"https://atavellino.it/graduatorie-provinciali-di-supplenza-secondo-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-avellino-e-provincia/",
+"https://atavellino.it/wp-content/uploads/2026/09/BOLLETTINO-SECONDO-II-TURNO-DI-NOMINA-signed.pdf"
+],
+"Avellino_bollettino-3.pdf": [
+"https://atavellino.it/graduatorie-provinciali-di-supplenza-terzo-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-avellino-e-provincia/",
+"https://atavellino.it/wp-content/uploads/2026/10/TERZO-TURNO-DI-NOMINA-GPS-20OTT26-signed.pdf"
+],
+"Avellino_bollettino-4.pdf": [
+"https://atavellino.it/graduatorie-provinciali-di-supplenza-quarto-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-avellino-e-provincia/",
+"https://atavellino.it/wp-content/uploads/2026/11/m_pi.AOOUSPAV.REGISTRO-UFFICIALEU.0013296.05-11-2026.pdf"
+],
+"Avellino_bollettino-4_2.pdf": [
+"https://atavellino.it/graduatorie-provinciali-di-supplenza-quarto-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-avellino-e-provincia/",
+"https://atavellino.it/wp-content/uploads/2026/11/BOLLETTINO-DI-NOMINE-QUARTO-TURNO-05NOV26.pdf"
+],
+"Avellino_bollettino-5.pdf": [
+"https://atavellino.it/graduatorie-provinciali-di-supplenza-quinto-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-avellino-e-provincia/",
+"https://atavellino.it/wp-content/uploads/2026/11/m_pi.AOOUSPAV.REGISTRO-UFFICIALEU.0013870.18-11-2026.pdf"
+],
+"Avellino_bollettino-5_2.pdf": [
+"https://atavellino.it/graduatorie-provinciali-di-supplenza-quinto-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-avellino-e-provincia/",
+"https://atavellino.it/wp-content/uploads/2026/11/QUINTO-TURNO-DI-NOMINA-GPS-17NOV26-signed.pdf"
+],
+"Caserta_bollettino-1.pdf": [
+"https://www.uat-caserta.it/2026/08/31/bollettino-totale-delle-nomine-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/08/Bollettino_TotaleNomine-20260831.pdf"
+],
+"Caserta_bollettino-2.pdf": [
+"https://www.uat-caserta.it/2026/09/21/secondo-bollettino-totale-delle-nomine-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/09/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0025393.21-09-2026.pdf"
+],
+"Caserta_bollettino-2_2.pdf": [
+"https://www.uat-caserta.it/2026/09/21/secondo-bollettino-totale-delle-nomine-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/09/Bollettino_TotaleNomine-20260921.pdf"
+],
+"Caserta_bollettino-3.pdf": [
+"https://www.uat-caserta.it/2026/10/12/terzo-bollettino-totale-delle-nomine-generato-dal-sistema-informativo-del-ministero-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0027290.12-10-2026.pdf"
+],
+"Caserta_bollettino-3_2.pdf": [
+"https://www.uat-caserta.it/2026/10/12/terzo-bollettino-totale-delle-nomine-generato-dal-sistema-informativo-del-ministero-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/Bollettino_TotaleNomine-20261012.pdf"
+],
+"Caserta_bollettino-4.pdf": [
+"https://www.uat-caserta.it/2026/10/21/quarto-bollettino-totale-delle-nomine-generato-dal-sistema-informativo-del-ministero-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0028280.21-10-2026.pdf"
+],
+"Caserta_bollettino-4_2.pdf": [
+"https://www.uat-caserta.it/2026/10/21/quarto-bollettino-totale-delle-nomine-generato-dal-sistema-informativo-del-ministero-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/10/Bollettino_TotaleNomine-20261021.pdf"
+],
+"Caserta_bollettino-5.pdf": [
+"https://www.uat-caserta.it/2026/11/09/quinto-bollettino-totale-delle-nomine-generato-dal-sistema-informativo-del-ministero-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/11/m_pi.AOOUSPCE.REGISTRO-UFFICIALEU.0029963.09-11-2026.pdf"
+],
+"Caserta_bollettino-5_2.pdf": [
+"https://www.uat-caserta.it/2026/11/09/quinto-bollettino-totale-delle-nomine-generato-dal-sistema-informativo-del-ministero-contenente-i-nominativi-dei-destinatari-di-una-proposta-di-contratto-a-tempo-determinato-per-la-s-2026-2027/",
+"https://www.uat-caserta.it/wp-content/uploads/2026/11/Bollettino_TotaleNomine-20261109.pdf"
+],
+"Napoli_bollettino-1.pdf": [
+"https://www.uat-napoli.it/graduatorie-provinciali-di-supplenza-primo-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-napoli-e-provincia/",
+"https://www.uat-napoli.it/wp-content/uploads/2026/08/m_pi.AOOUSPNA.REGISTRO-UFFICIALEI.0022309.31-08-2026.pdf"
+],
+"Napoli_bollettino-2.pdf": [
+"https://www.uat-napoli.it/graduatorie-provinciali-di-supplenza-secondo-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-napoli-e-provincia/",
+"https://www.uat-napoli.it/wp-content/uploads/2026/09/m_pi.AOOUSPNA.REGISTRO-UFFICIALEI.0024670.21-09-2026.pdf"
+],
+"Napoli_bollettino-2_2.pdf": [
+"https://www.uat-napoli.it/graduatorie-provinciali-di-supplenza-secondo-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-napoli-e-provincia/",
+"https://www.uat-napoli.it/wp-content/uploads/2026/09/REPORT-ULTIMI-NOMINATI-SU-POSTO-INTERO-SUPPLENZE-DEL-21_09_2026.pdf"
+],
+"Napoli_bollettino-3.pdf": [
+"https://www.uat-napoli.it/graduatorie-provinciali-di-supplenza-terzo-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-napoli-e-provincia/",
+"https://www.uat-napoli.it/wp-content/uploads/2026/10/m_pi.AOOUSPNA.REGISTRO-UFFICIALEI.0026408.13-10-2026.pdf"
+],
+"Napoli_bollettino-3_2.pdf": [
+"https://www.uat-napoli.it/graduatorie-provinciali-di-supplenza-terzo-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-napoli-e-provincia/",
+"https://www.uat-napoli.it/wp-content/uploads/2026/10/REPORT_ULTIMI_NOMINATI_SU_POSTO_INTERO_SUPP_13_10_2026.pdf"
+],
+"Napoli_bollettino-4.pdf": [
+"https://www.uat-napoli.it/graduatorie-provinciali-di-supplenza-quarto-bollettino-nomine-a-tempo-determinato-2026-2027-ogni-ordine-e-grado-napoli-e-provincia/",
+"https://www.uat-napoli.it/wp-content/uploads/2026/11/m_pi.AOOUSPNA.REGISTRO-UFFICIALEU.0027855.03-11-2026_nota_bollettino_gps.pdf"
+],
+"Ferrara_bollettino-1.pdf": [
+"https://fe.istruzioneer.gov.it/2026/08/31/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-1/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/08/BOLLETTINO-GPS-TURNO-1.pdf"
+],
+"Ferrara_bollettino-1_2.pdf": [
+"https://fe.istruzioneer.gov.it/2026/08/31/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-1/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/08/TURNO-1_m_pi.AOOUSPFE.REGISTRO-UFFICIALEU.0007840.31-08-2026.pdf"
+],
+"Ferrara_bollettino-2.pdf": [
+"https://fe.istruzioneer.gov.it/2026/09/11/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-2/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/09/Disp.-NOMINE-GPS-II-TURNO_m_pi.AOOUSPFE.REGISTRO-UFFICIALEU.0008405.11-09-2026.pdf"
+],
+"Ferrara_bollettino-2_2.pdf": [
+"https://fe.istruzioneer.gov.it/2026/09/11/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-2/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/09/Bollettino-II-TURNO-GPS.pdf"
+],
+"Ferrara_bollettino-3.pdf": [
+"https://fe.istruzioneer.gov.it/2026/09/21/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-3/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/09/Dispositivo-3-TURNO-GPS_m_pi.AOOUSPFE.REGISTRO-UFFICIALEU.0008715.21-09-2026.pdf"
+],
+"Ferrara_bollettino-3_2.pdf": [
+"https://fe.istruzioneer.gov.it/2026/09/21/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-3/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/09/Bollettino-3-TURNO-GPS.pdf"
+],
+"Ferrara_bollettino-7.pdf": [
+"https://fe.istruzioneer.gov.it/2026/10/09/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-7/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/Disp.-nomine-da-GPS-as-22026-27_VII-TURNO_m_pi.AOOUSPFE.REGISTRO-UFFICIALEU.0009524.09-10-2026.pdf"
+],
+"Ferrara_bollettino-7_2.pdf": [
+"https://fe.istruzioneer.gov.it/2026/10/09/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-7/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/Bollettino-VII-TURNO-GPS.pdf"
+],
+"Ferrara_bollettino-9.pdf": [
+"https://fe.istruzioneer.gov.it/2026/10/20/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-9/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/DISPOSITIVO-IX-TURNO-DI-NOMINA-PROT.9800_20.10.2026.pdf"
+],
+"Ferrara_bollettino-9_2.pdf": [
+"https://fe.istruzioneer.gov.it/2026/10/20/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-9/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/BOLLETTINO-IX-TURNO-DI-NOMINA.pdf"
+],
+"Ferrara_bollettino-10.pdf": [
+"https://fe.istruzioneer.gov.it/2026/10/23/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-10/",
+"http://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/Copia-di-BOLLETTINO-NOMINE-X-TURNO-DI-NOMINA.pdf"
+],
+"Ferrara_bollettino-10_2.pdf": [
+"https://fe.istruzioneer.gov.it/2026/10/23/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-10/",
+"http://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/dispositivo-di-nomina-X-turno-di-nomina-prot.pdf"
+],
+"Ferrara_bollettino-10_3.pdf": [
+"https://fe.istruzioneer.gov.it/2026/10/23/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-10/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/Copia-di-BOLLETTINO-NOMINE-X-TURNO-DI-NOMINA.pdf"
+],
+"Ferrara_bollettino-10_4.pdf": [
+"https://fe.istruzioneer.gov.it/2026/10/23/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-10/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/dispositivo-di-nomina-X-turno-di-nomina-prot.pdf"
+],
+"Ferrara_bollettino-11.pdf": [
+"https://fe.istruzioneer.gov.it/2026/10/28/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-11/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/bollettino-11-turno-di-nomina.pdf"
+],
+"Ferrara_bollettino-11_2.pdf": [
+"https://fe.istruzioneer.gov.it/2026/10/28/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-11/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/10/Disp.-Nomine-GPS-11-TURNO_m_pi.AOOUSPFE.REGISTRO-UFFICIALEU.0010152.28-10-2026.pdf"
+],
+"Ferrara_bollettino-12.pdf": [
+"https://fe.istruzioneer.gov.it/2026/11/03/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-12/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/11/Disp.-XII-TURNO-GPS_m_pi.AOOUSPFE.REGISTRO-UFFICIALEU.0010375.03-11-2026.pdf"
+],
+"Ferrara_bollettino-12_2.pdf": [
+"https://fe.istruzioneer.gov.it/2026/11/03/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-12/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/11/BOLLETTINO-NOMINE-XII-TURNO-GPS.pdf"
+],
+"Ferrara_bollettino-13.pdf": [
+"https://fe.istruzioneer.gov.it/2026/11/09/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-13/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/11/Disp.-nomine-XIII-turno-GPS-PROT.pdf"
+],
+"Ferrara_bollettino-13_2.pdf": [
+"https://fe.istruzioneer.gov.it/2026/11/09/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-13/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/11/BOLLETTINO-XIII-TURNO-DI-NOMINA.pdf"
+],
+"Ferrara_bollettino-14.pdf": [
+"https://fe.istruzioneer.gov.it/2026/11/13/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-14/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/11/BOLLETTINO-XIV-TURNO-DI-NOMINA.pdf"
+],
+"Ferrara_bollettino-14_2.pdf": [
+"https://fe.istruzioneer.gov.it/2026/11/13/nomine-a-t-d-da-gps-personale-docente-di-ogni-ordine-e-grado-turno-14/",
+"https://fe.istruzioneer.gov.it/wp-content/uploads/sites/11/2026/11/DISPOSITIVO-XIV-TURNO-DI-NOMINA-PROT.pdf"
+],
+"Forl_Cesena_bollettino-1.pdf": [
+"https://fc.istruzioneer.gov.it/2026/08/31/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-31-08-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/08/bollettino_GPS_turno_1-signed.pdf"
+],
+"Forl_Cesena_bollettino-1_2.pdf": [
+"https://fc.istruzioneer.gov.it/2026/08/31/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-31-08-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/08/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0004585.31-08-2026.pdf"
+],
+"Forl_Cesena_bollettino-1_3.pdf": [
+"https://fc.istruzioneer.gov.it/2026/08/31/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-31-08-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/08/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0004590.31-08-2026_errata-corrige.pdf"
+],
+"Forl_Cesena_bollettino-1_4.pdf": [
+"https://fc.istruzioneer.gov.it/2026/08/31/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-31-08-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/08/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0004718.04-09-2026.pdf"
+],
+"Forl_Cesena_bollettino-10.pdf": [
+"https://fc.istruzioneer.gov.it/2026/09/10/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-10-09-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/09/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0004854.10-09-2026.pdf"
+],
+"Forl_Cesena_bollettino-10_2.pdf": [
+"https://fc.istruzioneer.gov.it/2026/09/10/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-10-09-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/09/Bollettino_TotaleNomine_2026-09-10-signed.pdf"
+],
+"Forl_Cesena_bollettino-22.pdf": [
+"https://fc.istruzioneer.gov.it/2026/09/22/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-22-09-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/09/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005237.22-09-2026.pdf"
+],
+"Forl_Cesena_bollettino-22_2.pdf": [
+"https://fc.istruzioneer.gov.it/2026/09/22/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-22-09-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/09/Bollettino_3_turno-signed.pdf"
+],
+"Forl_Cesena_bollettino-28.pdf": [
+"https://fc.istruzioneer.gov.it/2026/09/28/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-28-09-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/09/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005375.28-09-2026.pdf"
+],
+"Forl_Cesena_bollettino-28_2.pdf": [
+"https://fc.istruzioneer.gov.it/2026/09/28/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-28-09-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/09/Bollettino_nomine_turno_4-signed.pdf"
+],
+"Forl_Cesena_bollettino-7.pdf": [
+"https://fc.istruzioneer.gov.it/2026/10/07/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-07-10-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/Bollettino-totale-nomine-del-7.10.2026.pdf"
+],
+"Forl_Cesena_bollettino-15.pdf": [
+"https://fc.istruzioneer.gov.it/2026/10/15/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-15-10-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005656.15-10-2026.pdf"
+],
+"Forl_Cesena_bollettino-15_2.pdf": [
+"https://fc.istruzioneer.gov.it/2026/10/15/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-15-10-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005657.15-10-2026.pdf"
+],
+"Forl_Cesena_bollettino-15_3.pdf": [
+"https://fc.istruzioneer.gov.it/2026/10/15/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-15-10-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/Bollettino-totale-nomine-signed.pdf"
+],
+"Forl_Cesena_bollettino-22_3.pdf": [
+"https://fc.istruzioneer.gov.it/2026/10/22/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-22-10-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005767.22-10-2026.pdf"
+],
+"Forl_Cesena_bollettino-22_4.pdf": [
+"https://fc.istruzioneer.gov.it/2026/10/22/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-22-10-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/Bollettino-totale-nomine-del-22-ottobre-2026-signed.pdf"
+],
+"Forl_Cesena_bollettino-22_5.pdf": [
+"https://fc.istruzioneer.gov.it/2026/10/22/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-22-10-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005766.22-10-2026.pdf"
+],
+"Forl_Cesena_bollettino-26.pdf": [
+"https://fc.istruzioneer.gov.it/2026/10/26/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-26-10-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005912.26-10-2026.pdf"
+],
+"Forl_Cesena_bollettino-26_2.pdf": [
+"https://fc.istruzioneer.gov.it/2026/10/26/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-26-10-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005913.26-10-2026.pdf"
+],
+"Forl_Cesena_bollettino-26_3.pdf": [
+"https://fc.istruzioneer.gov.it/2026/10/26/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-26-10-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/Bollettino-totale-nomine-signed-1.pdf"
+],
+"Forl_Cesena_bollettino-29.pdf": [
+"https://fc.istruzioneer.gov.it/2026/10/29/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-29-10-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0005999.29-10-2026.pdf"
+],
+"Forl_Cesena_bollettino-29_2.pdf": [
+"https://fc.istruzioneer.gov.it/2026/10/29/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-29-10-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/Bollettino-totale-nomine-del-29-ottobre-2026-signed.pdf"
+],
+"Forl_Cesena_bollettino-29_3.pdf": [
+"https://fc.istruzioneer.gov.it/2026/10/29/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-29-10-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/10/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006000.29-10-2026.pdf"
+],
+"Forl_Cesena_bollettino-3.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/03/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-03-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006104.03-11-2026.pdf"
+],
+"Forl_Cesena_bollettino-3_2.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/03/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-03-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006105.03-11-2026.pdf"
+],
+"Forl_Cesena_bollettino-3_3.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/03/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-03-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/Esiti-nomine-a-T.D.-del-03-novembre-2026-signed.pdf"
+],
+"Forl_Cesena_bollettino-6.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/06/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-06-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006154.06-11-2026.pdf"
+],
+"Forl_Cesena_bollettino-6_2.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/06/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-06-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006155.06-11-2026.pdf"
+],
+"Forl_Cesena_bollettino-6_3.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/06/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-06-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/Esito-bollettino-del-6-novembre-signed.pdf"
+],
+"Forl_Cesena_bollettino-9.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/09/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-09-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006197.09-11-2026.pdf"
+],
+"Forl_Cesena_bollettino-9_2.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/09/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-09-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006199.09-11-2026.pdf"
+],
+"Forl_Cesena_bollettino-9_3.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/09/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-09-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/Bollettino-totale-nomine-del-9-novembre-signed.pdf"
+],
+"Forl_Cesena_bollettino-12.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/12/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-12-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006259.12-11-2026.pdf"
+],
+"Forl_Cesena_bollettino-12_2.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/12/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-12-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006260.12-11-2026.pdf"
+],
+"Forl_Cesena_bollettino-12_3.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/12/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-12-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/Bollettino-totale-nomine-del-12-novembre-signed.pdf"
+],
+"Forl_Cesena_bollettino-16.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/16/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-16-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006346.16-11-2026.pdf"
+],
+"Forl_Cesena_bollettino-16_2.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/16/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-16-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006348.16-11-2026.pdf"
+],
+"Forl_Cesena_bollettino-16_3.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/16/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-16-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/Bollettino-totale-nomine-del-16-novembre-signed.pdf"
+],
+"Forl_Cesena_bollettino-19.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/19/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-19-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006497.19-11-2026.pdf"
+],
+"Forl_Cesena_bollettino-19_2.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/19/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-19-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006498.19-11-2026.pdf"
+],
+"Forl_Cesena_bollettino-19_3.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/19/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-19-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/Bollettino-totale-nomine-del-19-novembre-signed.pdf"
+],
+"Forl_Cesena_bollettino-23.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/23/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-23-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006529.23-11-2026.pdf"
+],
+"Forl_Cesena_bollettino-23_2.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/23/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-23-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/m_pi.AOOCSAFO.REGISTRO-UFFICIALEU.0006530.23-11-2026.pdf"
+],
+"Forl_Cesena_bollettino-23_3.pdf": [
+"https://fc.istruzioneer.gov.it/2026/11/23/supplenze-personale-docente-ed-educativo-a-s-2026-2027-turno-23-11-2026/",
+"https://fc.istruzioneer.gov.it/wp-content/uploads/sites/4/2026/11/Bollettino-totale-nomine-del-23-novembre-signed.pdf"
+],
+"Modena_bollettino-1.pdf": [
+"https://mo.istruzioneer.gov.it/2026/08/31/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-1-turno-a-s-2026-27/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/08/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0014163.31-08-2026.pdf"
+],
+"Modena_bollettino-1_2.pdf": [
+"https://mo.istruzioneer.gov.it/2026/08/31/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-1-turno-a-s-2026-27/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/08/Bollettino_TotaleNomine.pdf"
+],
+"Modena_bollettino-2.pdf": [
+"https://mo.istruzioneer.gov.it/2026/09/11/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-2-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/09/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0015032.11-09-2026.pdf"
+],
+"Modena_bollettino-2_2.pdf": [
+"https://mo.istruzioneer.gov.it/2026/09/11/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-2-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/09/Bollettino_TotaleNomine.pdf"
+],
+"Modena_bollettino-4.pdf": [
+"https://mo.istruzioneer.gov.it/2026/10/02/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-4-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0016282.02-10-2026.pdf"
+],
+"Modena_bollettino-4_2.pdf": [
+"https://mo.istruzioneer.gov.it/2026/10/02/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-4-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/Bollettino_TotaleNomine.pdf"
+],
+"Modena_bollettino-5.pdf": [
+"https://mo.istruzioneer.gov.it/2026/10/15/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-5-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0017032.15-10-2026.pdf"
+],
+"Modena_bollettino-5_2.pdf": [
+"https://mo.istruzioneer.gov.it/2026/10/15/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-5-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/Bollettino_TotaleNomine-1.pdf"
+],
+"Modena_bollettino-6.pdf": [
+"https://mo.istruzioneer.gov.it/2026/10/19/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-6-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0017133.19-10-2026.pdf"
+],
+"Modena_bollettino-6_2.pdf": [
+"https://mo.istruzioneer.gov.it/2026/10/19/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-6-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/Bollettino_TotaleNomine-2.pdf"
+],
+"Modena_bollettino-7.pdf": [
+"https://mo.istruzioneer.gov.it/2026/10/22/nomine-a-tempo-determinato-personale-docente-a-s-2026-27-esoneri-semiesoneri/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0017430.22-10-2026.pdf"
+],
+"Modena_bollettino-7_2.pdf": [
+"https://mo.istruzioneer.gov.it/2026/10/22/nomine-a-tempo-determinato-personale-docente-a-s-2026-27-esoneri-semiesoneri/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/Bollettino_TotaleNomine-3.pdf"
+],
+"Modena_bollettino-7_3.pdf": [
+"https://mo.istruzioneer.gov.it/2026/10/23/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-7-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0017506.23-10-2026.pdf"
+],
+"Modena_bollettino-7_4.pdf": [
+"https://mo.istruzioneer.gov.it/2026/10/23/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-7-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/Bollettino_TotaleNomine-4.pdf"
+],
+"Modena_bollettino-8.pdf": [
+"https://mo.istruzioneer.gov.it/2026/10/30/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-8-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0017864.30-10-2026.pdf"
+],
+"Modena_bollettino-8_2.pdf": [
+"https://mo.istruzioneer.gov.it/2026/10/30/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-8-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/10/Bollettino_TotaleNomine-5.pdf"
+],
+"Modena_bollettino-9.pdf": [
+"https://mo.istruzioneer.gov.it/2026/11/03/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-9-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/11/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0017974.03-11-2026.pdf"
+],
+"Modena_bollettino-9_2.pdf": [
+"https://mo.istruzioneer.gov.it/2026/11/03/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-9-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/11/Bollettino_TotaleNomine.pdf"
+],
+"Modena_bollettino-3.pdf": [
+"https://mo.istruzioneer.gov.it/2026/11/11/nomine-a-t-d-personale-docente-a-s-2026-27-esoneri-semiesoneri-3-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/11/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0018350.11-11-2026.pdf"
+],
+"Modena_bollettino-3_2.pdf": [
+"https://mo.istruzioneer.gov.it/2026/11/11/nomine-a-t-d-personale-docente-a-s-2026-27-esoneri-semiesoneri-3-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/11/Bollettino_TotaleNomine-3.pdf"
+],
+"Modena_bollettino-11.pdf": [
+"https://mo.istruzioneer.gov.it/2026/11/12/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-11-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/11/m_pi.AOOCSAMO.REGISTRO-UFFICIALEU.0018463.12-11-2026.pdf"
+],
+"Modena_bollettino-11_2.pdf": [
+"https://mo.istruzioneer.gov.it/2026/11/12/nomine-a-t-d-docenti-ogni-ordine-e-grado-da-gps-a-s-2026-27-11-turno/",
+"https://mo.istruzioneer.gov.it/wp-content/uploads/sites/6/2026/11/Bollettino_TotaleNomine-5.pdf"
+],
+"Parma_bollettino-1.pdf": [
+"https://pr.istruzioneer.gov.it/2026/08/31/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-1-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/08/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0007923.31-08-2026.pdf"
+],
+"Parma_bollettino-6.pdf": [
+"https://pr.istruzioneer.gov.it/2026/09/23/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-6-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/09/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0008846.23-09-2026.pdf"
+],
+"Parma_bollettino-6_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/09/23/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-6-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/09/Bollettino_TotaleNomine-1.pdf"
+],
+"Parma_bollettino-7.pdf": [
+"https://pr.istruzioneer.gov.it/2026/09/25/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-7-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/09/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0008934.25-09-2026.pdf"
+],
+"Parma_bollettino-7_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/09/25/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-7-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/09/Bollettino_TotaleNomine-2.pdf"
+],
+"Parma_bollettino-8.pdf": [
+"https://pr.istruzioneer.gov.it/2026/10/02/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-8-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0009313.02-10-2026.pdf"
+],
+"Parma_bollettino-8_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/10/02/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-8-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/Bollettino-Totale-Nomine.pdf"
+],
+"Parma_bollettino-10.pdf": [
+"https://pr.istruzioneer.gov.it/2026/10/09/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-10-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0009613.09-10-2026.pdf"
+],
+"Parma_bollettino-10_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/10/09/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-10-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/Bollettino-Totale-Nomine-1.pdf"
+],
+"Parma_bollettino-11.pdf": [
+"https://pr.istruzioneer.gov.it/2026/10/13/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-11-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0009688.13-10-2026.pdf"
+],
+"Parma_bollettino-11_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/10/13/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-11-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/Bollettino-Totale-Nomine-2.pdf"
+],
+"Parma_bollettino-12.pdf": [
+"https://pr.istruzioneer.gov.it/2026/10/16/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-12-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0009902.16-10-2026.pdf"
+],
+"Parma_bollettino-12_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/10/16/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-12-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/Bollettino-Totale-Nomine-3.pdf"
+],
+"Parma_bollettino-13.pdf": [
+"https://pr.istruzioneer.gov.it/2026/10/23/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-13-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0010143.23-10-2026.pdf"
+],
+"Parma_bollettino-13_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/10/23/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-13-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/Bollettino-Totale-Nomine-del-23-10-2026.pdf"
+],
+"Parma_bollettino-14.pdf": [
+"https://pr.istruzioneer.gov.it/2026/10/26/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-14-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0010266.26-10-2026.pdf"
+],
+"Parma_bollettino-14_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/10/26/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-14-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/Bollettino_TotaleNomine.pdf"
+],
+"Parma_bollettino-15.pdf": [
+"https://pr.istruzioneer.gov.it/2026/10/28/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-15-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0010388.28-10-2026.pdf"
+],
+"Parma_bollettino-15_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/10/28/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-15-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/Bollettino_TotaleNomine-1.pdf"
+],
+"Parma_bollettino-16.pdf": [
+"https://pr.istruzioneer.gov.it/2026/10/30/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-16-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0010484.30-10-2026.pdf"
+],
+"Parma_bollettino-16_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/10/30/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-16-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/10/Bollettino_TotaleNomine-2.pdf"
+],
+"Parma_bollettino-17.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/03/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-17-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0010649.03-11-2026.pdf"
+],
+"Parma_bollettino-17_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/03/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-17-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/bollettino-totale-nomine.pdf"
+],
+"Parma_bollettino-18.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/05/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-18-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0010786.05-11-2026.pdf"
+],
+"Parma_bollettino-18_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/05/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-18-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/bollettino-totale-nomine-1.pdf"
+],
+"Parma_bollettino-19.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/09/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-19-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0010883.09-11-2026.pdf"
+],
+"Parma_bollettino-19_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/09/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-19-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Bollettino_TotaleNomine.pdf"
+],
+"Parma_bollettino-20.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/11/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-20-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0010998.11-11-2026.pdf"
+],
+"Parma_bollettino-20_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/11/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-20-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Esito-turno-del-11-11-2026.pdf"
+],
+"Parma_bollettino-21.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/16/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-21-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.00011213.16-11-2026.pdf"
+],
+"Parma_bollettino-21_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/16/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-21-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Esito-turno-del-16-11-2026.pdf"
+],
+"Parma_bollettino-22.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/17/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-22-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0011255.17-11-2026.pdf"
+],
+"Parma_bollettino-22_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/17/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-22-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Esito-turno-del-17-11-2026.pdf"
+],
+"Parma_bollettino-23.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/18/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-23-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0011302.18-11-2026.pdf"
+],
+"Parma_bollettino-23_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/18/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-23-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Esito-turno-del-18-11-2026.pdf"
+],
+"Parma_bollettino-24.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/20/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-24-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0011396.20-11-2026.pdf"
+],
+"Parma_bollettino-24_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/20/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-24-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Esito-turno-del-20-11-2026.pdf"
+],
+"Parma_bollettino-25.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/23/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-25-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0011412.23-11-2026.pdf"
+],
+"Parma_bollettino-25_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/23/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-25-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Bollettino_TotaleNomine-1.pdf"
+],
+"Parma_bollettino-26.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/24/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-26-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/m_pi.AOOUSPPR.REGISTRO-UFFICIALEU.0011524.24-11-2026.pdf"
+],
+"Parma_bollettino-26_2.pdf": [
+"https://pr.istruzioneer.gov.it/2026/11/24/disponibilita-ed-esiti-per-le-nomine-docenti-a-t-d-da-gps-26-turno-a-s-2026-27/",
+"https://pr.istruzioneer.gov.it/wp-content/uploads/sites/8/2026/11/Esito-turno-del-24-11-2026.pdf"
+],
+"Piacenza_bollettino-1.pdf": [
+"https://pc.istruzioneer.gov.it/2026/08/31/nomine-a-tempo-determinato-a-s-2026-2027-esito-primo-turno/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/08/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0005716.31-08-2026.pdf"
+],
+"Piacenza_bollettino-1_2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/08/31/nomine-a-tempo-determinato-a-s-2026-2027-esito-primo-turno/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/08/Bollettino_TotaleNomine-002.pdf"
+],
+"Piacenza_bollettino-2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/09/11/nomine-a-tempo-determinato-a-s-2026-2027-esito-secondo-turno/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0006282.11-09-2026.pdf"
+],
+"Piacenza_bollettino-2_2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/09/11/nomine-a-tempo-determinato-a-s-2026-2027-esito-secondo-turno/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/Bollettino_TotaleNomine-esito-secondo-turno.pdf"
+],
+"Piacenza_bollettino-3.pdf": [
+"https://pc.istruzioneer.gov.it/2026/09/16/nomine-a-tempo-determinato-a-s-2026-2027-esito-terzo-turno/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0006466.16-09-2026.pdf"
+],
+"Piacenza_bollettino-3_2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/09/16/nomine-a-tempo-determinato-a-s-2026-2027-esito-terzo-turno/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/Bollettino_TotaleNomine.pdf"
+],
+"Piacenza_bollettino-4.pdf": [
+"https://pc.istruzioneer.gov.it/2026/09/22/nomine-a-tempo-determinato-a-s-2026-2027-esito-quarto-turno/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0006616.22-09-2026.pdf"
+],
+"Piacenza_bollettino-4_2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/09/22/nomine-a-tempo-determinato-a-s-2026-2027-esito-quarto-turno/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/BOLLETTINO-DEFINITIVO-TURNO-IV.pdf"
+],
+"Piacenza_bollettino-5.pdf": [
+"https://pc.istruzioneer.gov.it/2026/09/25/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-5/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0006738.25-09-2026.pdf"
+],
+"Piacenza_bollettino-5_2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/09/25/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-5/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/NOMINE-GPS-TURNO-5.pdf"
+],
+"Piacenza_bollettino-6.pdf": [
+"https://pc.istruzioneer.gov.it/2026/09/29/nomine-a-tempo-determinato-a-s-2026-2027-esito-sesto-turno/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0006809.29-09-2026.pdf"
+],
+"Piacenza_bollettino-6_2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/09/29/nomine-a-tempo-determinato-a-s-2026-2027-esito-sesto-turno/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/09/BOLLETTINO-DEFINITIVO-TURNO-6.pdf"
+],
+"Piacenza_bollettino-7.pdf": [
+"https://pc.istruzioneer.gov.it/2026/10/02/nomine-a-tempo-determinato-a-s-2026-2027-esito-settimo-turno/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0006995.02-10-2026.pdf"
+],
+"Piacenza_bollettino-7_2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/10/02/nomine-a-tempo-determinato-a-s-2026-2027-esito-settimo-turno/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/Bollettino_TotaleNomine.pdf"
+],
+"Piacenza_bollettino-8.pdf": [
+"https://pc.istruzioneer.gov.it/2026/10/06/nomine-a-tempo-determinato-a-s-2026-2027-esito-ottavo-turno/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0007076.06-10-2026.pdf"
+],
+"Piacenza_bollettino-9.pdf": [
+"https://pc.istruzioneer.gov.it/2026/10/09/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-9/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0007198.09-10-2026.pdf"
+],
+"Piacenza_bollettino-9_2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/10/09/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-9/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/BOLLETTINO-DEFINITIVO-9-TURNO.pdf"
+],
+"Piacenza_bollettino-10.pdf": [
+"https://pc.istruzioneer.gov.it/2026/10/13/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-10/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0007276.13-10-2026.pdf"
+],
+"Piacenza_bollettino-10_2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/10/13/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-10/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/BOLLETTINO-DEFINITIVO.pdf"
+],
+"Piacenza_bollettino-11.pdf": [
+"https://pc.istruzioneer.gov.it/2026/10/20/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-11/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0007549.20-10-2026.pdf"
+],
+"Piacenza_bollettino-11_2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/10/20/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-11/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/Bollettino_TotaleNomine-1.pdf"
+],
+"Piacenza_bollettino-12.pdf": [
+"https://pc.istruzioneer.gov.it/2026/10/27/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-12/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/10/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0007794.27-10-2026.pdf"
+],
+"Piacenza_bollettino-13.pdf": [
+"https://pc.istruzioneer.gov.it/2026/11/04/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-13/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0008137.04-11-2026.pdf"
+],
+"Piacenza_bollettino-13_2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/11/04/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-13/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/BOLLETTINO-DEFINITIVO-13-TURNO.pdf"
+],
+"Piacenza_bollettino-14.pdf": [
+"https://pc.istruzioneer.gov.it/2026/11/12/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-14/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0008430.12-11-2026.pdf"
+],
+"Piacenza_bollettino-14_2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/11/12/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-14/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/BOLLETTINO-DEFINITIVO-TURNO-14.pdf"
+],
+"Piacenza_bollettino-15.pdf": [
+"https://pc.istruzioneer.gov.it/2026/11/17/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-15/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/m_pi.AOOUSPPC.REGISTRO-UFFICIALEU.0008609.17-11-2026.pdf"
+],
+"Piacenza_bollettino-15_2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/11/17/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-15/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/Bollettino_TotaleNomine.pdf"
+],
+"Piacenza_bollettino-16.pdf": [
+"https://pc.istruzioneer.gov.it/2026/11/20/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-16/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0008837.20-11-2026.pdf"
+],
+"Piacenza_bollettino-16_2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/11/20/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-16/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/BOLLETTINO-DEFINITIVO-TURNO-16.pdf"
+],
+"Piacenza_bollettino-17.pdf": [
+"https://pc.istruzioneer.gov.it/2026/11/23/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-17/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/m_pi.AOOUSPPC.REGISTRO-UFFICIALEI.0008902.23-11-2026.pdf"
+],
+"Piacenza_bollettino-17_2.pdf": [
+"https://pc.istruzioneer.gov.it/2026/11/23/nomine-a-tempo-determinato-a-s-2026-2027-esito-turno-17/",
+"https://pc.istruzioneer.gov.it/wp-content/uploads/sites/9/2026/11/BOLLETTINO-DEFINITIVO-17-TURNO.pdf"
+],
+"Ravenna_bollettino-2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/09/09/gps-esiti-del-secondo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0006493.09-09-2026.pdf"
+],
+"Ravenna_bollettino-2_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/09/09/gps-esiti-del-secondo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/Bollettino_TotaleNomine-1.pdf"
+],
+"Ravenna_bollettino-3.pdf": [
+"https://ra.istruzioneer.gov.it/2026/09/15/gps-a-s-2026-27-esiti-del-terzo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0006658.15-09-2026.pdf"
+],
+"Ravenna_bollettino-3_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/09/15/gps-a-s-2026-27-esiti-del-terzo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/ALLEGATO-B.pdf"
+],
+"Ravenna_bollettino-4.pdf": [
+"https://ra.istruzioneer.gov.it/2026/09/21/gps-a-s-2026-27-esiti-del-quarto-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0006803.21-09-2026.pdf"
+],
+"Ravenna_bollettino-4_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/09/21/gps-a-s-2026-27-esiti-del-quarto-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/ALLEGATO-B-1.pdf"
+],
+"Ravenna_bollettino-5.pdf": [
+"https://ra.istruzioneer.gov.it/2026/09/24/gps-a-s-2026-27-esiti-del-quinto-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/disp_6927-26.pdf"
+],
+"Ravenna_bollettino-5_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/09/24/gps-a-s-2026-27-esiti-del-quinto-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/6927-26_allegato-b.pdf"
+],
+"Ravenna_bollettino-6.pdf": [
+"https://ra.istruzioneer.gov.it/2026/09/29/gps-a-s-2026-27-esiti-del-sesto-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0007012.29-09-2026.pdf"
+],
+"Ravenna_bollettino-6_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/09/29/gps-a-s-2026-27-esiti-del-sesto-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/09/ALLEGATO-B-2.pdf"
+],
+"Ravenna_bollettino-7.pdf": [
+"https://ra.istruzioneer.gov.it/2026/10/06/gps-a-s-2026-27-esiti-del-settimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/disp_7170-26.pdf"
+],
+"Ravenna_bollettino-7_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/10/06/gps-a-s-2026-27-esiti-del-settimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/7170-26_all_b.pdf"
+],
+"Ravenna_bollettino-8.pdf": [
+"https://ra.istruzioneer.gov.it/2026/10/08/gps-a-s-2026-27-esiti-dellottavo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/disp_7232-26_viii.pdf"
+],
+"Ravenna_bollettino-8_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/10/08/gps-a-s-2026-27-esiti-dellottavo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/7232-26_all_b.pdf"
+],
+"Ravenna_bollettino-9.pdf": [
+"https://ra.istruzioneer.gov.it/2026/10/13/gps-a-s-2026-27-esiti-del-nono-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0007346.13-10-2026.pdf"
+],
+"Ravenna_bollettino-9_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/10/13/gps-a-s-2026-27-esiti-del-nono-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/ALLEGATO-B.pdf"
+],
+"Ravenna_bollettino-10.pdf": [
+"https://ra.istruzioneer.gov.it/2026/10/14/gps-a-s-2026-27-esiti-del-decimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0007390.14-10-2026.pdf"
+],
+"Ravenna_bollettino-10_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/10/14/gps-a-s-2026-27-esiti-del-decimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/ALLEGATO-B-1.pdf"
+],
+"Ravenna_bollettino-11.pdf": [
+"https://ra.istruzioneer.gov.it/2026/10/15/gps-a-s-2026-27-esiti-del-undicesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/disp_7423-26_t11.pdf"
+],
+"Ravenna_bollettino-11_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/10/15/gps-a-s-2026-27-esiti-del-undicesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/7423-26_t11_all_b.pdf"
+],
+"Ravenna_bollettino-12.pdf": [
+"https://ra.istruzioneer.gov.it/2026/10/20/gps-a-s-2026-27-esiti-del-dodicesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/disp_7503-26_11t.pdf"
+],
+"Ravenna_bollettino-12_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/10/20/gps-a-s-2026-27-esiti-del-dodicesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/7503-26_11t_all_b.pdf"
+],
+"Ravenna_bollettino-13.pdf": [
+"https://ra.istruzioneer.gov.it/2026/10/26/gps-a-s-2026-27-esiti-del-dodicesimo-turno-di-nomina-2/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0007663.26-10-2026.pdf"
+],
+"Ravenna_bollettino-13_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/10/26/gps-a-s-2026-27-esiti-del-dodicesimo-turno-di-nomina-2/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/Allegato-B.pdf"
+],
+"Ravenna_bollettino-14.pdf": [
+"https://ra.istruzioneer.gov.it/2026/10/30/gps-a-s-2026-27-esiti-del-quattordicesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0007787.30-10-2026.pdf"
+],
+"Ravenna_bollettino-14_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/10/30/gps-a-s-2026-27-esiti-del-quattordicesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/10/Bollettino_TotaleNomine.pdf"
+],
+"Ravenna_bollettino-15.pdf": [
+"https://ra.istruzioneer.gov.it/2026/11/04/gps-a-s-2026-27-esiti-del-quindicesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/disp_7879-26_15t.pdf"
+],
+"Ravenna_bollettino-15_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/11/04/gps-a-s-2026-27-esiti-del-quindicesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/7879-26_15t_all_b.pdf"
+],
+"Ravenna_bollettino-16.pdf": [
+"https://ra.istruzioneer.gov.it/2026/11/06/gps-a-s-2026-27-esiti-del-sedicesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/m_pi.AOOCSARA.REGISTRO-UFFICIALEU.0007931.06-11-2026.pdf"
+],
+"Ravenna_bollettino-16_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/11/06/gps-a-s-2026-27-esiti-del-sedicesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/ALLEGATO-B.pdf"
+],
+"Ravenna_bollettino-17.pdf": [
+"https://ra.istruzioneer.gov.it/2026/11/12/gps-a-s-2026-27-esiti-del-diciottesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/disp_8107-26_18t.pdf"
+],
+"Ravenna_bollettino-17_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/11/12/gps-a-s-2026-27-esiti-del-diciottesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/8107-26_18t-all-b.pdf"
+],
+"Ravenna_bollettino-18.pdf": [
+"https://ra.istruzioneer.gov.it/2026/11/17/gps-a-s-2026-27-esiti-del-diciannovesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/disp_8212-2026_T19.pdf"
+],
+"Ravenna_bollettino-18_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/11/17/gps-a-s-2026-27-esiti-del-diciannovesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/8212-26_all_B.pdf"
+],
+"Reggio_Emilia_bollettino-1.pdf": [
+"https://re.istruzioneer.gov.it/2026/08/31/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-prima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/08/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0010281.31-08-2026.pdf"
+],
+"Reggio_Emilia_bollettino-1_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/08/31/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-prima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/08/Bollettino_TotaleNomine-3.pdf"
+],
+"Reggio_Emilia_bollettino-1_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/08/31/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-prima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/08/ReportDettDispScuola-4.pdf"
+],
+"Reggio_Emilia_bollettino-2.pdf": [
+"https://re.istruzioneer.gov.it/2026/09/11/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-seconda-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0011228.11-09-2026.pdf"
+],
+"Reggio_Emilia_bollettino-2_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/09/11/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-seconda-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/Bollettino_TotaleNomine.pdf"
+],
+"Reggio_Emilia_bollettino-2_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/09/11/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-seconda-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/ReportDettDispScuola.pdf"
+],
+"Reggio_Emilia_bollettino-3.pdf": [
+"https://re.istruzioneer.gov.it/2026/09/21/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-terza-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0011688.21-09-2026.pdf"
+],
+"Reggio_Emilia_bollettino-3_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/09/21/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-terza-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/Bollettino_TotaleNomine-1.pdf"
+],
+"Reggio_Emilia_bollettino-3_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/09/21/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-terza-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/ReportDettDispScuola-1.pdf"
+],
+"Reggio_Emilia_bollettino-4.pdf": [
+"https://re.istruzioneer.gov.it/2026/09/24/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quarta-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0011890.24-09-2026.pdf"
+],
+"Reggio_Emilia_bollettino-4_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/09/24/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quarta-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/Bollettino_TotaleNomine-2.pdf"
+],
+"Reggio_Emilia_bollettino-4_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/09/24/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quarta-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/ReportDettDispScuola-2.pdf"
+],
+"Reggio_Emilia_bollettino-5.pdf": [
+"https://re.istruzioneer.gov.it/2026/09/29/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quinta-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0012130.29-09-2026.pdf"
+],
+"Reggio_Emilia_bollettino-5_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/09/29/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quinta-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/Bollettino_TotaleNomine-3.pdf"
+],
+"Reggio_Emilia_bollettino-5_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/09/29/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quinta-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/09/ReportDettDispScuola-3.pdf"
+],
+"Reggio_Emilia_bollettino-6.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/02/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-sesta-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0012443.02-10-2026.pdf"
+],
+"Reggio_Emilia_bollettino-6_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/02/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-sesta-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine.pdf"
+],
+"Reggio_Emilia_bollettino-6_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/02/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-sesta-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola.pdf"
+],
+"Reggio_Emilia_bollettino-7.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/06/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-settima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0012604.06-10-2026.pdf"
+],
+"Reggio_Emilia_bollettino-7_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/06/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-settima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-1.pdf"
+],
+"Reggio_Emilia_bollettino-7_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/06/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-settima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-1.pdf"
+],
+"Reggio_Emilia_bollettino-8.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/12/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-nona-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0012869.12-10-2026.pdf"
+],
+"Reggio_Emilia_bollettino-8_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/12/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-nona-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-3.pdf"
+],
+"Reggio_Emilia_bollettino-8_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/12/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-nona-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-3.pdf"
+],
+"Reggio_Emilia_bollettino-9.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/13/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-decima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0012923.13-10-2026.pdf"
+],
+"Reggio_Emilia_bollettino-9_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/13/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-decima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-4.pdf"
+],
+"Reggio_Emilia_bollettino-9_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/13/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-decima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-4.pdf"
+],
+"Reggio_Emilia_bollettino-10.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/14/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-undicesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0012986.14-10-2026.pdf"
+],
+"Reggio_Emilia_bollettino-10_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/14/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-undicesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-5.pdf"
+],
+"Reggio_Emilia_bollettino-10_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/14/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-undicesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-5.pdf"
+],
+"Reggio_Emilia_bollettino-11.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/16/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-fase-esoneri-semiesoneri/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0013136.16-10-2026.pdf"
+],
+"Reggio_Emilia_bollettino-11_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/16/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-fase-esoneri-semiesoneri/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-7.pdf"
+],
+"Reggio_Emilia_bollettino-11_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/16/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-fase-esoneri-semiesoneri/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-7.pdf"
+],
+"Reggio_Emilia_bollettino-12.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/19/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-seconda-fase-esoneri-semiesoneri/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0013248.19-10-2026.pdf"
+],
+"Reggio_Emilia_bollettino-12_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/19/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-seconda-fase-esoneri-semiesoneri/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-8.pdf"
+],
+"Reggio_Emilia_bollettino-12_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/19/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-seconda-fase-esoneri-semiesoneri/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-8.pdf"
+],
+"Reggio_Emilia_bollettino-13.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/22/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-tredicesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0013468.22-10-2026.pdf"
+],
+"Reggio_Emilia_bollettino-13_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/22/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-tredicesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-9.pdf"
+],
+"Reggio_Emilia_bollettino-13_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/22/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-tredicesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-9.pdf"
+],
+"Reggio_Emilia_bollettino-14.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/26/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quattordicesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0013619.26-10-2026.pdf"
+],
+"Reggio_Emilia_bollettino-14_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/26/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quattordicesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-10.pdf"
+],
+"Reggio_Emilia_bollettino-14_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/26/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quattordicesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-10.pdf"
+],
+"Reggio_Emilia_bollettino-15.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/28/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quindicesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0013728.28-10-2026.pdf"
+],
+"Reggio_Emilia_bollettino-15_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/28/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quindicesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/ReportDettDispScuola-11.pdf"
+],
+"Reggio_Emilia_bollettino-15_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/10/28/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-quindicesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/10/Bollettino_TotaleNomine-11.pdf"
+],
+"Reggio_Emilia_bollettino-16.pdf": [
+"https://re.istruzioneer.gov.it/2026/11/04/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-sedicesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0014023.04-11-2026.pdf"
+],
+"Reggio_Emilia_bollettino-16_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/11/04/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-sedicesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/Bollettino_TotaleNomine.pdf"
+],
+"Reggio_Emilia_bollettino-16_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/11/04/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-sedicesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/ReportDettDispScuola.pdf"
+],
+"Reggio_Emilia_bollettino-17.pdf": [
+"https://re.istruzioneer.gov.it/2026/11/06/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-diciassettesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0014174.06-11-2026.pdf"
+],
+"Reggio_Emilia_bollettino-17_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/11/06/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-diciassettesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/Bollettino_TotaleNomine-1.pdf"
+],
+"Reggio_Emilia_bollettino-17_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/11/06/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-diciassettesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/ReportDettDispScuola-1.pdf"
+],
+"Reggio_Emilia_bollettino-18.pdf": [
+"https://re.istruzioneer.gov.it/2026/11/09/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-diciottesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0014294.09-11-2026.pdf"
+],
+"Reggio_Emilia_bollettino-18_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/11/09/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-diciottesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/Bollettino_TotaleNomine-2.pdf"
+],
+"Reggio_Emilia_bollettino-18_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/11/09/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-diciottesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/ReportDettDispScuola-2.pdf"
+],
+"Reggio_Emilia_bollettino-19.pdf": [
+"https://re.istruzioneer.gov.it/2026/11/18/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-diciannovesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/m_pi.AOOCSARE.REGISTRO-UFFICIALEU.0014937.18-11-2026.pdf"
+],
+"Reggio_Emilia_bollettino-19_2.pdf": [
+"https://re.istruzioneer.gov.it/2026/11/18/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-diciannovesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/Bollettino_TotaleNomine-3.pdf"
+],
+"Reggio_Emilia_bollettino-19_3.pdf": [
+"https://re.istruzioneer.gov.it/2026/11/18/nomine-a-tempo-determinato-personale-docente-ed-educativo-a-s-2026-2027-diciannovesima-fase/",
+"https://re.istruzioneer.gov.it/wp-content/uploads/sites/10/2026/11/ReportDettDispScuola-3.pdf"
+],
+"Rimini_bollettino-11.pdf": [
+"https://ra.istruzioneer.gov.it/2026/11/10/gps-a-s-2026-27-esiti-del-diciassettesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/disp_8030-26_17t.pdf"
+],
+"Rimini_bollettino-11_2.pdf": [
+"https://ra.istruzioneer.gov.it/2026/11/10/gps-a-s-2026-27-esiti-del-diciassettesimo-turno-di-nomina/",
+"https://ra.istruzioneer.gov.it/wp-content/uploads/sites/7/2026/11/disp_8030-26_17t_all_b.pdf"
+],
+"Gorizia_bollettino-1.pdf": [
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-gorizia/notizie/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia/",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-gorizia/allegati/m_pi.AOOUSPGO.REGISTRO-UFFICIALEU.0003503.31-08-2026-Nomine-Supplenze.pdf"
+],
+"Gorizia_bollettino-1_2.pdf": [
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-gorizia/notizie/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia/",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-gorizia/allegati/Bollettino_Totale_Nomine-n_3.pdf"
+],
+"Gorizia_bollettino-1_3.pdf": [
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-gorizia/notizie/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia/",
+"https://usrfvg.gov.it/pdflink/it/d6a236ad-4558-4628-b211-bcc7cff695b5/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia.pdf"
+],
+"Gorizia_bollettino-4.pdf": [
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-pordenone/notizie/article/Conferimento-delle-nomine-a-tempo-determinato-PERSONALE-DOCENTE-00001.-Turno-4/",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-pordenone/allegati/260909_AOOUSPPN.REGISTRO_UFFICIALEU.0008546_turno41.pdf"
+],
+"Gorizia_bollettino-4_2.pdf": [
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-pordenone/notizie/article/Conferimento-delle-nomine-a-tempo-determinato-PERSONALE-DOCENTE-00001.-Turno-4/",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-pordenone/allegati/Turno_4_-_allegato_21.pdf"
+],
+"Gorizia_bollettino-4_3.pdf": [
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-pordenone/notizie/article/Conferimento-delle-nomine-a-tempo-determinato-PERSONALE-DOCENTE-00001.-Turno-4/",
+"https://usrfvg.gov.it/pdflink/it/d6a236ad-4558-4628-b211-bcc7cff695b5/Conferimento-delle-nomine-a-tempo-determinato-PERSONALE-DOCENTE-00001.-Turno-4.pdf"
+],
+"Gorizia_bollettino-5.pdf": [
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-gorizia/notizie/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia-00001/",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-gorizia/allegati/m_pi.AOOUSPGO.REGISTRO-UFFICIALEU.0003748.11-09-2026.pdf"
+],
+"Gorizia_bollettino-5_2.pdf": [
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-gorizia/notizie/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia-00001/",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-gorizia/allegati/Bollettino_TotaleNomine-4-del-11_09_2026.pdf"
+],
+"Gorizia_bollettino-5_3.pdf": [
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-gorizia/notizie/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia-00001/",
+"https://usrfvg.gov.it/pdflink/it/d6a236ad-4558-4628-b211-bcc7cff695b5/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia-00001.pdf"
+],
+"Gorizia_bollettino-6.pdf": [
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-gorizia/notizie/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia-00002/",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-gorizia/allegati/Bollettino_TotaleNomine-5.pdf"
+],
+"Gorizia_bollettino-6_2.pdf": [
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-gorizia/notizie/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia-00002/",
+"https://usrfvg.gov.it/pdflink/it/d6a236ad-4558-4628-b211-bcc7cff695b5/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia-00002.pdf"
+],
+"Gorizia_bollettino-7.pdf": [
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-gorizia/notizie/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia-00005/",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-gorizia/allegati/Bollettino_TotaleNomine-8.pdf"
+],
+"Gorizia_bollettino-7_2.pdf": [
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-gorizia/notizie/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia-00005/",
+"https://usrfvg.gov.it/pdflink/it/d6a236ad-4558-4628-b211-bcc7cff695b5/CONFERIMENTO-DELLE-NOMINE-A-TEMPO-DETERMINATO-AL-PERSONALE-DOCENTE-AT-Gorizia-00005.pdf"
+],
+"Pordenone_bollettino-3.pdf": [
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-pordenone/notizie/article/Conferimento-delle-nomine-a-tempo-determinato-PERSONALE-DOCENTE.-Turno-3./",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-pordenone/allegati/260828-AOOUSPPN.REGISTRO-UFFICIALEU.0007776_turno3.pdf"
+],
+"Pordenone_bollettino-3_2.pdf": [
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-pordenone/notizie/article/Conferimento-delle-nomine-a-tempo-determinato-PERSONALE-DOCENTE.-Turno-3./",
+"https://usrfvg.gov.it/export/sites/default/it/home/menu/uffici/ufficio-territoriale-di-pordenone/allegati/260828-allegato2_nomine.pdf"
+],
+"Pordenone_bollettino-3_3.pdf": [
+"https://usrfvg.gov.it/it/home/menu/uffici/ufficio-territoriale-di-pordenone/notizie/article/Conferimento-delle-nomine-a-tempo-determinato-PERSONALE-DOCENTE.-Turno-3./",
+"https://usrfvg.gov.it/pdflink/it/d6a236ad-4558-4628-b211-bcc7cff695b5/Conferimento-delle-nomine-a-tempo-determinato-PERSONALE-DOCENTE.-Turno-3..pdf"
+]
+}
+}
