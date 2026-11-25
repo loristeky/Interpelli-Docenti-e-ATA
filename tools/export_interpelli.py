@@ -167,10 +167,10 @@ def main(argv=None):
     pool.shutdown(wait=False, cancel_futures=True)
     print(f"Riletti {done}/{len(todo)} avvisi senza scadenza in {int(time.time() - t0)} s", flush=True)
 
-    if hasattr(app, "trento_assumed_deadline"):         # Trento senza scadenza: giorno prima della pubblicazione, con ⚠
+    if hasattr(app, "trento_assumed_deadline"):         # Trento senza scadenza: giorno di inizio incarico, con ⚠
         for r in by_url.values():
-            if r[3] == "USP Trento" and not r[6]:
-                r[6] = app.trento_assumed_deadline(r[5])
+            if r[3] == "USP Trento":
+                r[6] = app.trento_assumed_deadline(r[5], r[0]) or r[6]
                 if r[6]:
                     app.OCR_FOUND.add(r[1])
 
