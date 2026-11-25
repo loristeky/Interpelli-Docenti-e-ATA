@@ -34,13 +34,12 @@ jobs:
       - name: Build Windows
         shell: bash
         run: |
-          # python -X utf8: forza UTF-8 anche se le variabili d'ambiente non bastassero; l'uscita va su file
+          # L'uscita va su file (build.log): così il simbolo «√» non manda in errore la console di Windows
           for i in 1 2 3; do
-            python -X utf8 -c "import sys; from flet_cli.cli import main; sys.argv = ['flet'] + sys.argv[1:]; main()" \
-              build windows --yes --no-rich-output --verbose > build.log 2>&1 && ok=1 || ok=0
+            flet build windows --yes --no-rich-output --verbose > build.log 2>&1 && ok=1 || ok=0
             if [ "$ok" -eq 1 ]; then break; fi
-            echo "::warning::Tentativo $i non riuscito"
-            python -X utf8 -c "import io; t = io.open('build.log', encoding='utf-8', errors='replace').read().splitlines(); print('\n'.join(t[-60:]).encode('ascii', 'replace').decode())"
+            echo "::warning::Tentativo $i non riuscito: ultime righe del registro"
+            python -X utf8 -c "import io; t = io.open('build.log', encoding='utf-8', errors='replace').read().splitlines(); print('\n'.join(t[-80:]).encode('ascii', 'replace').decode())"
             [ "$i" -eq 3 ] && exit 1
             sleep 60
           done
