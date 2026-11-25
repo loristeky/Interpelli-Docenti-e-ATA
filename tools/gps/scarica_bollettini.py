@@ -279,6 +279,16 @@ def main(argv=None):
     app = APP = load_app()
     visti = read_json(VISTI, {"urls": [], "turni": {}})
     seen = set(visti.get("urls", []))
+    try:        # province ancora assenti dai dati: si riprovano anche i bollettini già segnati come «visti» (un errore passato)
+        have = set(read_json(Path(__file__).resolve().parents[2] / "assets" / "gps_data.json", {}).get("province", {}))
+        norm = lambda t: re.sub(r"[^a-z]", "", t.lower())
+        have_n = {norm(h) for h in have}
+        for x in read_json(NOTI, []):
+            if isinstance(x, dict) and x.get("url") and not any(h and h in norm(x.get("provincia", "")) or norm(x.get("provincia", "")) in h
+                                                               for h in have_n if h):
+                seen.discard(x["url"])
+    except Exception:
+        pass
     counters = dict(visti.get("turni", {}))
     origine = dict(visti.get("origine", {}))
     forced = queue_retries(seen, origine)
@@ -321,6 +331,12 @@ def main(argv=None):
             todo.append((NOMI_UFFICIO.get(x["provincia"], x["provincia"]), x["url"], x.get("titolo", ""), x["url"]))
             if isinstance(x.get("turno"), int):
                 forced_turn[x["url"]] = x["turno"]
+    try:                                  # prima le province che nei dati dell'app ancora non ci sono
+        have = set(read_json(Path(__file__).resolve().parents[2] / "assets" / "gps_data.json", {}).get("province", {}))
+        low = {h.lower().replace("-", " ") for h in have}
+        todo.sort(key=lambda x: any(w in x[0].lower().replace("-", " ") for w in low) if x[0] else True)
+    except Exception:
+        pass
     n_elenco = len(todo)
     with ThreadPoolExecutor(max_workers=12) as ex:
         for name, url, cands, err in ex.map(scan, sources):
@@ -348,6 +364,7 @@ def main(argv=None):
                 seen.add(link)            # avviso senza allegati (es. solo testo): non riprovare
                 continue
         key = re.sub(r"^(USP|AT|UST|ATP)\s+", "", name, flags=re.I)
+        failed_here = False
         for doc in docs:
             if doc in seen:
                 continue
@@ -358,8 +375,11 @@ def main(argv=None):
                     print(f"[prova] riprovo {dest.name} ({doc})")
                     continue
                 err = download(doc, dest)
-                seen.add(doc)
+                if not err:
+                    seen.add(doc)
                 print(f"[ok] riprovato {dest.name}" if not err else f"[!] {name}: {doc}: {err}")
+                if err:
+                    failed_here = True
                 got += 0 if err else 1
                 if not err:
                     origine[dest.name] = [link, doc]
@@ -379,17 +399,22 @@ def main(argv=None):
                 print(f"[prova] {name}: {title[:70]} -> {dest.name}  ({doc})")
                 continue
             err = download(doc, dest)
-            seen.add(doc)
             if not err and not sembra_bollettino_gps(dest):
                 dest.unlink(missing_ok=True)
                 err = "non è un bollettino GPS (immissioni in ruolo, GAE o altro)"
+                seen.add(doc)                 # non è un bollettino: inutile riprovare
+            elif not err:
+                seen.add(doc)
+            else:
+                failed_here = True            # errore di rete/lettura: si riprova al prossimo giro
             if err:
                 print(f"[!] {name}: {doc}: {err}")
             else:
                 origine[dest.name] = [link, doc]
                 got += 1
                 print(f"[ok] {name}: {title[:70]} -> {dest.name}")
-        seen.add(link)
+        if not failed_here:
+            seen.add(link)
 
     if not args.prova:
         keep_o = dict(list(origine.items())[-600:])
