@@ -1921,7 +1921,7 @@ def matches_classes(title, cdc, classes):
 # n = nomine, min/max = punteggio più basso/più alto nominato, pos = posizione più bassa raggiunta.
 GPS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "gps_data.json")
 GPS_FASCE = {"I": "I fascia", "II": "II fascia"}
-# Riserva per chi ha fatto il servizio civile: al massimo il 15% dei posti di quel turno, per classe.
+# Riserva per chi ha fatto il servizio civile: il 15% del totale dei posti della classe in provincia, cumulato nei turni.
 # L'algoritmo scorre la graduatoria e «salta» ai riservisti solo finché la quota non è raggiunta, quindi i
 # nominati con la riserva sono al massimo il 15% e hanno i punteggi più bassi. Nei bollettini non si capisce
 # chi sono (colonne oscurate): la soglia vera sta tra il punteggio dell'ultimo nominato (minima) e quello
@@ -2100,10 +2100,24 @@ def gps_reserved_tail(ordered, quota):
     return None, by_pos
 
 
+def gps_quotas(totals, pct):
+    """Quota riservata per ogni bollettino. Il 15% si calcola sul totale dei posti della classe in provincia, non su
+    ogni bollettino: si accumula turno dopo turno e ogni turno riceve la differenza (i posti riservati già dati nei
+    turni precedenti contano). Es. 10+10+10 chiamati: 1, 2, 1 (4 su 30, non 1+1+1)."""
+    out, cum, prev = {}, 0, 0
+    for b in sorted(totals, key=lambda x: int(x) if str(x).isdigit() else 99):
+        cum += totals[b]
+        r = cum * pct // 100
+        out[b] = r - prev
+        prev = r
+    return out
+
+
 def gps_threshold(entry, riserva=0.0, totals=None):
     """(soglia, posizione, nomine, escluse, minima, rilevata).
-    La riserva del 15% si calcola sul totale dei chiamati della classe in quel bollettino (tutte le fasce insieme,
-    `totals` = {turno: chiamati}), arrotondato per difetto: 20 chiamati -> 3 posti riservati.
+    La riserva del 15% si calcola sul totale dei posti della classe in provincia, cumulato di bollettino in bollettino
+    (tutte le fasce insieme, `totals` = {turno: chiamati}), arrotondato per difetto; i riservisti già nominati nei turni
+    precedenti contano nella quota (vedi gps_quotas).
     Se tra i chiamati c'è un salto di posizione (es. dalla 20ª alla 80ª) chi sta dopo il salto è un riservista
     (`rilevata` = True) e si toglie quello; altrimenti non si sa chi sono e per prudenza si tolgono, in quel turno,
     i punteggi più bassi della fascia (mai tutti).
@@ -2116,10 +2130,10 @@ def gps_threshold(entry, riserva=0.0, totals=None):
         return minima, int(entry.get("pos", 0)), n, 0, minima, False
     pct = int(round(riserva * 100))
     best, escluse, rilevata = None, 0, False
+    quote = gps_quotas(totals or {str(t.get("b")): len(t["s"]) for t in turns}, pct)
     for t in turns:
         ordered = sorted(t["s"], key=lambda x: (-x[0], x[1]))
-        total = (totals or {}).get(t.get("b"), len(ordered))
-        quota = min(total * pct // 100, len(ordered) - 1)   # interi: nessun errore di arrotondamento
+        quota = min(quote.get(t.get("b"), 0), len(ordered) - 1)   # interi: nessun errore di arrotondamento
         cut, by_pos = gps_reserved_tail(ordered, quota)
         if cut is not None:
             kept = sorted(by_pos[:cut], key=lambda x: (-x[0], x[1]))
@@ -2178,12 +2192,12 @@ def gps_turn_thresholds(entry, riserva=0.0, totals=None):
     turns = entry.get("t") or ([{"b": "1", "s": entry["s"]}] if entry.get("s") else [])
     pct = int(round(riserva * 100))
     out = []
+    quote = gps_quotas(totals or {str(t.get("b")): len(t.get("s") or []) for t in turns}, pct)
     for t in turns:
         ordered = sorted(t.get("s") or [], key=lambda x: (-x[0], x[1]))
         if not ordered:
             continue
-        total = (totals or {}).get(t.get("b"), len(ordered))
-        quota = min(total * pct // 100, len(ordered) - 1) if riserva > 0 else 0
+        quota = min(quote.get(t.get("b"), 0), len(ordered) - 1) if riserva > 0 else 0
         cut, by_pos = gps_reserved_tail(ordered, quota) if riserva > 0 else (None, ordered)
         kept = sorted(by_pos[:cut], key=lambda x: (-x[0], x[1])) if cut is not None else ordered[:len(ordered) - quota]
         out.append((str(t.get("b")), float(kept[-1][0]), float(ordered[-1][0])))
@@ -3593,7 +3607,7 @@ def build(page: ft.Page, raw_prefs=None):
                         ft.ProgressBar(value=fill, color=color, bgcolor=ft.Colors.with_opacity(0.15, color),
                                        bar_height=6, border_radius=3),
                         ft.Text(last, size=11.5, color=ft.Colors.ON_SURFACE_VARIANT),
-                        *([ft.Text(f"Riserva 15%: tolti {r['escluse']} posti su {r['chiamati']} chiamati della classe "
+                        *([ft.Text(f"Riserva 15% (sul totale, cumulata): tolti {r['escluse']} posti su {r['chiamati']} chiamati della classe "
                                    + ("(riservisti riconosciuti dal salto di posizione)" if r.get("rilevata")
                                       else "(dai punteggi più bassi)"), size=11.5,
                                    color=ft.Colors.ON_SURFACE_VARIANT)] if r.get("escluse") else []),
@@ -3839,7 +3853,7 @@ def build(page: ft.Page, raw_prefs=None):
                             ft.FilledTonalButton(content="Esito su tutte le mie classi",
                                                  icon=ft.Icons.FACT_CHECK_ROUNDED, on_click=run_all),
                             gps_all_out]),
-                        ft.Text("Riserva servizio civile: il 15% dei chiamati di ogni classe in ogni bollettino (es. 20 chiamati: 3 posti riservati). I bollettini "
+                        ft.Text("Riserva servizio civile: il 15% dei posti di ogni classe in provincia, calcolato sul totale e accumulato bollettino dopo bollettino (es. 10+10+10 chiamati: 1, 2, 1 riservati), non su ogni bollettino. I bollettini "
                                 "non dicono chi sono, quindi «ci saresti» vale anche con la quota piena (tolgo quei posti "
                                 "dai punteggi più bassi); «forse» se il tuo punteggio basta solo se i riservisti sono "
                                 "stati meno.", size=11.5, color=ft.Colors.ON_SURFACE_VARIANT),
