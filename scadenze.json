@@ -1,0 +1,4 @@
+{
+  "_come_si_usa": "Aggiungi le date utili nell'elenco «voci». Formato data AAAA-MM-GG. Tipi: GPS, Domande, Graduatorie, Altro. Controlla sempre la data sul sito ufficiale prima di scriverla. Poi lancia il workflow «Pubblica elenco interpelli»: l'app le legge da GitHub senza rifare la build.",
+  "voci": []
+}
